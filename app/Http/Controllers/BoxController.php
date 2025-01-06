@@ -1,128 +1,165 @@
 <?php
 
 namespace App\Http\Controllers;
-use App\Models\Box;
-use App\Models\Branch;
+use App\Models\BoxType;
+use App\Models\BoxColor;
+use App\Models\FlowerColor;
+use Illuminate\Database\Events\DatabaseRefreshed;
 use Illuminate\Http\Request;
 
 class BoxController extends Controller
 {
-    public function index(Request $request)
-    {     $itemsPerPage = $request->query('itemsPerPage', 5);
 
-        // Fetch paginated data with branch details using Eloquent
-        $data_boxes = Box::leftJoin('branches', 'box_info.branch_id', '=', 'branches.id')
-            ->select('box_info.*', 'branches.branch_name')
-            ->paginate($itemsPerPage);
-
-        // Pass data to the view
-        $branches = Branch::all();
-        return view('boxes.index', compact('data_boxes', 'itemsPerPage','branches'));
-    }
-
-
-    public function box_store(Request $request)
+    public function boxcolor(Request $request)
     {
-        // Validate the incoming request
+        // Validate the incoming data
         $request->validate([
-            'box_name' => 'required|string|max:255',
-            'box_type' => 'required|string|max:255',
-            'price' => 'required|numeric',
-            'box_size' => 'required|string|max:255',
-            'color' => 'required|string|max:255',
-            'quantity' => 'required|integer',
-            'branch_id' => 'required|exists:branches,id', // Ensure branch exists
-            'box_image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
+            'box_color' => 'required|string|max:255',
         ]);
 
-        // Create a new Box instance
-        $box = new Box();
+        // Create a new BoxColor entry
+        $boxColor = new BoxColor();
 
-        // Check if an image is uploaded
-        if ($request->hasFile('box_image') && $request->file('box_image')) {
-            $box_image = $request->file('box_image'); // Get the uploaded file
-            $imagename = time() . '.' . $box_image->getClientOriginalExtension(); // Get file extension and create a unique name
+        $boxColor->box_color_name = $request->box_color;
+        $boxColor->save();
 
-            // Store the image in the 'BoxImage' folder
-            $box_image->move(public_path('BoxImage'), $imagename); // Use move() instead of storing directly
-            $box->box_image = $imagename; // Save the image name in the database
-        }
 
-        // Save other fields to the Box model
-        $box->box_name = $request->box_name;
-        $box->box_type = $request->box_type;
-        $box->price = $request->price;
-        $box->size = $request->box_size;
-        $box->color = $request->color;
-        $box->quantity = $request->quantity;
-        $box->branch_id = $request->branch_id;
-
-        try {
-            // Save the Box instance to the database
-            $box->save();
-            return redirect()->back()->with('success', 'Box added successfully!');
-        } catch (\Exception $e) {
-            return redirect()->back()->withErrors('Error saving box: ' . $e->getMessage());
-        }
+        // Redirect back to the page with a success message
+        return redirect()->back();
     }
 
-    public function edit($id)
+
+    public function bcoloredit($id)
     {
-        $data_boxes = Box::findOrFail($id);
-        return view('boxes.index', compact('data_boxes'));
+    // Find the box color by its ID
+    $bcolor = BoxColor::findOrFail($id);
+
+    // Return a view with the box color data (you will also pass the data to the modal here)
+    return response()->json($bcolor);  // Return the color in JSON to populate the modal form
+     }
+
+     public function bcolorupdate($id,Request $request){
+
+        $bcolor = BoxColor::find($id);
+
+
+
+
+        $bcolor->box_color_name = $request->box_color;
+        $bcolor->save();
+         return redirect()->back();
     }
-    public function update(Request $request, $id)
+
+    public function bcolordestroy($id)
     {
-        // Validate the incoming request data
-        $request->validate([
-            'box_name' => 'required|string|max:255',
-            'box_type' => 'required|string|max:255',
-            'color' => 'required|string|max:255',
-            'box_size' => 'required|string|max:255',
-            'price' => 'required|numeric',
-            'quantity' => 'required|integer',
-            'branch_id' => 'required|exists:branches,id',
-            'imageedit' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048', // Image validation
-        ]);
-
-        // Find the box by ID
-        $box = Box::findOrFail($id);
-
-        // Update box attributes
-        $box->box_name = $request->box_name;
-        $box->box_type = $request->box_type;
-        $box->color = $request->color;
-        $box->size = $request->box_size;
-        $box->price = $request->price;
-        $box->quantity = $request->quantity;
-        $box->branch_id = $request->branch_id;
-
-        // Handle the image upload
-        if ($request->hasFile('imageedit')) {
-            $image = $request->file('imageedit');
-            $imageName = time() . '.' . $image->getClientOriginalExtension();
-            $image->move(public_path('boxImage'), $imageName);
-
-            // Delete the old image if exists
-            if ($box->box_image && file_exists(public_path('boxImage/' . $box->box_image))) {
-                unlink(public_path('boxImage/' . $box->box_image));
-            }
-
-            // Save the new image name
-            $box->box_image = $imageName;
-        }
-
-        // Save the updated box
-        $box->save();
-
-        // Redirect back with a success message
-        return redirect()->back()->with('success', 'Box updated successfully.');
-    }
-    public function destroy($id)
-    {
-        $box = Box::findOrFail($id);
-        $box->delete();
+        $bcolor = BoxColor::findOrFail($id);
+        $bcolor->delete();
 
         return redirect()->back();
     }
+
+
+
+
+    public function boxtype(Request $request)
+    {
+        // Validate the incoming data
+        $request->validate([
+            'btype' => 'required|string|max:255',
+        ]);
+
+        // Create a new Boxtype entry
+        $boxType = new BoxType();
+        $boxType->box_type_name	= $request->btype;
+        $boxType->save();
+
+        // Redirect back to the page with a success message
+        return redirect()->back();
+    }
+
+
+    public function btypeedit($id)
+    {
+    // Find the box color by its ID
+    $boxtype = BoxType::findOrFail($id);
+
+    // Return a view with the box color data (you will also pass the data to the modal here)
+    return response()->json($boxtype);  // Return the color in JSON to populate the modal form
+     }
+
+     public function btypeupdate($id,Request $request){
+
+        $boxtype = BoxType::find($id);
+
+
+
+
+        $boxtype->box_type_name = $request->btype;
+        $boxtype->save();
+         return redirect()->back();
+    }
+
+    public function btypedestroy($id)
+    {
+        $boxtype = BoxType::findOrFail($id);
+        $boxtype->delete();
+
+        return redirect()->back();
+    }
+
+
+
+
+
+
+
+
+    public function flowercolor(Request $request)
+    {
+        // Validate the incoming data
+        $request->validate([
+            'fname' => 'required|string|max:255',
+        ]);
+
+        // Create a new FlowerColor entry
+        $FlowerColor = new FlowerColor();
+        if($FlowerColor){
+        $FlowerColor->flower_color_name = $request->fname;
+        $FlowerColor->save();
+        }
+
+        // Redirect back to the page with a success message
+        return redirect()->back();
+    }
+
+
+    public function fcoloredit($id)
+    {
+    // Find the flower color by its ID
+    $fcolor = FlowerColor::findOrFail($id);
+
+    // Return a view with the flower color data (you will also pass the data to the modal here)
+    return response()->json($fcolor);  // Return the color in JSON to populate the modal form
+     }
+
+     public function fcolorupdate($id,Request $request){
+
+        $fcolor = FlowerColor::find($id);
+
+
+
+
+        $fcolor->flower_color_name = $request->fname;
+        $fcolor->save();
+         return redirect()->back();
+    }
+
+    public function fcolordestroy($id)
+    {
+        $fcolor = BoxColor::findOrFail($id);
+        $fcolor->delete();
+
+        return redirect()->back();
+    }
+
 }

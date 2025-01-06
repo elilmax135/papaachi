@@ -3,12 +3,16 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\RoleController;
+use App\Http\Controllers\PurchaseController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\PermissionController;
 use App\Http\Controllers\SettingController;
-use App\Http\Controllers\BoxController;
+use App\Http\Controllers\ProductController;
 use App\Http\Controllers\BranchController;
+use App\Http\Controllers\BoxController;
 
+
+use App\Models\Product;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -37,34 +41,75 @@ Route::resources([
 ]);
 
 Route::get('/branches', [BranchController::class, 'index']);
-
-// Create route
 Route::get('/branches/create', [BranchController::class, 'create'])->name('branches.create');
-
-// Store route
 Route::post('/store', [BranchController::class, 'store'])->name('branches.store');
-
-// Edit route
 Route::get('/edit/{id}', [BranchController::class, 'edit']);
-
-// Update route
 Route::put('/update/{id}', [BranchController::class, 'update']);
-
-// Destroy route
 Route::delete('/destroy/{id}', [BranchController::class, 'destroy']);
 
 
 
 
-// Box_info
-Route::get('/box_stock', [BoxController::class, 'index']);
+// Product_info
+Route::get('/Product', [ProductController::class, 'index']);
+Route::get('/ListProduct', [ProductController::class, 'list']);
+Route::post('/product_store/box', [ProductController::class, 'boxstore']);
+Route::post('/product_store/flower', [ProductController::class, 'flowerstore']);
+
+Route::get('/NewBoxColor', [ProductController::class, 'newboxcolor']);
+Route::get('/NewBoxType', [ProductController::class, 'newboxtype']);
+Route::get('/NewFlowerColor', [ProductController::class, 'newflowercolor']);
+
+Route::get('/Additional', [ProductController::class, 'additonal']);
+Route::get('/Additional', [ProductController::class, 'additonal']);
 
 
 
-Route::post('/box_store', [BoxController::class, 'box_store']);
-//box_update
-Route::put('/edit/{id}', [BoxController::class, 'edit']);
 
-Route::put('/box_update/{id}', [BoxController::class, 'update']);
-// /destroy_box
-Route::delete('/destroy_box/{id}', [BoxController::class, 'destroy']);
+Route::post('/update-product/{product_id}', [ProductController::class, 'updateProduct']);
+Route::delete('/delete-product/{product_id}', [ProductController::class, 'deleteProduct']);
+//Route::get('/sync-products', [SyncController::class, 'syncAllToProduct']);
+
+
+
+
+// Additional Box
+Route::get('/box_color', [BoxController::class, 'boxcolor']);
+Route::get('/bcoloredit/{id}', [BoxController::class, 'bcoloredit']);
+Route::post('/bcolorupdate/{id}', [BoxController::class, 'bcolorupdate']);
+Route::delete('/bcolordestroy/{id}', [BoxController::class, 'bcolordestroy']);
+
+
+// box type
+Route::get('/box_type', [BoxController::class, 'boxtype']);
+Route::get('/btypeedit/{id}', [BoxController::class, 'bcoloredit']);
+Route::post('/btypeupdate/{id}', [BoxController::class, 'btypeupdate']);
+Route::delete('/btypedestroy/{id}', [BoxController::class, 'btypedestroy']);
+
+
+
+// flower color
+Route::get('/flower_color', [BoxController::class, 'flowercolor']);
+Route::get('/fcoloredit/{id}', [BoxController::class, 'fcoloredit']);
+Route::post('/fcolorupdate/{id}', [BoxController::class, 'fcolorupdate']);
+Route::delete('/fcolordestroy/{id}', [BoxController::class, 'fcolordestroy']);
+
+
+
+
+
+
+
+
+
+
+
+Route::post('/product.update/{product_id}',[ProductController::class, 'proupdate']);
+
+Route::delete('/destroyproduct/{product_id}', [ProductController::class, 'destroyproduct']);
+
+
+
+
+// purchase
+Route::get('/purchase', [PurchaseController::class, 'index']);

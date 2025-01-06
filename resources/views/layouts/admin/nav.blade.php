@@ -26,21 +26,35 @@
               <span class="nav-icon">
                 <i class="ti ti-layout-2"></i>
               </span>
-              <span class="nav-text">Stock</span>
+              <span class="nav-text">Product</span>
               <span class="nav-arrow">
                 <i data-feather="chevron-right"></i>
               </span>
             </a>
             <ul class="nav-submenu">
               <li class="nav-item">
-                <a class="nav-link" href="{{ url('/box_stock') }}">Boxes</a>
+                <a class="nav-link" href="{{ url('/Product') }}">Add Product</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#">Flowers</a>
+                <a class="nav-link" href="{{ url('/ListProduct') }}">List Product</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{{ url('/NewBoxColor') }}">NewBoxColor</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{{ url('/NewBoxType') }}">NewBoxType</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{{ url('/NewFlowerColor') }}">NewFlowerColor</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{{ url('/Additional') }}">Add Aditional</a>
               </li>
             </ul>
           </li>
-
+          <li class="nav-item">
+            <a href="/purchase" class="nav-link"><span class="nav-icon"><i class="ti ti-layout-2"></i></span><span class="nav-text">Purchase</span></a>
+        </li>
         <li class="nav-item nav-hasmenu">
            <a href="#!" class="nav-link">
              <span class="nav-icon">

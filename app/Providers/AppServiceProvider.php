@@ -1,13 +1,14 @@
 <?php
 
 namespace App\Providers;
-use App\Models\Box;
+
 use Illuminate\Pagination\Paginator;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Facades\View;
 use App\Models\Setting;
 use Illuminate\Support\Facades\Schema;
-use App\Observers\BoxObserver;
+use App\Models\Product;
+use App\Observers\ProductObserver;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -29,7 +30,8 @@ class AppServiceProvider extends ServiceProvider
     public function boot(): void
     {
 
-        Box::observe(BoxObserver::class);
+        Product::observe(ProductObserver::class);
+
         Paginator::useBootstrapFive();
 
         // Define default settings
