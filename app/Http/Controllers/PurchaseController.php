@@ -15,11 +15,28 @@ class PurchaseController extends Controller
     public function index(){
         $br=Branch::all();
          $product=product::all();
+         $lastRecord = customer::orderBy('id', 'desc')->first();
+
+         $customerId = $lastRecord->id ?? null; // Ensure 'id' is extracted
+
+         if (!$customerId || !is_numeric($customerId)) {
+             throw new \Exception("Invalid customer ID provided.");
+         }
 
 
 
 
-        return view('purchase.index',compact('product','br'));
+
+
+
+         $stockproduct=DB::table('stock')
+         ->join('product','stock.product_id','=','product.product_id')
+         ->join('customer','stock.customer_id','=','customer.id')
+         ->select('product.*','stock.quantity')
+         ->where('stock.customer_id','=',$customerId);
+
+
+        return view('purchase.index',compact('product','br','stockproduct'));
     }
 
 

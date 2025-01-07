@@ -24,6 +24,7 @@
                                         <th>Select Branch</th>
                                         <th>Action</th>
                                     </tr>
+
                                 </thead>
                                 <tbody>
 
@@ -46,7 +47,7 @@
                     @csrf
                     <label>Name</label>
                     <input type="text" name="name" class="form-control">
-                    <button type="submit">Log</button>
+                    <button type="submit" class="btn btn-success">Log</button>
                 </form>
 
                 @if(session('customer_name')) <!-- Check if customer name exists in the session -->
@@ -54,6 +55,11 @@
                     <div class="card-header">
                         Available Products
                     </div>
+
+                    <form action="{{ url('logout.customer') }}" method="POST">
+                        @csrf
+                        <button type="submit" class="btn btn-danger">New Purchase</button>
+                    </form>
                     <div class="card-body">
                         <table class="table table-bordered">
                             <thead>
@@ -83,8 +89,8 @@
                                         <form action="{{ url('/cart') }}" method="POST" class="add-to-cart-form">
                                             @csrf
                                             <input type="hidden" name="product_id" value="{{ $product->product_id }}">
-                                            <input type="number" name="quantity" value="0" min="0" class="quantity-input">
-                                            <button type="submit" class="add-to-cart-button">To Cart</button>
+                                            <input type="number" name="quantity" value="0" min="0" class="form-control">
+                                            <button type="submit" class="btn btn-success">To Cart</button>
                                         </form>
                                     </td>
                                 </tr>
@@ -93,28 +99,13 @@
                         </table>
                     </div>
                 </div>
-                <form action="{{ url('logout.customer') }}" method="POST">
-                    @csrf
-                    <button type="submit" class="btn btn-danger">Log Out</button>
-                </form>
+
                 @endif
             </div>
        </div>
   </div>
 </div>
-<script>
-    document.querySelectorAll('.quantity-input').forEach(input => {
-    input.addEventListener('input', function () {
-        const max = parseInt(this.getAttribute('max'));
-        const value = parseInt(this.value);
 
-        if (value > max) {
-            alert('Quantity exceeds available stock!');
-            this.value = max; // Reset to max value
-        }
-    });
-});
-    </script>
 <script>
 
 </script>
