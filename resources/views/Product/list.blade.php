@@ -3,22 +3,15 @@
 @section('content')
 <div class="row">
     <div class="col-12">
-        <button id="showBoxButton" class="btn btn-primary mb-3">Show Box</button>
+
          <!-- Box Table -->
          <div class="container mt-4">
             <div class="d-flex justify-content-between align-items-center mb-3">
                 <h3>Manage Boxes</h3>
                 <div>
-                    <label for="itemsPerPage" class="me-2">Items per page:</label>
-                    <select id="itemsPerPage" class="form-select d-inline-block custom-blue" style="width: auto;">
-                        <option value="5" {{ $itemsPerPage == 5 ? 'selected' : '' }}>5</option>
-                        <option value="10" {{ $itemsPerPage == 10 ? 'selected' : '' }}>10</option>
-                        <option value="15" {{ $itemsPerPage == 15 ? 'selected' : '' }}>15</option>
-                        <option value="20" {{ $itemsPerPage == 20 ? 'selected' : '' }}>20</option>
-                    </select>
+
                 </div>
             </div>
-
 
             <div>
                 <table class="table table-bordered">
@@ -31,14 +24,16 @@
                             <th>Product Color</th>
                             <th>Price Purchase</th>
                             <th>Price Selling</th>
-
                             <th>Act</th>
                         </tr>
                     </thead>
                     <tbody>
                         @foreach ($CombinedProducts as $product)
                         <tr>
+                            <!-- Product Name -->
                             <td>{{ $product->product_name }}</td>
+
+                            <!-- Product Image -->
                             <td>
                                 @if ($product->product_type === 'box')
                                     <img src="/boxImage/{{ $product->product_image }}" alt="Box Image" width="150" height="150">
@@ -48,31 +43,40 @@
                                     Unknown
                                 @endif
                             </td>
-                            <td>{{ $product->product_type }}</td>
+
+                            <!-- Product Type -->
+                            <td>{{ ucfirst($product->product_type) }}</td>
+
+                            <!-- Product Box Type -->
                             <td>
                                 @if ($product->product_type === 'box')
-                                    {{ $product->box_type_name }}  <!-- Accessing box type from the box table -->
+                                    {{ $product->box_type_name }}  <!-- Assuming 'boxType' is the relationship method -->
                                 @elseif ($product->product_type === 'flower')
-                                    {{ $product->box_type_name }}  <!-- Accessing flower type from the flower table -->
+                                    {{ $product->product_boxtype_id  }}  <!-- Assuming 'flowerType' is the relationship method -->
                                 @endif
                             </td>
-                            <td>{{ $product->color_name }}</td>  <!-- Accessing color name from the color table -->
-                            <td>{{ $product->price_purchase }}</td>
-                            <td>{{ $product->price_selling }}</td>
+
+                            <!-- Product Color -->
+                            <td>{{ $product->color_name }}</td>  <!-- Assuming 'color' is the relationship method -->
+
+                            <!-- Product Prices -->
+                            <td>{{ number_format($product->price_purchase, 2) }}</td>
+                            <td>{{ number_format($product->price_selling, 2) }}</td>
+
+                            <!-- Actions (Edit and Delete) -->
                             <td>
-                         <!-- Edit Link -->
-                <a href="#" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#editproModal{{ $product->product_id }}">Edit</a>
+                                <!-- Edit Link -->
+                                <a href="#" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#editproModal{{ $product->product_id }}">Edit</a>
 
-                <!-- Delete Form -->
-                <form action="{{url('/destroyproduct',$product->product_id)}}" method="POST" style="display:inline;">
-                    @csrf
-                    @method('DELETE')
-                    <button class="btn btn-danger" onclick="return confirm('Are you sure?')">Delete</button>
-                </form>
-
+                                <!-- Delete Form -->
+                                <form action="{{url('/destroyproduct', $product->product_id)}}" method="POST" style="display:inline;">
+                                    @csrf
+                                    @method('DELETE')
+                                    <button class="btn btn-danger" onclick="return confirm('Are you sure?')">Delete</button>
+                                </form>
                             </td>
                         </tr>
-                    @endforeach
+                        @endforeach
                     </tbody>
                 </table>
             </div>
@@ -177,27 +181,8 @@
 
 
         </div>
-        <script>
-            document.getElementById('itemsPerPage').addEventListener('change', function () {
-                const itemsPerPage = this.value;
-                const currentUrl = new URL(window.location.href);
-                currentUrl.searchParams.set('itemsPerPage', itemsPerPage);
-                window.location.href = currentUrl.toString();
-            });
-        </script>
-        <script>
-            // show button
-            document.getElementById('showBoxButton').addEventListener('click', function () {
-                const boxTableContainer = document.getElementById('boxTableContainer');
-                if (boxTableContainer.style.display === 'none') {
-                    boxTableContainer.style.display = 'block';
-                    this.textContent = 'Hide Box'; // Change button text
-                } else {
-                    boxTableContainer.style.display = 'none';
-                    this.textContent = 'Show Box'; // Change button text
-                }
-            });
-          </script>
+
+
                     <!-- Add Bootstrap JS -->
             <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
 

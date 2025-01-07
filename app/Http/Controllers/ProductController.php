@@ -14,8 +14,8 @@ use Illuminate\Support\Facades\DB;
 
 class ProductController extends Controller
 {
-    public function index(Request $request)
-    {    $itemsPerPage = $request->query('itemsPerPage', 5);
+    public function index()
+    {
 
         // Fetch paginated data directly from the box_info table
 
@@ -27,7 +27,7 @@ class ProductController extends Controller
         $fcolor = FlowerColor::all();
 
 
-        return view('Product.index', compact( 'itemsPerPage', 'branches','bcolor','boxtype','fcolor'));
+        return view('Product.index', compact(  'branches','bcolor','boxtype','fcolor'));
       }
 
 
@@ -70,35 +70,39 @@ class ProductController extends Controller
 
 
 
-      public function list(Request $request)
+      public function list()
       {
-        $itemsPerPage = $request->query('itemsPerPage', 5);
 
-        // Query for flower-related products
+
         $Productf = DB::table('product')
-            ->join('flower_info', 'product.color_id', '=', 'flower_info.fw_color_id')
-            ->join('flower_color', 'flower_info.fw_color_id', '=', 'flower_color.flower_color_id')
-            ->select(
-                'product.*',
-                'flower_color.flower_color_name as color_name','flower_info.fw_color_id','flower_info.flower_unique_id',
-                'flower_color.flower_color_id','flower_info.price_selling'
-                 // Add a type column
-            );
+        ->join('flower_info', 'product.color_id', '=', 'flower_info.fw_color_id')
+        ->join('flower_color', 'flower_info.fw_color_id', '=', 'flower_color.flower_color_id')
+        ->select(
+            'product.*',
 
-        // Query for box-related products
-        $Product = DB::table('product')
-            ->join('box_info', 'product.product_id', '=', 'box_info.box_unique_id')
-            ->join('box_color', 'box_info.bx_color_id', '=', 'box_color.box_color_id')
-            ->join('box_type', 'box_info.bx_type_id', '=', 'box_type.box_type_id')
-            ->select(
-                'product.*',
-                'box_color.box_color_name as color_name','box_info.bx_type_id','box_info.bx_color_id',
-                'box_type.box_type_name','box_info.box_unique_id'
-                // Add a type column
-            );
+            'flower_color.flower_color_name as color_name',
+            'flower_info.fw_color_id',
+            'flower_info.flower_unique_id',
+            'flower_info.price_selling',  // Ensuring you have the selling price for flowers
+            DB::raw("'flower' as product_type_column") // Add a static value for product type
+        );
 
-        // Combine both queries using union and paginate
-        $CombinedProducts = $Product->union($Productf)->paginate($itemsPerPage);
+    $Product = DB::table('product')
+        ->join('box_info', 'product.product_id', '=', 'box_info.box_unique_id')
+        ->join('box_color', 'box_info.bx_color_id', '=', 'box_color.box_color_id')
+        ->join('box_type', 'box_info.bx_type_id', '=', 'box_type.box_type_id')
+        ->select(
+            'product.*',
+
+            'box_color.box_color_name as color_name',
+            'box_info.bx_color_id',
+            'box_info.box_unique_id',
+            'box_type.box_type_name',  // Ensuring you have the selling price for boxes
+            DB::raw("'box' as product_type_column") // Add a static value for product type
+        );
+
+    // Combine both queries using union
+    $CombinedProducts = $Product->union($Productf)->get();
 
 
         $btype=BoxType::all();
@@ -106,7 +110,7 @@ class ProductController extends Controller
         $bcolor = BoxColor::all();
 
         // Pass data to the view
-        return view('Product.list', compact('itemsPerPage', 'CombinedProducts','btype','fcolor','bcolor'));
+        return view('Product.list', compact('CombinedProducts','btype','fcolor','bcolor'));
      }
 
 

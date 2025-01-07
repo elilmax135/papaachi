@@ -10,15 +10,20 @@ class Stock extends Model
 
     protected $table = 'stock';
 
-    /**
-     * The attributes that are mass assignable.
-     *
-     * @var array
-     */
+    // Define the fillable fields for mass assignment
     protected $fillable = [
-        'stock_type',
-        'product_stock_name',
+        'product_id',
+        'customer_id',
+        'product_name',
+        'quantity',
     ];
-
+    public function product()
+    {
+        return $this->belongsTo(Product::class);
+    }
+    public function customer()
+    {
+        return $this->belongsTo(customer::class);
+    }
     use HasFactory;
 }
