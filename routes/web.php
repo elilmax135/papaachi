@@ -123,3 +123,5 @@ Route::post('/customer', [PurchaseController::class, 'customer']);
 
 
 Route::post('/logout.customer', [PurchaseController::class, 'logout']);
+
+Route::delete('/cartremove/{id}', [PurchaseController::class, 'cartremove']);

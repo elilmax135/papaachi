@@ -20,22 +20,17 @@ class PurchaseController extends Controller
          $customerId = $lastRecord->id ?? null; // Ensure 'id' is extracted
 
          if (!$customerId || !is_numeric($customerId)) {
-             throw new \Exception("Invalid customer ID provided.");
-         }
-
-
-
-
-
-
-
-         $stockproduct=DB::table('stock')
-         ->join('product','stock.product_id','=','product.product_id')
-         ->join('customer','stock.customer_id','=','customer.id')
-         ->select('product.*','stock.quantity')
-         ->where('stock.customer_id','=',$customerId);
-
-
+            // Handle gracefully instead of throwing an exception
+            $stockproduct = collect(); // Empty collection for no records
+        } else {
+            // Fetch stockproduct based on customerId
+            $stockproduct = DB::table('stock')
+                ->join('product', 'stock.product_id', '=', 'product.product_id')
+                ->join('customer', 'stock.customer_id', '=', 'customer.id')
+                ->select('product.*', 'stock.quantity','stock.id')
+                ->where('stock.customer_id', '=', $customerId)
+                ->get();
+        }
         return view('purchase.index',compact('product','br','stockproduct'));
     }
 
@@ -100,6 +95,14 @@ class PurchaseController extends Controller
          session()->forget('customer_name'); // This will remove the session data
     return redirect()->back()->with('success', 'You have logged out successfully.');
     }
+
+
+    public function cartremove($id){
+        $rm=Stock::find($id);
+        $rm->delete();
+        return redirect()->back();
+    }
+
 }
 
 
