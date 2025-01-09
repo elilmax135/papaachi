@@ -12,15 +12,12 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('purchase', function (Blueprint $table) {
-            $table->bigIncrements('purchase_id')->startingValue(12000); // Custom auto-incrementing primary key
-            $table->text('purchase_product_id');
-            $table->text('purchase_product_name');
-            $table->text('quantity');
-           $table->decimal('p_total_amount')->default('34');
-           $table->text('purchase_date');
-           $table->text('location_id');                   // Box color
-
-
+            $table->id('purchase_id');
+            $table->string('supplier_name');
+            $table->date('purchase_date');
+            $table->string('transaction_id');
+            $table->string('branch');
+            $table->string('purchase_status')->default('failed');
             $table->timestamps();
         });
     }

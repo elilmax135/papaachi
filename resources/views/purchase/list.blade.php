@@ -15,7 +15,7 @@
                         <div class="col-md-4">
                             <div class="form-group">
                                 <label for="supplier-name">Supplier Name</label>
-                                <input type="text" id="supplier-name" name="supplier_name" class="form-control" placeholder="supplier name" required>
+                                <input type="text" id="supplier-name" name="supplier_name" class="form-control" required>
                             </div>
                         </div>
                         <div class="col-md-4">
@@ -37,11 +37,9 @@
                                 <label for="branch">Branch</label>
                                 <select id="branch" name="branch" class="form-control" required>
                                     <option value="" disabled selected>Select branch</option>
-                                    @foreach ($br as $branch)
-                                    <option value="{{$branch->id}}">{{$branch->branch_name}}</option>
-                                    @endforeach
-
-
+                                    <option value="branch1">Branch 1</option>
+                                    <option value="branch2">Branch 2</option>
+                                    <option value="branch3">Branch 3</option>
                                 </select>
                             </div>
                         </div>
@@ -86,14 +84,7 @@
                         <tbody>
                             <!-- Rows dynamically added -->
                         </tbody>
-
                     </table>
-                    <div class="col-md-4 offset-md-8">
-                     <div class="form-group">
-            <label for="total">Total Amount</label>
-            <input type="number" id="total" class="form-control" value="0" readonly>
-                     </div>
-        </div>
 
                     <button type="submit" id="submit-btn" class="btn btn-success" style="display: none;">Submit</button>
                 </div>
@@ -108,31 +99,9 @@
 <form id="payment-form" method="POST" action="{{ url('/payment-submit') }}">
     @csrf
     <div class="col-12">
-        <div class="card-header">
-            Paymen Detials
-        </div>
-
         <div class="card mb-3">
-            <div class="col-md-4">
-            <div class="form-group mb-3">
-          <label> Total</label>
-            <input type="number" id="payment-total" name="payment_total" class="form-control" readonly>
-
-            </div>
-        </div>
-            <div class="col-md-4">
-            <div class="form-group mb-3">
-                @if ($lastRecord)
-            <input type="text" id="purchase_id" name="purchase_id" value="{{$lastRecord->purchase_id}}" class="form-control" readonly>
-            @else
-            @endif
-        </div>
-        </div>
             <div class="card-header">Payment Details</div>
-            <div class="form-group">
-
             <div class="card-body">
-
                 <div class="form-group mb-3">
                     <label for="payment-method">Payment Method</label>
                     <select id="payment-method" class="form-control" name="payment_method" onchange="togglePaymentFields()">
@@ -143,16 +112,11 @@
                     </select>
                 </div>
 
-
-
-
                 <div id="cash-fields" class="payment-fields" style="display: none;">
                     <div class="form-group mb-3">
                         <label for="cash-amount">Cash Amount</label>
                         <input type="number" id="cash-amount" class="form-control" name="cash_amount" placeholder="Enter cash amount">
                     </div>
-
-                <button type="submit" class="btn btn-success">Submit Payment</button>
                 </div>
 
                 <div id="check-fields" class="payment-fields" style="display: none;">
@@ -164,8 +128,6 @@
                         <label for="bank-name">Bank Name</label>
                         <input type="text" id="bank-name" class="form-control" name="bank_name" placeholder="Enter bank name">
                     </div>
-
-                <button type="submit" class="btn btn-success">Submit Payment</button>
                 </div>
 
                 <div id="online-fields" class="payment-fields" style="display: none;">
@@ -177,18 +139,16 @@
                         <label for="payment-platform">Payment Platform</label>
                         <input type="text" id="payment-platform" class="form-control" name="payment_platform" placeholder="Enter payment platform (e.g., PayPal, Stripe)">
                     </div>
-
-                <button type="submit" class="btn btn-success">Submit Payment</button>
                 </div>
 
+                <button type="submit" class="btn btn-success">Submit Payment</button>
             </div>
         </div>
     </div>
 </form>
 <!-- End of the form -->
 
-<script>
-document.addEventListener('DOMContentLoaded', function () {
+<script>document.addEventListener('DOMContentLoaded', function () {
     const productCategoryDropdown = document.getElementById('product-category');
     const productNameDropdown = document.getElementById('product-name');
     const addProductBtn = document.getElementById('add-product-btn');
@@ -222,84 +182,32 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // Add selected product to table
     addProductBtn.addEventListener('click', function () {
-    const selectedCategory = productCategoryDropdown.value;
-    const selectedProductName = productNameDropdown.value;
+        const selectedCategory = productCategoryDropdown.value;
+        const selectedProductName = productNameDropdown.value;
 
-    if (selectedCategory && selectedProductName) {
-        const product = productData[selectedCategory].find(p => p.product_name === selectedProductName);
+        if (selectedCategory && selectedProductName) {
+            const product = productData[selectedCategory].find(p => p.product_name === selectedProductName);
 
-        if (product) {
-            const row = productTableBody.insertRow();
-            row.innerHTML = `
-                <input type="hidden" class="form-control" name="id[]" value="${product.product_id}">
-                <td><input type="text" class="form-control" name="product_name[]" value="${product.product_name}" readonly></td>
-                <td><input type="number" class="form-control quantity" name="quantity[]" value="1" min="1" data-product-id="${product.product_id}"></td>
-                <td><input type="number" class="form-control purchase-price" name="purchase_price[]" value="${product.price_purchase}"></td>
-                <td><input type="number" class="form-control subtotal" name="subtotal[]" value="${product.price_purchase}" readonly></td>
-                <td><input type="number" class="form-control selling-price" name="selling_price[]" value="${product.price_selling}"></td>
-                <td><button type="button" class="btn btn-danger btn-sm remove-product-btn">Remove</button></td>
-            `;
-            productTable.style.display = 'table';
-            submitBtn.style.display = 'inline-block';
+            if (product) {
+                const row = productTableBody.insertRow();
+                row.innerHTML = `
+                    <input type="hidden" class="form-control" name="id[]" value="${product.product_id}">
+                    <td><input type="text" class="form-control" name="product_name[]" value="${product.product_name}" readonly></td>
+                    <td><input type="number" class="form-control quantity" name="quantity[]" value="1" min="1" data-product-id="${product.product_id}"></td>
+                    <td><input type="number" class="form-control purchase-price" name="purchase_price[]" value="${product.price_purchase}"></td>
+                    <td><input type="number" class="form-control subtotal" name="subtotal[]" value="${product.price_purchase}" readonly></td>
+                    <td><input type="number" class="form-control" name="selling_price[]" value="${product.price_selling}"></td>
+                    <td><button type="button" class="btn btn-danger btn-sm remove-product-btn">Remove</button></td>
+                `;
+                productTable.style.display = 'table';
+                submitBtn.style.display = 'inline-block';
 
-            // Trigger stock update when product is added
-            const quantityInput = row.querySelector('.quantity');
-            const purchasePriceInput = row.querySelector('.purchase-price');
-            const subtotalInput = row.querySelector('.subtotal');
-
-            // Update subtotal when quantity or purchase price changes
-            quantityInput.addEventListener('input', function () {
-                updateSubtotal(row); // Update the subtotal when quantity changes
-                updateTotal(); // Recalculate the overall total
-            });
-
-            purchasePriceInput.addEventListener('input', function () {
-                updateSubtotal(row); // Update the subtotal when purchase price changes
-                updateTotal(); // Recalculate the overall total
-            });
-
-            // Handle the row removal logic
-            row.querySelector('.remove-product-btn').addEventListener('click', function () {
-                row.remove();
-                updateTotal(); // Recalculate the overall total after a row is removed
-            });
-
-            // Function to update the subtotal for the current row
-            function updateSubtotal(row) {
-                const quantity = parseFloat(row.querySelector('.quantity').value) || 0;
-                const purchasePrice = parseFloat(row.querySelector('.purchase-price').value) || 0;
-                const subtotal = quantity * purchasePrice;
-
-                // Update the subtotal field for the row
-                row.querySelector('.subtotal').value = subtotal.toFixed(2);
+                // Trigger stock update when product is added
+                const quantity = row.querySelector('.quantity').value;
+                updateStockQuantity(product.product_id, quantity); // Add quantity to stock
             }
-
-            // Function to update the overall total
-            function updateTotal() {
-                let total = 0;
-                const rows = productTableBody.querySelectorAll('tr');
-
-                rows.forEach(row => {
-                    const subtotal = parseFloat(row.querySelector('.subtotal').value) || 0;
-                    total += subtotal;
-                });
-
-                // Update the total input field
-                const totalField = document.getElementById('total');
-                totalField.value = total.toFixed(2);
-                const paymentTotalField = document.getElementById('payment-total');
-       if (paymentTotalField) {
-        paymentTotalField.value = total.toFixed(2);
         }
-            }
-
-            // Initial subtotal calculation and total update
-            updateSubtotal(row); // Initial calculation for the row
-            updateTotal(); // Initial total calculation
-        }
-    }
-});
-
+    });
 
     // Handle quantity and purchase price changes
     productTableBody.addEventListener('input', function (e) {
@@ -343,7 +251,28 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 
     // Update stock quantity through AJAX
-
+    function updateStockQuantity(productId, quantityChange) {
+        fetch('{{ url("/update-product-stock") }}', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'X-CSRF-TOKEN': '{{ csrf_token() }}'
+            },
+            body: JSON.stringify({
+                product_id: productId,
+                quantity_change: quantityChange
+            })
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.success) {
+                console.log('Stock updated successfully');
+            } else {
+                console.error('Failed to update stock');
+            }
+        })
+        .catch(error => console.error('Error:', error));
+    }
 
     // Handle form submission
     document.getElementById('product-form').addEventListener('submit', function (e) {

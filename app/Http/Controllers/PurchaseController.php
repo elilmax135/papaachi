@@ -1,12 +1,11 @@
 <?php
 
 namespace App\Http\Controllers;
-use App\Models\customer;
+
 use App\Models\Product;
 use App\Models\Branch;
-use App\Models\Stock;
 use App\Models\Purchase;
-use App\Models\AvailableProduct;
+use App\Models\ProductPurchase;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -15,96 +14,120 @@ class PurchaseController extends Controller
     public function index(){
         $br=Branch::all();
          $product=product::all();
-         $lastRecord = customer::orderBy('id', 'desc')->first();
 
-         $customerId = $lastRecord->id ?? null; // Ensure 'id' is extracted
 
-         if (!$customerId || !is_numeric($customerId)) {
-            // Handle gracefully instead of throwing an exception
-            $stockproduct = collect(); // Empty collection for no records
-        } else {
-            // Fetch stockproduct based on customerId
-            $stockproduct = DB::table('stock')
-                ->join('product', 'stock.product_id', '=', 'product.product_id')
-                ->join('customer', 'stock.customer_id', '=', 'customer.id')
-                ->select('product.*', 'stock.quantity','stock.id')
-                ->where('stock.customer_id', '=', $customerId)
-                ->get();
-        }
-        return view('purchase.index',compact('product','br','stockproduct'));
+
+
+         $productbox = DB::table('product')
+         ->select('product.*') // Select all columns from the product table
+         ->where('product_type', '=', 'box') // Add a condition (e.g., select products in the "box" category)
+         ->get();
+         $productflower = DB::table('product')
+         ->select('product.*') // Select all columns from the product table
+         ->where('product_type', '=', 'flower') // Add a condition (e.g., select products in the "box" category)
+         ->get();
+
+         $lastRecord = Purchase::orderBy('purchase_id', 'desc')->first();
+
+
+
+
+        return view('purchase.index',compact('productbox','productflower','lastRecord','br'));
     }
 
 
+    public function list(){
+        $br=Branch::all();
+         $product=product::all();
 
 
 
-    public function updateStock(Request $request)
-    {
-        $product = Product::findOrFail($request->product_id);
 
-        // Validate quantity
-
-        $lastRecord = customer::orderBy('id', 'desc')->first();
-
-        $customerId = $lastRecord->id ?? null; // Ensure 'id' is extracted
-
-        if (!$customerId || !is_numeric($customerId)) {
-            throw new \Exception("Invalid customer ID provided.");
-        }
-
-        // Add to cart logic
+         $productbox = DB::table('product')
+         ->select('product.*') // Select all columns from the product table
+         ->where('product_type', '=', 'box') // Add a condition (e.g., select products in the "box" category)
+         ->get();
+         $productflower = DB::table('product')
+         ->select('product.*') // Select all columns from the product table
+         ->where('product_type', '=', 'flower') // Add a condition (e.g., select products in the "box" category)
+         ->get();
 
 
 
-        $stock = Stock::updateOrCreate(
-    [
-        'customer_id' => $customerId,  // Corrected the syntax here
-        'product_id' => $product->product_id,
-    ],
-    [
-        'quantity' => $request->quantity,
-    ]
-      );
-        // Reduce product stock
-        $product->stock_quantity += $request->quantity;
+        return view('purchase.list',compact('productbox','productflower'));
+    }
+    public function updateProductStock(Request $request)
+{
+    $productId = $request->input('product_id');
+    $quantityChange = $request->input('quantity_change');
+
+    // Find the product
+    $product = Product::find($productId);
+
+    if ($product) {
+        // Update stock quantity
+        $product->stock_quantity += $quantityChange;
         $product->save();
 
-
-        return redirect()->back();
-
-    }
-    public function customer(Request $request){
-
-        $request->validate([
-            'name' => 'required|string|max:255',
-        ]);
-
-
-        $customer = Customer::create([
-            'name' => $request->name,
-        ]);
-
-        session(['customer_name' => $request->name]);
-
-        return redirect()->back();
+        return response()->json(['success' => true]);
     }
 
-
-    public function logout(){
-
-         session()->forget('customer_name'); // This will remove the session data
-    return redirect()->back()->with('success', 'You have logged out successfully.');
-    }
-
-
-    public function cartremove($id){
-        $rm=Stock::find($id);
-        $rm->delete();
-        return redirect()->back();
-    }
-
+    return response()->json(['success' => false], 400);
 }
 
 
+public function submit(Request $request)
+{
+    $validatedData = $request->validate([
+        'supplier_name' => 'required|string|max:255',
+        'purchase_date' => 'required|date',
+        'transaction_id' => 'required|string|max:255',
+        'branch' => 'required|string',
+        'products' => 'required|json',
+    ]);
+    // Decode the JSON string of products into an array
+    $products = json_decode($request->products);
 
+    $purchase = Purchase::create([
+        'supplier_name' => $request->supplier_name,
+        'purchase_date' => $request->purchase_date,
+        'transaction_id' => $request->transaction_id,
+        'branch' => $request->branch,
+    ]);
+    // Iterate over each product and handle database operations
+    foreach ($products as $product) {
+        // Ensure purchase_price and selling_price are numeric and cast them to float
+        $purchasePrice = is_numeric($product->purchase_price) ? (float)$product->purchase_price : 0.00;
+        $sellingPrice = is_numeric($product->selling_price) ? (float)$product->selling_price : 0.00;
+
+
+
+        // Fetch the product from the database
+        $existingProduct = Product::find($product->id);
+
+        if ($existingProduct) {
+            // Update the stock quantity
+            $existingProduct->stock_quantity += $product->quantity;
+                // Update the purchase price and selling price
+                $existingProduct->price_purchase = $purchasePrice;
+                $existingProduct->price_selling = $sellingPrice;
+
+            $existingProduct->save();
+        }
+        DB::table('product_purchases')->insert([
+            'purchase_id' => $purchase->id,
+            'product_id' => $product->id,
+            'quantity' => $product->quantity,
+            'purchase_price' => $purchasePrice,
+            'selling_price' => $sellingPrice,
+            'created_at' => now(),
+            'updated_at' => now(),
+        ]);
+    }
+
+    // Return a JSON response indicating success
+    return redirect()->back();
+
+}
+}
 

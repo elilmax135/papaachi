@@ -8,21 +8,19 @@ use Illuminate\Database\Eloquent\Model;
 class Purchase extends Model
 {
     protected $table = 'purchase';
-
-    // Define the primary key if it's not the default 'id'
-    protected $primaryKey = 'purchase_id';
-
-    // Disable auto-incrementing if using a custom primary key
-    public $incrementing = true;
-
-    // Define the columns that can be mass-assigned
     protected $fillable = [
-        'purchase_product_id',
-        'purchase_product_name',
-        'quantity',
-        'p_total_amount',
+        'purchase_id',
+        'supplier_name',
         'purchase_date',
-        'location_id'
+        'transaction_id',
+        'branch',
     ];
+
+    public function products()
+    {
+        return $this->belongsToMany(Product::class)->withPivot('stock_quantity', 'purchase_price', 'selling_price');
+    }
+
+
     use HasFactory;
 }

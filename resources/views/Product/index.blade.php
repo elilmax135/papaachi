@@ -111,7 +111,9 @@
 
                 </div>
 
-
+            </div>
+        </div>
+    </div>
 
         <script>
             // JavaScript to toggle forms
@@ -174,6 +176,5 @@
                             $('.custom-select').select2();
                         });
                     </script>
-      </div>
-</div>
+
 @endsection

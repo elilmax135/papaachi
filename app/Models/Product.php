@@ -16,6 +16,9 @@ class Product extends Model
         protected $fillable = ['product_id', 'product_name', 'product_image','product_type','product_boxtype_id', 'color_id', 'price_purchase', 'price_selling'];
 
     // Define the relationship with flower_info
-
+    public function purchases()
+    {
+        return $this->belongsToMany(Purchase::class)->withPivot('stock_quantity', 'purchase_price', 'selling_price');
+    }
     use HasFactory;
 }

@@ -16,11 +16,9 @@
             <a href="/" class="nav-link"><span class="nav-icon"><i class="ti ti-layout-2"></i></span><span class="nav-text">Dashboard</span></a>
         </li>
         <li class="nav-item">
-          <a href="/branches" class="nav-link"><span class="nav-icon"><i class="ti ti-layout-2"></i></span><span class="nav-text">Branchges</span></a>
+          <a href="/branches" class="nav-link"><span class="nav-icon"><i class="ti ti-layout-2"></i></span><span class="nav-text">Branches</span></a>
       </li>
-        <li class="nav-item">
-            <a href="/databases" class="nav-link"><span class="nav-icon"><i class="ti ti-layout-2"></i></span><span class="nav-text">Databases</span></a>
-        </li>
+
         <li class="nav-item nav-hasmenu">
             <a href="#!" class="nav-link">
               <span class="nav-icon">
@@ -47,14 +45,27 @@
               <li class="nav-item">
                 <a class="nav-link" href="{{ url('/NewFlowerColor') }}">NewFlowerColor</a>
               </li>
-              <li class="nav-item">
-                <a class="nav-link" href="{{ url('/Additional') }}">Add Aditional</a>
-              </li>
+
             </ul>
           </li>
-          <li class="nav-item">
-            <a href="/purchase" class="nav-link"><span class="nav-icon"><i class="ti ti-layout-2"></i></span><span class="nav-text">Purchase</span></a>
-        </li>
+          <li class="nav-item nav-hasmenu">
+            <a href="#!" class="nav-link">
+              <span class="nav-icon">
+                <i class="ti ti-layout-2"></i>
+              </span>
+              <span class="nav-text">Purchase</span>
+              <span class="nav-arrow">
+                <i data-feather="chevron-right"></i>
+              </span>
+            </a>
+            <ul class="nav-submenu">
+              <li class="nav-item">
+                <a class="nav-link" href="{{ url('/purchase') }}">Add Product</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{{ url('/ListPurchase') }}">List Product</a>
+              </li>
+            </ul>
         <li class="nav-item nav-hasmenu">
            <a href="#!" class="nav-link">
              <span class="nav-icon">

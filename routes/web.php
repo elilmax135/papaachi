@@ -113,15 +113,9 @@ Route::delete('/destroyproduct/{product_id}', [ProductController::class, 'destro
 
 // purchase
 Route::get('/purchase', [PurchaseController::class, 'index']);
-Route::post('/addavailable', [PurchaseController::class, 'addavailable']);
+Route::get('/ListPurchase', [PurchaseController::class, 'list']);
 
-
-Route::post('/cart', [PurchaseController::class, 'updateStock']);
-
-
-Route::post('/customer', [PurchaseController::class, 'customer']);
-
-
-Route::post('/logout.customer', [PurchaseController::class, 'logout']);
-
-Route::delete('/cartremove/{id}', [PurchaseController::class, 'cartremove']);
+Route::post('/purchase-details', [PurchaseController::class, 'store']);
+Route::post('/update-product', [PurchaseController::class, 'updateProductDetails']);
+Route::post('/update-product-stock', [PurchaseController::class, 'updateProductStock']);
+Route::post('/submit', [PurchaseController::class, 'submit']);
