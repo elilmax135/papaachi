@@ -19,10 +19,10 @@ return new class extends Migration
             $table->string('bank_name')->default('--');
             $table->string('transection_id')->default('--');
             $table->string('payment_platform')->default('--');
-            $table->string('payment_date');
-            $table->decimal('purchase_total');
-            $table->decimal('pay_amount');
-            $table->decimal('pay_due');
+            $table->date('payment_date');
+            $table->decimal('purchase_total', 10, 2);
+            $table->decimal('pay_amount', 10, 2);
+            $table->decimal('pay_due', 10, 2)->default(0);
             $table->timestamps();
         });
     }

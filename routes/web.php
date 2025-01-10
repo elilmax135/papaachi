@@ -119,3 +119,7 @@ Route::post('/purchase-details', [PurchaseController::class, 'store']);
 Route::post('/update-product', [PurchaseController::class, 'updateProductDetails']);
 Route::post('/update-product-stock', [PurchaseController::class, 'updateProductStock']);
 Route::post('/submit', [PurchaseController::class, 'submit']);
+
+
+
+Route::post('/payments', [PurchaseController::class, 'payment']);

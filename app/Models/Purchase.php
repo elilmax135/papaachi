@@ -14,6 +14,8 @@ class Purchase extends Model
         'purchase_date',
         'transaction_id',
         'branch',
+        'purchase_status',
+        'total'
     ];
 
     public function products()

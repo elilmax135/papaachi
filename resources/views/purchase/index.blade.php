@@ -91,7 +91,7 @@
                     <div class="col-md-4 offset-md-8">
                      <div class="form-group">
             <label for="total">Total Amount</label>
-            <input type="number" id="total" class="form-control" value="0" readonly>
+            <input type="number" id="total" name="total" class="form-control" value="0" readonly>
                      </div>
         </div>
 
@@ -105,86 +105,76 @@
 </form>
 
 <!-- Payment Form -->
-<form id="payment-form" method="POST" action="{{ url('/payment-submit') }}">
+<form id="payment-form" method="POST" action="{{ url('/payments') }}">
     @csrf
     <div class="col-12">
-        <div class="card-header">
-            Paymen Detials
-        </div>
+        <div class="card-header">Payment Details</div>
 
-        <div class="card mb-3">
-            <div class="col-md-4">
-            <div class="form-group mb-3">
-          <label> Total</label>
-            <input type="number" id="payment-total" name="payment_total" class="form-control" readonly>
-
-            </div>
-        </div>
-            <div class="col-md-4">
-            <div class="form-group mb-3">
-                @if ($lastRecord)
-            <input type="text" id="purchase_id" name="purchase_id" value="{{$lastRecord->purchase_id}}" class="form-control" readonly>
-            @else
+        <div class="form-group mb-3">
+            <label>Total</label>
+            @if ($lastRecord)
+            <input type="number" id="payment_total" name="payment_total" value="{{ $lastRecord->total }}" class="form-control" readonly>
             @endif
         </div>
+
+        <div class="form-group mb-3">
+            <label>Purchase ID</label>
+            @if ($lastRecord)
+            <input type="text" id="purchase_id" name="purchase_id" value="{{ $lastRecord->purchase_id }}" class="form-control" readonly>
+            @endif
         </div>
-            <div class="card-header">Payment Details</div>
-            <div class="form-group">
+        <div class="form-group mb-3">
+            <label>Cash Amount</label>
+            <input type="number" name="pay_amount" class="form-control" placeholder="Enter cash amount" required>
+        </div>
+        <div class="form-group mb-3">
+            <label>Payment Date</label>
+            <input type="date" name="payment_date" class="form-control">
+        </div>
 
-            <div class="card-body">
+        <div class="form-group mb-3">
+            <label for="payment-method">Payment Method</label>
+            <select id="payment-method" class="form-control" name="payment_method" onchange="togglePaymentFields()">
+                <option value="" disabled selected>Select payment method</option>
+                <option value="cash">Cash</option>
+                <option value="check">Check</option>
+                <option value="online">Online</option>
+            </select>
+        </div>
 
-                <div class="form-group mb-3">
-                    <label for="payment-method">Payment Method</label>
-                    <select id="payment-method" class="form-control" name="payment_method" onchange="togglePaymentFields()">
-                        <option value="" disabled selected>Select payment method</option>
-                        <option value="cash">Cash</option>
-                        <option value="check">Check</option>
-                        <option value="online">Online</option>
-                    </select>
-                </div>
+        <!-- Check Payment Fields (Initially Hidden) -->
+        <div id="check-fields" class="payment-fields" style="display: none;">
+            <div class="form-group mb-3">
+                <label>Check Number</label>
+                <input type="text" name="check_number" class="form-control" placeholder="Enter check number">
+            </div>
+            <div class="form-group mb-3">
+                <label>Bank Name</label>
+                <input type="text" name="bank_name" class="form-control" placeholder="Enter bank name">
+            </div>
+        </div>
 
+        <!-- Online Payment Fields (Initially Hidden) -->
+        <div id="online-fields" class="payment-fields" style="display: none;">
+            <div class="form-group mb-3">
+                <label>Transaction ID</label>
+                @if ($lasttransect)
+                <input type="text" id="transection_id" name="transection_id" value="{{ $lasttransect->transaction_id }}" class="form-control" readonly>
+                @endif
 
-
-
-                <div id="cash-fields" class="payment-fields" style="display: none;">
-                    <div class="form-group mb-3">
-                        <label for="cash-amount">Cash Amount</label>
-                        <input type="number" id="cash-amount" class="form-control" name="cash_amount" placeholder="Enter cash amount">
-                    </div>
-
-                <button type="submit" class="btn btn-success">Submit Payment</button>
-                </div>
-
-                <div id="check-fields" class="payment-fields" style="display: none;">
-                    <div class="form-group mb-3">
-                        <label for="check-number">Check Number</label>
-                        <input type="text" id="check-number" class="form-control" name="check_number" placeholder="Enter check number">
-                    </div>
-                    <div class="form-group mb-3">
-                        <label for="bank-name">Bank Name</label>
-                        <input type="text" id="bank-name" class="form-control" name="bank_name" placeholder="Enter bank name">
-                    </div>
-
-                <button type="submit" class="btn btn-success">Submit Payment</button>
-                </div>
-
-                <div id="online-fields" class="payment-fields" style="display: none;">
-                    <div class="form-group mb-3">
-                        <label for="transaction-id">Transaction ID</label>
-                        <input type="text" id="online-transaction-id" class="form-control" name="online_transaction_id" placeholder="Enter transaction ID">
-                    </div>
-                    <div class="form-group mb-3">
-                        <label for="payment-platform">Payment Platform</label>
-                        <input type="text" id="payment-platform" class="form-control" name="payment_platform" placeholder="Enter payment platform (e.g., PayPal, Stripe)">
-                    </div>
-
-                <button type="submit" class="btn btn-success">Submit Payment</button>
-                </div>
-
+            </div>
+            <div class="form-group mb-3">
+                <label>Payment Platform</label>
+                <input type="text" name="payment_platform" class="form-control" placeholder="Enter payment platform">
             </div>
         </div>
     </div>
+    <div class="text-end">
+        <button type="submit" class="btn btn-success">Submit Payment</button>
+    </div>
+
 </form>
+
 <!-- End of the form -->
 
 <script>
@@ -196,6 +186,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const productTableBody = productTable.querySelector('tbody');
     const submitBtn = document.getElementById('submit-btn');
     const productsInput = document.getElementById('products');
+
 
     const productData = {
         box: @json($productbox),
@@ -287,10 +278,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 // Update the total input field
                 const totalField = document.getElementById('total');
                 totalField.value = total.toFixed(2);
-                const paymentTotalField = document.getElementById('payment-total');
-       if (paymentTotalField) {
-        paymentTotalField.value = total.toFixed(2);
-        }
+
             }
 
             // Initial subtotal calculation and total update
@@ -298,6 +286,11 @@ document.addEventListener('DOMContentLoaded', function () {
             updateTotal(); // Initial total calculation
         }
     }
+
+
+
+// Add a click event listener to the submit button
+
 });
 
 
@@ -381,29 +374,20 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
 <script>
-    function togglePaymentFields() {
-    // Get the selected payment method
-    const method = document.getElementById('payment-method').value;
+  function togglePaymentFields() {
+        const paymentMethod = document.getElementById('payment-method').value;
 
-    // Get all payment field containers
-    const cashFields = document.getElementById('cash-fields');
-    const checkFields = document.getElementById('check-fields');
-    const onlineFields = document.getElementById('online-fields');
+        // Hide all payment-specific fields initially
+        document.getElementById('check-fields').style.display = 'none';
+        document.getElementById('online-fields').style.display = 'none';
 
-    // Hide all fields initially
-    cashFields.style.display = 'none';
-    checkFields.style.display = 'none';
-    onlineFields.style.display = 'none';
-
-    // Show the relevant fields based on the selected payment method
-    if (method === 'cash') {
-        cashFields.style.display = 'block';
-    } else if (method === 'check') {
-        checkFields.style.display = 'block';
-    } else if (method === 'online') {
-        onlineFields.style.display = 'block';
+        // Show specific fields based on selected payment method
+        if (paymentMethod === 'check') {
+            document.getElementById('check-fields').style.display = 'block';
+        } else if (paymentMethod === 'online') {
+            document.getElementById('online-fields').style.display = 'block';
+        }
     }
-}
 
 </script>
 @endsection

@@ -5,9 +5,11 @@ namespace App\Http\Controllers;
 use App\Models\Product;
 use App\Models\Branch;
 use App\Models\Purchase;
+use App\Models\Payment;
 use App\Models\ProductPurchase;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Log;
 
 class PurchaseController extends Controller
 {
@@ -29,10 +31,10 @@ class PurchaseController extends Controller
 
          $lastRecord = Purchase::orderBy('purchase_id', 'desc')->first();
 
+         $lasttransect = Purchase::orderBy('created_at', 'desc')->first();
 
 
-
-        return view('purchase.index',compact('productbox','productflower','lastRecord','br'));
+        return view('purchase.index',compact('productbox','productflower','lastRecord','br','lasttransect'));
     }
 
 
@@ -83,6 +85,7 @@ public function submit(Request $request)
         'purchase_date' => 'required|date',
         'transaction_id' => 'required|string|max:255',
         'branch' => 'required|string',
+        'total' => 'required|numeric',
         'products' => 'required|json',
     ]);
     // Decode the JSON string of products into an array
@@ -93,6 +96,7 @@ public function submit(Request $request)
         'purchase_date' => $request->purchase_date,
         'transaction_id' => $request->transaction_id,
         'branch' => $request->branch,
+        'total' => $request->total,
     ]);
     // Iterate over each product and handle database operations
     foreach ($products as $product) {
@@ -129,5 +133,45 @@ public function submit(Request $request)
     return redirect()->back();
 
 }
+
+public function payment(Request $request)
+    {
+        // Validate input
+
+        $request->validate([
+            'purchase_id' => 'required|string',
+            'payment_method' => 'required|string',
+            'check_number' => 'nullable|string',
+            'bank_name' => 'nullable|string',
+            'transection_id' => 'nullable|string',
+            'payment_platform' => 'nullable|string',
+            'payment_date' => 'required|date',
+            'payment_total' => 'required|numeric',
+            'pay_amount' => 'required|numeric',
+        ]);
+
+        $payment=new Payment();
+        $payment->purchase_id = $request->purchase_id; // Map flower_color to fw_color_id
+        $payment->payment_method = $request->payment_method;
+        $payment->check_number = !empty($request->check_number) ? $request->check_number : '--';
+
+        // Similarly handle other fields
+        $payment->bank_name = !empty($request->bank_name) ? $request->bank_name : '--';
+        $payment->transection_id = ($request->payment_method == 'online' && !empty($request->transection_id))
+        ? $request->transection_id
+        : '--';
+        $payment->payment_platform = !empty($request->payment_platform) ? $request->payment_platform : '--';
+
+        $payment->payment_date = $request->payment_date;
+        $payment->purchase_total = $request->payment_total; // Use 'payment_total' instead of 'total'
+        $payment->pay_amount = $request->pay_amount;
+        $payment->pay_due = $payment->purchase_total - $payment->pay_amount ?? 0;
+        $payment->save();
+
+        // Log the saved payment
+
+
+        return redirect()->back()->with('success', 'Payment successfully recorded!');
+    }
 }
 
