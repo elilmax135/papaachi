@@ -125,7 +125,8 @@
         </div>
         <div class="form-group mb-3">
             <label>Cash Amount</label>
-            <input type="number" name="pay_amount" class="form-control" placeholder="Enter cash amount" required>
+            <input type="number" name="pay_amount" class="form-control" placeholder="Enter cash amount" required oninput="validatePayAmount()">
+            <span id="error-message" style="color: red; display: none;">Amount cannot exceed the total.</span>
         </div>
         <div class="form-group mb-3">
             <label>Payment Date</label>
@@ -386,6 +387,17 @@ document.addEventListener('DOMContentLoaded', function () {
             document.getElementById('check-fields').style.display = 'block';
         } else if (paymentMethod === 'online') {
             document.getElementById('online-fields').style.display = 'block';
+        }
+    }
+    function validatePayAmount() {
+        const total = parseFloat(document.getElementById('payment_total').value);
+        const payAmount = parseFloat(document.querySelector('input[name="pay_amount"]').value);
+        const errorMessage = document.getElementById('error-message');
+
+        if (payAmount > total) {
+            errorMessage.style.display = 'block';
+        } else {
+            errorMessage.style.display = 'none';
         }
     }
 

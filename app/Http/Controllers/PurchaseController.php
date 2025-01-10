@@ -45,18 +45,11 @@ class PurchaseController extends Controller
 
 
 
-         $productbox = DB::table('product')
-         ->select('product.*') // Select all columns from the product table
-         ->where('product_type', '=', 'box') // Add a condition (e.g., select products in the "box" category)
-         ->get();
-         $productflower = DB::table('product')
-         ->select('product.*') // Select all columns from the product table
-         ->where('product_type', '=', 'flower') // Add a condition (e.g., select products in the "box" category)
-         ->get();
 
 
 
-        return view('purchase.list',compact('productbox','productflower'));
+
+        return view('purchase.list');
     }
     public function updateProductStock(Request $request)
 {
@@ -119,7 +112,7 @@ public function submit(Request $request)
             $existingProduct->save();
         }
         DB::table('product_purchases')->insert([
-            'purchase_id' => $purchase->id,
+            'purchase_id' => $purchase->purchase_id,
             'product_id' => $product->id,
             'quantity' => $product->quantity,
             'purchase_price' => $purchasePrice,
@@ -168,6 +161,18 @@ public function payment(Request $request)
         $payment->pay_due = $payment->purchase_total - $payment->pay_amount ?? 0;
         $payment->save();
 
+        $purchase = Purchase::where('purchase_id', $request->purchase_id)->first();// Assuming purchase_id is the foreign key
+
+
+
+        if ($purchase->purchase_id) {
+            if ($payment->pay_due == 0) {
+                $purchase->purchase_status = 'true'; // Fully paid
+            } elseif ($payment->pay_due > 0 && $payment->pay_due < $payment->purchase_total) {
+                $purchase->purchase_status = 'pending'; // Partially paid
+            }
+            $purchase->save();
+        }
         // Log the saved payment
 
 

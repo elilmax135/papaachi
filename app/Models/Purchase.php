@@ -8,8 +8,11 @@ use Illuminate\Database\Eloquent\Model;
 class Purchase extends Model
 {
     protected $table = 'purchase';
+    protected $primaryKey = 'purchase_id';
+    public $incrementing = true; // Set true if the key is auto-increment
+    protected $keyType = 'int';
     protected $fillable = [
-        'purchase_id',
+
         'supplier_name',
         'purchase_date',
         'transaction_id',
@@ -22,7 +25,10 @@ class Purchase extends Model
     {
         return $this->belongsToMany(Product::class)->withPivot('stock_quantity', 'purchase_price', 'selling_price');
     }
-
+    public function productPurchases()
+    {
+        return $this->hasMany(ProductPurchase::class);
+    }
 
     use HasFactory;
 }

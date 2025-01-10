@@ -20,5 +20,9 @@ class Product extends Model
     {
         return $this->belongsToMany(Purchase::class)->withPivot('stock_quantity', 'purchase_price', 'selling_price');
     }
+    public function productPurchases()
+{
+    return $this->hasMany(ProductPurchase::class);
+}
     use HasFactory;
 }

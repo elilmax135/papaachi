@@ -22,5 +22,15 @@ class ProductPurchase extends Model
         'selling_price',
     ];
 
+    public function product()
+{
+    return $this->belongsTo(Product::class);
+}
+
+public function purchase()
+{
+    return $this->belongsTo(Purchase::class);
+}
+
     // If needed, you can define relationships here (e.g., to 'products', 'suppliers', etc.)
 }
