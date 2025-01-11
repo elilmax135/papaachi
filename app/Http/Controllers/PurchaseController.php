@@ -38,37 +38,44 @@ class PurchaseController extends Controller
     }
 
 
-    public function list(){
-        $br=Branch::all();
-         $product=product::all();
+    public function list()
+    {
+        $purchases = DB::table('purchase')
+        ->join('branches', 'purchase.branch', '=', 'branches.id')
+        ->leftJoinSub(
+            DB::table('payment_info')
+                ->select('payment_id', 'purchase_id', 'payment_date', 'pay_amount', 'pay_due')
+                ->whereIn('payment_id', function ($query) {
+                    $query->select(DB::raw('MAX(payment_id)'))
+                        ->from('payment_info')
+                        ->groupBy('purchase_id');
+                }),
+            'latest_payment', // Alias for the subquery
+            function ($join) {
+                $join->on('purchase.purchase_id', '=', 'latest_payment.purchase_id');
+            }
+        )
+        ->select(
+            'purchase.*',
+            'branches.branch_name',
+            'latest_payment.payment_id',
+            'latest_payment.payment_date',
+            'latest_payment.pay_amount',
+            'latest_payment.pay_due AS last_pay_due' // Alias the pay_due column for clarity
+        )
+        ->get()
+        ->groupBy('purchase_id');
 
 
 
 
 
-
-
-
-        return view('purchase.list');
+    return view('purchase.list', compact('purchases'));
     }
-    public function updateProductStock(Request $request)
-{
-    $productId = $request->input('product_id');
-    $quantityChange = $request->input('quantity_change');
 
-    // Find the product
-    $product = Product::find($productId);
 
-    if ($product) {
-        // Update stock quantity
-        $product->stock_quantity += $quantityChange;
-        $product->save();
 
-        return response()->json(['success' => true]);
-    }
 
-    return response()->json(['success' => false], 400);
-}
 
 
 public function submit(Request $request)
@@ -178,5 +185,68 @@ public function payment(Request $request)
 
         return redirect()->back()->with('success', 'Payment successfully recorded!');
     }
+
+    public function processPayment(Request $request)
+    {
+        $request->validate([
+            'purchase_id' => 'required|string',
+            'payment_method' => 'required|string',
+            'check_number' => 'nullable|string',
+            'bank_name' => 'nullable|string',
+            'transection_id' => 'nullable|string',
+            'payment_platform' => 'nullable|string',
+            'payment_date' => 'required|date',
+            'payment_total' => 'required|numeric',
+            'pay_amount' => 'required|numeric',
+        ]);
+
+        // Create new payment record
+        $payment = new Payment();
+        $payment->purchase_id = $request->purchase_id; // Map to purchase
+        $payment->payment_method = $request->payment_method;
+        $payment->check_number = !empty($request->check_number) ? $request->check_number : '--';
+        $payment->bank_name = !empty($request->bank_name) ? $request->bank_name : '--';
+        $payment->transection_id = ($request->payment_method == 'online' && !empty($request->transection_id)) ? $request->transection_id : '--';
+        $payment->payment_platform = !empty($request->payment_platform) ? $request->payment_platform : '--';
+        $payment->payment_date = $request->payment_date;
+        $payment->purchase_total = $request->payment_total; // Use 'payment_total' instead of 'total'
+        $payment->pay_amount = $request->pay_amount;
+        $payment->pay_due = $payment->purchase_total - $payment->pay_amount;
+        $payment->pay_due = max($payment->pay_due, 0); // Ensure pay_due is never negative
+        $payment->save();
+
+        $purchase = Purchase::where('purchase_id', $request->purchase_id)->first();
+
+        if ($purchase) {
+            // Update the purchase status based on the payment status
+            if ($payment->pay_due == 0) {
+                // Fully paid
+                $purchase->purchase_status = 'true';
+            } elseif ($payment->pay_due > 0 && $payment->pay_due < $payment->purchase_total) {
+                // Partially paid
+                $purchase->purchase_status = 'pending';
+            }
+
+            // Save the updated purchase status
+            $purchase->save();
+        }
+
+        // Redirect back or to another page with success message
+        return redirect()->back()->with('success', 'Payment processed successfully');
+        // Redirect back or to another page with success message
+
+    }
+
+    public function getPaymentsByPurchaseId($purchase_id)
+{
+    // Fetch payment details for the given purchase_id
+    $payments = DB::table('payment_info')
+        ->where('purchase_id', $purchase_id)
+        ->orderBy('payment_date', 'desc') // Order by the latest payment date
+        ->get();
+
+    return view('purchase.details', compact('payments', 'purchase_id'));
+}
+
 }
 

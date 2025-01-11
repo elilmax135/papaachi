@@ -109,30 +109,35 @@
     @csrf
     <div class="col-12">
         <div class="card-header">Payment Details</div>
-
+        <div class="col-md-4 offset-md-8">
         <div class="form-group mb-3">
             <label>Total</label>
             @if ($lastRecord)
             <input type="number" id="payment_total" name="payment_total" value="{{ $lastRecord->total }}" class="form-control" readonly>
             @endif
         </div>
-
+    </div>
         <div class="form-group mb-3">
             <label>Purchase ID</label>
             @if ($lastRecord)
-            <input type="text" id="purchase_id" name="purchase_id" value="{{ $lastRecord->purchase_id }}" class="form-control" readonly>
+            <input type="hidden" id="purchase_id" name="purchase_id" value="{{ $lastRecord->purchase_id }}" class="form-control" readonly>
             @endif
         </div>
+        <div class="col-md-4">
         <div class="form-group mb-3">
             <label>Cash Amount</label>
             <input type="number" name="pay_amount" class="form-control" placeholder="Enter cash amount" required oninput="validatePayAmount()">
             <span id="error-message" style="color: red; display: none;">Amount cannot exceed the total.</span>
         </div>
+    </div>
+    <div class="col-md-4">
         <div class="form-group mb-3">
             <label>Payment Date</label>
             <input type="date" name="payment_date" class="form-control">
         </div>
+    </div>
 
+        <div class="col-md-4">
         <div class="form-group mb-3">
             <label for="payment-method">Payment Method</label>
             <select id="payment-method" class="form-control" name="payment_method" onchange="togglePaymentFields()">
@@ -142,7 +147,7 @@
                 <option value="online">Online</option>
             </select>
         </div>
-
+    </div>
         <!-- Check Payment Fields (Initially Hidden) -->
         <div id="check-fields" class="payment-fields" style="display: none;">
             <div class="form-group mb-3">

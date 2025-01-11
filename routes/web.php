@@ -123,3 +123,8 @@ Route::post('/submit', [PurchaseController::class, 'submit']);
 
 
 Route::post('/payments', [PurchaseController::class, 'payment']);
+
+Route::post('/paymentpay/{purchase_id}', [PurchaseController::class, 'processPayment']);
+
+
+Route::get('/details/{purchase_id}', [PurchaseController::class, 'getPaymentsByPurchaseId']);
