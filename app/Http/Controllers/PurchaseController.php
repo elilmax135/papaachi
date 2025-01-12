@@ -63,8 +63,10 @@ class PurchaseController extends Controller
             'latest_payment.pay_amount',
             'latest_payment.pay_due AS last_pay_due' // Alias the pay_due column for clarity
         )
+        ->orderBy('latest_payment.payment_id', 'desc')
         ->get()
         ->groupBy('purchase_id');
+
 
 
 
@@ -177,7 +179,11 @@ public function payment(Request $request)
                 $purchase->purchase_status = 'true'; // Fully paid
             } elseif ($payment->pay_due > 0 && $payment->pay_due < $payment->purchase_total) {
                 $purchase->purchase_status = 'pending'; // Partially paid
+            }elseif($payment->pay_due < 0)
+            {
+                $purchase->purchase_status = 'true';
             }
+
             $purchase->save();
         }
         // Log the saved payment
@@ -238,15 +244,36 @@ public function payment(Request $request)
     }
 
     public function getPaymentsByPurchaseId($purchase_id)
-{
-    // Fetch payment details for the given purchase_id
-    $payments = DB::table('payment_info')
-        ->where('purchase_id', $purchase_id)
-        ->orderBy('payment_date', 'desc') // Order by the latest payment date
+    {
+        // Fetch purchase details (including supplier details directly from the purchase_info table)
+        $purchase = DB::table('purchase')
+            ->select(
+                'supplier_name', // Assuming these fields exist directly in the purchase_info table
+                'branch',
+                'purchase_date',
+                'transaction_id',
+                'total',
+                'purchase_status'
+            )
+            ->where('purchase_id', $purchase_id)
+            ->first();
+
+        // Fetch payment details
+        $payments = DB::table('payment_info')
+            ->where('purchase_id', $purchase_id)
+            ->orderBy('payment_id', 'desc') // Order by latest payment
+            ->get();
+
+        // Fetch products and their quantities directly from the purchase_products table
+        $products = DB::table('product_purchases')
+        ->join('product', 'product_purchases.product_id', '=', 'product.product_id')
+        ->select('product.product_name as product_name', 'product_purchases.quantity')
+        ->where('product_purchases.purchase_id', $purchase_id)
         ->get();
 
-    return view('purchase.details', compact('payments', 'purchase_id'));
-}
+        return view('purchase.details', compact('purchase', 'payments', 'products', 'purchase_id'));
+    }
+
 
 }
 

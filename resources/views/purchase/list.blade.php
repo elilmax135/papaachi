@@ -70,11 +70,10 @@
                                                     <label for="amount-{{ $purchase_id }}" class="form-label">Due</label>
                                                         @if ($purchase_group[0]->purchase_status == 'failed')
                                                             <input type="number" id="payment_total-{{ $purchase_id }}" name="payment_total" value="{{ $purchase_group[0]->total }}" class="form-control" readonly>
-                                                        @elseif ($purchase_group[0]->purchase_status == 'pending')
-                                                            <input type="number" class="form-control" id="payment_total-{{ $purchase_id }}" name="payment_total" value="{{ $purchase_group[0]->last_pay_due }}" readonly>
                                                         @else
-                                                            <input type="number" class="form-control" id="payment_total-{{ $purchase_id }}" name="payment_total" value="{{ $purchase_group[0]->total }}" readonly>
-                                                        @endif
+                                                            <input type="number" class="form-control" id="payment_total-{{ $purchase_id }}" name="payment_total" value="{{ $purchase_group[0]->last_pay_due }}" readonly>
+
+                                                       @endif
                                                 </label>
 
                                                     </div>
