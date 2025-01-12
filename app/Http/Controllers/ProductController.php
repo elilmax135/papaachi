@@ -74,35 +74,27 @@ class ProductController extends Controller
       {
 
 
-        $Productf = DB::table('product')
-        ->join('flower_info', 'product.color_id', '=', 'flower_info.fw_color_id')
-        ->join('flower_color', 'flower_info.fw_color_id', '=', 'flower_color.flower_color_id')
-        ->select(
-            'product.*',
 
-            'flower_color.flower_color_name as color_name',
-            'flower_info.fw_color_id',
-            'flower_info.flower_unique_id',
-            'flower_info.price_selling',  // Ensuring you have the selling price for flowers
-            DB::raw("'flower' as product_type_column") // Add a static value for product type
-        );
+        $CombinedProducts = DB::table('product')
+    // Join with flower_info only if available
+    ->leftJoin('flower_info', 'product.color_id', '=', 'flower_info.fw_color_id')
+    ->leftJoin('flower_color', 'flower_info.fw_color_id', '=', 'flower_color.flower_color_id')
 
-    $Product = DB::table('product')
-        ->join('box_info', 'product.product_id', '=', 'box_info.box_unique_id')
-        ->join('box_color', 'box_info.bx_color_id', '=', 'box_color.box_color_id')
-        ->join('box_type', 'box_info.bx_type_id', '=', 'box_type.box_type_id')
-        ->select(
-            'product.*',
+    // Join with box_info only if flower_info is not available
+    ->leftJoin('box_info', 'product.product_id', '=', 'box_info.box_unique_id')
+    ->leftJoin('box_color', 'box_info.bx_color_id', '=', 'box_color.box_color_id')
+    ->leftJoin('box_type', 'box_info.bx_type_id', '=', 'box_type.box_type_id')
 
-            'box_color.box_color_name as color_name',
-            'box_info.bx_color_id',
-            'box_info.box_unique_id',
-            'box_type.box_type_name',  // Ensuring you have the selling price for boxes
-            DB::raw("'box' as product_type_column") // Add a static value for product type
-        );
+    ->select(
+        'product.*',
+        'box_color.box_color_name as color_name',
 
-    // Combine both queries using union
-    $CombinedProducts = $Product->union($Productf)->get();
+        'box_type.box_type_name',
+        'flower_color.flower_color_name as flower_color_name'
+  )
+    ->distinct() // Make sure the query selects distinct products
+    ->orderBy('product.created_at', 'desc')
+    ->get();
 
 
         $btype=BoxType::all();

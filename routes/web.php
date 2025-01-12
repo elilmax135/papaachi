@@ -9,9 +9,9 @@ use App\Http\Controllers\PermissionController;
 use App\Http\Controllers\SettingController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\BranchController;
+
 use App\Http\Controllers\BoxController;
-
-
+use App\Http\Controllers\SellController;
 use App\Models\Product;
 /*
 |--------------------------------------------------------------------------
@@ -128,3 +128,7 @@ Route::post('/paymentpay/{purchase_id}', [PurchaseController::class, 'processPay
 
 
 Route::get('/details/{purchase_id}', [PurchaseController::class, 'getPaymentsByPurchaseId']);
+
+
+//sell
+Route::get('/addSell', [SellController::class, 'index']);

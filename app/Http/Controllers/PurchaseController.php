@@ -63,7 +63,7 @@ class PurchaseController extends Controller
             'latest_payment.pay_amount',
             'latest_payment.pay_due AS last_pay_due' // Alias the pay_due column for clarity
         )
-        ->orderBy('latest_payment.payment_id', 'desc')
+        ->orderBy('purchase_id', 'desc')
         ->get()
         ->groupBy('purchase_id');
 
@@ -106,7 +106,7 @@ public function submit(Request $request)
         $purchasePrice = is_numeric($product->purchase_price) ? (float)$product->purchase_price : 0.00;
         $sellingPrice = is_numeric($product->selling_price) ? (float)$product->selling_price : 0.00;
 
-
+        $subtotalField = $product->quantity * $purchasePrice;
 
         // Fetch the product from the database
         $existingProduct = Product::find($product->id);
@@ -126,6 +126,7 @@ public function submit(Request $request)
             'quantity' => $product->quantity,
             'purchase_price' => $purchasePrice,
             'selling_price' => $sellingPrice,
+            'subtotal' => $subtotalField,
             'created_at' => now(),
             'updated_at' => now(),
         ]);
@@ -267,7 +268,7 @@ public function payment(Request $request)
         // Fetch products and their quantities directly from the purchase_products table
         $products = DB::table('product_purchases')
         ->join('product', 'product_purchases.product_id', '=', 'product.product_id')
-        ->select('product.product_name as product_name', 'product_purchases.quantity')
+        ->select('product.product_name as product_name', 'product_purchases.quantity','product_purchases.subtotal','product_purchases.purchase_price')
         ->where('product_purchases.purchase_id', $purchase_id)
         ->get();
 

@@ -5,6 +5,11 @@
 <div class="row">
     <!-- Supplier and Purchase Details -->
     <div class="col-12">
+        <div class="mb-3">
+            <label for="filter-input" class="form-label">Filter by Supplier Name or Purchase ID</label>
+            <input type="text" id="filter-input" class="form-control" placeholder="Enter Supplier Name or Purchase ID">
+        </div>
+
         <div class="card mb-3">
             <div class="table-responsive" style="max-height: 500px; overflow-y: auto;">
                 <table class="table table-bordered">
@@ -21,7 +26,9 @@
                     </thead>
                     <tbody>
                         @foreach ($purchases as $purchase_id => $purchase_group)
-                        <tr>
+                        <tr class="purchase-row"
+                        data-supplier-name="{{ $purchase_group[0]->supplier_name }}"
+                        data-purchase-id="{{ $purchase_id }}">
                             <td>{{ $purchase_group[0]->supplier_name }}</td>
                             <td>{{ $purchase_group[0]->branch_name }}</td>
                             <td>{{ $purchase_group[0]->purchase_date }}</td>
@@ -153,7 +160,22 @@
         });
     });
 
+    // JavaScript for the filtering function
+    document.getElementById('filter-input').addEventListener('input', function () {
+        const filterValue = this.value.toLowerCase();
+        const rows = document.querySelectorAll('.purchase-row');
 
+        rows.forEach(function (row) {
+            const supplierName = row.getAttribute('data-supplier-name').toLowerCase();
+            const purchaseId = row.getAttribute('data-purchase-id').toString().toLowerCase();
+
+            if (supplierName.includes(filterValue) || purchaseId.includes(filterValue)) {
+                row.style.display = '';
+            } else {
+                row.style.display = 'none';
+            }
+        });
+    });
 </script>
 <script>
 

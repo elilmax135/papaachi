@@ -54,9 +54,14 @@
                                     {{ $product->product_boxtype_id  }}  <!-- Assuming 'flowerType' is the relationship method -->
                                 @endif
                             </td>
-
+                            <td>
+                                @if ($product->product_type === 'box')
+                                {{ $product->color_name }}  <!-- Assuming 'boxType' is the relationship method -->
+                                @elseif ($product->product_type === 'flower')
+                                {{ $product->flower_color_name }} <!-- Assuming 'flowerType' is the relationship method -->
+                                @endif
+                            </td>
                             <!-- Product Color -->
-                            <td>{{ $product->color_name }}</td>  <!-- Assuming 'color' is the relationship method -->
 
                             <!-- Product Prices -->
                             <td>{{ number_format($product->price_purchase, 2) }}</td>
@@ -127,12 +132,38 @@
 
                     <div class="mb-3">
                         <label for="product_boxtype_id" class="form-label">Box Type</label>
-                        <input type="text" class="form-control" id="product_boxtype_id" name="product_boxtype_id" value="{{ $product->product_boxtype_id }}">
-                    </div>
+                        <select class="form-control" id="product_boxtype_id" name="product_boxtype_id">
+                            <option value="">Select Box Type</option>
+                            @foreach ($btype as $boxType)
+                                <option value="{{ $boxType->box_type_id }}" {{ $product->product_boxtype_id == $boxType->box_type_id ? 'selected' : '' }}>
+                                    {{ $boxType->box_type_name }}
+                                </option>
+                            @endforeach
+                        </select>  </div>
 
                     <div class="mb-3">
                         <label for="color_id" class="form-label">Color</label>
-                        <input type="text" class="form-control" id="color_id" name="color_id" value="{{ $product->color_id }}">
+
+                            @if ($product->product_type === 'box')
+                            <select class="form-control" id="color_id" name="color_id">
+                                <option value="">Select Color</option>
+                                @foreach ($bcolor as $color)
+                                <option value="{{ $color->box_color_id }}" {{ $product->color_id == $color->box_color_id ? 'selected' : '' }}>
+                                    {{ $color->box_color_name }}
+                                </option>
+                               @endforeach
+                            </select>
+                               @elseif ($product->product_type === 'flower')
+                               <select class="form-control" id="color_id" name="color_id">
+                                <option value="">Select Color</option>
+                                @foreach ($fcolor as $color)
+                                <option value="{{ $color->flower_color_id }}" {{ $product->color_id == $color->flower_color_id ? 'selected' : '' }}>
+                                    {{ $color->flower_color_name }}
+                                </option>
+                               @endforeach
+                            </select>
+                            @endif
+
                     </div>
 
                     <div class="mb-3">
