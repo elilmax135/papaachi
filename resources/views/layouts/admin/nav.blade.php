@@ -36,16 +36,10 @@
               <li class="nav-item">
                 <a class="nav-link" href="{{ url('/ListProduct') }}">List Product</a>
               </li>
-              <li class="nav-item">
-                <a class="nav-link" href="{{ url('/NewBoxColor') }}">NewBoxColor</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="{{ url('/NewBoxType') }}">NewBoxType</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="{{ url('/NewFlowerColor') }}">NewFlowerColor</a>
-              </li>
 
+              <li class="nav-item">
+                <a class="nav-link" href="{{ url('/AddNewThings') }}">newfeauture</a>
+              </li>
             </ul>
           </li>
           <li class="nav-item nav-hasmenu">

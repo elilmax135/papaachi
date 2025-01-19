@@ -9,9 +9,11 @@ use App\Http\Controllers\PermissionController;
 use App\Http\Controllers\SettingController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\BranchController;
+use App\Http\Controllers\LocationController;
 
 use App\Http\Controllers\BoxController;
 use App\Http\Controllers\SellController;
+use App\Http\Controllers\ServiceController;
 use App\Models\Product;
 /*
 |--------------------------------------------------------------------------
@@ -94,6 +96,19 @@ Route::get('/fcoloredit/{id}', [BoxController::class, 'fcoloredit']);
 Route::post('/fcolorupdate/{id}', [BoxController::class, 'fcolorupdate']);
 Route::delete('/fcolordestroy/{id}', [BoxController::class, 'fcolordestroy']);
 
+//service
+
+
+Route::get('/AddNewThings', [ServiceController::class, 'index']);
+Route::get('/service', [ServiceController::class, 'service']);
+
+
+
+
+Route::get('/addservice', [ServiceController::class, 'addservice']);
+Route::get('/serviceedit/{service_id_uniq}', [ServiceController::class, 'serviceedit']);
+Route::post('/serviceupdate/{service_id_uniq}', [ServiceController::class, 'serviceupdate']);
+Route::delete('/servicedestroy/{service_id_uniq}', [ServiceController::class, 'servicedestroy']);
 
 
 
@@ -132,3 +147,26 @@ Route::get('/details/{purchase_id}', [PurchaseController::class, 'getPaymentsByP
 
 //sell
 Route::get('/addSell', [SellController::class, 'index']);
+
+Route::post('/sell',[SellController::class,'sell_info']);
+
+
+
+Route::get('/ListSell', [SellController::class, 'list']);
+Route::post('/sellpayments',[SellController::class,'sell_pay']);
+Route::get('/sales/details/{sale_id}', [SellController::class, 'getPaymentsBySaleId']);
+
+Route::post('/sales/Repayment/{sale_id}', [SellController::class, 'processSalePayment']);
+
+
+
+
+Route::get('/openlocate', [LocationController::class, 'open']);
+
+Route::post('/locate', [LocationController::class, 'store']);
+
+
+Route::post('/update_total',[SellController::class,'update_total']);
+
+Route::post('/selectLocate', [LocationController::class, 'store'])->name('save.locations');
+Route::post('/save-locations', [LocationController::class, 'saveLocations']);

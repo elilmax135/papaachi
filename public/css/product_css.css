@@ -6,3 +6,14 @@
     max-height: 200px; /* Adjust based on your preference */
     overflow-y: auto;  /* Adds scrollbar when content exceeds max height */
 }
+
+    .highlight {
+        background-color: yellow;
+        transition: background-color 0.3s ease;
+    }
+
+    @media print {
+        .no-print {
+            display: none; /* Hides elements with this class in print view */
+        }
+    }

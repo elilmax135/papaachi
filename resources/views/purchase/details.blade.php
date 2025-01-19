@@ -1,6 +1,7 @@
 @extends('layouts.admin.app')
 
 @section('content')
+<link rel="stylesheet" href="{{ asset('css/product_css.css') }}">
 <div class="container">
     <div class="row">
         <div class="col-12 text-center mb-4">
@@ -111,7 +112,7 @@
     @endif
 </div>
     <!-- Footer and Buttons -->
-    <div class="d-flex justify-content-between">
+    <div class="d-flex justify-content-between no-print">
         <a href="{{ url('/ListPurchase') }}" class="btn btn-primary">Back to Purchase List</a>
         <button onclick="printPage()" class="btn btn-success">Print</button>
     </div>
@@ -122,4 +123,12 @@
         window.print();
     }
 </script>
+<style>
+    @media print {
+        .no-print {
+            visibility: hidden;
+            position: absolute;
+        }
+    }
+    </style>
 @endsection

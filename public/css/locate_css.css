@@ -1,0 +1,32 @@
+.button {
+    background-color: #4CAF50; /* Green background */
+    border: none;             /* No border */
+    color: white;             /* White text */
+    padding: 10px 20px;       /* Padding for size */
+    text-align: center;       /* Center text */
+    text-decoration: none;    /* No underline */
+    display: inline-block;    /* Inline-block for spacing */
+    font-size: 16px;          /* Font size */
+    margin: 4px 2px;          /* Small margins */
+    cursor: pointer;          /* Pointer cursor on hover */
+    border-radius: 5px;       /* Rounded corners */
+  }
+
+  .button:hover {
+    background-color: #45a049; /* Darker green on hover */
+  }
+  .btn-back {
+    padding: 10px;
+    background: red;
+    color: white;
+    text-decoration: none; /* Removes the underline from the link */
+    display: inline-block; /* Ensures proper padding and alignment */
+    float: right; /* Aligns the button to the right */
+    border: none; /* Removes any default border */
+    border-radius: 4px; /* Adds slight rounding to the corners (optional) */
+    text-align: center; /* Centers text inside the button */
+}
+
+.btn-back:hover {
+    background: darkred; /* Changes background color on hover (optional) */
+}

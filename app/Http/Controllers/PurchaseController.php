@@ -133,7 +133,7 @@ public function submit(Request $request)
     }
 
     // Return a JSON response indicating success
-    return redirect()->back();
+    return redirect()->back()->with('success', 'Purchase added successfully!');;
 
 }
 

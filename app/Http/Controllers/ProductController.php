@@ -132,7 +132,7 @@ class ProductController extends Controller
          $data->save();
 
 
-         return redirect()->back();
+         return redirect()->back()->with('success', 'Box added successfully!');;
 
     }
 
@@ -151,7 +151,7 @@ class ProductController extends Controller
          $data->price_purchase= $request->flower_price_purchase;
          $data->price_selling = $request->flower_price_selling;
          $data->save();
-         return redirect()->back();
+         return redirect()->back()->with('success', 'Flower Ring added successfully!');;
 
     }
     public function proupdate(Request $request, $id)
@@ -225,7 +225,7 @@ class ProductController extends Controller
         $Product = Product::findOrFail($id);
         $Product->delete();
 
-        return redirect()->back();
+        return redirect()->back()->with('success', 'Product destroy successfully!');
     }
 
 
