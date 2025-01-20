@@ -24,6 +24,10 @@ class Product extends Model
 {
     return $this->hasMany(ProductPurchase::class);
 }
+public function transferProducts()
+{
+    return $this->hasMany(TransferProduct::class, 'product_id');
+}
 
     use HasFactory;
 }

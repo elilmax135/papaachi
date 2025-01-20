@@ -40,7 +40,7 @@
             @foreach ($payments as $payment)
                 <tr>
                     <td>{{ $payment->sell_pay_id }}</td>
-                    <td>{{ $payment->payment_method }}</td>
+                    <td>{{ $payment->pay_amount }}</td>
                     <td>{{ $payment->payment_date }}</td>
                     <td>{{ $payment->payment_method }}</td>
                     <td>{{ $payment->pay_due }}</td>

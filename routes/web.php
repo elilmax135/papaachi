@@ -14,6 +14,8 @@ use App\Http\Controllers\LocationController;
 use App\Http\Controllers\BoxController;
 use App\Http\Controllers\SellController;
 use App\Http\Controllers\ServiceController;
+use App\Http\Controllers\TransferController;
+
 use App\Models\Product;
 /*
 |--------------------------------------------------------------------------
@@ -168,5 +170,17 @@ Route::post('/locate', [LocationController::class, 'store']);
 
 Route::post('/update_total',[SellController::class,'update_total']);
 
-Route::post('/selectLocate', [LocationController::class, 'store'])->name('save.locations');
-Route::post('/save-locations', [LocationController::class, 'saveLocations']);
+//
+
+//transfer
+Route::get('/transfer', [TransferController::class, 'index']);
+
+Route::post('/trans', [TransferController::class, 'store'])->name('transfer.store');
+
+Route::post('/transferPay',[TransferController::class,'Transpay']);
+
+
+Route::get('/listtransfer', [TransferController::class, 'list']);
+Route::get('/transdetails/{transfer_id}', [TransferController::class, 'getPaymentsByTransferId']);
+
+Route::post('/additiontransferpay/{transfer_id}',[TransferController::class,'processTransPayment']);

@@ -9,9 +9,7 @@ use App\Models\sellProduct;
 use App\Models\sellPayment;
 use App\Models\Branch;
 use App\Models\Location;
-use App\Models\Purchase;
-use App\Models\Payment;
-use App\Models\ProductPurchase;
+
 use App\Models\service;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;

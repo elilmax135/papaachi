@@ -17,7 +17,10 @@ class Branch extends Model
         'incharge',
         'contact_no',
     ];
-
+    public function transfers()
+    {
+        return $this->hasMany(Transfer::class);
+    }
 
     use HasFactory;
 }
