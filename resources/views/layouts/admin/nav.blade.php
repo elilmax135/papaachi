@@ -54,10 +54,10 @@
             </a>
             <ul class="nav-submenu">
               <li class="nav-item">
-                <a class="nav-link" href="{{ url('/purchase') }}">Add Product</a>
+                <a class="nav-link" href="{{ url('/purchase') }}">Add Purchase</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="{{ url('/ListPurchase') }}">List Product</a>
+                <a class="nav-link" href="{{ url('/ListPurchase') }}">List Purchase</a>
               </li>
             </ul>
             <li class="nav-item nav-hasmenu">
@@ -108,15 +108,10 @@
                         </a>
                         <ul class="nav-submenu">
                           <li class="nav-item">
-                            <a class="nav-link" href="{{ url('/viewpurchase') }}">ViewPurchaseReport</a>
+                            <a class="nav-link" href="{{ url('/filter-data') }}">View Reports</a>
                           </li>
 
-                          <li class="nav-item">
-                            <a class="nav-link" href="{{ url('/viewsell') }}">ViewSellReport</a>
-                          </li>
-                          <li class="nav-item">
-                            <a class="nav-link" href="{{ url('/viewtransfer') }}">ViewTransferReport</a>
-                          </li>
+
                         </ul>
 
 

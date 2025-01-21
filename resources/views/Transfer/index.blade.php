@@ -118,9 +118,9 @@
                 </div>
 
                 <div class="form-group mb-3">
-                    <label>Transfer ID</label>
+
                     @if($lastRecord)
-                    <input type="number" id="transfer_id" name="transfer_id" value="{{$lastRecord->id  }}" class="form-control" readonly>
+                    <input type="hidden" id="transfer_id" name="transfer_id" value="{{$lastRecord->id  }}" class="form-control" readonly>
                     @endif
                 </div>
 
@@ -176,7 +176,9 @@
                     <div class="col-md-6">
                         <div class="form-group">
                             <label>Transaction ID</label>
-
+                            @if($lastRecord)
+                            <input type="number" id="payment_total" name="payment_total" value="{{$lastRecord->	transection_id  }}" class="form-control" readonly>
+                            @endif
                     </div>
                     <div class="col-md-6">
                         <div class="form-group">

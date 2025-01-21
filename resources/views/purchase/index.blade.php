@@ -118,7 +118,7 @@
         </div>
     </div>
         <div class="form-group mb-3">
-            <label>Purchase ID</label>
+
             @if ($lastRecord)
             <input type="hidden" id="purchase_id" name="purchase_id" value="{{ $lastRecord->purchase_id }}" class="form-control" readonly>
             @endif

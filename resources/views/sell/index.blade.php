@@ -152,7 +152,7 @@
  </div>
 </div>
 <div class="col-12">
-    <div class="card-header">Locations</div>
+
     <div class="card-body">
         <form id="location-price-form" method="POST" action="{{ url('/update_total') }}">
             @csrf
@@ -205,21 +205,22 @@
         <div class="card-body">
             <!-- Payment Method & Fields -->
             <div class="row mb-3">
-                <div class="form-group mb-3">
+                <div class="col-md-4">
+                <div class="form-group mb-1">
                     <label>Total</label>
                     @if ($lastRecord)
                     <input type="number" id="payment_total" name="payment_total" value="{{ $lastRecord->total }}" class="form-control" readonly>
                     @endif
-
+                </div>
                 </div>
 
-                <div class="form-group mb-3">
-                    <label>Sell ID</label>
+                <div class="form-group mb-1">
+
                     @if ($lastRecord)
-                    <input type="number" id="sell_id" name="sell_id" value="{{ $lastRecord->id }}" class="form-control" readonly>
+                    <input type="hidden" id="sell_id" name="sell_id" value="{{ $lastRecord->id }}" class="form-control" readonly>
                     @endif
-                </div>
 
+            </div>
                 <div class="col-md-4">
                     <div class="form-group">
                         <label for="pay_amount">Cash Amount</label>

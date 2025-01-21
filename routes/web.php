@@ -190,9 +190,10 @@ Route::post('/additiontransferpay/{transfer_id}',[TransferController::class,'pro
 
 //
 
-Route::get('/viewpurchase', [ReportController::class, 'Purchaseindex']);
-Route::get('/viewsell', [ReportController::class, 'Sellindex']);
-Route::get('/viewtransfer', [ReportController::class, 'Transferindex']);
-Route::get('/Reportdetails/{purchase_id}', [ReportController::class, 'getPaymentsByPurchaseId']);
-Route::get('/sales/Redetails/{sale_id}', [ReportController::class, 'getPaymentsBySaleId']);
-Route::get('/Retransdetails/{transfer_id}', [ReportController::class, 'getPaymentsByTransferId']);
+
+
+
+use App\Http\Controllers\FilterController;
+
+Route::get('/filter-data', [ReportController::class, 'showFilterForm']);
+Route::get('/filter-results', [FilterController::class, 'filterData']);

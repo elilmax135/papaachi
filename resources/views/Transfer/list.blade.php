@@ -122,7 +122,8 @@
         </div>
     </div>
 </div>
-
+<!-- Scroll Down Button -->
+<button id="scrollDownButton" class="btn btn-primary btn-sm">Scroll to Bottom</button>
 <script>
     // Scroll to Bottom of the Table
     document.getElementById('scrollDownButton')?.addEventListener('click', function () {
