@@ -84,7 +84,7 @@ class BoxController extends Controller
     $boxtype = BoxType::findOrFail($id);
 
     // Return a view with the box color data (you will also pass the data to the modal here)
-    return response()->json($boxtype);  // Return the color in JSON to populate the modal form
+    return redirect()->back();  // Return the color in JSON to populate the modal form
      }
 
      public function btypeupdate($id,Request $request){
@@ -139,7 +139,7 @@ class BoxController extends Controller
     $fcolor = FlowerColor::findOrFail($id);
 
     // Return a view with the flower color data (you will also pass the data to the modal here)
-    return response()->json($fcolor);  // Return the color in JSON to populate the modal form
+    return redirect()->back(); // Return the color in JSON to populate the modal form
      }
 
      public function fcolorupdate($id,Request $request){

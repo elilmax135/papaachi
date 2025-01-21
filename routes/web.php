@@ -11,6 +11,7 @@ use App\Http\Controllers\ProductController;
 use App\Http\Controllers\BranchController;
 use App\Http\Controllers\LocationController;
 
+use App\Http\Controllers\ReportController;
 use App\Http\Controllers\BoxController;
 use App\Http\Controllers\SellController;
 use App\Http\Controllers\ServiceController;
@@ -184,3 +185,14 @@ Route::get('/listtransfer', [TransferController::class, 'list']);
 Route::get('/transdetails/{transfer_id}', [TransferController::class, 'getPaymentsByTransferId']);
 
 Route::post('/additiontransferpay/{transfer_id}',[TransferController::class,'processTransPayment']);
+
+
+
+//
+
+Route::get('/viewpurchase', [ReportController::class, 'Purchaseindex']);
+Route::get('/viewsell', [ReportController::class, 'Sellindex']);
+Route::get('/viewtransfer', [ReportController::class, 'Transferindex']);
+Route::get('/Reportdetails/{purchase_id}', [ReportController::class, 'getPaymentsByPurchaseId']);
+Route::get('/sales/Redetails/{sale_id}', [ReportController::class, 'getPaymentsBySaleId']);
+Route::get('/Retransdetails/{transfer_id}', [ReportController::class, 'getPaymentsByTransferId']);

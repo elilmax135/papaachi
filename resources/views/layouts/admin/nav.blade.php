@@ -96,6 +96,29 @@
                         <a class="nav-link" href="{{ url('/listtransfer') }}">List Transfer</a>
                       </li>
                     </ul>
+                    <li class="nav-item nav-hasmenu">
+                        <a href="#!" class="nav-link">
+                          <span class="nav-icon">
+                            <i class="ti ti-layout-2"></i>
+                          </span>
+                          <span class="nav-text">Reports</span>
+                          <span class="nav-arrow">
+                            <i data-feather="chevron-right"></i>
+                          </span>
+                        </a>
+                        <ul class="nav-submenu">
+                          <li class="nav-item">
+                            <a class="nav-link" href="{{ url('/viewpurchase') }}">ViewPurchaseReport</a>
+                          </li>
+
+                          <li class="nav-item">
+                            <a class="nav-link" href="{{ url('/viewsell') }}">ViewSellReport</a>
+                          </li>
+                          <li class="nav-item">
+                            <a class="nav-link" href="{{ url('/viewtransfer') }}">ViewTransferReport</a>
+                          </li>
+                        </ul>
+
 
         <li class="nav-item nav-hasmenu">
            <a href="#!" class="nav-link">
