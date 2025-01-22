@@ -12,6 +12,7 @@ class Transfer extends Model
         'transfer_date',
         'transaction_id',
         'branch_id',
+        'branch_id2',
         'total',
         'transfer_status',
     ];

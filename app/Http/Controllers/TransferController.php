@@ -6,99 +6,228 @@ use Illuminate\Http\Request;
 use App\Models\Product;
 
 use App\Models\Branch;
-
+use App\Models\Stock;
 
 use App\Models\Transfer;
 use App\Models\TransferPayment;
 use App\Models\TransferProduct;
-
+use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\DB;
 
+use function Laravel\Prompts\select;
 
 class TransferController extends Controller
 {
-    public function index(){
-        $productbox = DB::table('product')
-        ->select('product.*', 'stock_quantity') // Include stock_quantity
-        ->where('product_type', '=', 'box')
-        ->get();
+    public function index()
+    {
+        $branch = DB::table('branches')->get();
+    // Fetch products for the "box" category.
+    $productbox = DB::table('stocks')
+    ->where('product_type', 'box')
+    ->get();
 
-    $productflower = DB::table('product')
-        ->select('product.*', 'stock_quantity') // Include stock_quantity
-        ->where('product_type', '=', 'flower')
-        ->get();
+// Fetch products for the "flower" category.
+$productflower = DB::table('stocks')
+    ->where('product_type', 'flower')
+    ->get();
 
-        $branch=Branch::all();
+// Log the preloaded product data (optional, for debugging)
+\Log::info("Preloaded Box Products:", $productbox->toArray());
+\Log::info("Preloaded Flower Products:", $productflower->toArray());
 
+// Pass the branches and preloaded product arrays to the view.
+return view('transfer.index', compact('branch', 'productbox', 'productflower'));
 
+    }
 
-        $lastRecord = transfer::orderBy('id', 'desc')->first();
-        $lasttransect = Transfer::orderBy('created_at', 'desc')->first();
-        return view('transfer.index',compact('productbox','productflower','branch','lastRecord','lasttransect'));
+    public function getProducts(Request $request)
+    {
+        // Validate the incoming request parameters.
+        $validatedData = $request->validate([
+            'branch_id' => 'required|integer',
+            'category'  => 'required|string',
+        ]);
+
+        // Retrieve the validated parameters.
+        $branch_id = $validatedData['branch_id'];
+        $category  = $validatedData['category'];
+
+        // Log the received inputs for debugging purposes.
+        \Log::info("Fetching products for Branch ID: $branch_id, Category: $category");
+
+        try {
+            // Query the database for products that match the category and branch_id.
+            $products = DB::table('stocks')
+                ->where('product_type', $category)
+                ->where('branch_id', $branch_id)
+                ->select('product_id', 'product_name', 'total_quantity', 'selling_price')
+                ->get();
+
+            // If no products were found, return a 404 JSON response.
+            if ($products->isEmpty()) {
+                return response()->json(['message' => 'No products found'], 404);
+            }
+
+            // Return the products as a JSON array with a 200 status code.
+            return response()->json($products, 200);
+        } catch (\Exception $e) {
+            // Log any exceptions that occur.
+            \Log::error("Error fetching products: " . $e->getMessage());
+
+            // Return a 500 error response with a JSON error message.
+            return response()->json(['message' => 'Error fetching products'], 500);
+        }
     }
 
 
 
+    public function store(Request $request)
+{
+    DB::beginTransaction();
+    try {
+        // Validate the request at the beginning
+        $request->validate([
+            'transfer_date'  => 'required|date',
+            'f_id'           => 'required|exists:branches,id',
+            't_id'           => 'required|exists:branches,id|different:f_id',
+            'transaction_id' => 'required|string',
+            'total'          => 'required|numeric|min:0',
+            'products'       => 'required|json',
+        ]);
+
+        // Decode the products JSON string
 
 
-    public function store(Request $request){
+        // Create the transfer record
+        $transfer = new Transfer();
+        $transfer->transfer_date = $request->transfer_date;
+        $transfer->branch_id2 = $request->f_id;
+        $transfer->branch_id = $request->t_id;
+        $transfer->transaction_id = $request->transaction_id;
+        $transfer->total = $request->total;
+        $transfer->save();
 
-   // Save the sell details
-   $transfer = new Transfer();
+        $products = json_decode($request->products);
+        if (!is_array($products)) {
+            throw new \Exception("Invalid JSON format for products.");
+        }
 
-   $transfer->transfer_date = $request->transfer_date;
-   $transfer->transaction_id = $request->transaction_id;
-   $transfer->branch_id = $request->t_id;
+        foreach ($products as $product) {
+            $branchFrom = $request->f_id;
+            $branchTo   = $request->t_id;
+            $productId  = $product->product_id;
+            $quantity   = $product->quantity;
+            $price  = $product->price;
 
-
-   $transfer->total = $request->total;
-   $transfer->save();
-
-
-    $validatedData = $request->validate([
-        'products' => 'required|json', // Validate JSON structure
-    ]);
-
-    $products = json_decode($request->products);
-
-
-   $transfer->products = json_encode($products); // Storing the products as JSON
-
-   foreach ($products as $product) {
-       $purchasePrice = is_numeric($product->purchase_price) ? (float)$product->purchase_price : 0.00;
-       $transferingPrice = is_numeric($product->selling_price) ? (float)$product->selling_price : 0.00;
-       $subtotalField = $product->quantity * $transferingPrice;
-
-       // Fetch the product from the database
-       $existingProduct = Product::find($product->product_id);
-
-       if ($existingProduct) {
-           // Update the stock quantity
-           $existingProduct->stock_quantity -= $product->quantity;
-           // Update purchase price and selling price
-           $existingProduct->price_purchase = $purchasePrice;
-           $existingProduct->price_selling = $transferingPrice;
-           $existingProduct->save();
-       }
+            // Retrieve and update stock for the transferring branch
+            $stockFrom = Stock::where('product_id', $product->product_id)
+                ->where('branch_id', $branchFrom)
+                ->first();
+                $stockTo = Stock::where('product_id', $product->product_id)
+                ->where('branch_id', $branchTo)
+                ->first();
 
 
-       // Store the product in the sell_product table
-       $transferProduct = new TransferProduct();
-       $transferProduct->transfer_id = $transfer->id;
-       $transferProduct->product_id = $product->product_id;
-       $transferProduct->quantity = $product->quantity;
-       $transferProduct->purchase_price = $purchasePrice;
-       $transferProduct->selling_price = $transferingPrice;
-       $transferProduct->subtotal = $subtotalField;
+            if (!$stockFrom) {
+                throw new \Exception("Insufficient stock for product ID: $productId at branch ID: $branchFrom.");
+            }else{
 
-       $transferProduct->save();
-   }
-     return redirect()->back()->with('success','successfully Submitted');
+            $stockFrom->total_quantity -= $quantity;
+            $stockFrom->save();
+            }
+
+
+
+            if (!$stockTo) {
+                // Correctly instantiate Stock model
+                $stockTo = new Stock();
+                $stockTo->product_id = $product->product_id;
+                $stockTo->branch_id = $branchTo;
+                $stockTo->branch_name = Branch::where('id', $branchTo)->value('branch_name');
+                $stockTo->product_name = product::where('product_id', $product->product_id)->value('product_name');
+                $stockTo->total_quantity = $quantity;
+                $stockTo->selling_price = $price;
+
+                // Check product_id range and assign product_type
+                if ($product->product_id >= 500 && $product->product_id <= 6999) {
+                    $stockTo->product_type = 'box';  // Assign 'box' if product_id is between 500 and 6999
+                } else {
+                    $stockTo->product_type = 'flower';  // Assign 'flower' for other product_ids
+                }
+
+                $stockTo->save();
+            } else {
+                $stockTo->total_quantity += $quantity;
+                $stockTo->save();
+            }
+
+
+
+
+
+            // Store transfer details in transfer_product table
+            TransferProduct::create([
+                'transfer_id'    => $transfer->id,
+                'product_id'     => $productId,
+                'quantity'       => $quantity,
+                'purchase_price' => $product->purchase_price ?? 0,
+                'selling_price'  => $product->price ?? 0,
+                'subtotal'       => $quantity * ($product->price ?? 0),
+            ]);
+        }
+
+        DB::commit();
+return redirect()->back()->with('success', 'Transfer completed successfully.');
+
+    } catch (\Exception $e) {
+        DB::rollBack();
+        return redirect()->back()->with('error', $e->getMessage());
+
     }
+}
 
 
 
 
+        private function updateStock($branchId, $productId, $quantity, $operation = 'increase')
+        {
+            DB::transaction(function () use ($branchId, $productId, $quantity, $operation) {
+                Log::info("Updating stock for Branch ID: $branchId, Product ID: $productId, Quantity: $quantity, Operation: $operation");
+
+                // Lock the stock row to prevent race conditions
+                $stock = Stock::where([
+                    ['branch_id', '=', $branchId],
+                    ['product_id', '=', $productId]
+                ])->lockForUpdate()->first();
+
+                if ($operation === 'decrease') {
+                    if (!$stock || $stock->total_quantity < $quantity) {
+                        Log::error("Insufficient stock for Product ID: $productId at Branch ID: $branchId. Available: " . ($stock ? $stock->total_quantity : 0));
+                        throw new \Exception("Insufficient stock for product ID: $productId at branch ID: $branchId.");
+                    }
+                    Log::info("Decreasing stock by $quantity for Product ID: $productId at Branch ID: $branchId");
+                    $stock->decrement('total_quantity', $quantity);
+                } else {
+                    if ($stock) {
+                        Log::info("Increasing stock by $quantity for Product ID: $productId at Branch ID: $branchId");
+                        $stock->increment('total_quantity', $quantity);
+                    } else {
+                        Log::info("Creating new stock entry for Product ID: $productId at Branch ID: $branchId");
+                        // Fetch branch and product names
+                        $branchName = Branch::find($branchId)->branch_name ?? 'Unknown';
+                        $productName = Product::find($productId)->product_name ?? 'Unknown';
+
+                        Stock::create([
+                            'branch_id'     => $branchId,
+                            'product_id'    => $productId,
+                            'total_quantity'=> $quantity,
+                            'branch_name'   => $branchName,
+                            'product_name'  => $productName,
+                        ]);
+                    }
+                }
+            });
+        }
 
     public function Transpay(Request $request)
 {
@@ -265,4 +394,52 @@ return view('transfer.details', compact('transfer', 'payments', 'products', 'tra
     return redirect()->back()->with('success', 'Transfer payment processed successfully.');
 
    }
+
+
+
+   public function deleteTransfer($transfer_id)
+{
+
+ $transfer = Transfer::find($transfer_id);
+    if (!$transfer) {
+        return response()->json(['error' => 'Transfer not found'], 404);
+    }
+
+    $transferProducts = TransferProduct::where('transfer_id', $transfer_id)->get();
+    $stockData = []; // Array to store stock details
+
+    foreach ($transferProducts as $transferProduct) {
+        $branchTo   = $transfer->branch_id;  // Receiving Branch
+        $branchFrom = $transfer->branch_id2; // Sending Branch
+        $productId  = $transferProduct->product_id;
+        $quantity   = $transferProduct->quantity;
+
+        // Get Stock from Receiving Branch
+        $stockTo = Stock::where('product_id', $productId)->where('branch_id', $branchTo)->first();
+        $stockFrom = Stock::where('product_id', $productId)->where('branch_id', $branchFrom)->first();
+
+        // Store data before changes
+        $stockData[] = [
+            'product_id'   => $productId,
+            'branch_to'    => $branchTo,
+            'stock_to_qty' => $quantity,
+            'branch_from'  => $branchFrom,
+            'stock_from_qty' => $quantity,
+        ];
+
+        // Reverse stock changes
+        if ($stockTo) {
+            $stockTo->total_quantity -= $quantity;
+            $stockTo->save();
+        }
+        if ($stockFrom) {
+            $stockFrom->total_quantity += $quantity;
+            $stockFrom->save();
+        }
+    }
+
+    // Return JSON response with stock details
+
+    return redirect()->back()->with('success', 'Transfer and associated products deleted successfully!');
+}
 }

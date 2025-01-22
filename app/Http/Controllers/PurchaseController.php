@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Product;
 use App\Models\Branch;
 use App\Models\Purchase;
+use App\Models\Stock;
 use App\Models\Payment;
 use App\Models\ProductPurchase;
 use Illuminate\Http\Request;
@@ -55,19 +56,23 @@ class PurchaseController extends Controller
                 $join->on('purchase.purchase_id', '=', 'latest_payment.purchase_id');
             }
         )
+        // Join with the product_purchases table to get product details
+        ->leftJoin('product_purchases', 'purchase.purchase_id', '=', 'product_purchases.purchase_id')
         ->select(
             'purchase.*',
             'branches.branch_name',
             'latest_payment.payment_id',
             'latest_payment.payment_date',
             'latest_payment.pay_amount',
-            'latest_payment.pay_due AS last_pay_due' // Alias the pay_due column for clarity
+            'latest_payment.pay_due AS last_pay_due', // Alias the pay_due column for clarity
+            'product_purchases.product_id', // Add product_id from product_purchases table
+                                                             // Add other product fields as necessary
+            'product_purchases.quantity', // Add quantity if needed
+            'product_purchases.purchase_price' // Add price if needed
         )
-        ->orderBy('purchase_id', 'desc')
+        ->orderBy('purchase.purchase_id', 'desc')
         ->get()
         ->groupBy('purchase_id');
-
-
 
 
 
@@ -102,34 +107,59 @@ public function submit(Request $request)
     ]);
     // Iterate over each product and handle database operations
     foreach ($products as $product) {
-        // Ensure purchase_price and selling_price are numeric and cast them to float
+        $productId = $product->id;
+        $branchId = $request->branch; // Branch where stock should be assigned
+        $quantity = $product->quantity;
+
+        // Convert purchase and selling prices to float
         $purchasePrice = is_numeric($product->purchase_price) ? (float)$product->purchase_price : 0.00;
         $sellingPrice = is_numeric($product->selling_price) ? (float)$product->selling_price : 0.00;
+        $subtotalField = $quantity * $purchasePrice;
 
-        $subtotalField = $product->quantity * $purchasePrice;
 
-        // Fetch the product from the database
-        $existingProduct = Product::find($product->id);
 
-        if ($existingProduct) {
-            // Update the stock quantity
-            $existingProduct->stock_quantity += $product->quantity;
-                // Update the purchase price and selling price
-                $existingProduct->price_purchase = $purchasePrice;
-                $existingProduct->price_selling = $sellingPrice;
-
-            $existingProduct->save();
-        }
+        // Record the purchase
         DB::table('product_purchases')->insert([
             'purchase_id' => $purchase->purchase_id,
-            'product_id' => $product->id,
-            'quantity' => $product->quantity,
+            'product_id' => $productId,
+            'quantity' => $quantity,
             'purchase_price' => $purchasePrice,
             'selling_price' => $sellingPrice,
             'subtotal' => $subtotalField,
             'created_at' => now(),
             'updated_at' => now(),
         ]);
+
+        // ===================== HANDLE STOCK TRANSFER =====================
+
+        // Retrieve stock for the branch
+        $stock = Stock::where('product_id', $product->id)
+                      ->where('branch_id', $request->branch)
+                      ->first();
+
+
+        // If stock doesn't exist, create a new stock record
+        if (!$stock) {
+             $stock = new Stock();
+             $stock->product_id = $product->id;
+             $stock->branch_id = $request->branch;
+             $stock->branch_name  = Branch::where('id', $request->branch)->value('branch_name');
+             $stock->product_name = product::where('product_id', $product->id)->value('product_name');
+             $stock->total_quantity = $product->quantity;
+             $stock->selling_price = $product->selling_price;// Assume starting at 0 if not found
+             if ($product->id >= 500 && $product->id <= 6999) {
+                $stock->product_type = 'box';  // Assign 'box' if product_id is between 500 and 6999
+            } else {
+                $stock->product_type = 'flower';  // Assign 'flower' for other product_ids
+            }
+             $stock->save();
+        }
+else{
+        // Add stock to the branch
+        $stock->total_quantity += $product->quantity;
+        $stock->selling_price = $product->selling_price;
+        $stock->save();
+}
     }
 
     // Return a JSON response indicating success
@@ -248,9 +278,10 @@ public function payment(Request $request)
     {
         // Fetch purchase details (including supplier details directly from the purchase_info table)
         $purchase = DB::table('purchase')
+        ->join('branches', 'purchase.branch', '=', 'branches.id')
             ->select(
                 'supplier_name', // Assuming these fields exist directly in the purchase_info table
-                'branch',
+                'branches.branch_name',
                 'purchase_date',
                 'transaction_id',
                 'total',
@@ -265,7 +296,7 @@ public function payment(Request $request)
             ->orderBy('payment_id', 'desc') // Order by latest payment
             ->get();
 
-        // Fetch products and their quantities directly from the purchase_products table
+        // Fetch products and their quantities directly from the product_purchases table
         $products = DB::table('product_purchases')
         ->join('product', 'product_purchases.product_id', '=', 'product.product_id')
         ->select('product.product_name as product_name', 'product_purchases.quantity','product_purchases.subtotal','product_purchases.purchase_price')
@@ -276,5 +307,146 @@ public function payment(Request $request)
     }
 
 
+
+    public function store(Request $request)
+{
+    // Validate the request data
+    $validatedData = $request->validate([
+        'supplier_name' => 'required|string|max:255',
+        'purchase_date' => 'required|date',
+        'transaction_id' => 'nullable|string|max:255',
+        'branch' => 'required|integer',
+        'total' => 'required|numeric',
+
+    ]);
+
+    // Generate a unique transaction ID if not provided
+    $transactionId = $validatedData['transaction_id'] ?? 'TX-' . uniqid();
+
+    // Create the purchase record
+    $purchase = Purchase::create([
+        'supplier_name' => $validatedData['supplier_name'],
+        'purchase_date' => $validatedData['purchase_date'],
+        'transaction_id' => $transactionId,
+        'branch' => $validatedData['branch'],
+        'total' => $validatedData['total'],
+    ]);
+
+    // Decode the products JSON
+    $products = json_decode($request->products);
+
+    if (!$products || !is_array($products)) {
+        return redirect()->back()->withErrors(['products' => 'Invalid products data provided.']);
+    }
+
+    // Iterate over each product and handle database operations
+    foreach ($products as $product) {
+        // Ensure purchase_price and selling_price are numeric and cast them to float
+        $purchasePrice = is_numeric($product->purchase_price) ? (float)$product->purchase_price : 0.00;
+        $sellingPrice = is_numeric($product->selling_price) ? (float)$product->selling_price : 0.00;
+        $subtotalField = $product->quantity * $purchasePrice;
+
+        // Fetch the product from the database
+        $existingProduct = Product::find($product->id);
+
+        if ($existingProduct) {
+            // Update the stock quantity
+            $existingProduct->stock_quantity += $product->quantity;
+            // Update the purchase price and selling price
+            $existingProduct->price_purchase = $purchasePrice;
+            $existingProduct->price_selling = $sellingPrice;
+            $existingProduct->save();
+        }
+
+        // Insert the product purchase record
+        DB::table('product_purchases')->insert([
+            'purchase_id' => $purchase->purchase_id,
+            'product_id' => $product->id,
+            'quantity' => $product->quantity,
+            'purchase_price' => $purchasePrice,
+            'selling_price' => $sellingPrice,
+            'subtotal' => $subtotalField,
+            'created_at' => now(),
+            'updated_at' => now(),
+        ]);
+    }
+
+    // Validate the payment details
+    $paymentData = $request->validate([
+        'purchase_id' => 'required|string',
+        'payment_method' => 'required|string',
+        'check_number' => 'nullable|string',
+        'bank_name' => 'nullable|string',
+        'transection_id' => 'nullable|string',
+        'payment_platform' => 'nullable|string',
+        'payment_date' => 'required|date',
+        'payment_total' => 'required|numeric',
+        'pay_amount' => 'required|numeric',
+    ]);
+
+    // Create the payment record
+    $payment = new Payment();
+    $payment->purchase_id = $paymentData['purchase_id'];
+    $payment->payment_method = $paymentData['payment_method'];
+    $payment->check_number = $paymentData['check_number'] ?? '--';
+    $payment->bank_name = $paymentData['bank_name'] ?? '--';
+    $payment->transection_id = ($paymentData['payment_method'] === 'online' && $paymentData['transection_id']) ? $paymentData['transection_id'] : '--';
+    $payment->payment_platform = $paymentData['payment_platform'] ?? '--';
+    $payment->payment_date = $paymentData['payment_date'];
+    $payment->purchase_total = $paymentData['payment_total'];
+    $payment->pay_amount = $paymentData['pay_amount'];
+    $payment->pay_due = $paymentData['payment_total'] - $paymentData['pay_amount'];
+    $payment->save();
+
+    // Update the purchase status based on payment
+    $purchase = Purchase::where('purchase_id', $paymentData['purchase_id'])->first();
+
+    if ($purchase) {
+        if ($payment->pay_due == 0) {
+            $purchase->purchase_status = 'true'; // Fully paid
+        } elseif ($payment->pay_due > 0 && $payment->pay_due < $payment->purchase_total) {
+            $purchase->purchase_status = 'pending'; // Partially paid
+        } elseif ($payment->pay_due < 0) {
+            $purchase->purchase_status = 'true'; // Overpaid
+        }
+
+        $purchase->save();
+    }
+
+    // Redirect with success message
+    return redirect()->back()->with('success', 'Purchase and payment have been successfully recorded!');
 }
+//deletePurchase
+public function deletePurchase($purchase_id)
+{
+
+
+    // Get all purchase products
+    $purchase = Purchase::find($purchase_id);
+    $purchaseProducts = ProductPurchase::where('purchase_id', $purchase_id)->get();
+
+    // Restore stock quantity before deleting the purchase products
+    foreach ($purchaseProducts as $purchaseProduct) {
+
+
+            $stockFrom = Stock::where('product_id', $purchaseProduct->product_id)->where('branch_id', $purchase->branch)->first();
+
+            if ($stockFrom) {
+                $stockFrom->total_quantity -= $purchaseProduct->quantity;
+                $stockFrom->save();
+            }
+        }
+
+    // Delete the purchase products first
+    ProductPurchase::where('purchase_id', $purchase_id)->delete();
+
+    // Delete the purchase record
+    Purchase::where('purchase_id', $purchase_id)->delete();
+
+
+
+    return redirect()->back()->with('success', 'Purchase and associated products deleted successfully!');
+}
+}
+
 

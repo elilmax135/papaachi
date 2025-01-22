@@ -10,7 +10,7 @@ class SellProduct extends Model
 
     protected $table = 'sell_product';
     protected $fillable = [
-        'sell_id', 'product_id', 'quantity', 'purchase_price', 'selling_price', 'subtotal'
+        'sell_id', 'product_id', 'quantity', 'selling_price', 'subtotal'
     ];
 
     public function sell()

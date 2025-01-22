@@ -156,7 +156,7 @@ class BoxController extends Controller
 
     public function fcolordestroy($id)
     {
-        $fcolor = BoxColor::findOrFail($id);
+        $fcolor = FlowerColor::find($id);
         $fcolor->delete();
 
         return redirect()->back();

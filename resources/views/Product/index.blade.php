@@ -63,7 +63,7 @@
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label for="box_image">Box Image</label>
-                                <input type="file" id="box_image" name="box_image" class="form-control" accept="image/*" onchange="previewImage(event, 'box_image_preview')" required>
+                                <input type="file" id="box_image" name="box_image" class="form-control" accept="image/*" onchange="previewImage(event, 'box_image_preview')">
                             </div>
                         </div>
                     </div>
@@ -125,7 +125,7 @@
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label for="flower_image">Flower Image</label>
-                                <input type="file" id="flower_image" name="flower_image" class="form-control" accept="image/*" onchange="previewImage(event, 'flower_image_preview')" required>
+                                <input type="file" id="flower_image" name="flower_image" class="form-control" accept="image/*" onchange="previewImage(event, 'flower_image_preview')">
                             </div>
                         </div>
                     </div>

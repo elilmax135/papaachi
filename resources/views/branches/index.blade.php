@@ -7,8 +7,8 @@
 <button class="btn btn-warning mb-3" data-bs-toggle="modal" data-bs-target="#addBranchModal">Add Branch</button>
 
 <!-- Branch Table -->
-<table class="table table-bordered">
-    <thead class="thead-brown">
+<table class="table table-bordered table-striped" id="branchtable">
+    <thead>
     <tr>
         <th>Branch Name</th>
         <th>Address</th>
@@ -25,15 +25,27 @@
             <td>{{ $branch->incharge }}</td>
             <td>{{ $branch->contact_no }}</td>
             <td>
-                <!-- Edit Link -->
-                <a href="#" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#editBranchModal{{ $branch->id }}">Edit</a>
-
-                <!-- Delete Form -->
-                <form action="{{url('/destroy',$branch->id)}}" method="POST" style="display:inline;">
-                    @csrf
-                    @method('DELETE')
-                    <button class="btn btn-danger" onclick="return confirm('Are you sure?')">Delete</button>
-                </form>
+                <div class="dropdown">
+                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton{{ $branch->id }}" data-bs-toggle="dropdown" aria-expanded="false">
+                        <i class="fas fa-cogs"></i> Actions
+                    </button>
+                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton{{ $branch->id }}">
+                        <li>
+                            <a class="dropdown-item text-warning" href="#" data-bs-toggle="modal" data-bs-target="#editBranchModal{{ $branch->id }}">
+                                <i class="fas fa-edit"></i> Edit
+                            </a>
+                        </li>
+                        <li>
+                            <form action="{{ url('/destroy', $branch->id) }}" method="POST" onsubmit="return confirm('Are you sure?')">
+                                @csrf
+                                @method('DELETE')
+                                <button type="submit" class="dropdown-item text-danger">
+                                    <i class="fas fa-trash-alt"></i> Delete
+                                </button>
+                            </form>
+                        </li>
+                    </ul>
+                </div>
             </td>
         </tr>
     @endforeach
@@ -129,4 +141,11 @@
 
 
  </div>
+
+
+ <script>
+    $(document).ready(function() {
+        $('#branchTable').DataTable(); // Initialize DataTable
+    });
+</script>
 @endsection

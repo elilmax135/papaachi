@@ -4,14 +4,11 @@
 <div class="row">
     <!-- Transfer Details -->
     <div class="col-12">
-        <div class="mb-3">
-            <label for="filter-input" class="form-label">Filter by Branch Name or Transfer ID</label>
-            <input type="text" id="filter-input" class="form-control" placeholder="Enter Branch Name or Transfer ID">
-        </div>
+  
 
         <div class="card mb-3">
-            <div class="table-responsive" style="max-height: 500px; overflow-y: auto;">
-                <table class="table table-bordered">
+            <div class="table-responsive">
+                <table class="table table-bordered table-striped" id="transfertable">
                     <thead>
                         <tr>
                             <th>To Branch</th>
@@ -39,10 +36,33 @@
                                 @endif
                             </td>
                             <td>
-                                <button type="button" class="btn btn-success btn-sm" data-bs-toggle="modal" data-bs-target="#payNowModal-{{ $transfer_id }}">
-                                    💳 Pay Now
-                                </button>
-                                <a href="{{ url('/transdetails/' . $transfer_id) }}" class="btn btn-primary btn-sm"> 📄 Details</a>
+                                <!-- Dropdown Button -->
+                                <div class="dropdown">
+                                    <button class="btn btn-secondary dropdown-toggle btn-sm" type="button" id="dropdownMenuButton-{{ $transfer_id }}" data-bs-toggle="dropdown" aria-expanded="false">
+                                        <i class="fas fa-cogs"></i>  Actions
+                                    </button>
+                                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton-{{ $transfer_id }}">
+                                        <li>
+                                            <button type="button" class="dropdown-item" data-bs-toggle="modal" data-bs-target="#payNowModal-{{ $transfer_id }}">
+                                                <i class="fas fa-credit-card"></i> Pay Now
+                                            </button>
+                                        </li>
+                                        <li>
+                                            <a href="{{ url('/transdetails/' . $transfer_id) }}" class="dropdown-item">
+                                                <i class="fas fa-info-circle"></i> Details
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <form action="{{ url('/delete-transfer/' . $transfer_id) }}" method="POST" style="display:inline;">
+                                                @csrf
+                                                @method('DELETE')
+                                                <button type="submit" class="dropdown-item" onclick="return confirm('Are you sure you want to delete this transfer and all its products?')">
+                                                    <i class="fas fa-trash"></i>Delete
+                                                </button>
+                                            </form>
+                                        </li>
+                                    </ul>
+                                </div>
 
                                 <!-- Modal for Payment -->
                                 <div class="modal fade" id="payNowModal-{{ $transfer_id }}" tabindex="-1" aria-labelledby="payNowModalLabel-{{ $transfer_id }}" aria-hidden="true">
@@ -113,6 +133,7 @@
                                         </div>
                                     </div>
                                 </div>
+
                             </td>
                         </tr>
                         @endforeach
@@ -122,8 +143,7 @@
         </div>
     </div>
 </div>
-<!-- Scroll Down Button -->
-<button id="scrollDownButton" class="btn btn-primary btn-sm">Scroll to Bottom</button>
+
 <script>
     // Scroll to Bottom of the Table
     document.getElementById('scrollDownButton')?.addEventListener('click', function () {
@@ -137,13 +157,13 @@
     rows.forEach(row => {
         const branchName = row.dataset.branchName?.toLowerCase() || ''; // Get branch name from data attribute
         const transferId = row.dataset.transferId?.toLowerCase() || ''; // Get transfer ID from data attribute
-        const transactionId = row.querySelector('td:nth-child(3)').textContent.toLowerCase(); // Get transaction ID from the table cell
+        const transactionId = row.querySelector('td:nth-child(3)')?.textContent.trim().toLowerCase() || ''; // Get transaction ID
 
         // Show or hide the row based on whether branch name, transfer ID, or transaction ID matches filter input
         if (
             branchName.includes(filterValue) ||
             transferId.includes(filterValue) ||
-            transactionId.includes(filterValue)
+            transactionId.includes(filterValue) // Ensuring Transaction ID is included in filtering
         ) {
             row.style.display = ''; // Show the row
         } else {
@@ -152,11 +172,17 @@
     });
 });
 
+
     // Toggle Additional Payment Fields
     function togglePaymentFields(transferId) {
         const method = document.getElementById('payment-method-' + transferId).value;
         document.getElementById('check-fields-' + transferId).style.display = method === 'check' ? 'block' : 'none';
         document.getElementById('online-fields-' + transferId).style.display = method === 'online' ? 'block' : 'none';
     }
+</script>
+<script>
+    $(document).ready(function() {
+        $('#transfertable').DataTable(); // Initialize DataTable
+    });
 </script>
 @endsection

@@ -1,0 +1,49 @@
+.table {
+    width: 100%; /* Ensures table spans the full width */
+}
+
+.table thead,
+.table tbody {
+    display: block; /* Simplifies structure */
+    width: 100%;
+}
+
+.table tr {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+}
+
+.table td, .table th {
+    padding: 4px 6px; /* Reduced padding to minimize cell size */
+    text-align: center; /* Centers text in cells */
+    flex: 1; /* Ensures all columns are equally spaced */
+    word-wrap: break-word; /* Text wrapping if needed */
+    overflow-wrap: break-word; /* Breaks long words to prevent overflow */
+    min-width: 80px; /* Smaller minimum column width */
+}
+
+.table th {
+    font-weight: bold;
+    background-color: #f2f2f2;
+    font-size: 14px; /* Reduced font size for headers */
+}
+
+.table td img {
+    width: 120px;  /* Reduced image size for better fit */
+    height: 120px; /* Consistent image height */
+}
+
+@media (max-width: 768px) {
+    .table {
+        display: block; /* Makes the table scrollable on small screens */
+        overflow-x: auto;
+    }
+    .table thead, .table tbody {
+        display: block;
+    }
+    .table tr {
+        display: block;
+        width: 100%;
+    }
+}

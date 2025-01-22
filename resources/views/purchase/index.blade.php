@@ -104,82 +104,7 @@
     <input type="hidden" name="products" id="products">
 </form>
 
-<!-- Payment Form -->
-<form id="payment-form" method="POST" action="{{ url('/payments') }}">
-    @csrf
-    <div class="col-12">
-        <div class="card-header">Payment Details</div>
-        <div class="col-md-4 offset-md-8">
-        <div class="form-group mb-3">
-            <label>Total</label>
-            @if ($lastRecord)
-            <input type="number" id="payment_total" name="payment_total" value="{{ $lastRecord->total }}" class="form-control" readonly>
-            @endif
-        </div>
-    </div>
-        <div class="form-group mb-3">
 
-            @if ($lastRecord)
-            <input type="hidden" id="purchase_id" name="purchase_id" value="{{ $lastRecord->purchase_id }}" class="form-control" readonly>
-            @endif
-        </div>
-        <div class="col-md-4">
-        <div class="form-group mb-3">
-            <label>Cash Amount</label>
-            <input type="number" name="pay_amount" class="form-control" placeholder="Enter cash amount" required oninput="validatePayAmount()">
-            <span id="error-message" style="color: red; display: none;">Amount cannot exceed the total.</span>
-        </div>
-    </div>
-    <div class="col-md-4">
-        <div class="form-group mb-3">
-            <label>Payment Date</label>
-            <input type="date" name="payment_date" class="form-control">
-        </div>
-    </div>
-
-        <div class="col-md-4">
-        <div class="form-group mb-3">
-            <label for="payment-method">Payment Method</label>
-            <select id="payment-method" class="form-control" name="payment_method" onchange="togglePaymentFields()">
-                <option value="" disabled selected>Select payment method</option>
-                <option value="cash">Cash</option>
-                <option value="check">Check</option>
-                <option value="online">Online</option>
-            </select>
-        </div>
-    </div>
-        <!-- Check Payment Fields (Initially Hidden) -->
-        <div id="check-fields" class="payment-fields" style="display: none;">
-            <div class="form-group mb-3">
-                <label>Check Number</label>
-                <input type="text" name="check_number" class="form-control" placeholder="Enter check number">
-            </div>
-            <div class="form-group mb-3">
-                <label>Bank Name</label>
-                <input type="text" name="bank_name" class="form-control" placeholder="Enter bank name">
-            </div>
-        </div>
-
-        <!-- Online Payment Fields (Initially Hidden) -->
-        <div id="online-fields" class="payment-fields" style="display: none;">
-            <div class="form-group mb-3">
-                <label>Transaction ID</label>
-                @if ($lasttransect)
-                <input type="text" id="transection_id" name="transection_id" value="{{ $lasttransect->transaction_id }}" class="form-control" readonly>
-                @endif
-
-            </div>
-            <div class="form-group mb-3">
-                <label>Payment Platform</label>
-                <input type="text" name="payment_platform" class="form-control" placeholder="Enter payment platform">
-            </div>
-        </div>
-    </div>
-    <div class="text-end">
-        <button type="submit" class="btn btn-success">Submit Payment</button>
-    </div>
-
-</form>
 
 <!-- End of the form -->
 
@@ -379,32 +304,5 @@ document.addEventListener('DOMContentLoaded', function () {
 </script>
 
 
-<script>
-  function togglePaymentFields() {
-        const paymentMethod = document.getElementById('payment-method').value;
 
-        // Hide all payment-specific fields initially
-        document.getElementById('check-fields').style.display = 'none';
-        document.getElementById('online-fields').style.display = 'none';
-
-        // Show specific fields based on selected payment method
-        if (paymentMethod === 'check') {
-            document.getElementById('check-fields').style.display = 'block';
-        } else if (paymentMethod === 'online') {
-            document.getElementById('online-fields').style.display = 'block';
-        }
-    }
-    function validatePayAmount() {
-        const total = parseFloat(document.getElementById('payment_total').value);
-        const payAmount = parseFloat(document.querySelector('input[name="pay_amount"]').value);
-        const errorMessage = document.getElementById('error-message');
-
-        if (payAmount > total) {
-            errorMessage.style.display = 'block';
-        } else {
-            errorMessage.style.display = 'none';
-        }
-    }
-
-</script>
 @endsection

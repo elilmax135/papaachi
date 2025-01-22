@@ -5,14 +5,11 @@
 <div class="row">
     <!-- Supplier and Purchase Details -->
     <div class="col-12">
-        <div class="mb-3">
-            <label for="filter-input" class="form-label">Filter by Supplier Name or Purchase ID</label>
-            <input type="text" id="filter-input" class="form-control" placeholder="Enter Supplier Name or Purchase ID">
-        </div>
+      
 
         <div class="card mb-3">
-            <div class="table-responsive" style="max-height: 500px; overflow-y: auto;">
-                <table class="table table-bordered">
+            <div class="table-responsive">
+                <table class="table table-bordered table-striped" id="purchaseTable">
                     <thead>
                         <tr>
                             <th>Supplier Name</th>
@@ -27,8 +24,8 @@
                     <tbody>
                         @foreach ($purchases as $purchase_id => $purchase_group)
                         <tr class="purchase-row"
-                        data-supplier-name="{{ $purchase_group[0]->supplier_name }}"
-                        data-purchase-id="{{ $purchase_id }}">
+                            data-supplier-name="{{ $purchase_group[0]->supplier_name }}"
+                            data-purchase-id="{{ $purchase_id }}">
                             <td>{{ $purchase_group[0]->supplier_name }}</td>
                             <td>{{ $purchase_group[0]->branch_name }}</td>
                             <td>{{ $purchase_group[0]->purchase_date }}</td>
@@ -46,13 +43,33 @@
                                 @endif
                             </td>
                             <td>
-                                <!-- Pay Now and Details Buttons -->
-                                <button type="button" class="btn btn-success btn-sm" data-bs-toggle="modal" data-bs-target="#payNowModal-{{ $purchase_id }}">
-                                    💳 Pay Now
-                                </button>
-
-                                <a href="{{ url('/details/' . $purchase_id) }}" class="btn btn-primary btn-sm"> 📄 Details</a>
-
+                                <!-- Dropdown Button -->
+                                <div class="dropdown">
+                                    <button class="btn btn-secondary dropdown-toggle btn-sm" type="button" id="dropdownMenuButton-{{ $purchase_id }}" data-bs-toggle="dropdown" aria-expanded="false">
+                                        <i class="fas fa-cogs"></i> Actions
+                                    </button>
+                                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton-{{ $purchase_id }}">
+                                        <li>
+                                            <a href="#" class="dropdown-item" data-bs-toggle="modal" data-bs-target="#payNowModal-{{ $purchase_id }}">
+                                                <i class="fas fa-credit-card"></i>Pay Now
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="{{ url('/details/' . $purchase_id) }}" class="dropdown-item">
+                                                <i class="fas fa-info-circle"></i>Details
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <form action="{{ url('/delete-purchase/' . $purchase_id) }}" method="POST" style="display:inline;">
+                                                @csrf
+                                                @method('DELETE')
+                                                <button class="dropdown-item text-danger" onclick="return confirm('Are you sure you want to delete this purchase and all its products?')">
+                                                    <i class="fas fa-trash"></i>Delete
+                                                </button>
+                                            </form>
+                                        </li>
+                                    </ul>
+                                </div>
 
                                 <!-- Pay Now Modal -->
                                 <div class="modal fade" id="payNowModal-{{ $purchase_id }}" tabindex="-1" aria-labelledby="payNowModalLabel-{{ $purchase_id }}" aria-hidden="true">
@@ -67,37 +84,30 @@
                                                     @csrf
 
                                                     <div class="mb-3">
-                                                        <input type="number" class="form-control" id="purchase_id-{{ $purchase_id }}" name="purchase_id" value="{{ $purchase_group[0]->purchase_id }}">
+                                                        <input type="hidden" name="purchase_id" value="{{ $purchase_group[0]->purchase_id }}">
 
-
-                                                        <label for="amount-{{ $purchase_id }}" class="form-label">Purchase Total</label>
+                                                        <label for="payment_total-{{ $purchase_id }}" class="form-label">Purchase Total</label>
                                                         <input type="number" class="form-control" id="payment_total-{{ $purchase_id }}" name="payment_total" value="{{ $purchase_group[0]->total }}" readonly>
-                                                    </label>
+                                                    </div>
 
-                                                    <label for="amount-{{ $purchase_id }}" class="form-label">Due</label>
-                                                        @if ($purchase_group[0]->purchase_status == 'failed')
-                                                            <input type="number" id="payment_total-{{ $purchase_id }}" name="payment_total" value="{{ $purchase_group[0]->total }}" class="form-control" readonly>
-                                                        @else
-                                                            <input type="number" class="form-control" id="payment_total-{{ $purchase_id }}" name="payment_total" value="{{ $purchase_group[0]->last_pay_due }}" readonly>
-
-                                                       @endif
-                                                </label>
-
+                                                    <div class="mb-3">
+                                                        <label for="due-{{ $purchase_id }}" class="form-label">Due</label>
+                                                        <input type="number" class="form-control" id="due-{{ $purchase_id }}" name="payment_total" value="{{ $purchase_group[0]->purchase_status == 'failed' ? $purchase_group[0]->total : $purchase_group[0]->last_pay_due }}" readonly>
                                                     </div>
 
                                                     <div class="mb-3">
                                                         <label for="amount-{{ $purchase_id }}" class="form-label">Enter Amount</label>
-                                                        <input type="number" class="form-control" id="amount-{{ $purchase_id }}" name="pay_amount" placeholder="Enter amount">
+                                                        <input type="number" class="form-control" id="amount-{{ $purchase_id }}" name="pay_amount" placeholder="Enter amount" required>
                                                     </div>
 
                                                     <div class="mb-3">
                                                         <label>Payment Date</label>
-                                                        <input type="date" name="payment_date" class="form-control">
+                                                        <input type="date" name="payment_date" class="form-control" required>
                                                     </div>
 
                                                     <div class="mb-3">
                                                         <label for="payment-method-{{ $purchase_id }}" class="form-label">Payment Method</label>
-                                                        <select id="payment-method-{{ $purchase_id }}" class="form-control" name="payment_method" onchange="togglePaymentFields({{ $purchase_id }})">
+                                                        <select id="payment-method-{{ $purchase_id }}" class="form-control" name="payment_method" onchange="togglePaymentFields({{ $purchase_id }})" required>
                                                             <option value="" disabled selected>Select payment method</option>
                                                             <option value="cash">Cash</option>
                                                             <option value="check">Check</option>
@@ -105,7 +115,7 @@
                                                         </select>
                                                     </div>
 
-                                                    <!-- Check Payment Fields (Initially Hidden) -->
+                                                    <!-- Check Payment Fields -->
                                                     <div id="check-fields-{{ $purchase_id }}" class="payment-fields" style="display: none;">
                                                         <div class="mb-3">
                                                             <label for="check_number-{{ $purchase_id }}" class="form-label">Check Number</label>
@@ -117,7 +127,7 @@
                                                         </div>
                                                     </div>
 
-                                                    <!-- Online Payment Fields (Initially Hidden) -->
+                                                    <!-- Online Payment Fields -->
                                                     <div id="online-fields-{{ $purchase_id }}" class="payment-fields" style="display: none;">
                                                         <div class="mb-3">
                                                             <label for="transection_id-{{ $purchase_id }}" class="form-label">Transaction ID</label>
@@ -131,13 +141,12 @@
 
                                                     <button type="submit" class="btn btn-success">Confirm Payment</button>
                                                 </form>
-
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-
                             </td>
+
                         </tr>
                         @endforeach
                     </tbody>
@@ -147,38 +156,32 @@
     </div>
 </div>
 
-<!-- Scroll Down Button -->
-<button id="scrollDownButton" class="btn btn-primary btn-sm">Scroll to Bottom</button>
-
 <script>
-    // JavaScript to handle the scroll down button
-    document.getElementById('scrollDownButton').addEventListener('click', function () {
-        const scrollableDiv = document.querySelector('.table-responsive');
-        scrollableDiv.scrollTo({
-            top: scrollableDiv.scrollHeight,
-            behavior: 'smooth'
-        });
+document.getElementById('filter-input').addEventListener('input', function () {
+    const filterValue = this.value.toLowerCase();
+    const rows = document.querySelectorAll('.purchase-row');
+
+    rows.forEach(function (row) {
+        // Fetch the data from attributes for supplier name and purchase ID
+        const supplierName = row.getAttribute('data-supplier-name').toLowerCase();
+        const purchaseId = row.getAttribute('data-purchase-id').toLowerCase();
+
+        // Fetch the transaction ID from the 4th column of the row (adjust if needed)
+        const transactionId = row.cells[3].textContent.toLowerCase(); // Accessing the 4th column directly
+
+        // Check if the filter value matches the beginning of any of the fields
+        if (supplierName.startsWith(filterValue) || purchaseId.startsWith(filterValue) || transactionId.startsWith(filterValue)) {
+            row.style.display = '';  // Show the row
+        } else {
+            row.style.display = 'none';  // Hide the row
+        }
     });
+});
 
-    // JavaScript for the filtering function
-    document.getElementById('filter-input').addEventListener('input', function () {
-        const filterValue = this.value.toLowerCase();
-        const rows = document.querySelectorAll('.purchase-row');
 
-        rows.forEach(function (row) {
-            const supplierName = row.getAttribute('data-supplier-name').toLowerCase();
-            const purchaseId = row.getAttribute('data-purchase-id').toString().toLowerCase();
-
-            if (supplierName.includes(filterValue) || purchaseId.includes(filterValue)) {
-                row.style.display = '';
-            } else {
-                row.style.display = 'none';
-            }
-        });
-    });
 </script>
-<script>
 
+<script>
     function togglePaymentFields(purchaseId) {
         const paymentMethod = document.getElementById('payment-method-' + purchaseId).value;
 
@@ -193,7 +196,10 @@
             document.getElementById('online-fields-' + purchaseId).style.display = 'block';
         }
     }
-
 </script>
-
+<script>
+    $(document).ready(function() {
+        $('#purchaseTable').DataTable(); // Initialize DataTable
+    });
+</script>
 @endsection

@@ -17,7 +17,7 @@
         <div class="row">
             <div class="col-6">
                 <p><strong>Supplier Name:</strong> {{ $purchase->supplier_name }}</p>
-                <p><strong>Branch:</strong> {{ $purchase->branch }}</p>
+                <p><strong>Branch:</strong> {{ $purchase->branch_name }}</p>
                 <p><strong>Purchase Date:</strong> {{ $purchase->purchase_date }}</p>
             </div>
             <div class="col-6">

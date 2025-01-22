@@ -10,9 +10,10 @@ use App\Http\Controllers\SettingController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\BranchController;
 use App\Http\Controllers\LocationController;
-
+use App\Http\Controllers\StaffController;
 use App\Http\Controllers\ReportController;
 use App\Http\Controllers\BoxController;
+use App\Http\Controllers\StockController;
 use App\Http\Controllers\SellController;
 use App\Http\Controllers\ServiceController;
 use App\Http\Controllers\TransferController;
@@ -175,8 +176,11 @@ Route::post('/update_total',[SellController::class,'update_total']);
 
 //transfer
 Route::get('/transfer', [TransferController::class, 'index']);
+Route::get('/products', [TransferController::class, 'getProducts']);
 
-Route::post('/trans', [TransferController::class, 'store'])->name('transfer.store');
+
+
+Route::post('/trans', [TransferController::class, 'store']);
 
 Route::post('/transferPay',[TransferController::class,'Transpay']);
 
@@ -187,7 +191,6 @@ Route::get('/transdetails/{transfer_id}', [TransferController::class, 'getPaymen
 Route::post('/additiontransferpay/{transfer_id}',[TransferController::class,'processTransPayment']);
 
 
-
 //
 
 
@@ -195,5 +198,56 @@ Route::post('/additiontransferpay/{transfer_id}',[TransferController::class,'pro
 
 use App\Http\Controllers\FilterController;
 
+
 Route::get('/filter-data', [ReportController::class, 'showFilterForm']);
 Route::get('/filter-results', [FilterController::class, 'filterData']);
+
+
+
+
+Route::post('/purchasesave', [PurchaseController::class, 'savePurchase']);
+
+
+Route::post('/submitbtn', [PurchaseController::class, 'store']);
+
+
+
+
+
+Route::get('/staff',[StaffController::class,'staff']);
+
+
+Route::post('/addstaff',[StaffController::class,'addstaff']);
+
+
+Route::post('/updatestaff/{id}',[StaffController::class,'updatestaff']);
+
+Route::delete('/deletestaff/{id}',[StaffController::class,'deletestaff']);
+
+
+
+
+
+Route::get('/addsalary',[StaffController::class,'addsalary']);
+Route::post('/save-salary', [StaffController::class, 'save']);
+Route::put('/update-salary/{id}', [StaffController::class, 'update']);
+Route::delete('/delete-salary/{id}', [StaffController::class, 'destroy']);
+
+
+
+
+Route::post('/salary-sales/pay/{first_id}/{second_id}', [SellController::class, 'paySalary']);
+Route::delete('/delete-purchase/{purchase_id}', [PurchaseController::class, 'deletePurchase']);
+Route::delete('/delete-sell/{sale_id}', [SellController::class, 'deleteSells']);
+
+Route::delete('/delete-transfer/{transfer_id}', [TransferController::class, 'deleteTransfer']);
+
+
+// salary in  staffcontroller
+Route::get('/salary',[StaffController::class,'showsalary']);
+
+
+Route::get('/stock',[StockController::class,'stock']);
+
+
+Route::post('/selectbr',[TransferController::class,'index']);

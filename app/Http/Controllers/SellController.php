@@ -4,12 +4,14 @@ namespace App\Http\Controllers;
 use Illuminate\Support\Facades\Validator;
 
 use App\Models\Product;
+use App\Models\salary;
 use App\Models\sell;
 use App\Models\sellProduct;
 use App\Models\sellPayment;
 use App\Models\Branch;
 use App\Models\Location;
-
+use App\Models\Staff;
+use App\Models\Stock;
 use App\Models\service;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -31,18 +33,16 @@ class SellController extends Controller
             ->get();
             $lastRecord = sell::orderBy('id', 'desc')->first();
 
-            $service=service::all();
+            $branch=branch::all();
             $locate=location::all();
 
 
-            $location = DB::table('locations')
-            ->select('locations.total_distance') // Retrieve `total_distance` column
-            ->orderBy('id', 'desc')    // Order by the ID in descending order
-            ->first();
+           $staff=staff::all();
 
 
-            $lasttransect = Sell::orderBy('created_at', 'desc')->first();
-        return view('sell.index', compact('productbox', 'productflower','lastRecord','lasttransect','service','location'));
+
+
+        return view('sell.index', compact('productbox', 'productflower','lastRecord','branch','staff'));
     }
     public function sell_info(Request $request){
    // Handle the doctor confirmation file upload
@@ -60,11 +60,21 @@ class SellController extends Controller
    $sell->sell_date = $request->sell_date;
    $sell->transaction_id = $request->transaction_id;
    $sell->transport_mode = $request->transport_mode;
-   $sell->service_id = $request->s_id;
+   $sell->branch_id = $request->s_id;
    $sell->customer_address = $request->customer_address;
+   $sell->emapoming_date = $request->empaming_date;
+ // Amount fields
 
-   $sell->total = $request->total;
-   $sell->save();
+$sell->empoming_amount = $request->empaming_amount ?? 0;
+$sell->panthal_amount = $request->panthal_amount ?? 0;
+$sell->lift_amount = $request->lift_amount ?? 0;
+$sell->band_amount = $request->band_amount ?? 0;
+$sell->melam_amount = $request->instrument_amount ?? 0;
+$sell->transport_amount = $request->transport_amount ?? 0;
+$sell->total = $request->total; // Set the calculated total amount
+
+$sell->save();
+
 
 
     // Validate and decode the products JSON
@@ -74,41 +84,58 @@ class SellController extends Controller
 
     $products = json_decode($request->products);
 
-   // Save products as JSON to the 'products' field
    $sell->products = json_encode($products); // Storing the products as JSON
-
-
-
    // Save the products associated with the sell
    foreach ($products as $product) {
-       $purchasePrice = is_numeric($product->purchase_price) ? (float)$product->purchase_price : 0.00;
-       $sellingPrice = is_numeric($product->selling_price) ? (float)$product->selling_price : 0.00;
-       $subtotalField = $product->quantity * $sellingPrice;
+    $branchFrom = $request->s_id;
 
-       // Fetch the product from the database
-       $existingProduct = Product::find($product->product_id);
+    $productId  = $product->product_id;
+    $quantity   = $product->quantity;
+    $price  = $product->price;
 
-       if ($existingProduct) {
-           // Update the stock quantity
-           $existingProduct->stock_quantity -= $product->quantity;
-           // Update purchase price and selling price
-           $existingProduct->price_purchase = $purchasePrice;
-           $existingProduct->price_selling = $sellingPrice;
-           $existingProduct->save();
-       }
+    // Retrieve and update stock for the transferring branch
+    $stockFrom = Stock::where('product_id', $product->product_id)
+        ->where('branch_id', $branchFrom)
+        ->first();
 
-       // Store the product in the sell_product table
+
+    if (!$stockFrom) {
+        throw new \Exception("Insufficient stock for product ID: $productId at branch ID: $branchFrom.");
+    }else{
+
+    $stockFrom->total_quantity -= $quantity;
+    $stockFrom->save();
+    }
+
+// Store the product in the sell_product table
        $sellProduct = new SellProduct();
        $sellProduct->sell_id = $sell->id;
        $sellProduct->product_id = $product->product_id;
        $sellProduct->quantity = $product->quantity;
-       $sellProduct->purchase_price = $purchasePrice;
-       $sellProduct->selling_price = $sellingPrice;
-       $sellProduct->subtotal = $subtotalField;
+
+       $sellProduct->selling_price = $price;
+       $sellProduct->subtotal = $quantity * ($product->price ?? 0);
 
        $sellProduct->save();
    }
+   if ($request->person_name1 && $request->amount1) {
+   Salary::create([
+        'staff_id' => $request->person_name1,
+        'payment' => $request->amount1,
+        'remarks' => $request->remarks1,
+        'sells_id' => $sell->id,  // Store the sale ID for relation
+    ]);
+}
 
+// 3. Store Salary Information for Person 2 (if available)
+if ($request->person_name2 && $request->amount2) {
+    Salary::create([
+        'staff_id' => $request->person_name2,
+        'payment' => $request->amount2,
+        'remarks' => $request->remarks2,
+        'sells_id' => $sell->id,  // Store the sale ID for relation
+    ]);
+}
    return redirect()->back()->with('success', 'Sale Details successfully!');
 
 
@@ -223,18 +250,26 @@ public function list()
                 $join->on('sells.id', '=', 'latest_payment.sell_id');
             }
         )
-
+        ->leftJoin('salary', 'sells.id', '=', 'salary.sells_id')
+        ->leftJoin('staffs', 'salary.staff_id', '=', 'staffs.id')
         ->select(
             'sells.*',
             'latest_payment.sell_pay_id',
             'latest_payment.payment_date',
             'latest_payment.pay_amount',
             'latest_payment.pay_due AS last_pay_due',
+            'staffs.full_name',
+            'salary.payment',
+            'salary.payment_date',
+            'salary.salary_status',
+            'salary.due',
+            'salary.id AS salary_id'
             // Alias the pay_due column for clarity
         )
-        ->orderBy('id', 'desc')
+        ->orderBy('sells.id', 'desc')
         ->get()
         ->groupBy('id');
+
 
     return view('sell.list', compact('sell'));
 }
@@ -309,5 +344,89 @@ $lastRecord->save();
 // Return a success response
 return redirect()->back()->with('you can pay!');
 }
+
+
+
+public function paySalary(Request $request, $first_id, $second_id)
+{
+    // Validate input
+    $request->validate([
+        'first_person_salary_payment_amount' => 'required|numeric|min:0',
+        'second_person_salary_payment_amount' => 'required|numeric|min:0',
+        'payment_date1' => 'required|date',
+        'payment_date2' => 'required|date',
+    ]);
+
+    // Retrieve salary records by ID
+    $firstSalary = Salary::findOrFail($first_id);
+    $secondSalary = Salary::findOrFail($second_id);
+
+    // Get `pay1` and `pay2` from user input (hidden input fields in form)
+    $pay1 = $request->input('pay1', $firstSalary->due); // Default to current due if not provided
+    $pay2 = $request->input('pay2', $secondSalary->due);
+
+    // Get input payment amounts
+    $firstPaymentAmount = $request->input('first_person_salary_payment_amount', 0);
+    $secondPaymentAmount = $request->input('second_person_salary_payment_amount', 0);
+
+    $firstsalarydate = $request->input('payment_date1', null);
+    $secondsalarydate = $request->input('payment_date2', null);
+
+    $firstSalary->payment_date = $firstsalarydate;
+    $secondSalary->payment_date = $secondsalarydate;
+
+    $firstSalary->paid += $firstPaymentAmount;
+    $secondSalary->paid += $secondPaymentAmount;
+    // Correct due calculation (previous due - payment amount)
+    $firstSalary->due = max(0, $pay1 - $firstPaymentAmount);
+    $secondSalary->due = max(0, $pay2 - $secondPaymentAmount);
+
+    // Update salary status if fully paid
+    $firstSalary->salary_status = ($firstSalary->due == 0) ? 'Paid' : 'pending';
+    $secondSalary->salary_status = ($secondSalary->due == 0) ? 'Paid' : 'pending';
+
+    // Save updates
+    $firstSalary->save();
+    $secondSalary->save();
+
+    // Redirect back with success message
+    return redirect()->back()->with('success', 'Salaries updated successfully!');
+}
+
+
+//deleteSells
+public function deleteSells($sale_id)
+{
+
+    $sells =Sell::find($sale_id);
+    if (!$sells) {
+        return response()->json(['error' => 'Transfer not found'], 404);
+    }
+
+    // Get all purchase products
+    $sellProducts = sellProduct::where('sell_id', $sale_id)->get();
+
+    // Restore stock quantity before deleting the purchase products
+    foreach ($sellProducts as $sellProd) {
+
+        $stockFrom = Stock::where('product_id', $sellProd->product_id)->where('branch_id', $sells->branch_id)->first();
+
+        if ($stockFrom) {
+            $stockFrom->total_quantity += $sellProd->quantity;
+            $stockFrom->save();
+        }
+    }
+
+    // Delete the purchase products first
+    sellProduct::where('sell_id', $sale_id)->delete();
+
+    // Delete the purchase record
+    sell::where('id', $sale_id)->delete();
+
+    salary::where('sells_id', $sale_id)->delete();
+
+    return redirect()->back()->with('success', 'sale and associated products  deleted successfully!');
+}
+
 
 }

@@ -18,9 +18,16 @@ class sell extends Model
         'transport_mode',
         'customer_address',
         'doctor_confirm',
+        'branch_id',
         'total',
         'sell_status',
-        'service_id',
+        'empoming_amount',
+        'emapoming_date',
+        'panthal_amount',
+        'lift_amount',
+        'band_amount',
+        'transport_amount',
+        'melam_amount'
     ];
 
     public function sellproducts()
