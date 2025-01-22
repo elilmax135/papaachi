@@ -96,68 +96,66 @@
         </thead>
         <tbody>
             @foreach ($data as $item)
-                <tr>
-                    @if ($filterType === 'purchase')
-                        <td>{{ $item->purchase_id }}</td>
-                        <td>{{ $item->supplier_name }}</td>
-                        <td>{{ $item->purchase_date }}</td>
-                        <td>{{ $item->total }}</td>
-                        <td>
-                            <span class="badge
-                                @if ($item->purchase_status === 'true') badge-success
-                                @elseif ($item->purchase_status === 'Pending') badge-warning
-                                @elseif ($item->purchase_status === 'failed') badge-danger
-                                @endif">
-                                {{ $item->purchase_status }}
-                            </span>
-                        </td>
-                        <td>{{ $item->product_id }}</td>
-                        <td>{{ $item->product_name }}</td>
-                        <td>{{ $item->quantity }}</td>
-                        <td>{{ $item->branch_name }}</td>
-                    @elseif ($filterType === 'sell')
-                        <td>{{ $item->sell_id }}</td>
-                        <td>{{ $item->customer_name }}</td>
-                        <td>{{ $item->sell_date }}</td>
-                        <td>{{ $item->total }}</td>
-                        <td>
-                            <span class="badge
-                                @if ($item->sell_status === 'true') badge-success
-                                @elseif ($item->sell_status === 'Pending') badge-warning
-                                @elseif ($item->sell_status === 'fail') badge-danger
-                                @endif">
-                                {{ $item->sell_status }}
-                            </span>
-                        </td>
-                        <td>{{ $item->product_id }}</td>
-                        <td>{{ $item->product_name }}</td>
-                        <td>{{ $item->quantity }}</td>
-                    @elseif ($filterType === 'transfer')
-                        <td>{{ $item->transfer_id }}</td>
-                        <td>{{ $item->transaction_id }}</td>
-                        <td>{{ $item->branch_id }}</td>
-                        <td>{{ $item->branch_name }}</td>
-                        <td>{{ $item->total }}</td>
-                        <td>
-                            <span class="badge
-                                @if ($item->transfer_status === 'true') badge-success
-                                @elseif ($item->transfer_status === 'Pending') badge-warning
-                                @elseif ($item->transfer_status === 'fail') badge-danger
-                                @endif">
-                                {{ $item->transfer_status }}
-                            </span>
-                        </td>
-                        <td>{{ $item->payment_method }}</td>
-                        <td>{{ $item->product_name }}</td>
-                    @endif
-                </tr>
-            @endforeach
+            <tr>
+                @if ($filterType === 'purchase')
+                    <td>{{ $item->purchase_id }}</td>
+                    <td>{{ $item->supplier_name }}</td>
+                    <td>{{ $item->purchase_date }}</td>
+                    <td>{{ $item->total }}</td>
+                    <td>
+                        <span class="badge
+                            @if ($item->purchase_status === 'true') badge-success
+                            @elseif ($item->purchase_status === 'Pending') badge-warning
+                            @elseif ($item->purchase_status === 'failed') badge-danger
+                            @endif">
+                            {{ $item->purchase_status }}
+                        </span>
+                    </td>
+                    <td>{{ $item->product_id }}</td>
+                    <td>{{ $item->product_name }}</td>
+                    <td>{{ $item->quantity }}</td>
+                    <td>{{ $item->branch_name }}</td>
+                @elseif ($filterType === 'sell')
+                    <td>{{ $item->sell_id }}</td>
+                    <td>{{ $item->customer_name }}</td>
+                    <td>{{ $item->sell_date }}</td>
+                    <td>{{ $item->total }}</td>
+                    <td>
+                        <span class="badge
+                            @if ($item->sell_status === 'true') badge-success
+                            @elseif ($item->sell_status === 'Pending') badge-warning
+                            @elseif ($item->sell_status === 'fail') badge-danger
+                            @endif">
+                            {{ $item->sell_status }}
+                        </span>
+                    </td>
+                    <td>{{ $item->product_id }}</td>
+                    <td>{{ $item->product_name }}</td>
+                    <td>{{ $item->quantity }}</td>
+                @elseif ($filterType === 'transfer')
+                    <td>{{ $item->transfer_id }}</td>
+                    <td>{{ $item->transaction_id }}</td>
+                    <td>{{ $item->branch_id }}</td>
+                    <td>{{ $item->branch_name }}</td>
+                    <td>{{ $item->total }}</td>
+                    <td>
+                        <span class="badge
+                            @if ($item->transfer_status === 'true') badge-success
+                            @elseif ($item->transfer_status === 'Pending') badge-warning
+                            @elseif ($item->transfer_status === 'fail') badge-danger
+                            @endif">
+                            {{ $item->transfer_status }}
+                        </span>
+                    </td>
+                @endif
+            </tr>
+        @endforeach
         </tbody>
     </table>
 </div>
 
 <!-- Total -->
-<div class="mt-3">
+<div class="mt-3 p-3 bg-light border rounded d-inline-block">
     <strong>Total: </strong> {{ $total ?? '' }}
 </div>
 

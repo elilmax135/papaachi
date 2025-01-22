@@ -116,12 +116,17 @@ class ProductController extends Controller
         // Validate the incoming data
         $data= new Box();
 
-        $image=$request->box_image;
+        $image = $request->box_image ?? null;
 
-        $imagename=time().'.'.$image->getClientOriginalExtension();
-         $request->box_image->move('boxImage',$imagename);
-         $data->box_image=$imagename;
-
+        if ($image) {
+            // Process and save the image
+            $imagename = time() . '.' . $image->getClientOriginalExtension();
+            $request->box_image->move(public_path('boxImage'), $imagename);
+            $data->box_image = $imagename; // Save the image name
+        } else {
+            // Set to null if no image is provided
+            $data->box_image = null;
+        }
 
          $data->box_name= $request->box_name;
 
@@ -141,11 +146,17 @@ class ProductController extends Controller
         // Validate the incoming data
         $data= new Flower();
 
-        $image=$request->flower_image;
+        $image = $request->flower_image ?? null;
 
-        $imagename=time().'.'.$image->getClientOriginalExtension();
-         $request->flower_image->move('flowerImage',$imagename);
-         $data->flower_image=$imagename;
+        if ($image) {
+            // Process and save the image
+            $imagename = time() . '.' . $image->getClientOriginalExtension();
+            $request->flower_image->move(public_path('flowerImage'), $imagename);
+            $data->flower_image = $imagename; // Save the image name
+        } else {
+            // Set to null if no image is provided
+            $data->flower_image = null;
+        }
          $data->flower_name= $request->flower_name;
          $data->fw_color_id = $request->f_color_id; // Map flower_color to fw_color_id
          $data->price_purchase= $request->flower_price_purchase;
