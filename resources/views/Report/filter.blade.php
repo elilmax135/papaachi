@@ -104,12 +104,21 @@
                     <td>{{ $item->total }}</td>
                     <td>
                         <span class="badge
+<<<<<<< HEAD
                         @if ($item->purchase_status === 'true') badge-success
                         @elseif ($item->purchase_status === 'pending') badge-warning
                         @elseif ($item->purchase_status === 'failed') badge-danger
                         @endif">
                         {{ $item->purchase_status === 'true' ? 'Completed' : ($item->purchase_status === 'pending' ? 'Pending' : 'Fail') }}
                     </span>
+=======
+                            @if ($item->purchase_status === 'true') badge-success
+                            @elseif ($item->purchase_status === 'Pending') badge-warning
+                            @elseif ($item->purchase_status === 'failed') badge-danger
+                            @endif">
+                            {{ $item->purchase_status }}
+                        </span>
+>>>>>>> b14133ddcc82c7a3b10df3e579addbbee9eef9b3
                     </td>
                     <td>{{ $item->product_id }}</td>
                     <td>{{ $item->product_name }}</td>
@@ -122,12 +131,21 @@
                     <td>{{ $item->total }}</td>
                     <td>
                         <span class="badge
+<<<<<<< HEAD
                         @if ($item->sell_status === 'true') badge-success
                         @elseif ($item->sell_status === 'pending') badge-warning
                         @elseif ($item->sell_status === 'fail') badge-danger
                         @endif">
                         {{ $item->sell_status === 'true' ? 'Completed' : ($item->sell_status === 'pending' ? 'Pending' : 'Fail') }}
                     </span>
+=======
+                            @if ($item->sell_status === 'true') badge-success
+                            @elseif ($item->sell_status === 'Pending') badge-warning
+                            @elseif ($item->sell_status === 'fail') badge-danger
+                            @endif">
+                            {{ $item->sell_status }}
+                        </span>
+>>>>>>> b14133ddcc82c7a3b10df3e579addbbee9eef9b3
                     </td>
                     <td>{{ $item->product_id }}</td>
                     <td>{{ $item->product_name }}</td>
@@ -135,11 +153,16 @@
                 @elseif ($filterType === 'transfer')
                     <td>{{ $item->transfer_id }}</td>
                     <td>{{ $item->transaction_id }}</td>
+<<<<<<< HEAD
 
+=======
+                    <td>{{ $item->branch_id }}</td>
+>>>>>>> b14133ddcc82c7a3b10df3e579addbbee9eef9b3
                     <td>{{ $item->branch_name }}</td>
                     <td>{{ $item->total }}</td>
                     <td>
                         <span class="badge
+<<<<<<< HEAD
                         @if ($item->transfer_status === 'true') badge-success
                         @elseif ($item->transfer_status === 'pending') badge-warning
                         @elseif ($item->transfer_status === 'fail') badge-danger
@@ -149,6 +172,15 @@
                     </td>
                     <td>{{ $item->payment_method }}</td>
                     <td>{{ $item->product_name }}</td>
+=======
+                            @if ($item->transfer_status === 'true') badge-success
+                            @elseif ($item->transfer_status === 'Pending') badge-warning
+                            @elseif ($item->transfer_status === 'fail') badge-danger
+                            @endif">
+                            {{ $item->transfer_status }}
+                        </span>
+                    </td>
+>>>>>>> b14133ddcc82c7a3b10df3e579addbbee9eef9b3
                 @endif
             </tr>
         @endforeach

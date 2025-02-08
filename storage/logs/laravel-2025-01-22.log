@@ -622,6 +622,7 @@ Did you mean one of these?
 #57 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\resources\\server.php(16): require_once('D:\\\\papachchi-ac...')
 #58 {main}
 "} 
+<<<<<<< HEAD
 [2025-01-22 11:16:58] local.ERROR: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'sell_product.price' in 'field list' (Connection: mysql, SQL: select `sells`.`id` as `sell_id`, `sells`.`customer_name`, `sells`.`sell_date`, SUM(sell_product.quantity) as total_quantity, SUM(sell_product.price * sell_product.quantity) as total_amount, `sells`.`sell_status` from `sell_product` inner join `sells` on `sell_product`.`sell_id` = `sells`.`id` inner join `product` on `product`.`product_id` = `sell_product`.`product_id` group by `sells`.`id`) {"userId":1,"exception":"[object] (Illuminate\\Database\\QueryException(code: 42S22): SQLSTATE[42S22]: Column not found: 1054 Unknown column 'sell_product.price' in 'field list' (Connection: mysql, SQL: select `sells`.`id` as `sell_id`, `sells`.`customer_name`, `sells`.`sell_date`, SUM(sell_product.quantity) as total_quantity, SUM(sell_product.price * sell_product.quantity) as total_amount, `sells`.`sell_status` from `sell_product` inner join `sells` on `sell_product`.`sell_id` = `sells`.`id` inner join `product` on `product`.`product_id` = `sell_product`.`product_id` group by `sells`.`id`) at D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php:829)
 [stacktrace]
 #0 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php(783): Illuminate\\Database\\Connection->runQueryCallback('select `sells`....', Array, Object(Closure))
@@ -2078,3 +2079,5 @@ Did you mean one of these?
 #48 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\resources\\server.php(16): require_once('D:\\\\papachchi-ac...')
 #49 {main}
 "} 
+=======
+>>>>>>> b14133ddcc82c7a3b10df3e579addbbee9eef9b3
