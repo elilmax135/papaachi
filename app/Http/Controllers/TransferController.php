@@ -314,9 +314,12 @@ return view('transfer.list', compact('transfers'));
 // Fetch transfer details (including branch details directly from the transfers table)
 $transfer = DB::table('transfer')
     ->join('branches', 'transfer.branch_id', '=', 'branches.id') // Join with branches table
+    ->leftJoin('branches as b2', 'transfer.branch_id2', '=', 'b2.id')
     ->select(
         'branches.branch_name', // Fetch the branch name
+        'b2.branch_name as branch_name_2',
         'transfer.branch_id',
+        'transfer.branch_id2',
         'transfer.transfer_date',
         'transfer.transaction_id',
         'transfer.total',

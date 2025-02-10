@@ -329,22 +329,40 @@
     $(document).on("input", ".transferQuantity, .sellingPrice", function () {
     let row = $(this).closest("tr");
 
-    // Ensure valid values for quantity and price
-    let quantity = parseInt(row.find(".transferQuantity").val()) || 1;
+    // Get quantity and price
+    let quantity = parseInt(row.find(".transferQuantity").val()) || 0;
+    let maxQuantity = parseInt(row.find(".transferQuantity").attr("max"));
     let price = parseFloat(row.find(".sellingPrice").val()) || 0;
 
+    // Ensure quantity stays within valid range
     if (quantity < 1) {
         quantity = 1;
-        row.find(".transferQuantity").val(1); // Ensure quantity doesn't go below 1
+        row.find(".transferQuantity").val(1);
+    } else if (quantity > maxQuantity) {
+        quantity = maxQuantity;
+        row.find(".transferQuantity").val(maxQuantity);
     }
 
-    // Calculate the subtotal for this row
-    let subTotal = quantity * price;
-    row.find(".subTotal").text(`$${subTotal.toFixed(2)}`); // Update subtotal of this row
+    // Ensure price is not negative
+    if (price < 0) {
+        price = 0;
+        row.find(".sellingPrice").val(price.toFixed(2));
+    }
 
-    // Recalculate the total after the update
+    // Calculate and update subtotal
+    let subTotal = quantity * price;
+    row.find(".subTotal").text(`$${subTotal.toFixed(2)}`);
+
+    // Update overall totals
     updateTotals();
 });
+// Add event listener for removing a product (event delegation)
+$("#selectedProducts").on("click", ".removeProduct", function () {
+    $(this).closest("tr").remove();
+    updateTotals();
+    if ($("#selectedProducts tr").length === 0) $("#submit-btn").hide();
+});
+
 
 // Update the overall total (called by other event listeners)
 function updateTotals() {

@@ -18,6 +18,7 @@
             <div class="col-6">
 
                 <p><strong>To Branch:</strong> {{ $transfer->branch_name }}</p>
+                <p><strong>From Branch:</strong> {{ $transfer->branch_name_2 }}</p>
                 <p><strong>Transfer Date:</strong> {{ $transfer->transfer_date }}</p>
             </div>
             <div class="col-6">

@@ -16,9 +16,9 @@
         </div>
 
         @php
-            $status = $status ?? '';  // Default to empty string if status is not passed
+            $status = $status ?? '';
             $filterType = $filterType ?? '';
-            $data = $data ?? collect(); // Default to empty collection if data is not passed
+            $data = $data ?? collect();
         @endphp
 
         <!-- Status filter -->
@@ -44,13 +44,12 @@
             </select>
         </div>
 
-     <!-- Branch filter for purchase and transfer types -->
-<div class="col-md-3">
-    <label for="branch_name">Branch Name:</label>
-    <input type="text" name="branch_name" value="{{ old('branch_name', $branchName ?? '') }}" class="form-control">
-</div>
+        <!-- Branch filter for purchase and transfer types -->
+        <div class="col-md-3">
+            <label for="branch_name">Branch Name:</label>
+            <input type="text" name="branch_name" value="{{ old('branch_name', $branchName ?? '') }}" class="form-control">
+        </div>
     </div>
-
     <button type="submit" class="btn btn-primary mt-3">Filter</button>
 </form>
 
@@ -73,6 +72,7 @@
             @elseif ($filterType === 'sell')
                 <tr>
                     <th>Sell ID</th>
+                    <th>From Branch Name</th>
                     <th>Customer Name</th>
                     <th>Date</th>
                     <th>Total</th>
@@ -85,8 +85,8 @@
                 <tr>
                     <th>Transfer ID</th>
                     <th>Transaction ID</th>
-
-                    <th>Branch Name</th>
+                    <th>From BranchName</th>
+                    <th>To BranchName</th>
                     <th>Total</th>
                     <th>Status</th>
                     <th>Payment Method</th>
@@ -96,94 +96,53 @@
         </thead>
         <tbody>
             @foreach ($data as $item)
-            <tr>
-                @if ($filterType === 'purchase')
-                    <td>{{ $item->purchase_id }}</td>
-                    <td>{{ $item->supplier_name }}</td>
-                    <td>{{ $item->purchase_date }}</td>
-                    <td>{{ $item->total }}</td>
-                    <td>
-                        <span class="badge
-<<<<<<< HEAD
-                        @if ($item->purchase_status === 'true') badge-success
-                        @elseif ($item->purchase_status === 'pending') badge-warning
-                        @elseif ($item->purchase_status === 'failed') badge-danger
-                        @endif">
-                        {{ $item->purchase_status === 'true' ? 'Completed' : ($item->purchase_status === 'pending' ? 'Pending' : 'Fail') }}
-                    </span>
-=======
-                            @if ($item->purchase_status === 'true') badge-success
-                            @elseif ($item->purchase_status === 'Pending') badge-warning
-                            @elseif ($item->purchase_status === 'failed') badge-danger
-                            @endif">
-                            {{ $item->purchase_status }}
-                        </span>
->>>>>>> b14133ddcc82c7a3b10df3e579addbbee9eef9b3
-                    </td>
-                    <td>{{ $item->product_id }}</td>
-                    <td>{{ $item->product_name }}</td>
-                    <td>{{ $item->quantity }}</td>
-                    <td>{{ $item->branch_name }}</td>
-                @elseif ($filterType === 'sell')
-                    <td>{{ $item->sell_id }}</td>
-                    <td>{{ $item->customer_name }}</td>
-                    <td>{{ $item->sell_date }}</td>
-                    <td>{{ $item->total }}</td>
-                    <td>
-                        <span class="badge
-<<<<<<< HEAD
-                        @if ($item->sell_status === 'true') badge-success
-                        @elseif ($item->sell_status === 'pending') badge-warning
-                        @elseif ($item->sell_status === 'fail') badge-danger
-                        @endif">
-                        {{ $item->sell_status === 'true' ? 'Completed' : ($item->sell_status === 'pending' ? 'Pending' : 'Fail') }}
-                    </span>
-=======
-                            @if ($item->sell_status === 'true') badge-success
-                            @elseif ($item->sell_status === 'Pending') badge-warning
-                            @elseif ($item->sell_status === 'fail') badge-danger
-                            @endif">
-                            {{ $item->sell_status }}
-                        </span>
->>>>>>> b14133ddcc82c7a3b10df3e579addbbee9eef9b3
-                    </td>
-                    <td>{{ $item->product_id }}</td>
-                    <td>{{ $item->product_name }}</td>
-                    <td>{{ $item->quantity }}</td>
-                @elseif ($filterType === 'transfer')
-                    <td>{{ $item->transfer_id }}</td>
-                    <td>{{ $item->transaction_id }}</td>
-<<<<<<< HEAD
+                <tr>
+                    @if ($filterType === 'purchase')
+                        <td>{{ $item->purchase_id }}</td>
+                        <td>{{ $item->supplier_name }}</td>
+                        <td>{{ $item->purchase_date }}</td>
+                        <td>{{ $item->total }}</td>
+                        <td>
+                            <span class="badge badge-{{ $item->purchase_status === 'true' ? 'success' : ($item->purchase_status === 'pending' ? 'warning' : 'danger') }}">
+                                {{ ucfirst($item->purchase_status) }}
+                            </span>
+                        </td>
+                        <td>{{ $item->product_id }}</td>
+                        <td>{{ $item->product_name }}</td>
+                        <td>{{ $item->quantity }}</td>
+                        <td>{{ $item->branch_name }}</td>
+                    @elseif ($filterType === 'sell')
+                        <td>{{ $item->sell_id }}</td>
+                        <td>{{ $item->branch_name }}</td>
 
-=======
-                    <td>{{ $item->branch_id }}</td>
->>>>>>> b14133ddcc82c7a3b10df3e579addbbee9eef9b3
-                    <td>{{ $item->branch_name }}</td>
-                    <td>{{ $item->total }}</td>
-                    <td>
-                        <span class="badge
-<<<<<<< HEAD
-                        @if ($item->transfer_status === 'true') badge-success
-                        @elseif ($item->transfer_status === 'pending') badge-warning
-                        @elseif ($item->transfer_status === 'fail') badge-danger
-                        @endif">
-                        {{ $item->transfer_status === 'true' ? 'Completed' : ($item->transfer_status === 'pending' ? 'Pending' : 'Fail') }}
-                    </span>
-                    </td>
-                    <td>{{ $item->payment_method }}</td>
-                    <td>{{ $item->product_name }}</td>
-=======
-                            @if ($item->transfer_status === 'true') badge-success
-                            @elseif ($item->transfer_status === 'Pending') badge-warning
-                            @elseif ($item->transfer_status === 'fail') badge-danger
-                            @endif">
-                            {{ $item->transfer_status }}
-                        </span>
-                    </td>
->>>>>>> b14133ddcc82c7a3b10df3e579addbbee9eef9b3
-                @endif
-            </tr>
-        @endforeach
+                        <td>{{ $item->customer_name }}</td>
+                        <td>{{ $item->sell_date }}</td>
+                        <td>{{ $item->total }}</td>
+                        <td>
+                            <span class="badge badge-{{ $item->sell_status === 'true' ? 'success' : ($item->sell_status === 'pending' ? 'warning' : 'danger') }}">
+                                {{ ucfirst($item->sell_status) }}
+                            </span>
+                        </td>
+                        <td>{{ $item->product_id }}</td>
+                        <td>{{ $item->product_name }}</td>
+                        <td>{{ $item->quantity }}</td>
+                    @elseif ($filterType === 'transfer')
+                        <td>{{ $item->transfer_id }}</td>
+                        <td>{{ $item->transaction_id }}</td>
+
+                        <td>{{ $item->branch_name }}</td>
+                        <td>{{ $item->branch_name_2 }}</td>
+                        <td>{{ $item->total }}</td>
+                        <td>
+                            <span class="badge badge-{{ $item->transfer_status === 'true' ? 'success' : ($item->transfer_status === 'pending' ? 'warning' : 'danger') }}">
+                                {{ ucfirst($item->transfer_status) }}
+                            </span>
+                        </td>
+                        <td>{{ $item->payment_method ?? '--' }}</td>
+                        <td>{{ $item->product_name }}</td>
+                    @endif
+                </tr>
+            @endforeach
         </tbody>
     </table>
 </div>
@@ -193,36 +152,10 @@
     <strong>Total: </strong> {{ $total ?? '' }}
 </div>
 
-<!-- Scroll to Bottom Button -->
-
-
-
-<script>
-    document.addEventListener('DOMContentLoaded', function () {
-        const filterTypeSelect = document.getElementById('filter_type');
-        const branchFilter = document.querySelector('.branch-filter');
-
-        // Function to toggle branch filter visibility
-        const toggleBranchFilter = () => {
-            const selectedFilter = filterTypeSelect.value;
-            if (selectedFilter === 'purchase' || selectedFilter === 'transfer') {
-                branchFilter.style.display = 'block';
-            } else {
-                branchFilter.style.display = 'none';
-            }
-        };
-
-        // Initial check on page load
-        toggleBranchFilter();
-
-        // Add event listener to update on filter type change
-        filterTypeSelect.addEventListener('change', toggleBranchFilter);
-    });
-</script>
-
+<!-- Initialize DataTable -->
 <script>
     $(document).ready(function() {
-        $('#filterTable').DataTable(); // Initialize DataTable
+        $('#filterTable').DataTable();
     });
 </script>
 @endsection

@@ -81,8 +81,8 @@ class FilterController extends Controller
             case 'sell':
                 $query = DB::table('sell_product')
                     ->join('sells', 'sell_product.sell_id', '=', 'sells.id')
-                    ->join('product', 'product.product_id', '=', 'sell_product.product_id'); // Join the product table
-
+                    ->join('product', 'product.product_id', '=', 'sell_product.product_id') // Join the product table
+                    ->join('branches', 'branches.id', '=', 'sells.branch_id');
                 // Apply date filters
                 if ($startDate && $endDate) {
                     $query->whereBetween('sells.created_at', [$startDate, $endDate]);
@@ -99,9 +99,11 @@ class FilterController extends Controller
                     'sells.customer_name',
                     'sells.sell_date',
                     'sells.total',
+                    'sells.branch_id',
                     'sells.sell_status',
                     'sell_product.product_id',
                     'sell_product.quantity',
+                    'branches.branch_name',
                     'product.product_name'  // Select the product name
                 )
                 ->get();
@@ -119,14 +121,17 @@ class FilterController extends Controller
 
             case 'transfer':
                 $query = DB::table('transfer')
-                    ->join('transfer_product', 'transfer.id', '=', 'transfer_product.transfer_id')  // Join transfer_product
-                    ->join('product', 'product.product_id', '=', 'transfer_product.product_id')  // Join the product table
-                    ->join('transfer_payment', 'transfer.id', '=', 'transfer_payment.transfer_id')// Join transfer_payment
-                    ->join('branches', 'branches.id', '=', 'transfer.branch_id'); // Join branches table for transfer
+    ->join('transfer_product', 'transfer.id', '=', 'transfer_product.transfer_id')
+    ->join('product', 'product.product_id', '=', 'transfer_product.product_id')
+    ->leftJoin('transfer_payment', 'transfer.id', '=', 'transfer_payment.transfer_id') // Changed to leftJoin
+    ->join('branches', 'branches.id', '=', 'transfer.branch_id')
+    ->leftJoin('branches as b2', 'transfer.branch_id2', '=', 'b2.id');
+
 
                 // Apply date filters
                 if ($startDate && $endDate) {
-                    $query->whereBetween('transfer.created_at', [$startDate, $endDate]);
+                    $query->whereBetween(DB::raw('DATE(transfer.created_at)'), [$startDate, $endDate]);
+
                 }
 
                 // Apply status filter if provided
@@ -148,20 +153,25 @@ class FilterController extends Controller
                     'transfer.transfer_status',
                     'transfer_payment.payment_method',
                     'product.product_name',
-                    'branches.branch_name' // Include the branch name for transfer
-                )
-                ->get();
+                    'branches.branch_name',
+                    'b2.branch_name as branch_name_2'
+                )->get();
+
+
 
                 // Calculate total transfer amount
                 $total = DB::table('transfer')
-                    ->when($startDate && $endDate, function ($query) use ($startDate, $endDate) {
-                        return $query->whereBetween('created_at', [$startDate, $endDate]);
-                    })
-                    ->when($status, function ($query) use ($status) {
-                        return $query->where('transfer_status', $status);
-                    })
-                    ->sum('total');
+                ->when($startDate && $endDate, function ($query) use ($startDate, $endDate) {
+                    return $query->whereBetween('created_at', [$startDate, $endDate]);
+                })
+
+                ->when($status, function ($query) use ($status) {
+                    return $query->where('transfer_status', $status);
+                })
+                ->sum('transfer.total'); //
+
                 break;
+
 
             default:
                 return back()->with('error', 'Invalid filter type selected.');

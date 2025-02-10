@@ -137,87 +137,107 @@ $(document).ready(function () {
             }
         });
     }
-
     $(document).on("click", ".addProduct", function () {
-        let productId = $(this).data("id");
-        let productName = $(this).data("name");
-        let availableQuantity = $(this).data("quantity");
-        let price = parseFloat($(this).data("price"));
+    let productId = $(this).data("id");
+    let productName = $(this).data("name");
+    let availableQuantity = $(this).data("quantity");
+    let price = parseFloat($(this).data("price"));
 
-        if ($(`#row-${productId}`).length > 0) {
-            alert("Product already added.");
-            return;
-        }
+    if ($(`#row-${productId}`).length > 0) {
+        alert("Product already added.");
+        return;
+    }
 
-        let row = `
-            <tr id="row-${productId}" data-product-id="${productId}">
-                <td>${productName}</td>
-                <td>${availableQuantity}</td>
-                <td>
-                    <input type="number" class="form-control transferQuantity"
-                        data-id="${productId}"
-                        min="0" max="${availableQuantity}"
-                        value="1">
-                </td>
-                <td>
-                    <input type="number" class="form-control sellingPrice"
-                        data-id="${productId}"
-                        min="0" step="0.01"
-                        value="${price.toFixed(2)}">
-                </td>
-                <td class="subTotal">$${price.toFixed(2)}</td>
-                <td><button type="button" class="btn btn-danger removeProduct">Remove</button></td>
-            </tr>`;
+    let row = `
+        <tr id="row-${productId}" data-product-id="${productId}">
+            <td>${productName}</td>
+            <td>${availableQuantity}</td>
+            <td>
+                <input type="number" class="form-control transferQuantity"
+                    data-id="${productId}"
+                    min="0" max="${availableQuantity}"
+                    value="0">
+            </td>
+            <td>
+                <input type="number" class="form-control sellingPrice"
+                    data-id="${productId}"
+                    min="0" step="0.01"
+                    value="${price.toFixed(2)}">
+            </td>
+            <td class="subTotal">$${price.toFixed(2)}</td>
+            <td><button type="button" class="btn btn-danger removeProduct">Remove</button></td>
+        </tr>`;
 
-        $("#selectedProducts").append(row);
-        updateTotals();
-        $("#submit-btn").show();
-    });
+    $("#selectedProducts").append(row);
+    updateTotals();
+    $("#submit-btn").show();
+});
 
-    $(document).on("input", ".transferQuantity, .sellingPrice", function () {
+$(document).on("input", ".transferQuantity, .sellingPrice", function () {
+    let row = $(this).closest("tr");
+
+    // Get quantity and price
+    let quantity = parseInt(row.find(".transferQuantity").val()) || 1;
+    let maxQuantity = parseInt(row.find(".transferQuantity").attr("max"));
+    let price = parseFloat(row.find(".sellingPrice").val());
+
+    // Ensure price is valid
+    if (isNaN(price) || price < 0) {
+        price = 0;
+        row.find(".sellingPrice").val(price.toFixed(2));
+    }
+
+    // Ensure quantity stays within valid range
+    if (quantity < 1) {
+        quantity = 1;
+        row.find(".transferQuantity").val(1);
+    } else if (quantity > maxQuantity) {
+        quantity = maxQuantity;
+        row.find(".transferQuantity").val(maxQuantity);
+    }
+
+    // Calculate and update subtotal
+    let subTotal = quantity * price;
+    row.find(".subTotal").text(`$${subTotal.toFixed(2)}`);
+
+    // Update totals
+    updateTotals();
+});
+
+$(document).on("click", ".removeProduct", function () {
+    $(this).closest("tr").remove();
+    updateTotals();
+    if ($("#selectedProducts tr").length === 0) $("#submit-btn").hide();
+});
+
+function updateTotals() {
+    let totalQuantity = 0;
+    let totalAmount = 0;
+
+    $(".transferQuantity").each(function () {
         let row = $(this).closest("tr");
-        let quantity = parseInt(row.find(".transferQuantity").val()) || 1;
-        let price = parseFloat(row.find(".sellingPrice").val()) || 0;
+        let quantity = parseInt(row.find(".transferQuantity").val()) || 0;
+        let price = parseFloat(row.find(".sellingPrice").val());
 
-        if (quantity < 1) {
-            quantity = 1;
-            row.find(".transferQuantity").val(1); // Ensure quantity doesn't go below 1
-        }
-
-        if (price < 0) {
+        // Ensure price is a valid number
+        if (isNaN(price) || price < 0) {
             price = 0;
-            row.find(".sellingPrice").val(0); // Ensure price is not negative
+            row.find(".sellingPrice").val(price.toFixed(2));
         }
 
         let subTotal = quantity * price;
-        row.find(".subTotal").text(`$${subTotal.toFixed(2)}`);
+        row.find(".subTotal").text(`$${subTotal.toFixed(2)}`); // Update row subtotal
 
-        updateTotals();
+        totalQuantity += quantity;
+        totalAmount += subTotal;
     });
 
-    $(document).on("click", ".removeProduct", function () {
-        $(this).closest("tr").remove();
-        updateTotals();
-        if ($("#selectedProducts tr").length === 0) $("#submit-btn").hide();
-    });
+    // Update total display
+    $("#totalQuantity").text(totalQuantity);
+    $("#totalAmount").text(`$${totalAmount.toFixed(2)}`);
+    $("#totalAmountx").val(totalAmount.toFixed(2));
+}
 
-    function updateTotals() {
-        let totalQuantity = 0;
-        let totalAmount = 0;
-
-        $(".transferQuantity").each(function () {
-            let row = $(this).closest("tr");
-            let quantity = parseInt(row.find(".transferQuantity").val()) || 0;
-            let price = parseFloat(row.find(".sellingPrice").val()) || 0;
-
-            totalQuantity += quantity;
-            totalAmount += quantity * price;
-        });
-
-        $("#totalQuantity").text(totalQuantity);
-        $("#totalAmount").text(`$${totalAmount.toFixed(2)}`);
-        $("#totalAmountx").val(totalAmount.toFixed(2));
-    }
 
     $("#product-form").submit(function (e) {
         if ($("#selectedProducts tr").length === 0) {
