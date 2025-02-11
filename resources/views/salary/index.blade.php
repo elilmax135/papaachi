@@ -27,15 +27,26 @@
             <td class="customer_name">{{ $row->customer_name }}</td>
             <td class="total_payment">{{ $row->total_payment }}</td>
             <td class="total_paid">{{ $row->total_paid }}</td>
-            <td class="total_due">{{ $row->total_due }}</td>
+            <td class="total_due">{{ $row->total_payment - $row->total_paid }}</td>
             <td class="salary_status">
-                @if ($row->salary_status == 'fail')
+                @php
+                    if ($row->total_paid == 0) {
+                        $salary_status = 'fail';
+                    } elseif ($row->total_paid < $row->total_payment) {
+                        $salary_status = 'pending';
+                    } else {
+                        $salary_status = 'completed';
+                    }
+                @endphp
+
+                @if ($salary_status == 'fail')
                     <span class="badge bg-danger">Failed</span>
-                @elseif ($row->salary_status == 'pending')
+                @elseif ($salary_status == 'pending')
                     <span class="badge bg-warning">Pending</span>
                 @else
                     <span class="badge bg-success">Completed</span>
                 @endif
+            </td>
             </td>
             <td class="latest_payment_date">{{ $row->latest_payment_date ?? 'N/A' }}</td>
         </tr>

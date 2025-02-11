@@ -197,7 +197,7 @@ Route::post('/additiontransferpay/{transfer_id}',[TransferController::class,'pro
 
 
 use App\Http\Controllers\FilterController;
-
+use App\Models\Staff;
 
 Route::get('/filter-data', [ReportController::class, 'showFilterForm']);
 Route::get('/filter-results', [FilterController::class, 'filterData']);
@@ -235,8 +235,9 @@ Route::delete('/delete-salary/{id}', [StaffController::class, 'destroy']);
 
 
 
+Route::post('salarypays', [SellController::class, 'paySalaries']);
 
-Route::post('/salary-sales/pay/{first_id}/{second_id}', [SellController::class, 'paySalary']);
+//Route::post('/salary-sales/pay/{first_id}/{second_id}', [SellController::class, 'paySalary']);
 Route::delete('/delete-purchase/{purchase_id}', [PurchaseController::class, 'deletePurchase']);
 Route::delete('/delete-sell/{sale_id}', [SellController::class, 'deleteSells']);
 
@@ -251,3 +252,19 @@ Route::get('/stock',[StockController::class,'stock']);
 
 
 Route::post('/selectbr',[TransferController::class,'index']);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Route::get('/get-salary/{sell_id}', [StaffController::class, 'getSalaryDetails']);

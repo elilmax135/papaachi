@@ -67,13 +67,12 @@
                                         </li>
 
                                         <!-- Pay Salary and Sale Button for Two People -->
-                                        @if(count($sale_group) > 1)
                                         <li>
-                                            <button type="button" class="dropdown-item" data-bs-toggle="modal" data-bs-target="#payHybridModal">
-                                                <i class="fas fa-dollar-sign"></i>  Salary
+                                            <button type="button" class="dropdown-item salary-btn" data-id="{{ $sale_id }}">
+                                                <i class="fas fa-dollar-sign"></i> Salary
                                             </button>
                                         </li>
-                                        @endif
+
 
                                         <!-- Delete Button -->
                                         <li>
@@ -162,61 +161,48 @@
                                 </div>
 
                                 <!-- Pay Salary Modal for Two People -->
-                                @if(count($sale_group) > 1)
-                                <div class="modal fade" id="payHybridModal" tabindex="-1" aria-labelledby="payHybridModalLabel" aria-hidden="true">
-                                    <div class="modal-dialog" style="max-width: 80%;"> <!-- Increased the width of the modal -->
-                                        <div class="modal-content">
-                                            <div class="modal-header">
-                                                <h5 class="modal-title" id="payHybridModalLabel">Pay Salary</h5>
-                                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                            </div>
-                                            <div class="modal-body">
-                                                <form action="{{ url('/salary-sales/pay', ['first_id' => $sale_group[0]->salary_id, 'second_id' => $sale_group[1]->salary_id]) }}" method="POST">
-                                                    @csrf
-                                                    <!-- Salary Payment Table -->
-                                                    <div class="table-responsive">
-                                                        <table class="table" style="width: 100%;">
-                                                            <thead>
-                                                                <tr>
-                                                                    <th>Title</th>
-                                                                    <th>Name</th>
-                                                                    <th>Salary</th>
-                                                                    <th>Due</th>
-                                                                    <th>Enter Amount</th>
-                                                                    <th>Date</th>
-                                                                </tr>
-                                                            </thead>
-                                                            <tbody>
-                                                                <!-- Person 1 -->
-                                                                <tr>
-                                                                    <td><strong>Employee Name (Person 1)</strong></td>
-                                                                    <td><input type="text" class="form-control" name="first_person_employee_name" value="{{ $sale_group[0]->full_name }}" readonly></td>
-                                                                    <td><input type="number" class="form-control" name="first_person_salary_details" value="{{ $sale_group[0]->payment }}" readonly></td>
-                                                                    <td><input type="number" class="form-control" name="pay1" value="{{ $sale_group[0]->due }}" readonly></td>
-                                                                    <td><input type="number" class="form-control" name="first_person_salary_payment_amount" min="0" value="0"></td>
-                                                                    <td><input type="date" name="payment_date1" class="form-control"></td>
-                                                                </tr>
+     <!-- Pay Salary Modal -->
+     <div class="modal fade" id="payHybridModal" tabindex="-1" aria-labelledby="payHybridModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg"> <!-- Changed to modal-lg for large size -->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Pay Salaries</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="salaryPaymentForm" action="{{ url('salarypays') }}" method="POST">
+                        @csrf <!-- Include CSRF Token -->
+                        <input type="hidden" name="sell_id" id="sellIdField">
 
-                                                                <!-- Person 2 -->
-                                                                <tr>
-                                                                    <td><strong>Employee Name (Person 2)</strong></td>
-                                                                    <td><input type="text" class="form-control" name="second_person_employee_name" value="{{ $sale_group[1]->full_name }}" readonly></td>
-                                                                    <td><input type="number" class="form-control" name="second_person_salary_details" value="{{ $sale_group[1]->payment }}" readonly></td>
-                                                                    <td><input type="number" class="form-control" name="pay2" value="{{ $sale_group[1]->due }}" readonly></td>
-                                                                    <td><input type="number" class="form-control" name="second_person_salary_payment_amount" min="0" value="0"></td>
-                                                                    <td><input type="date" name="payment_date2" class="form-control"></td>
-                                                                </tr>
-                                                            </tbody>
-                                                        </table>
-                                                    </div>
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>Name</th>
+                                    <th>Salary</th>
+                                    <th>Paid</th>
+                                    <th>Due</th>
 
-                                                    <button type="submit" class="btn btn-primary">Confirm Payment</button>
-                                                </form>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                @endif
+                                    <th>Pay Amount</th>
+                                    <th>Pay Date</th>
+                                </tr>
+                            </thead>
+                            <tbody id="salaryDetailsBody">
+                                <!-- Dynamic Data will be inserted here -->
+                            </tbody>
+                        </table>
+
+                        <div class="text-center">
+                            <button type="submit" class="btn btn-success">Pay Now</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
                             </td>
                         </tr>
                         @endforeach
@@ -288,6 +274,56 @@
         }
     }
 </script>
+
+<script>
+
+$(document).ready(function () {
+    $(".salary-btn").click(function () {
+        let sellId = $(this).data("id"); // Get sale ID
+        $("#sellIdField").val(sellId); // Assign it to the hidden input field
+
+        $.ajax({
+            url: "/get-salary/" + sellId,
+            type: "GET",
+            success: function (response) {
+                let salaryDetails = response.salaries;
+                let html = "";
+
+                if (salaryDetails.length > 0) {
+                    salaryDetails.forEach(function (salary) {
+                        html += `
+                            <tr>
+                                <td>${salary.full_name}</td>
+                                <td>${salary.salary_amount}</td>
+                                <td>${salary.salary_paid}</td>
+                                <td>${salary.salary_due}</td>
+
+                                <td>
+                                    <input type="number" class="form-control" name="amount[${salary.id}]" min="0" value="0">
+                                </td>
+                                <td>
+                                    <input type="date" class="form-control" name="payment_date[${salary.id}]" value="${new Date().toISOString().split('T')[0]}">
+                                </td>
+                            </tr>`;
+                    });
+                } else {
+                    html = `<tr><td colspan="7" class="text-center">No Salary Assigned</td></tr>`;
+                }
+
+                $("#salaryDetailsBody").html(html);
+                $("#payHybridModal").modal("show");
+            },
+            error: function () {
+                alert("Failed to fetch salary details!");
+            }
+        });
+    });
+});
+
+
+    </script>
+
+
 
 
 @endsection

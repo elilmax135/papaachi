@@ -42,4 +42,23 @@ class sell extends Model
     {
         return $this->belongsTo(Service::class, 'service_id', 'service_id_uniq');
     }
+    // In Sale model
+public function salary()
+{
+    return $this->hasMany(Salary::class); // Or belongsToMany if it's a many-to-many relationship
+}
+public function latestPayment()
+{
+    return $this->hasOne(SellPayment::class, 'sell_id')->latest();
+}
+
+public function latestSalary()
+{
+    return $this->hasOne(Salary::class, 'sells_id')->latest();
+}
+
+public function staff()
+{
+    return $this->belongsTo(Staff::class, 'staff_id');
+}
 }

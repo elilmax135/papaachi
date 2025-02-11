@@ -51,10 +51,15 @@ class SellController extends Controller
    // Save the sell details
    $sell = new Sell();
    $image=$request->doctor_confirmation;
+   if ($request->hasFile('doctor_confirmation') && $request->file('doctor_confirmation')->isValid()) {
+    $image = $request->file('doctor_confirmation');
+    $imagename = time() . '.' . $image->getClientOriginalExtension(); // Generate image name
+    $image->move('doctorImage', $imagename); // Move the image to the folder
 
-   $imagename=time().'.'.$image->getClientOriginalExtension();
-    $request->doctor_confirmation->move('doctorImage',$imagename);
-    $sell->doctor_confirm =$imagename;
+    $sell->doctor_confirm = $imagename; // Save the image name in the database
+} else {
+    $sell->doctor_confirm = null; // If no image is uploaded, set it to null
+}
    $sell->customer_name = $request->customer_name;
    $sell->customer_mobile = $request->customer_mobile;
    $sell->sell_date = $request->sell_date;
@@ -237,41 +242,55 @@ public function getPaymentsBySaleId($sale_id)
 public function list()
 {
     $sell = DB::table('sells')
-        ->leftJoinSub(
-            DB::table('sell_payment')
-                ->select('sell_pay_id', 'sell_id', 'payment_date', 'pay_amount', 'pay_due')
-                ->whereIn('sell_pay_id', function ($query) {
-                    $query->select(DB::raw('MAX(sell_pay_id)'))
-                        ->from('sell_payment')
-                        ->groupBy('sell_id');
-                }),
-            'latest_payment', // Alias for the subquery
-            function ($join) {
-                $join->on('sells.id', '=', 'latest_payment.sell_id');
-            }
-        )
-        ->leftJoin('salary', 'sells.id', '=', 'salary.sells_id')
-        ->leftJoin('staffs', 'salary.staff_id', '=', 'staffs.id')
-        ->select(
-            'sells.*',
-            'latest_payment.sell_pay_id',
-            'latest_payment.payment_date',
-            'latest_payment.pay_amount',
-            'latest_payment.pay_due AS last_pay_due',
-            'staffs.full_name',
-            'salary.payment',
-            'salary.payment_date',
-            'salary.salary_status',
-            'salary.due',
-            'salary.id AS salary_id'
-            // Alias the pay_due column for clarity
-        )
-        ->orderBy('sells.id', 'desc')
-        ->get()
-        ->groupBy('id');
+    ->leftJoinSub(
+        DB::table('sell_payment')
+            ->select('sell_pay_id', 'sell_id', 'payment_date', 'pay_amount', 'pay_due')
+            ->whereIn('sell_pay_id', function ($query) {
+                $query->select(DB::raw('MAX(sell_pay_id)'))
+                    ->from('sell_payment')
+                    ->groupBy('sell_id');
+            }),
+        'latest_payment', // Alias for subquery
+        function ($join) {
+            $join->on('sells.id', '=', 'latest_payment.sell_id');
+        }
+    )
+    ->select(
+        'sells.id as sell_id',
+        'sells.sell_date',
+        'sells.total', 'sells.*',
+        'sells.customer_name',
+        'latest_payment.sell_pay_id',
+        'latest_payment.payment_date AS last_payment_date',
+        'latest_payment.pay_amount AS last_pay_amount',
+        'latest_payment.pay_due AS last_pay_due'
+    )
+    ->orderBy('sells.id', 'desc')
+    ->get()
+    ->groupBy('sell_id'); // Group by sale ID
 
 
-    return view('sell.list', compact('sell'));
+
+
+    $salaries = DB::table('salary')
+    ->join('sells', 'salary.sells_id', '=', 'sells.id')
+    ->leftJoin('staffs', 'salary.staff_id', '=', 'staffs.id')
+    ->select(
+        'salary.sells_id as sell_id', // Link salary to sell
+        'staffs.id as staff_id',
+        'staffs.full_name',
+        'salary.id',
+        'salary.payment AS salary_amount',
+        'salary.payment_date AS salary_payment_date',
+        'salary.salary_status',
+        'salary.due AS salary_due',
+        'salary.paid AS salary_paid'
+    )
+    ->orderBy('salary.sells_id', 'desc')
+    ->get()
+    ->groupBy('sell_id'); // Group salaries by sale ID
+
+return view('sell.list', compact('sell','salaries'));
 }
 public function processSalePayment(Request $request)
 {
@@ -377,13 +396,7 @@ public function paySalary(Request $request, $first_id, $second_id)
 
     $firstSalary->paid += $firstPaymentAmount;
     $secondSalary->paid += $secondPaymentAmount;
-    // Correct due calculation (previous due - payment amount)
-    $firstSalary->due = max(0, $pay1 - $firstPaymentAmount);
-    $secondSalary->due = max(0, $pay2 - $secondPaymentAmount);
 
-    // Update salary status if fully paid
-    $firstSalary->salary_status = ($firstSalary->due == 0) ? 'Paid' : 'pending';
-    $secondSalary->salary_status = ($secondSalary->due == 0) ? 'Paid' : 'pending';
 
     // Save updates
     $firstSalary->save();
@@ -391,6 +404,46 @@ public function paySalary(Request $request, $first_id, $second_id)
 
     // Redirect back with success message
     return redirect()->back()->with('success', 'Salaries updated successfully!');
+}
+
+public function paySalaries(Request $request)
+{
+    $sellId = $request->input('sell_id'); // Get sale ID
+    $payAmounts = $request->input('amount'); // Array of amounts
+    $payDates = $request->input('payment_date'); // Array of dates
+
+    if (!$payAmounts) {
+        return back()->with('error', 'No payments were entered.');
+    }
+
+    foreach ($payAmounts as $salaryId => $amount) {
+        if ($amount > 0) {
+            // Find the salary associated with sells_id and salary_id
+            $salary = Salary::where('sells_id', $sellId)->where('id', $salaryId)->first();
+
+            if ($salary) {
+                // Update existing salary payment
+                $salary->paid += $amount;
+
+                $salary->due = $salary->payment -  $salary->paid ;
+                if ($salary->paid == 0) {
+                    $salary->salary_status = 'fail';
+                } elseif ($salary->paid > 0 && $salary->paid < $salary->salary_amount) {
+                    $salary->salary_status = 'Partial';
+                } elseif ($salary->paid == $salary->salary_amount) {
+                    $salary->salary_status = 'Paid';
+                }
+
+                $salary->payment_date = $payDates[$salaryId] ?? now(); // Store payment date
+                $salary->save();
+
+                // Ensure staff_id is included in the payment record
+
+            }
+        }
+    }
+
+    return redirect()->back()->with('success', 'Salaries paid successfully.');
 }
 
 

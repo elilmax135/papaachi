@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Staff;
+use App\Models\salary;
 use App\Models\staff_salary;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
@@ -110,7 +111,6 @@ public function save(Request $request)
 
 
 
-
     public function showsalary(){
 
         $salary = DB::table('salary')
@@ -132,4 +132,26 @@ public function save(Request $request)
 
       return view('salary.index',compact('salary'));
     }
+
+
+
+    public function getSalaryDetails($sell_id)
+{
+    $salaries = DB::table('salary')
+        ->join('sells', 'salary.sells_id', '=', 'sells.id')
+        ->leftJoin('staffs', 'salary.staff_id', '=', 'staffs.id')
+        ->select(
+            'staffs.full_name',
+            'salary.id',
+            'salary.payment AS salary_amount',
+            'salary.paid AS salary_paid',
+            'salary.due AS salary_due',
+            'salary.salary_status'
+        )
+        ->where('salary.sells_id', $sell_id)
+        ->orderBy('salary.id', 'desc')
+        ->get();
+
+    return response()->json(['salaries' => $salaries]);
+}
 }

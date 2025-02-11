@@ -18,7 +18,7 @@
                 <span class="badge bg-success">Complete</span>
             @elseif ($sale->sell_status === 'pending')
                 <span class="badge bg-warning">Pending</span>
-            @elseif ($sale->sell_status === 'failed')
+            @elseif ($sale->sell_status === 'fail')
                 <span class="badge bg-danger">Failed</span>
             @else
                 <span class="badge bg-secondary">Unknown</span>
