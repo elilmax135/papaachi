@@ -7,9 +7,7 @@
     <div class="col-12">
         <!-- Action Buttons -->
         <div class="d-flex gap-3 justify-content-center">
-            <a href="{{ url('/service') }}" class="btn btn-success btn-lg shadow-sm hover-shadow-lg">
-                <i class="fas fa-plus-circle"></i> Add Service
-            </a>
+
             <a href="{{ url('/NewBoxColor') }}" class="btn btn-warning btn-lg shadow-sm hover-shadow-lg">
                 <i class="fas fa-paint-brush"></i> Add New Box Color
             </a>
