@@ -1240,3 +1240,197 @@
 [2025-02-11 08:45:09] local.INFO: Fetching products for Branch ID: 7, Category: flower  
 [2025-02-11 08:45:17] local.INFO: Fetching products for Branch ID: 7, Category: box  
 [2025-02-11 08:45:41] local.INFO: Fetching products for Branch ID: 7, Category: flower  
+[2025-02-11 10:07:27] local.INFO: Fetching products for Branch ID: 7, Category: flower  
+[2025-02-11 10:07:39] local.INFO: Fetching products for Branch ID: 7, Category: box  
+[2025-02-11 10:08:36] local.INFO: Fetching products for Branch ID: 8, Category: flower  
+[2025-02-11 10:08:42] local.INFO: Fetching products for Branch ID: 11, Category: flower  
+[2025-02-11 10:08:46] local.INFO: Fetching products for Branch ID: 11, Category: box  
+[2025-02-11 10:08:54] local.INFO: Fetching products for Branch ID: 8, Category: flower  
+[2025-02-11 10:08:56] local.INFO: Fetching products for Branch ID: 8, Category: box  
+[2025-02-11 10:25:27] local.INFO: Fetching salary details for sell_id: your-sell-id  
+[2025-02-11 10:25:27] local.INFO: Salaries fetched:   
+[2025-02-11 10:25:33] local.INFO: Fetching salary details for sell_id: your-sell-id  
+[2025-02-11 10:25:33] local.INFO: Salaries fetched:   
+[2025-02-11 10:30:09] local.INFO: Fetching salary details for sell_id: your-sell-id  
+[2025-02-11 10:30:09] local.INFO: Salaries fetched:   
+[2025-02-11 10:30:24] local.INFO: Fetching salary details for sell_id: your-sell-id  
+[2025-02-11 10:30:24] local.INFO: Salaries fetched:   
+[2025-02-11 10:33:04] local.INFO: Fetching salary details for sell_id: your-sell-id  
+[2025-02-11 10:33:52] local.INFO: Fetching salary details for sell_id: 64  
+[2025-02-11 10:33:56] local.INFO: Fetching salary details for sell_id: 61  
+[2025-02-11 10:43:20] local.INFO: Fetching salary details for sell_id: 63  
+[2025-02-11 10:43:25] local.INFO: Fetching salary details for sell_id: 64  
+[2025-02-11 10:43:54] local.INFO: Fetching salary details for sell_id: 60  
+[2025-02-11 10:44:33] local.INFO: Fetching products for Branch ID: 8, Category: box  
+[2025-02-11 10:44:38] local.INFO: Fetching products for Branch ID: 7, Category: box  
+[2025-02-11 10:48:04] local.INFO: Fetching salary details for sell_id: 64  
+[2025-02-11 10:48:08] local.INFO: Fetching salary details for sell_id: 61  
+[2025-02-11 10:48:37] local.INFO: Fetching salary details for sell_id: 61  
+[2025-02-11 10:48:44] local.INFO: Fetching salary details for sell_id: 64  
+[2025-02-11 10:48:47] local.INFO: Fetching salary details for sell_id: 63  
+[2025-02-11 10:48:51] local.INFO: Fetching salary details for sell_id: 59  
+[2025-02-11 10:48:55] local.INFO: Fetching salary details for sell_id: 55  
+[2025-02-11 10:50:50] local.INFO: Fetching salary details for sell_id: 61  
+[2025-02-11 10:51:06] local.INFO: Fetching salary details for sell_id: 64  
+[2025-02-11 10:59:06] local.INFO: Fetching products for Branch ID: 7, Category: flower  
+[2025-02-11 10:59:10] local.INFO: Fetching products for Branch ID: 11, Category: box  
+[2025-02-11 10:59:19] local.INFO: Fetching products for Branch ID: 8, Category: flower  
+[2025-02-11 10:59:20] local.INFO: Fetching products for Branch ID: 8, Category: box  
+[2025-02-11 10:59:30] local.INFO: Fetching products for Branch ID: 11, Category: box  
+[2025-02-11 10:59:33] local.INFO: Fetching products for Branch ID: 11, Category: box  
+[2025-02-11 10:59:39] local.INFO: Fetching products for Branch ID: 8, Category: flower  
+[2025-02-11 10:59:41] local.INFO: Fetching products for Branch ID: 8, Category: box  
+[2025-02-11 11:00:51] local.INFO: Fetching products for Branch ID: 7, Category: flower  
+[2025-02-11 11:00:57] local.INFO: Fetching products for Branch ID: 7, Category: box  
+[2025-02-11 11:01:02] local.INFO: Fetching products for Branch ID: 8, Category: flower  
+[2025-02-11 11:01:05] local.INFO: Fetching products for Branch ID: 8, Category: box  
+[2025-02-11 11:01:44] local.INFO: Fetching products for Branch ID: 8, Category: flower  
+[2025-02-11 11:01:45] local.INFO: Fetching products for Branch ID: 8, Category: box  
+[2025-02-11 11:01:49] local.INFO: Fetching products for Branch ID: 8, Category: flower  
+[2025-02-11 11:01:51] local.INFO: Fetching products for Branch ID: 8, Category: box  
+[2025-02-11 11:02:10] local.INFO: Fetching products for Branch ID: 7, Category: flower  
+[2025-02-11 11:02:12] local.INFO: Fetching products for Branch ID: 7, Category: box  
+[2025-02-11 11:04:04] local.INFO: Fetching products for Branch ID: 8, Category: box  
+[2025-02-11 11:04:16] local.INFO: Fetching products for Branch ID: 7, Category: flower  
+[2025-02-11 11:04:17] local.INFO: Fetching products for Branch ID: 7, Category: box  
+[2025-02-11 11:05:00] local.INFO: Preloaded Box Products: [{"stdClass":{"id":27,"branch_id":8,"product_id":516,"branch_name":"jaffna","product_name":"bd","total_quantity":2,"selling_price":"6655.00","created_at":"2025-02-08 11:41:57","updated_at":"2025-02-10 19:24:53","product_type":"box"}},{"stdClass":{"id":29,"branch_id":8,"product_id":518,"branch_name":"jaffna","product_name":"bvr","total_quantity":11,"selling_price":"16.00","created_at":"2025-02-08 11:41:57","updated_at":"2025-02-11 11:01:13","product_type":"box"}},{"stdClass":{"id":31,"branch_id":7,"product_id":516,"branch_name":"vavuniya","product_name":"bd","total_quantity":2,"selling_price":"6655.00","created_at":"2025-02-08 11:42:36","updated_at":"2025-02-11 10:07:52","product_type":"box"}},{"stdClass":{"id":32,"branch_id":7,"product_id":517,"branch_name":"vavuniya","product_name":"bxe","total_quantity":3,"selling_price":"14.00","created_at":"2025-02-08 11:42:36","updated_at":"2025-02-11 10:44:48","product_type":"box"}},{"stdClass":{"id":33,"branch_id":7,"product_id":518,"branch_name":"vavuniya","product_name":"bvr","total_quantity":0,"selling_price":"16.00","created_at":"2025-02-08 11:42:36","updated_at":"2025-02-08 13:29:43","product_type":"box"}},{"stdClass":{"id":34,"branch_id":11,"product_id":516,"branch_name":"elil","product_name":"bd","total_quantity":0,"selling_price":"6655.00","created_at":"2025-02-08 12:11:28","updated_at":"2025-02-08 12:13:27","product_type":"box"}},{"stdClass":{"id":35,"branch_id":11,"product_id":517,"branch_name":"elil","product_name":"bxe","total_quantity":0,"selling_price":"14.00","created_at":"2025-02-08 12:11:28","updated_at":"2025-02-08 13:31:45","product_type":"box"}}] 
+[2025-02-11 11:05:00] local.INFO: Preloaded Flower Products: [{"stdClass":{"id":30,"branch_id":8,"product_id":7009,"branch_name":"jaffna","product_name":"f2","total_quantity":1,"selling_price":"6565.00","created_at":"2025-02-08 11:41:57","updated_at":"2025-02-11 08:43:22","product_type":"flower"}},{"stdClass":{"id":36,"branch_id":7,"product_id":7009,"branch_name":"vavuniya","product_name":"f2","total_quantity":8,"selling_price":"6565.00","created_at":"2025-02-08 12:37:30","updated_at":"2025-02-11 08:45:03","product_type":"flower"}},{"stdClass":{"id":37,"branch_id":7,"product_id":7010,"branch_name":"vavuniya","product_name":"f3","total_quantity":1,"selling_price":"145.00","created_at":"2025-02-08 12:37:31","updated_at":"2025-02-11 08:45:50","product_type":"flower"}},{"stdClass":{"id":38,"branch_id":11,"product_id":7009,"branch_name":"elil","product_name":"f2","total_quantity":0,"selling_price":"6565.00","created_at":"2025-02-08 13:30:20","updated_at":"2025-02-08 13:31:45","product_type":"flower"}}] 
+[2025-02-11 11:05:07] local.INFO: Fetching products for Branch ID: 8, Category: box  
+[2025-02-11 11:05:12] local.INFO: Fetching products for Branch ID: 7, Category: box  
+[2025-02-11 11:05:15] local.INFO: Fetching products for Branch ID: 11, Category: box  
+[2025-02-11 11:05:18] local.INFO: Fetching products for Branch ID: 8, Category: box  
+[2025-02-11 11:05:32] local.INFO: Fetching products for Branch ID: 8, Category: box  
+[2025-02-11 11:06:49] local.INFO: Fetching products for Branch ID: 8, Category: box  
+[2025-02-11 11:06:53] local.INFO: Fetching products for Branch ID: 11, Category: box  
+[2025-02-11 11:06:55] local.INFO: Fetching products for Branch ID: 7, Category: box  
+[2025-02-11 11:07:01] local.INFO: Fetching products for Branch ID: 8, Category: box  
+[2025-02-11 11:07:49] local.INFO: Fetching products for Branch ID: 8, Category: flower  
+[2025-02-11 11:07:51] local.INFO: Fetching products for Branch ID: 8, Category: box  
+[2025-02-11 11:07:54] local.INFO: Fetching products for Branch ID: 8, Category: flower  
+[2025-02-11 11:19:27] local.INFO: Fetching products for Branch ID: 7, Category: box  
+[2025-02-11 11:19:53] local.ERROR: SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'customer_name' cannot be null (Connection: mysql, SQL: insert into `sells` (`doctor_confirm`, `customer_name`, `customer_mobile`, `sell_date`, `transaction_id`, `transport_mode`, `branch_id`, `customer_address`, `emapoming_date`, `empoming_amount`, `panthal_amount`, `lift_amount`, `band_amount`, `melam_amount`, `transport_amount`, `total`, `updated_at`, `created_at`) values (?, ?, ?, ?, txn_67aae4b01c11c, ?, 7, ?, ?, 0, 0, 0, 0, 0, 0, 6655.00, 2025-02-11 11:19:52, 2025-02-11 11:19:52)) {"userId":1,"exception":"[object] (Illuminate\\Database\\QueryException(code: 23000): SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'customer_name' cannot be null (Connection: mysql, SQL: insert into `sells` (`doctor_confirm`, `customer_name`, `customer_mobile`, `sell_date`, `transaction_id`, `transport_mode`, `branch_id`, `customer_address`, `emapoming_date`, `empoming_amount`, `panthal_amount`, `lift_amount`, `band_amount`, `melam_amount`, `transport_amount`, `total`, `updated_at`, `created_at`) values (?, ?, ?, ?, txn_67aae4b01c11c, ?, 7, ?, ?, 0, 0, 0, 0, 0, 0, 6655.00, 2025-02-11 11:19:52, 2025-02-11 11:19:52)) at D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php:829)
+[stacktrace]
+#0 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php(783): Illuminate\\Database\\Connection->runQueryCallback('insert into `se...', Array, Object(Closure))
+#1 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\MySqlConnection.php(34): Illuminate\\Database\\Connection->run('insert into `se...', Array, Object(Closure))
+#2 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Query\\Processors\\MySqlProcessor.php(35): Illuminate\\Database\\MySqlConnection->insert('insert into `se...', Array, 'id')
+#3 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Query\\Builder.php(3549): Illuminate\\Database\\Query\\Processors\\MySqlProcessor->processInsertGetId(Object(Illuminate\\Database\\Query\\Builder), 'insert into `se...', Array, 'id')
+#4 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Eloquent\\Builder.php(1982): Illuminate\\Database\\Query\\Builder->insertGetId(Array, 'id')
+#5 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Eloquent\\Model.php(1334): Illuminate\\Database\\Eloquent\\Builder->__call('insertGetId', Array)
+#6 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Eloquent\\Model.php(1299): Illuminate\\Database\\Eloquent\\Model->insertAndSetId(Object(Illuminate\\Database\\Eloquent\\Builder), Array)
+#7 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Eloquent\\Model.php(1138): Illuminate\\Database\\Eloquent\\Model->performInsert(Object(Illuminate\\Database\\Eloquent\\Builder))
+#8 D:\\papachchi-accounting-main\\app\\Http\\Controllers\\SellController.php(81): Illuminate\\Database\\Eloquent\\Model->save()
+#9 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Controller.php(54): App\\Http\\Controllers\\SellController->sell_info(Object(Illuminate\\Http\\Request))
+#10 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\ControllerDispatcher.php(43): Illuminate\\Routing\\Controller->callAction('sell_info', Array)
+#11 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Route.php(259): Illuminate\\Routing\\ControllerDispatcher->dispatch(Object(Illuminate\\Routing\\Route), Object(App\\Http\\Controllers\\SellController), 'sell_info')
+#12 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Route.php(205): Illuminate\\Routing\\Route->runController()
+#13 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(806): Illuminate\\Routing\\Route->run()
+#14 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(144): Illuminate\\Routing\\Router->Illuminate\\Routing\\{closure}(Object(Illuminate\\Http\\Request))
+#15 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Middleware\\SubstituteBindings.php(50): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#16 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(183): Illuminate\\Routing\\Middleware\\SubstituteBindings->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#17 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\VerifyCsrfToken.php(78): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#18 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(183): Illuminate\\Foundation\\Http\\Middleware\\VerifyCsrfToken->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#19 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\View\\Middleware\\ShareErrorsFromSession.php(49): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#20 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(183): Illuminate\\View\\Middleware\\ShareErrorsFromSession->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#21 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Session\\Middleware\\StartSession.php(121): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#22 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Session\\Middleware\\StartSession.php(64): Illuminate\\Session\\Middleware\\StartSession->handleStatefulRequest(Object(Illuminate\\Http\\Request), Object(Illuminate\\Session\\Store), Object(Closure))
+#23 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(183): Illuminate\\Session\\Middleware\\StartSession->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#24 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Cookie\\Middleware\\AddQueuedCookiesToResponse.php(37): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#25 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(183): Illuminate\\Cookie\\Middleware\\AddQueuedCookiesToResponse->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#26 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Cookie\\Middleware\\EncryptCookies.php(67): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#27 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(183): Illuminate\\Cookie\\Middleware\\EncryptCookies->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#28 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(119): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#29 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(805): Illuminate\\Pipeline\\Pipeline->then(Object(Closure))
+#30 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(784): Illuminate\\Routing\\Router->runRouteWithinStack(Object(Illuminate\\Routing\\Route), Object(Illuminate\\Http\\Request))
+#31 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(748): Illuminate\\Routing\\Router->runRoute(Object(Illuminate\\Http\\Request), Object(Illuminate\\Routing\\Route))
+#32 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(737): Illuminate\\Routing\\Router->dispatchToRoute(Object(Illuminate\\Http\\Request))
+#33 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(200): Illuminate\\Routing\\Router->dispatch(Object(Illuminate\\Http\\Request))
+#34 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(144): Illuminate\\Foundation\\Http\\Kernel->Illuminate\\Foundation\\Http\\{closure}(Object(Illuminate\\Http\\Request))
+#35 D:\\papachchi-accounting-main\\app\\Http\\Middleware\\SyncProductsMiddleware.php(56): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#36 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(183): App\\Http\\Middleware\\SyncProductsMiddleware->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#37 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest.php(21): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#38 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\ConvertEmptyStringsToNull.php(31): Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#39 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(183): Illuminate\\Foundation\\Http\\Middleware\\ConvertEmptyStringsToNull->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#40 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest.php(21): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#41 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\TrimStrings.php(40): Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#42 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(183): Illuminate\\Foundation\\Http\\Middleware\\TrimStrings->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#43 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\ValidatePostSize.php(27): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#44 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(183): Illuminate\\Foundation\\Http\\Middleware\\ValidatePostSize->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#45 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\PreventRequestsDuringMaintenance.php(99): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#46 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(183): Illuminate\\Foundation\\Http\\Middleware\\PreventRequestsDuringMaintenance->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#47 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Http\\Middleware\\HandleCors.php(49): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#48 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(183): Illuminate\\Http\\Middleware\\HandleCors->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#49 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Http\\Middleware\\TrustProxies.php(39): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#50 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(183): Illuminate\\Http\\Middleware\\TrustProxies->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#51 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(119): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#52 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(175): Illuminate\\Pipeline\\Pipeline->then(Object(Closure))
+#53 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(144): Illuminate\\Foundation\\Http\\Kernel->sendRequestThroughRouter(Object(Illuminate\\Http\\Request))
+#54 D:\\papachchi-accounting-main\\public\\index.php(51): Illuminate\\Foundation\\Http\\Kernel->handle(Object(Illuminate\\Http\\Request))
+#55 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\resources\\server.php(16): require_once('D:\\\\papachchi-ac...')
+#56 {main}
+
+[previous exception] [object] (PDOException(code: 23000): SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'customer_name' cannot be null at D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\MySqlConnection.php:45)
+[stacktrace]
+#0 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\MySqlConnection.php(45): PDOStatement->execute()
+#1 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php(816): Illuminate\\Database\\MySqlConnection->Illuminate\\Database\\{closure}('insert into `se...', Array)
+#2 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php(783): Illuminate\\Database\\Connection->runQueryCallback('insert into `se...', Array, Object(Closure))
+#3 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\MySqlConnection.php(34): Illuminate\\Database\\Connection->run('insert into `se...', Array, Object(Closure))
+#4 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Query\\Processors\\MySqlProcessor.php(35): Illuminate\\Database\\MySqlConnection->insert('insert into `se...', Array, 'id')
+#5 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Query\\Builder.php(3549): Illuminate\\Database\\Query\\Processors\\MySqlProcessor->processInsertGetId(Object(Illuminate\\Database\\Query\\Builder), 'insert into `se...', Array, 'id')
+#6 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Eloquent\\Builder.php(1982): Illuminate\\Database\\Query\\Builder->insertGetId(Array, 'id')
+#7 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Eloquent\\Model.php(1334): Illuminate\\Database\\Eloquent\\Builder->__call('insertGetId', Array)
+#8 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Eloquent\\Model.php(1299): Illuminate\\Database\\Eloquent\\Model->insertAndSetId(Object(Illuminate\\Database\\Eloquent\\Builder), Array)
+#9 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Eloquent\\Model.php(1138): Illuminate\\Database\\Eloquent\\Model->performInsert(Object(Illuminate\\Database\\Eloquent\\Builder))
+#10 D:\\papachchi-accounting-main\\app\\Http\\Controllers\\SellController.php(81): Illuminate\\Database\\Eloquent\\Model->save()
+#11 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Controller.php(54): App\\Http\\Controllers\\SellController->sell_info(Object(Illuminate\\Http\\Request))
+#12 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\ControllerDispatcher.php(43): Illuminate\\Routing\\Controller->callAction('sell_info', Array)
+#13 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Route.php(259): Illuminate\\Routing\\ControllerDispatcher->dispatch(Object(Illuminate\\Routing\\Route), Object(App\\Http\\Controllers\\SellController), 'sell_info')
+#14 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Route.php(205): Illuminate\\Routing\\Route->runController()
+#15 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(806): Illuminate\\Routing\\Route->run()
+#16 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(144): Illuminate\\Routing\\Router->Illuminate\\Routing\\{closure}(Object(Illuminate\\Http\\Request))
+#17 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Middleware\\SubstituteBindings.php(50): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#18 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(183): Illuminate\\Routing\\Middleware\\SubstituteBindings->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#19 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\VerifyCsrfToken.php(78): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#20 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(183): Illuminate\\Foundation\\Http\\Middleware\\VerifyCsrfToken->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#21 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\View\\Middleware\\ShareErrorsFromSession.php(49): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#22 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(183): Illuminate\\View\\Middleware\\ShareErrorsFromSession->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#23 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Session\\Middleware\\StartSession.php(121): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#24 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Session\\Middleware\\StartSession.php(64): Illuminate\\Session\\Middleware\\StartSession->handleStatefulRequest(Object(Illuminate\\Http\\Request), Object(Illuminate\\Session\\Store), Object(Closure))
+#25 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(183): Illuminate\\Session\\Middleware\\StartSession->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#26 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Cookie\\Middleware\\AddQueuedCookiesToResponse.php(37): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#27 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(183): Illuminate\\Cookie\\Middleware\\AddQueuedCookiesToResponse->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#28 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Cookie\\Middleware\\EncryptCookies.php(67): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#29 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(183): Illuminate\\Cookie\\Middleware\\EncryptCookies->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#30 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(119): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#31 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(805): Illuminate\\Pipeline\\Pipeline->then(Object(Closure))
+#32 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(784): Illuminate\\Routing\\Router->runRouteWithinStack(Object(Illuminate\\Routing\\Route), Object(Illuminate\\Http\\Request))
+#33 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(748): Illuminate\\Routing\\Router->runRoute(Object(Illuminate\\Http\\Request), Object(Illuminate\\Routing\\Route))
+#34 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(737): Illuminate\\Routing\\Router->dispatchToRoute(Object(Illuminate\\Http\\Request))
+#35 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(200): Illuminate\\Routing\\Router->dispatch(Object(Illuminate\\Http\\Request))
+#36 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(144): Illuminate\\Foundation\\Http\\Kernel->Illuminate\\Foundation\\Http\\{closure}(Object(Illuminate\\Http\\Request))
+#37 D:\\papachchi-accounting-main\\app\\Http\\Middleware\\SyncProductsMiddleware.php(56): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#38 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(183): App\\Http\\Middleware\\SyncProductsMiddleware->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#39 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest.php(21): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#40 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\ConvertEmptyStringsToNull.php(31): Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#41 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(183): Illuminate\\Foundation\\Http\\Middleware\\ConvertEmptyStringsToNull->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#42 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest.php(21): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#43 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\TrimStrings.php(40): Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#44 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(183): Illuminate\\Foundation\\Http\\Middleware\\TrimStrings->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#45 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\ValidatePostSize.php(27): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#46 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(183): Illuminate\\Foundation\\Http\\Middleware\\ValidatePostSize->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#47 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\PreventRequestsDuringMaintenance.php(99): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#48 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(183): Illuminate\\Foundation\\Http\\Middleware\\PreventRequestsDuringMaintenance->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#49 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Http\\Middleware\\HandleCors.php(49): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#50 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(183): Illuminate\\Http\\Middleware\\HandleCors->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#51 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Http\\Middleware\\TrustProxies.php(39): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#52 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(183): Illuminate\\Http\\Middleware\\TrustProxies->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#53 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(119): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#54 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(175): Illuminate\\Pipeline\\Pipeline->then(Object(Closure))
+#55 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(144): Illuminate\\Foundation\\Http\\Kernel->sendRequestThroughRouter(Object(Illuminate\\Http\\Request))
+#56 D:\\papachchi-accounting-main\\public\\index.php(51): Illuminate\\Foundation\\Http\\Kernel->handle(Object(Illuminate\\Http\\Request))
+#57 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\resources\\server.php(16): require_once('D:\\\\papachchi-ac...')
+#58 {main}
+"} 
+[2025-02-11 11:20:41] local.INFO: Preloaded Box Products: [{"stdClass":{"id":27,"branch_id":8,"product_id":516,"branch_name":"jaffna","product_name":"bd","total_quantity":2,"selling_price":"6655.00","created_at":"2025-02-08 11:41:57","updated_at":"2025-02-10 19:24:53","product_type":"box"}},{"stdClass":{"id":29,"branch_id":8,"product_id":518,"branch_name":"jaffna","product_name":"bvr","total_quantity":11,"selling_price":"16.00","created_at":"2025-02-08 11:41:57","updated_at":"2025-02-11 11:01:13","product_type":"box"}},{"stdClass":{"id":31,"branch_id":7,"product_id":516,"branch_name":"vavuniya","product_name":"bd","total_quantity":2,"selling_price":"6655.00","created_at":"2025-02-08 11:42:36","updated_at":"2025-02-11 10:07:52","product_type":"box"}},{"stdClass":{"id":32,"branch_id":7,"product_id":517,"branch_name":"vavuniya","product_name":"bxe","total_quantity":3,"selling_price":"14.00","created_at":"2025-02-08 11:42:36","updated_at":"2025-02-11 10:44:48","product_type":"box"}},{"stdClass":{"id":33,"branch_id":7,"product_id":518,"branch_name":"vavuniya","product_name":"bvr","total_quantity":0,"selling_price":"16.00","created_at":"2025-02-08 11:42:36","updated_at":"2025-02-08 13:29:43","product_type":"box"}},{"stdClass":{"id":34,"branch_id":11,"product_id":516,"branch_name":"elil","product_name":"bd","total_quantity":0,"selling_price":"6655.00","created_at":"2025-02-08 12:11:28","updated_at":"2025-02-08 12:13:27","product_type":"box"}},{"stdClass":{"id":35,"branch_id":11,"product_id":517,"branch_name":"elil","product_name":"bxe","total_quantity":0,"selling_price":"14.00","created_at":"2025-02-08 12:11:28","updated_at":"2025-02-08 13:31:45","product_type":"box"}}] 
+[2025-02-11 11:20:41] local.INFO: Preloaded Flower Products: [{"stdClass":{"id":30,"branch_id":8,"product_id":7009,"branch_name":"jaffna","product_name":"f2","total_quantity":1,"selling_price":"6565.00","created_at":"2025-02-08 11:41:57","updated_at":"2025-02-11 08:43:22","product_type":"flower"}},{"stdClass":{"id":36,"branch_id":7,"product_id":7009,"branch_name":"vavuniya","product_name":"f2","total_quantity":8,"selling_price":"6565.00","created_at":"2025-02-08 12:37:30","updated_at":"2025-02-11 08:45:03","product_type":"flower"}},{"stdClass":{"id":37,"branch_id":7,"product_id":7010,"branch_name":"vavuniya","product_name":"f3","total_quantity":1,"selling_price":"145.00","created_at":"2025-02-08 12:37:31","updated_at":"2025-02-11 08:45:50","product_type":"flower"}},{"stdClass":{"id":38,"branch_id":11,"product_id":7009,"branch_name":"elil","product_name":"f2","total_quantity":0,"selling_price":"6565.00","created_at":"2025-02-08 13:30:20","updated_at":"2025-02-08 13:31:45","product_type":"flower"}}] 
+[2025-02-11 11:20:52] local.INFO: Fetching products for Branch ID: 8, Category: box  
+[2025-02-11 12:23:36] local.INFO: Fetching products for Branch ID: 7, Category: box  

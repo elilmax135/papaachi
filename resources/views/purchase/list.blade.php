@@ -5,7 +5,7 @@
 <div class="row">
     <!-- Supplier and Purchase Details -->
     <div class="col-12">
-      
+
 
         <div class="card mb-3">
             <div class="table-responsive">

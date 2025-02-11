@@ -53,6 +53,7 @@
             <div class="col-md-4 mb-3">
                 <label for="category">Category</label>
                 <select id="category" class="form-control">
+                    <option value="" disabled selected>Select Category</option>
                     <option value="box">Box</option>
                     <option value="flower">Flower</option>
                 </select>

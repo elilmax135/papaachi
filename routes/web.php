@@ -267,4 +267,4 @@ Route::post('/selectbr',[TransferController::class,'index']);
 
 
 
-Route::get('/get-salary/{sell_id}', [StaffController::class, 'getSalaryDetails']);
+Route::get('/get-salary/{sellId}', [StaffController::class, 'getSalaryDetails']);

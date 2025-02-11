@@ -68,7 +68,7 @@
 
                                         <!-- Pay Salary and Sale Button for Two People -->
                                         <li>
-                                            <button type="button" class="dropdown-item salary-btn" data-id="{{ $sale_id }}">
+                                            <button type="button" class="dropdown-item salary-btn" data-id11="{{ $sale_id }}">
                                                 <i class="fas fa-dollar-sign"></i> Salary
                                             </button>
                                         </li>
@@ -213,11 +213,7 @@
     </div>
 </div>
 
-<script>
-    $(document).ready(function() {
-        $('#selltable').DataTable(); // Initialize DataTable
-    });
-</script>
+
 <!-- Bootstrap CSS -->
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 
@@ -279,7 +275,7 @@
 
 $(document).ready(function () {
     $(".salary-btn").click(function () {
-        let sellId = $(this).data("id"); // Get sale ID
+        let sellId = $(this).data("id11"); // Get sale ID
         $("#sellIdField").val(sellId); // Assign it to the hidden input field
 
         $.ajax({
@@ -323,7 +319,11 @@ $(document).ready(function () {
 
     </script>
 
-
+<script>
+    $(document).ready(function() {
+        $('#selltable').DataTable(); // Initialize DataTable
+    });
+</script>
 
 
 @endsection

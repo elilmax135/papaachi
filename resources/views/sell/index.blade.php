@@ -95,7 +95,7 @@
                             <div class="row mb-3">
                                 <div class="col-md-4">
                                     <label for="person_name1">Person Name</label>
-                                    <select id="person_name1" name="person_name1" class="form-control">
+                                    <select id="person_name1" name="person_name1" class="form-control" required>
                                         <option value="" disabled selected>Select Person</option>
                                         @foreach ($staff as $stf)
                                         <option value="{{$stf->id}}">{{$stf->full_name}}</option>
@@ -106,11 +106,11 @@
                                 </div>
                                 <div class="col-md-4">
                                     <label for="amount1">Amount</label>
-                                    <input type="number" id="amount1" name="amount1" class="form-control" placeholder="Enter Amount">
+                                    <input type="number" id="amount1" name="amount1" class="form-control" placeholder="Enter Amount" required>
                                 </div>
                                 <div class="col-md-4">
                                     <label for="remarks1">Remarks</label>
-                                    <input type="text" id="remarks1" name="remarks1" class="form-control" placeholder="Enter Remarks">
+                                    <input type="text" id="remarks1" name="remarks1" class="form-control" placeholder="Enter Remarks" required>
                                 </div>
                             </div>
 
@@ -118,7 +118,7 @@
                             <div class="row mb-3">
                                 <div class="col-md-4">
                                     <label for="person_name2">Person Name</label>
-                                    <select id="person_name2" name="person_name2" class="form-control">
+                                    <select id="person_name2" name="person_name2" class="form-control" required>
                                         <option value="" disabled selected>Select Person</option>
                                         @foreach ($staff as $stf)
                                         <option value="{{$stf->id}}">{{$stf->full_name}}</option>
@@ -128,11 +128,11 @@
                                 </div>
                                 <div class="col-md-4">
                                     <label for="amount2">Amount</label>
-                                    <input type="number" id="amount2" name="amount2" class="form-control" placeholder="Enter Amount">
+                                    <input type="number" id="amount2" name="amount2" class="form-control" placeholder="Enter Amount" required>
                                 </div>
                                 <div class="col-md-4">
                                     <label for="remarks2">Remarks</label>
-                                    <input type="text" id="remarks2" name="remarks2" class="form-control" placeholder="Enter Remarks">
+                                    <input type="text" id="remarks2" name="remarks2" class="form-control" placeholder="Enter Remarks" required>
                                 </div>
                             </div>
                         </div>
@@ -142,7 +142,7 @@
                 <div class="row mb-3">
                     <div class="col-md-4">
                         <label for="empaming_amount">Empaming Amount</label>
-                        <input type="number" id="empaming_amount" name="empaming_amount" class="form-control" min="0" value="0">
+                        <input type="number" id="empaming_amount" name="empaming_amount" class="form-control" min="0" value="0" required>
                     </div>
                     <div class="col-md-4">
                         <label for="empaming_date">Empaming Date</label>
@@ -153,26 +153,26 @@
                 <div class="row mb-3">
                     <div class="col-md-4">
                         <label for="panthal_amount" class="form-label">Panthal Amount</label>
-                        <input type="number" id="panthal_amount" name="panthal_amount" class="form-control" min="0" value="0">
+                        <input type="number" id="panthal_amount" name="panthal_amount" class="form-control" min="0" value="0" required>
                     </div>
                     <div class="col-md-4">
                         <label for="lift_amount" class="form-label">Lifting Machine</label>
-                        <input type="number" id="lift_amount" name="lift_amount" class="form-control" min="0" value="0">
+                        <input type="number" id="lift_amount" name="lift_amount" class="form-control" min="0" value="0" required>
                     </div>
                     <div class="col-md-4">
                         <label for="band_amount" class="form-label">Band Amount</label>
-                        <input type="number" id="band_amount" name="band_amount" class="form-control" min="0" value="0">
+                        <input type="number" id="band_amount" name="band_amount" class="form-control" min="0" value="0" required>
                     </div>
                 </div>
 
                 <div class="row mb-3">
                     <div class="col-md-4">
                         <label for="instrument_amount" class="form-label">Instrument Amount</label>
-                        <input type="number" id="instrument_amount" name="instrument_amount" class="form-control" min="0" value="0">
+                        <input type="number" id="instrument_amount" name="instrument_amount" class="form-control" min="0" value="0" required>
                     </div>
                     <div class="col-md-4">
                         <label for="transport_amount" class="form-label">Transport Machine</label>
-                        <input type="number" id="transport_amount" name="transport_amount" class="form-control" min="0" value="0">
+                        <input type="number" id="transport_amount" name="transport_amount" class="form-control" min="0" value="0" required>
                     </div>
                 </div>
             </div>
@@ -185,7 +185,7 @@
     <div>
 
     </div>
-    <input type="hidden" id="totalAmountx" name="total" value="0.00">
+    <input type="hidden" id="totalAmountx" name="total" value="0.00" required>
     <input type="hidden" name="products" id="products">
     </form>
         <!-- Product Selection -->
@@ -196,6 +196,7 @@
                     <div class="col-md-4 mb-3">
                         <label for="category">Category</label>
                         <select id="category" class="form-control">
+                            <option value="" disabled selected>Select Category</option>
                             <option value="box">Box</option>
                             <option value="flower">Flower</option>
                         </select>
@@ -251,7 +252,7 @@
 
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script>$(document).ready(function () {
-    $("#category, #f_id").change(fetchProducts);
+    $("#category, #s_id").change(fetchProducts);
 
     function fetchProducts() {
         let category = $("#category").val();

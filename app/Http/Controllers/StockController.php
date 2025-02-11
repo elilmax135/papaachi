@@ -22,7 +22,8 @@ class StockController extends Controller
         // Fetch the stock data from purchases
 
         $custock=stock::all();
-        return view('stock.index', compact('custock'));
+        $BranchV=Branch::all();
+        return view('stock.index', compact('custock','BranchV'));
     }
 
     /**
