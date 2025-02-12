@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\RoleController;
 use App\Http\Controllers\PurchaseController;
+use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\PermissionController;
 use App\Http\Controllers\SettingController;
@@ -198,6 +199,7 @@ Route::post('/additiontransferpay/{transfer_id}',[TransferController::class,'pro
 
 use App\Http\Controllers\FilterController;
 use App\Models\Staff;
+use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
 
 Route::get('/filter-data', [ReportController::class, 'showFilterForm']);
 Route::get('/filter-results', [FilterController::class, 'filterData']);
@@ -268,3 +270,10 @@ Route::post('/selectbr',[TransferController::class,'index']);
 
 
 Route::get('/get-salary/{sellId}', [StaffController::class, 'getSalaryDetails']);
+
+
+
+
+
+Route::get('/dash
+',[DashboardController::class,'index']);

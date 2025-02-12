@@ -13,7 +13,7 @@
       <div class="navbar-content">
         <ul class="app-navbar">
           <li class="nav-item">
-            <a href="/" class="nav-link">
+            <a href="/dash" class="nav-link">
               <span class="nav-icon"><i class="ti ti-layout-2"></i></span>
               <span class="nav-text">Dashboard</span>
             </a>
