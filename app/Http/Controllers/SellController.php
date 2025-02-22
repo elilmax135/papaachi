@@ -8,6 +8,7 @@ use App\Models\salary;
 use App\Models\sell;
 use App\Models\sellProduct;
 use App\Models\sellPayment;
+use App\Models\pay_salary;
 use App\Models\Branch;
 use App\Models\Location;
 use App\Models\Staff;
@@ -16,7 +17,8 @@ use App\Models\service;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
-
+use Barryvdh\DomPDF\Facade\Pdf;
+use Illuminate\Support\Facades\Storage;
 
 class SellController extends Controller
 {
@@ -34,7 +36,7 @@ class SellController extends Controller
             $lastRecord = sell::orderBy('id', 'desc')->first();
 
             $branch=branch::all();
-            $locate=location::all();
+
 
 
            $staff=staff::all();
@@ -64,10 +66,14 @@ class SellController extends Controller
    $sell->customer_mobile = $request->customer_mobile;
    $sell->sell_date = $request->sell_date;
    $sell->transaction_id = $request->transaction_id;
-   $sell->transport_mode = $request->transport_mode;
+   $sell->place = $request->transport_mode;
    $sell->branch_id = $request->s_id;
    $sell->customer_address = $request->customer_address;
-   $sell->emapoming_date = $request->empaming_date;
+   $sell->emapoming_days = $request->edays;
+   $sell->empoming_type = $request->empaming_type;
+   $sell->ac_room = $request->ac_room ?? 0;
+   $sell->ac_room_days = $request->ac_room_days;
+   $sell->Flower_ring = $request->Flower_ring ?? 0;
  // Amount fields
 
 $sell->empoming_amount = $request->empaming_amount ?? 0;
@@ -130,6 +136,19 @@ $sell->save();
         'remarks' => $request->remarks1,
         'sells_id' => $sell->id,  // Store the sale ID for relation
     ]);
+    $paySalary = Pay_Salary::where('staff_id', $request->person_name1)->first();
+
+    if ($paySalary) {
+        // If it exists, increment the payment amount
+        $paySalary->increment('payment', $request->amount1);
+    } else {
+        // Otherwise, create a new pay_salary record
+        Pay_Salary::create([
+            'staff_id' => $request->person_name1,
+            'payment'  => $request->amount1,
+        ]);
+    }
+
 }
 
 // 3. Store Salary Information for Person 2 (if available)
@@ -140,6 +159,18 @@ if ($request->person_name2 && $request->amount2) {
         'remarks' => $request->remarks2,
         'sells_id' => $sell->id,  // Store the sale ID for relation
     ]);
+    $paySalary = Pay_Salary::where('staff_id', $request->person_name2)->first();
+
+    if ($paySalary) {
+        // If it exists, increment the payment amount
+        $paySalary->increment('payment', $request->amount2);
+    } else {
+        // Otherwise, create a new pay_salary record
+        Pay_Salary::create([
+            'staff_id' => $request->person_name2,
+            'payment'  => $request->amount2,
+        ]);
+    }
 }
    return redirect()->back()->with('success', 'Sale Details successfully!');
 
@@ -220,7 +251,7 @@ public function getPaymentsBySaleId($sale_id)
     // Fetch payment details
     $payments = DB::table('sell_payment')
         ->where('sell_id', $sale_id)
-        ->orderBy('sell_pay_id', 'desc') // Order by latest payment
+        ->orderBy('sell_pay_id', 'asc') // Order by latest payment
         ->get();
 
     // Fetch products and their quantities directly from the sell_product table
@@ -234,8 +265,9 @@ public function getPaymentsBySaleId($sale_id)
         )
         ->where('sell_product.sell_id', $sale_id)
         ->get();
-
-    return view('sell.details', compact('sale', 'payments', 'products', 'sale_id'));
+        $totalPayments = SellPayment::where('sell_id', $sale_id)
+        ->sum('pay_amount');
+    return view('sell.details', compact('sale', 'payments', 'products', 'sale_id','totalPayments'));
 }
 
 
@@ -343,26 +375,6 @@ public function processSalePayment(Request $request)
 }
 
 
-public function update_total(Request $request){
- // Validate the input
- $request->validate([
-    'location_price' => 'required|numeric|min:0', // Ensure location_price is a valid number
-]);
-
-// Get the last record from the sells table
-$lastRecord = Sell::orderBy('id', 'desc')->first();
-
-if (!$lastRecord) {
-    return response()->json(['error' => 'No sell record found.'], 404);
-}
-
-// Update the sell record
-$lastRecord->total += $request->location_price; // Add location price to the current total
-$lastRecord->save();
-
-// Return a success response
-return redirect()->back()->with('you can pay!');
-}
 
 
 
@@ -471,15 +483,112 @@ public function deleteSells($sale_id)
     }
 
     // Delete the purchase products first
+
+
+    $salaries = Salary::where('sells_id', $sale_id)->get(); // Get all salaries for this sale
+
+    foreach ($salaries as $salary) {
+        // Find the corresponding staff's salary record
+        $staffSalary = pay_salary::where('staff_id', $salary->staff_id)->first();
+
+        // Log the staff salary for debugging
+        Log::info('Staff Salary Record:', ['staffSalary' => $staffSalary]);
+
+        if ($staffSalary) {
+            // Subtract the payment for this staff member
+            $staffSalary->payment -= $salary->payment;
+
+            // Ensure payment doesn’t go negative
+            if ($staffSalary->payment < 0) {
+                $staffSalary->payment = 0;
+            }
+
+            $staffSalary->save();
+        }
+
+        // Delete the salary record linked to this staff
+        $salary->delete();
+    }
+    // Delete the sale record
     sellProduct::where('sell_id', $sale_id)->delete();
 
     // Delete the purchase record
     sell::where('id', $sale_id)->delete();
 
-    salary::where('sells_id', $sale_id)->delete();
-
     return redirect()->back()->with('success', 'sale and associated products  deleted successfully!');
 }
 
 
+    // Check if the file was uploaded
+    public function doctorConfirm(Request $request, $sale_id)
+    {
+        // Optionally remove the "required" rule if you want to allow no file upload
+        $sell = Sell::findOrFail($sale_id);
+
+        // Initialize the doctor_confirm field as null
+
+
+        // Check if a file is uploaded and is valid
+        if ($request->hasFile('doctorImage') && $request->file('doctorImage')->isValid()) {
+            $image = $request->file('doctorImage');
+
+            // Generate a unique image name
+            $imagename = time() . '.' . $image->getClientOriginalExtension();
+
+            // Move the image to the 'public/doctorImage' directory
+            $image->move(public_path('doctorImage'), $imagename);
+
+            // Save the image name in the database
+            $sell->doctor_confirm = $imagename;
+        } else {
+            // If no image is uploaded, set it to null
+            $sell->doctor_confirm = null;
+        }
+
+        // Save the updated sale record
+        $sell->save();
+
+        return redirect()->back()->with('success', 'Doctor image updated successfully!');
+    }
+
+
+
+
+
+    public function sendWhatsAppPdf($sale_id)
+    {
+        $sale = Sell::findOrFail($sale_id);
+        $payments = SellPayment::where('sell_id', $sale_id)->get();
+        $products = SellProduct::join('product', 'sell_product.product_id', '=', 'product.product_id')
+        ->where('sell_product.sell_id', $sale_id)
+        ->select('sell_product.*', 'product.product_name')  // Select desired columns
+        ->get();
+        $totalPayments = SellPayment::where('sell_id', $sale_id)
+    ->sum('pay_amount');
+        // Generate the PDF
+        $pdf = PDF::loadView('sell.sale-details-pdf', compact('sale', 'payments', 'products', 'sale_id','totalPayments'));
+
+        // Define storage path
+        $pdfFilename = 'sale_' . $sale_id . '.pdf';
+        $pdfPath = 'public/pdfs/' . $pdfFilename;
+
+        // Save PDF file
+        Storage::put($pdfPath, $pdf->output());
+
+        // Generate public URL
+        $pdfUrl = asset('storage/pdfs/' . $pdfFilename);
+
+        // Get customer's WhatsApp number
+        $whatsappNumber = $sale->customer_phone;
+
+        // WhatsApp Web URL with pre-filled message
+        $whatsappUrl = "https://api.whatsapp.com/send?phone={$whatsappNumber}&text=" . urlencode("Your invoice is ready. Download it here: $pdfUrl");
+
+        // Redirect user to WhatsApp Web
+        return redirect()->away($whatsappUrl);
+    }
 }
+
+
+
+

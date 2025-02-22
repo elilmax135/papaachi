@@ -16,13 +16,13 @@ return new class extends Migration
 
 
             $table->string('product_name');  // Name of the product (box or flower)
-            $table->string('product_image'); // Image of the product (box or flower)
+            $table->string('product_image')->nullable(); // Image of the product (box or flower)
             $table->string('product_type');  // Type (either 'box' or 'flower')
             $table->string('product_boxtype_id')->default('--');
             $table->string('color_id');
             $table->string('stock_quantity')->default('0');    // Color ID for box or flower
-            $table->decimal('price_purchase', 10, 2);  // Purchase price
-            $table->decimal('price_selling', 10, 2);
+            $table->decimal('price_purchase', 15, 2);  // Purchase price
+            $table->decimal('price_selling', 15, 2);
             $table->timestamps();
         });
     }

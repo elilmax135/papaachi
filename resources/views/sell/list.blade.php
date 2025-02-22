@@ -69,16 +69,29 @@
                                         <!-- Pay Salary and Sale Button for Two People -->
                                         <li>
                                             <button type="button" class="dropdown-item salary-btn" data-id11="{{ $sale_id }}">
-                                                <i class="fas fa-dollar-sign"></i> Salary
+                                                <i class="fas fa-dollar-sign"></i>View Salary
                                             </button>
                                         </li>
+                                        @if($sale_group[0]->doctor_confirm)
+                                        <li>
+                                            <button type="button" class="dropdown-item doctor-btn" data-bs-toggle="modal" data-bs-target="#doctorValueModal-{{ $sale_id }}">
+                                                <i class="fas fa-user-md"></i> View Doctor Confirmation
+                                            </button>
+                                        </li>
+                                    @else
+                                        <li>
+                                            <button type="button" class="dropdown-item add-doctor-btn" data-bs-toggle="modal" data-bs-target="#addDoctorModal-{{ $sale_id }}">
+                                                <i class="fas fa-user-plus"></i> Add Doctor Confirmation
+                                            </button>
+                                        </li>
+                                    @endif
 
 
                                         <!-- Delete Button -->
                                         <li>
                                             <form action="{{ url('/delete-sell/' . $sale_id) }}" method="POST" style="display:inline;">
                                                 @csrf
-                                                @method('DELETE')
+                                                @method('POST')
                                                 <button type="submit" class="dropdown-item" onclick="return confirm('Are you sure you want to delete this purchase and all its products?')">
                                                     <i class="fas fa-trash"></i>Delete
                                                 </button>
@@ -170,7 +183,7 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <form id="salaryPaymentForm" action="{{ url('salarypays') }}" method="POST">
+                    <form id="salaryPaymentForm" action="" method="POST">
                         @csrf <!-- Include CSRF Token -->
                         <input type="hidden" name="sell_id" id="sellIdField">
 
@@ -179,11 +192,7 @@
                                 <tr>
                                     <th>Name</th>
                                     <th>Salary</th>
-                                    <th>Paid</th>
-                                    <th>Due</th>
 
-                                    <th>Pay Amount</th>
-                                    <th>Pay Date</th>
                                 </tr>
                             </thead>
                             <tbody id="salaryDetailsBody">
@@ -191,15 +200,67 @@
                             </tbody>
                         </table>
 
-                        <div class="text-center">
-                            <button type="submit" class="btn btn-success">Pay Now</button>
-                        </div>
+
                     </form>
                 </div>
             </div>
         </div>
     </div>
 
+    @if($sale_group[0]->doctor_confirm)
+    <!-- Modal to display the doctor_confirm value -->
+    <div class="modal fade" id="doctorValueModal-{{ $sale_id }}" tabindex="-1" aria-labelledby="doctorValueLabel-{{ $sale_id }}" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="doctorValueLabel-{{ $sale_id }}">Doctor Confirmation for Sale ID: {{ $sale_id }}</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    @if($sale_group[0]->doctor_confirm)
+                    <div style="border: 1px solid #ddd; padding: 10px; text-align: center;">
+                        <img src="{{ asset('/doctorImage/' . $sale_group[0]->doctor_confirm) }}" alt="Doctor Image" style="max-width: 100%; height: auto;">
+                    </div>
+                @else
+                    <div style="border: 1px solid #ddd; padding: 10px; text-align: center;">
+                        <p>No Doctor Image Available.</p>
+                    </div>
+                @endif
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+@else
+    <!-- Modal for adding doctor image via form -->
+    <div class="modal fade" id="addDoctorModal-{{ $sale_id }}" tabindex="-1" aria-labelledby="addDoctorLabel-{{ $sale_id }}" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="addDoctorLabel-{{ $sale_id }}">Add Doctor for Sale ID: {{ $sale_id }}</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="addDoctorForm-{{ $sale_id }}" action="{{url('/doctor_confirm',$sale_id)}}" method="POST" enctype="multipart/form-data">
+                        @csrf
+
+                        <div class="mb-3">
+                            <label for="doctorImage-{{ $sale_id }}" class="form-label">Upload Doctor Image</label>
+                            <input type="file" class="form-control" id="doctorImage-{{ $sale_id }}" name="doctorImage" accept="image/*" required>
+                        </div>
+                        <input type="hidden" name="sale_id" value="{{ $sale_id }}">
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="submit" form="addDoctorForm-{{ $sale_id }}" class="btn btn-primary">Add Doctor</button>
+                </div>
+            </div>
+        </div>
+    </div>
+@endif
 
 
 
@@ -291,15 +352,7 @@ $(document).ready(function () {
                             <tr>
                                 <td>${salary.full_name}</td>
                                 <td>${salary.salary_amount}</td>
-                                <td>${salary.salary_paid}</td>
-                                <td>${salary.salary_due}</td>
 
-                                <td>
-                                    <input type="number" class="form-control" name="amount[${salary.id}]" min="0" value="0">
-                                </td>
-                                <td>
-                                    <input type="date" class="form-control" name="payment_date[${salary.id}]" value="${new Date().toISOString().split('T')[0]}">
-                                </td>
                             </tr>`;
                     });
                 } else {

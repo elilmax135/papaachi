@@ -12,6 +12,7 @@
                 <table class="table table-bordered table-striped" id="purchaseTable">
                     <thead>
                         <tr>
+                            <th>Purchase id</th>
                             <th>Supplier Name</th>
                             <th>Branch</th>
                             <th>Purchase Date</th>
@@ -26,6 +27,8 @@
                         <tr class="purchase-row"
                             data-supplier-name="{{ $purchase_group[0]->supplier_name }}"
                             data-purchase-id="{{ $purchase_id }}">
+
+                            <td>{{ $purchase_group[0]-> purchase_id }}</td>
                             <td>{{ $purchase_group[0]->supplier_name }}</td>
                             <td>{{ $purchase_group[0]->branch_name }}</td>
                             <td>{{ $purchase_group[0]->purchase_date }}</td>
@@ -62,7 +65,7 @@
                                         <li>
                                             <form action="{{ url('/delete-purchase/' . $purchase_id) }}" method="POST" style="display:inline;">
                                                 @csrf
-                                                @method('DELETE')
+                                                @method('POST')
                                                 <button class="dropdown-item text-danger" onclick="return confirm('Are you sure you want to delete this purchase and all its products?')">
                                                     <i class="fas fa-trash"></i>Delete
                                                 </button>

@@ -11,18 +11,17 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('salary', function (Blueprint $table) {
+        Schema::create('pay_salary', function (Blueprint $table) {
             $table->id(); // Auto-increment primary key
             $table->unsignedBigInteger('staff_id');
             $table->decimal('payment',15,2);
             $table->decimal('paid',15,2)->default('0');
             $table->date('payment_date')->nullable();
-            $table->unsignedBigInteger('sells_id');
+            $table->string('salary_status')->default('fail');
             $table->timestamps();
 
             // Foreign key constraints
             $table->foreign('staff_id')->references('id')->on('staffs')->onDelete('cascade');
-            $table->foreign('sells_id')->references('id')->on('sells')->onDelete('cascade');
         });
     }
 
@@ -31,6 +30,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('salary');
+        Schema::dropIfExists('pay_salary');
     }
 };

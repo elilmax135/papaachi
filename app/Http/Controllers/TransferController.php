@@ -13,7 +13,8 @@ use App\Models\TransferPayment;
 use App\Models\TransferProduct;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\DB;
-
+use Barryvdh\DomPDF\Facade\Pdf;
+use Illuminate\Support\Facades\Storage;
 use function Laravel\Prompts\select;
 
 class TransferController extends Controller
@@ -189,45 +190,7 @@ return redirect()->back()->with('success', 'Transfer completed successfully.');
 
 
 
-        private function updateStock($branchId, $productId, $quantity, $operation = 'increase')
-        {
-            DB::transaction(function () use ($branchId, $productId, $quantity, $operation) {
-                Log::info("Updating stock for Branch ID: $branchId, Product ID: $productId, Quantity: $quantity, Operation: $operation");
 
-                // Lock the stock row to prevent race conditions
-                $stock = Stock::where([
-                    ['branch_id', '=', $branchId],
-                    ['product_id', '=', $productId]
-                ])->lockForUpdate()->first();
-
-                if ($operation === 'decrease') {
-                    if (!$stock || $stock->total_quantity < $quantity) {
-                        Log::error("Insufficient stock for Product ID: $productId at Branch ID: $branchId. Available: " . ($stock ? $stock->total_quantity : 0));
-                        throw new \Exception("Insufficient stock for product ID: $productId at branch ID: $branchId.");
-                    }
-                    Log::info("Decreasing stock by $quantity for Product ID: $productId at Branch ID: $branchId");
-                    $stock->decrement('total_quantity', $quantity);
-                } else {
-                    if ($stock) {
-                        Log::info("Increasing stock by $quantity for Product ID: $productId at Branch ID: $branchId");
-                        $stock->increment('total_quantity', $quantity);
-                    } else {
-                        Log::info("Creating new stock entry for Product ID: $productId at Branch ID: $branchId");
-                        // Fetch branch and product names
-                        $branchName = Branch::find($branchId)->branch_name ?? 'Unknown';
-                        $productName = Product::find($productId)->product_name ?? 'Unknown';
-
-                        Stock::create([
-                            'branch_id'     => $branchId,
-                            'product_id'    => $productId,
-                            'total_quantity'=> $quantity,
-                            'branch_name'   => $branchName,
-                            'product_name'  => $productName,
-                        ]);
-                    }
-                }
-            });
-        }
 
     public function Transpay(Request $request)
 {
@@ -331,7 +294,7 @@ $transfer = DB::table('transfer')
 // Fetch payment details for the transfer
 $payments = DB::table('transfer_payment')
     ->where('transfer_id', $transfer_id)
-    ->orderBy('transfer_pay_id', 'desc') // Order by latest payment
+    ->orderBy('transfer_pay_id', 'asc') // Order by latest payment
     ->get();
 
 // Fetch products and their quantities directly from the transfer_products table
@@ -345,7 +308,11 @@ $products = DB::table('transfer_product')
     )
     ->where('transfer_product.transfer_id', $transfer_id)
     ->get();
-return view('transfer.details', compact('transfer', 'payments', 'products', 'transfer_id'));
+
+
+    $totalPayments = TransferPayment::where('transfer_id', $transfer_id)
+        ->sum('pay_amount');
+return view('transfer.details', compact('transfer', 'payments', 'products', 'transfer_id','totalPayments'));
 
   }
 
@@ -440,9 +407,59 @@ return view('transfer.details', compact('transfer', 'payments', 'products', 'tra
             $stockFrom->save();
         }
     }
+    TransferProduct::where('transfer_id', $transfer_id)->delete();
 
+    // Delete the purchase record
+    Transfer::where('id', $transfer_id)->delete();
     // Return JSON response with stock details
 
     return redirect()->back()->with('success', 'Transfer and associated products deleted successfully!');
+}
+
+
+
+public function sendWhatsAppPdf($transfer_id)
+{
+    $transfer = Transfer::findOrFail($transfer_id);
+    $payments = TransferPayment::where('transfer_id', $transfer_id)->get();
+    $products = TransferProduct::join('product', 'transfer_product.product_id', '=', 'product.product_id')
+    ->where('transfer_product.transfer_id', $transfer_id)
+    ->select('transfer_product.*', 'product.product_name')  // Select desired columns
+    ->get();
+    $totalPayments = TransferPayment::where('transfer_id', $transfer_id)
+->sum('pay_amount');
+
+$branch = DB::table('transfer')
+    ->join('branches', 'transfer.branch_id', '=', 'branches.id') // Join with branches table
+    ->leftJoin('branches as b2', 'transfer.branch_id2', '=', 'b2.id')
+    ->select(
+        'branches.branch_name', // Fetch the branch name
+        'b2.branch_name as branch_name_2',
+        'transfer.branch_id',
+        'transfer.branch_id2')
+    ->where('transfer.id', $transfer_id)
+    ->first();
+    // Generate the PDF
+    $pdf = PDF::loadView('transfer.transfer-details-pdf', compact('transfer', 'payments', 'products', 'transfer_id','totalPayments','branch'));
+
+    // Define storage path
+    $pdfFilename = 'transfer_' . $transfer_id . '.pdf';
+    $pdfPath = 'public/pdfs/' . $pdfFilename;
+
+    // Save PDF file
+    Storage::put($pdfPath, $pdf->output());
+
+    // Generate public URL
+    $pdfUrl = asset('storage/pdfs/' . $pdfFilename);
+
+
+    // Get customer's WhatsApp number
+    $whatsappNumber = '0771234567';
+
+    // WhatsApp Web URL with pre-filled message
+    $whatsappUrl = "https://api.whatsapp.com/send?phone={$whatsappNumber}&text=" . urlencode("Your invoice is ready. Download it here: $pdfUrl");
+
+    // Redirect user to WhatsApp Web
+    return redirect()->away($whatsappUrl);
 }
 }

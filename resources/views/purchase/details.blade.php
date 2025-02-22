@@ -102,11 +102,15 @@
     <div class="mb-4 text-right">
         <h5><strong>Total Purchase Amount:</strong> {{ $purchase->total }}</h5>
     </div>
+
+    <div class="mb-4 text-right">
+        <h5><strong>Total Paid Amount:</strong> {{ $totalPayments }}</h5>
+    </div>
    <!-- Last Due Amount -->
    <div class="mb-4 text-right">
     <h5>Last Due Amount</h5>
     @if ($payments->isNotEmpty())
-        <h5> {{ $payments->first()->pay_due }}</h5>
+    <h5>{{ $payments->sortByDesc('created_at')->first()->pay_due }}</h5>
     @else
         <p>No payments available.</p>
     @endif
@@ -115,6 +119,7 @@
     <div class="d-flex justify-content-between no-print">
         <a href="{{ url('/ListPurchase') }}" class="btn btn-primary">Back to Purchase List</a>
         <button onclick="printPage()" class="btn btn-success">Print</button>
+        <a href="{{ url('/sendWhatsAppPdf_pur', $purchase_id) }}" target="_blank" class="btn btn-success">Print &amp; Send via WhatsApp</a>
     </div>
 </div>
 

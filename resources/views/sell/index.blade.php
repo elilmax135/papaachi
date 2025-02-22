@@ -37,16 +37,18 @@
                         </div>
 
                         <!-- Transport Mode -->
+
+
                         <div class="col-md-4">
-                            <label for="transport_mode" class="form-label">Transport Mode</label>
-                            <input
-                                type="text"
-                                id="transport_mode"
-                                name="transport_mode"
-                                class="form-control"
-                                placeholder="e.g., van, own-vehicle"
-                                required>
+                            <label for="transport_mode" class="form-label">Place</label>
+                            <select class="form-select" id="transport_mode" name="transport_mode" required>
+                                <option value="" disabled selected>Select Place</option>
+                                <option value="home">Home</option>
+                                <option value="hospital">Hospital</option>
+                            </select>
                         </div>
+
+
 
                         <!-- Select Service -->
                         <div class="col-md-4">
@@ -79,13 +81,13 @@
             </div>
 
             <div class="card mb-3">
-            <div class="card-header">Empaming Details</div>
+            <div class="card-header">Service Details</div>
             <div class="card-body">
                 <div class="row mb-3">
                     <div class="col-md-12">
-                        <label for="empaming_type">Empaming Type</label>
+                        <label for="empaming_type">Salary Details</label>
                         <select id="emp_id" name="emp_id" class="form-control" onchange="showDetails()">
-                            <option value="" disabled selected>Empaming Service</option>
+                            <option value="" disabled selected>salary</option>
                             <option value="service1">Person</option>
 
                         </select>
@@ -145,8 +147,16 @@
                         <input type="number" id="empaming_amount" name="empaming_amount" class="form-control" min="0" value="0" required>
                     </div>
                     <div class="col-md-4">
-                        <label for="empaming_date">Empaming Date</label>
-                        <input type="date" id="empaming_date" name="empaming_date" class="form-control" required>
+                        <label for="empaming_date">Empaming Days</label>
+                        <input type="number" id="days" name="edays" class="form-control"  min="0" value="0" required>
+                    </div>
+                    <div class="col-md-4">
+                        <label for="empaming_type">Empaming Type</label>
+                        <select id="empaming_type" name="empaming_type" class="form-control" required>
+                            <option value="normal">Normal</option>
+
+                            <option value="inquest">Inquest</option>
+                        </select>
                     </div>
                 </div>
 
@@ -171,9 +181,24 @@
                         <input type="number" id="instrument_amount" name="instrument_amount" class="form-control" min="0" value="0" required>
                     </div>
                     <div class="col-md-4">
-                        <label for="transport_amount" class="form-label">Transport Machine</label>
+                        <label for="ac_room" class="form-label">Ac Room</label>
+                        <input type="number" id="ac_room" name="ac_room" class="form-control" min="0" value="0" required>
+                    </div>
+                    <div class="col-md-4">
+                        <label for="ac_room_days" class="form-label">Ac Room days</label>
+                        <input type="number" id="ac_room_days" name="ac_room_days" class="form-control" min="0" value="0" required>
+                    </div>
+                    <div class="col-md-4">
+                        <label for="Flower_ring" class="form-label">Flower Ring</label>
+                        <input type="number" id="Flower_ring" name="Flower_ring" class="form-control" min="0" value="0" required>
+                    </div>
+
+                    <div class="col-md-4">
+
+                        <label for="transport_amount" class="form-label">Service Vehicle</label>
                         <input type="number" id="transport_amount" name="transport_amount" class="form-control" min="0" value="0" required>
                     </div>
+
                 </div>
             </div>
 
@@ -389,9 +414,12 @@ function updateTotals() {
     let bandAmount = parseFloat($("#band_amount").val()) || 0;
     let instrumentAmount = parseFloat($("#instrument_amount").val()) || 0;
     let transportAmount = parseFloat($("#transport_amount").val()) || 0;
+    let AcAmount = parseFloat($("#ac_room").val()) || 0;
+    let FlowerAmount = parseFloat($("#Flower_ring").val()) || 0;
+
 
     // Add all charges to the total amount
-    totalAmount += empamingAmount + panthalAmount + liftAmount + bandAmount + instrumentAmount + transportAmount;
+    totalAmount += empamingAmount + panthalAmount + liftAmount + bandAmount + instrumentAmount + transportAmount + AcAmount + FlowerAmount;
 
     // Update the UI with total quantity and amount
     $("#totalQuantity").text(totalQuantity);
@@ -400,7 +428,7 @@ function updateTotals() {
 }
 
 // Recalculate totals when any input field changes
-$(document).on("input", ".transferQuantity, .sellingPrice, #empaming_amount, #panthal_amount, #lift_amount, #band_amount, #instrument_amount, #transport_amount", updateTotals);
+$(document).on("input", ".transferQuantity, .sellingPrice, #empaming_amount, #panthal_amount, #lift_amount, #band_amount, #instrument_amount, #transport_amount, #ac_room, #Flower_ring", updateTotals);
 
     $("#product-form").submit(function (e) {
         if ($("#selectedProducts tr").length === 0) {

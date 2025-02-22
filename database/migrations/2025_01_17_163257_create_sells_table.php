@@ -17,15 +17,25 @@ return new class extends Migration
             $table->string('customer_mobile');
             $table->date('sell_date');
             $table->string('transaction_id');
-            $table->string('transport_mode');
+            $table->string('place');
             $table->text('customer_address');
-            $table->string('doctor_confirm');
-            $table->unsignedBigInteger('service_id');
-            $table->decimal('total', 10, 2);
+            $table->string('doctor_confirm')->nullable();
+            $table->unsignedBigInteger('branch_id');
+            $table->decimal('total', 15, 2);
             $table->string('sell_status')->default('fail');
+            $table->string('panthal_amount')->default('0');
+            $table->string('empoming_amount')->default('0');
+            $table->string('emapoming_days')->default('0');
+            $table->string('empoming_type')->nullable();
+            $table->string('lift_amount')->default('0');
+            $table->string('band_amount')->default('0');
+            $table->string('melam_amount')->default('0');
+            $table->string('transport_amount')->default('0');
+            $table->string('flower_ring')->default('0');
+            $table->string('ac_room')->default('0');
+            $table->string('ac_room_days')->default('0');
             $table->timestamps();
-            $table->foreign('service_id')->references('service_id_uniq')->on('service')->onDelete('cascade');
-
+            $table->foreign('branch_id')->references('id')->on('branches')->onDelete('cascade');
         });
     }
 

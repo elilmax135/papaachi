@@ -19,7 +19,7 @@ return new class extends Migration
     public function down(): void
     {
         Schema::table('sell_product', function (Blueprint $table) {
-            $table->decimal('purchase_price', 10, 2)->after('selling_price');
+            $table->decimal('purchase_price', 15, 2)->after('selling_price');
         });
     }
 };

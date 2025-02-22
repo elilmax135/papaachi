@@ -11,7 +11,7 @@ return new class extends Migration
      */
     public function up() {
         Schema::table('stocks', function (Blueprint $table) {
-            $table->decimal('selling_price', 10, 2)->after('total_quantity')->default(0.00); // Adding the selling price
+            $table->decimal('selling_price', 15, 2)->after('total_quantity')->default(0.00); // Adding the selling price
         });
     }
 

@@ -18,9 +18,9 @@ return new class extends Migration
             $table->unsignedBigInteger('product_id');
 
             $table->integer('quantity');
-            $table->decimal('purchase_price', 10, 2);
-            $table->decimal('selling_price', 10, 2);
-            $table->decimal('subtotal', 10, 2);
+            $table->decimal('purchase_price', 15, 2);
+            $table->decimal('selling_price', 15, 2);
+            $table->decimal('subtotal', 15, 2);
             $table->timestamps();
 
             $table->foreign('sell_id')->references('id')->on('sells')->onDelete('cascade');

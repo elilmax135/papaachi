@@ -16,10 +16,14 @@ return new class extends Migration
             $table->date('transfer_date');
             $table->string('transaction_id');
             $table->unsignedBigInteger('branch_id');
-            $table->decimal('total', 10, 2);
+            $table->unsignedBigInteger('branch_id2')->nullable();
+            $table->decimal('total', 15, 2);
             $table->string('transfer_status')->default('fail');
+
             $table->timestamps();
             $table->foreign('branch_id')->references('id')->on('branches')->onDelete('cascade');
+           // New branch reference
+            $table->foreign('branch_id2')->references('id')->on('branches')->onDelete('cascade');
         });
     }
 

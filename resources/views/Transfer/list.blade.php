@@ -11,6 +11,7 @@
                 <table class="table table-bordered table-striped" id="transfertable">
                     <thead>
                         <tr>
+                            <th>Transfer id</th>
                             <th>To Branch</th>
                             <th>Transfer Date</th>
                             <th>Transaction ID</th>
@@ -22,6 +23,7 @@
                     <tbody>
                         @foreach ($transfers as $transfer_id => $transfer_group)
                         <tr class="transfer-row" data-branch-name="{{ $transfer_group[0]->branch_name }}" data-transfer-id="{{ $transfer_id }}">
+                            <td>{{ $transfer_group[0]->id  }}</td>
                             <td>{{ $transfer_group[0]->branch_name }}</td>
                             <td>{{ $transfer_group[0]->transfer_date }}</td>
                             <td>{{ $transfer_group[0]->transaction_id }}</td>
@@ -55,7 +57,7 @@
                                         <li>
                                             <form action="{{ url('/delete-transfer/' . $transfer_id) }}" method="POST" style="display:inline;">
                                                 @csrf
-                                                @method('DELETE')
+                                                @method('POST')
                                                 <button type="submit" class="dropdown-item" onclick="return confirm('Are you sure you want to delete this transfer and all its products?')">
                                                     <i class="fas fa-trash"></i>Delete
                                                 </button>

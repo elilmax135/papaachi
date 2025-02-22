@@ -4,11 +4,10 @@
 
 <div class="container">
     <div class="col-6">
-    <h1>Sale Details - #{{ $sale_id }}</h1>
-    <p>Customer Name: {{ $sale->customer_name }}</p>
-    <p>Sale Date: {{ $sale->sell_date }}</p>
-    <p>Total: {{ $sale->total }}</p>
-
+        <h1>Sale Details - #{{ $sale_id }}</h1>
+        <p>Customer Name: {{ $sale->customer_name }}</p>
+        <p>Sale Date: {{ $sale->sell_date }}</p>
+        <p>Total: {{ $sale->total }}</p>
     </div>
     <div class="col-6">
         <p><strong>Transaction ID:</strong> {{ $sale->transaction_id }}</p>
@@ -25,6 +24,15 @@
             @endif
         </p>
     </div>
+    @if ($sale->doctor_confirm)
+        <div class="mt-4 left-aligned">
+            <h3>Doctor Confirmation Image</h3>
+            <div style="border: 1px solid #ddd; padding: 5px; text-align: center; max-width: 200px;">
+                <img src="{{ asset('/doctorImage/' . $sale->doctor_confirm) }}" alt="Doctor Confirmation Image" style="width: 150px; height: auto;">
+            </div>
+        </div>
+    @endif
+
     <h2>Payment History</h2>
     <table class="table">
         <thead>
@@ -71,32 +79,44 @@
         </tbody>
     </table>
 </div>
+
 <div class="mb-4 text-right">
     <h5><strong>Total sell Amount:</strong> {{ $sale->total }}</h5>
 </div>
+<div class="mb-4 text-right">
+    <h5><strong>Total Paid Amount:</strong> {{ $totalPayments }}</h5>
+</div>
+
 <!-- Last Due Amount -->
 <div class="mb-4 text-right">
-<h5>Last Due Amount</h5>
-@if ($payments->isNotEmpty())
-    <h5> {{ $payments->first()->pay_due }}</h5>
-@else
-    <p>No payments available.</p>
-@endif
+    <h5>Last Due Amount</h5>
+    @if ($payments->isNotEmpty())
+        <h5>{{ $payments->sortByDesc('created_at')->first()->pay_due }}</h5>
+    @else
+        <p>No payments available.</p>
+    @endif
+</div>
+
 <div class="d-flex justify-content-between no-print">
     <a href="{{ url('/ListSell') }}" class="btn btn-primary">Back to Sale List</a>
     <button onclick="printPage()" class="btn btn-success">Print</button>
+    <!-- Use the controller route to send PDF via WhatsApp -->
+    <a href="{{ url('/sendWhatsAppPdf', $sale_id) }}" target="_blank" class="btn btn-success">Print &amp; Send via WhatsApp</a>
 </div>
+
 <script>
     function printPage() {
         window.print();
     }
 </script>
+
 <style>
-@media print {
-    .no-print {
-        visibility: hidden;
-        position: absolute;
+    @media print {
+        .no-print {
+            visibility: hidden;
+            position: absolute;
+        }
     }
-}
 </style>
+
 @endsection

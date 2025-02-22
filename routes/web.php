@@ -199,6 +199,7 @@ Route::post('/additiontransferpay/{transfer_id}',[TransferController::class,'pro
 
 use App\Http\Controllers\FilterController;
 use App\Models\Staff;
+use App\Models\Transfer;
 use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
 
 Route::get('/filter-data', [ReportController::class, 'showFilterForm']);
@@ -231,19 +232,17 @@ Route::delete('/deletestaff/{id}',[StaffController::class,'deletestaff']);
 
 
 Route::get('/addsalary',[StaffController::class,'addsalary']);
-Route::post('/save-salary', [StaffController::class, 'save']);
-Route::put('/update-salary/{id}', [StaffController::class, 'update']);
-Route::delete('/delete-salary/{id}', [StaffController::class, 'destroy']);
+
 
 
 
 Route::post('salarypays', [SellController::class, 'paySalaries']);
 
 //Route::post('/salary-sales/pay/{first_id}/{second_id}', [SellController::class, 'paySalary']);
-Route::delete('/delete-purchase/{purchase_id}', [PurchaseController::class, 'deletePurchase']);
-Route::delete('/delete-sell/{sale_id}', [SellController::class, 'deleteSells']);
+Route::post('/delete-purchase/{purchase_id}', [PurchaseController::class, 'deletePurchase']);
+Route::post('/delete-sell/{sale_id}', [SellController::class, 'deleteSells']);
 
-Route::delete('/delete-transfer/{transfer_id}', [TransferController::class, 'deleteTransfer']);
+Route::post('/delete-transfer/{transfer_id}', [TransferController::class, 'deleteTransfer']);
 
 
 // salary in  staffcontroller
@@ -255,6 +254,7 @@ Route::get('/stock',[StockController::class,'stock']);
 
 Route::post('/selectbr',[TransferController::class,'index']);
 
+Route::post('/doctor_confirm/{sale_id}', [SellController::class, 'doctorConfirm']);
 
 
 
@@ -272,8 +272,16 @@ Route::post('/selectbr',[TransferController::class,'index']);
 Route::get('/get-salary/{sellId}', [StaffController::class, 'getSalaryDetails']);
 
 
+Route::post('/pay-staffsalary', [StaffController::class, 'paystaffSalary']);
 
 
 
 Route::get('/dash
 ',[DashboardController::class,'index']);
+
+Route::get('/sendWhatsAppPdf/{sale_id}', [SellController::class, 'sendWhatsAppPdf']);
+
+Route::get('/sendWhatsAppPdf_pur/{purchase_id}', [PurchaseController::class, 'sendWhatsAppPdf']);
+
+
+Route::get('/sendWhatsAppPdf_trans/{transfer_id}', [TransferController::class, 'sendWhatsAppPdf']);

@@ -17,10 +17,10 @@ return new class extends Migration
 
             // Flower-specific fields
             $table->string('flower_name');
-            $table->string('flower_image');
+            $table->string('flower_image')->nullable();
             $table->string('fw_color_id');
-            $table->decimal('price_purchase', 10, 2);
-            $table->decimal('price_selling', 10, 2);
+            $table->decimal('price_purchase', 15, 2);
+            $table->decimal('price_selling', 15, 2);
 
             $table->timestamps();
         });

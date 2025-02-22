@@ -22,22 +22,22 @@ class sell extends Model
         'total',
         'sell_status',
         'empoming_amount',
-        'emapoming_date',
+        'emapoming_days',
         'panthal_amount',
         'lift_amount',
         'band_amount',
         'transport_amount',
-        'melam_amount'
+        'melam_amount',
+        'ac_room',
+        'ac_room_days',
+        'flower_ring'
     ];
 
     public function sellproducts()
     {
         return $this->hasMany(sellProduct::class, 'sell_id');
     }
-    public function locations()
-    {
-        return $this->hasMany(Location::class);
-    }
+
     public function service()
     {
         return $this->belongsTo(Service::class, 'service_id', 'service_id_uniq');
@@ -61,4 +61,5 @@ public function staff()
 {
     return $this->belongsTo(Staff::class, 'staff_id');
 }
+
 }

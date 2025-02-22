@@ -20,9 +20,9 @@ return new class extends Migration
             $table->string('transection_id')->default('--');
             $table->string('payment_platform')->default('--');
             $table->date('payment_date');
-            $table->decimal('transfer_total', 10, 2);
-            $table->decimal('pay_amount', 10, 2);
-            $table->decimal('pay_due', 10, 2)->default(0);
+            $table->decimal('transfer_total', 15, 2);
+            $table->decimal('pay_amount', 15, 2);
+            $table->decimal('pay_due', 15, 2)->default(0);
             $table->timestamps();
             $table->foreign('transfer_id')->references('id')->on('transfer')->onDelete('cascade');
         });

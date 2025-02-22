@@ -11,6 +11,8 @@ use App\Models\ProductPurchase;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
+use Barryvdh\DomPDF\Facade\Pdf;
+use Illuminate\Support\Facades\Storage;
 
 class PurchaseController extends Controller
 {
@@ -293,7 +295,7 @@ public function payment(Request $request)
         // Fetch payment details
         $payments = DB::table('payment_info')
             ->where('purchase_id', $purchase_id)
-            ->orderBy('payment_id', 'desc') // Order by latest payment
+            ->orderBy('payment_id', 'asc') // Order by latest payment
             ->get();
 
         // Fetch products and their quantities directly from the product_purchases table
@@ -302,8 +304,10 @@ public function payment(Request $request)
         ->select('product.product_name as product_name', 'product_purchases.quantity','product_purchases.subtotal','product_purchases.purchase_price')
         ->where('product_purchases.purchase_id', $purchase_id)
         ->get();
+        $totalPayments = Payment::where('purchase_id', $purchase_id)
+        ->sum('pay_amount');
 
-        return view('purchase.details', compact('purchase', 'payments', 'products', 'purchase_id'));
+        return view('purchase.details', compact('purchase', 'payments', 'products', 'purchase_id','totalPayments'));
     }
 
 
@@ -437,16 +441,58 @@ public function deletePurchase($purchase_id)
             }
         }
 
-    // Delete the purchase products first
+
     ProductPurchase::where('purchase_id', $purchase_id)->delete();
 
-    // Delete the purchase record
+
     Purchase::where('purchase_id', $purchase_id)->delete();
 
 
 
     return redirect()->back()->with('success', 'Purchase and associated products deleted successfully!');
 }
+
+
+public function sendWhatsAppPdf($purchase_id)
+    {
+        $purchase = purchase::findOrFail($purchase_id);
+        $payments = Payment::where('purchase_id', $purchase_id)->get();
+        $products = ProductPurchase::join('product', 'product_purchases.product_id', '=', 'product.product_id')
+        ->where('product_purchases.purchase_id', $purchase_id)
+        ->select('product_purchases.*', 'product.product_name')  // Select desired columns
+        ->get();
+        $totalPayments = Payment::where('purchase_id', $purchase_id)
+    ->sum('pay_amount');
+
+
+
+    $branch = DB::table('purchase')
+    ->join('branches', 'purchase.branch', '=', 'branches.id')
+        ->select('branches.branch_name')
+        ->where('purchase_id', $purchase_id)
+        ->first();
+        // Generate the PDF
+        $pdf = PDF::loadView('purchase.purchase-details-pdf', compact('purchase', 'payments', 'products', 'purchase_id','totalPayments','branch'));
+
+        // Define storage path
+        $pdfFilename = 'purchase_' . $purchase_id . '.pdf';
+        $pdfPath = 'public/pdfs/' . $pdfFilename;
+
+        // Save PDF file
+        Storage::put($pdfPath, $pdf->output());
+
+        // Generate public URL
+        $pdfUrl = asset('storage/pdfs/' . $pdfFilename);
+
+        // Get customer's WhatsApp number
+        $whatsappNumber="0771234567";
+
+        // WhatsApp Web URL with pre-filled message
+        $whatsappUrl = "https://api.whatsapp.com/send?phone={$whatsappNumber}&text=" . urlencode("Your invoice is ready. Download it here: $pdfUrl");
+
+        // Redirect user to WhatsApp Web
+        return redirect()->away($whatsappUrl);
+    }
 }
 
 

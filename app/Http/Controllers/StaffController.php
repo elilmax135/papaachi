@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Staff;
 use App\Models\salary;
 use App\Models\staff_salary;
+use App\Models\pay_salary;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
 class StaffController extends Controller
@@ -77,56 +78,19 @@ public function deletestaff($id){
 
 
 
-public function save(Request $request)
-    {
-        $salary = new Staff_Salary();
-        $salary->staff_id = $request->staff_id;
-        $salary->payment = $request->payment;
-        $salary->save();
-
-        return response()->json(['message' => 'Salary saved successfully!']);
-    }
-
-    // Update Salary
-    public function update(Request $request, $id)
-    {
-        $salary = Staff_Salary::where('staff_id', $id)->first();
-
-        if ($salary) {
-            $salary->update([
-                'payment' => $request->payment
-            ]);
-            return response()->json(['message' => 'Salary updated successfully!']);
-        } else {
-            return response()->json(['message' => 'No salary record found!'], 404);
-        }
-    }
-
-    // Delete Salary
-    public function destroy($id)
-    {
-        Staff_Salary::where('staff_id', $id)->delete();
-        return redirect()->back()->with('success', 'Salary deleted successfully!');
-    }
 
 
 
     public function showsalary(){
 
-        $salary = DB::table('salary')
-        ->join('sells', 'sells.id', '=', 'salary.sells_id')
-        ->join('staffs', 'staffs.id', '=', 'salary.staff_id')
-        ->select(
-            'salary.sells_id',  // Group by the 'sells_id' in the 'salary' table
-            'staffs.full_name',
-            'sells.customer_name',
-            DB::raw('SUM(salary.payment) as total_payment'),
-            DB::raw('SUM(salary.paid) as total_paid'),
-            DB::raw('SUM(salary.due) as total_due'),
-            DB::raw('MAX(salary.salary_status) as salary_status'),
-            DB::raw('MAX(salary.payment_date) as latest_payment_date')
+        $salary = DB::table('pay_salary')
+
+        ->join('staffs', 'staffs.id', '=', 'pay_salary.staff_id')
+        ->select('pay_salary.*','staffs.full_name'
+
+
         )
-        ->groupBy('salary.sells_id', 'staffs.full_name', 'sells.customer_name')
+
         ->get();
 
 
@@ -154,4 +118,32 @@ public function save(Request $request)
 
     return response()->json(['salaries' => $salaries]);
 }
+
+public function paystaffSalary(Request $request)
+{
+    $request->validate([
+        'staff_id' => 'required|exists:pay_salary,staff_id',
+        'payment_amount' => 'required|numeric|min:1',
+    ]);
+
+    // Fetch the salary record for the given staff_id
+    $salary = pay_salary::where('staff_id', $request->staff_id)->firstOrFail();
+
+    // Calculate the remaining due
+    $totalDue = $salary->payment - $salary->paid;
+
+    // Ensure the payment amount does not exceed the total due
+    if ($request->payment_amount > $totalDue) {
+        return redirect()->back()->withErrors(['error' => 'Payment amount cannot exceed the total due.']);
+    }
+
+    // Update payment
+    $salary->paid += $request->payment_amount;
+    $salary->payment_date = now();
+    $salary->save();
+
+    return redirect()->back()->with('success', 'Salary payment recorded successfully.');
+}
+
+
 }

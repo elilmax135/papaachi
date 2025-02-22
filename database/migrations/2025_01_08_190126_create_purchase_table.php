@@ -17,7 +17,7 @@ return new class extends Migration
             $table->date('purchase_date');
             $table->string('transaction_id');
             $table->string('branch');
-            $table->decimal('total');
+            $table->decimal('total',15,2);
             $table->string('purchase_status')->default('failed');
             $table->timestamps();
         });
