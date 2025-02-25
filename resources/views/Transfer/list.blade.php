@@ -184,7 +184,9 @@
 </script>
 <script>
     $(document).ready(function() {
-        $('#transfertable').DataTable(); // Initialize DataTable
+        $('#transfertable').DataTable({
+            "order": [[0, "desc"]] // Order by first column (index 0) in descending order
+        }); // Initialize DataTable
     });
 </script>
 @endsection

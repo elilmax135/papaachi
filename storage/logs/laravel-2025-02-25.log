@@ -1,0 +1,956 @@
+[2025-02-25 16:30:52] local.INFO: Preloaded Box Products: [{"stdClass":{"id":3,"branch_id":1,"product_id":500,"branch_name":"Jessica Turner","product_name":"Ayanna Dodson","total_quantity":26,"selling_price":"592.00","created_at":"2025-02-21 09:35:31","updated_at":"2025-02-22 14:40:34","product_type":"box"}},{"stdClass":{"id":4,"branch_id":1,"product_id":501,"branch_name":"Jessica Turner","product_name":"Inga Rich","total_quantity":196,"selling_price":"835.00","created_at":"2025-02-21 09:35:31","updated_at":"2025-02-22 14:40:34","product_type":"box"}},{"stdClass":{"id":5,"branch_id":2,"product_id":500,"branch_name":"Branden Summers","product_name":"Ayanna Dodson","total_quantity":6,"selling_price":"592.00","created_at":"2025-02-22 14:40:17","updated_at":"2025-02-22 14:40:34","product_type":"box"}},{"stdClass":{"id":6,"branch_id":2,"product_id":501,"branch_name":"Branden Summers","product_name":"Inga Rich","total_quantity":6,"selling_price":"835.00","created_at":"2025-02-22 14:40:17","updated_at":"2025-02-22 14:40:34","product_type":"box"}}] 
+[2025-02-25 16:30:52] local.INFO: Preloaded Flower Products: [{"stdClass":{"id":1,"branch_id":1,"product_id":7002,"branch_name":"Jessica Turner","product_name":"Ingrid Phillips","total_quantity":16,"selling_price":"703.00","created_at":"2025-02-21 09:35:31","updated_at":"2025-02-21 10:08:29","product_type":"flower"}},{"stdClass":{"id":2,"branch_id":1,"product_id":7000,"branch_name":"Jessica Turner","product_name":"Chaim Gutierrez","total_quantity":18,"selling_price":"992.00","created_at":"2025-02-21 09:35:31","updated_at":"2025-02-21 10:08:29","product_type":"flower"}}] 
+[2025-02-25 16:30:58] local.INFO: Fetching products for Branch ID: 2, Category: box  
+[2025-02-25 16:31:41] local.INFO: Preloaded Box Products: [{"stdClass":{"id":3,"branch_id":1,"product_id":500,"branch_name":"Jessica Turner","product_name":"Ayanna Dodson","total_quantity":26,"selling_price":"592.00","created_at":"2025-02-21 09:35:31","updated_at":"2025-02-22 14:40:34","product_type":"box"}},{"stdClass":{"id":4,"branch_id":1,"product_id":501,"branch_name":"Jessica Turner","product_name":"Inga Rich","total_quantity":196,"selling_price":"835.00","created_at":"2025-02-21 09:35:31","updated_at":"2025-02-22 14:40:34","product_type":"box"}},{"stdClass":{"id":5,"branch_id":2,"product_id":500,"branch_name":"Branden Summers","product_name":"Ayanna Dodson","total_quantity":6,"selling_price":"592.00","created_at":"2025-02-22 14:40:17","updated_at":"2025-02-22 14:40:34","product_type":"box"}},{"stdClass":{"id":6,"branch_id":2,"product_id":501,"branch_name":"Branden Summers","product_name":"Inga Rich","total_quantity":6,"selling_price":"835.00","created_at":"2025-02-22 14:40:17","updated_at":"2025-02-22 14:40:34","product_type":"box"}}] 
+[2025-02-25 16:31:41] local.INFO: Preloaded Flower Products: [{"stdClass":{"id":1,"branch_id":1,"product_id":7002,"branch_name":"Jessica Turner","product_name":"Ingrid Phillips","total_quantity":16,"selling_price":"703.00","created_at":"2025-02-21 09:35:31","updated_at":"2025-02-21 10:08:29","product_type":"flower"}},{"stdClass":{"id":2,"branch_id":1,"product_id":7000,"branch_name":"Jessica Turner","product_name":"Chaim Gutierrez","total_quantity":18,"selling_price":"992.00","created_at":"2025-02-21 09:35:31","updated_at":"2025-02-21 10:08:29","product_type":"flower"}}] 
+[2025-02-25 16:31:51] local.INFO: Fetching products for Branch ID: 1, Category: box  
+[2025-02-25 16:33:08] local.INFO: Preloaded Box Products: [{"stdClass":{"id":3,"branch_id":1,"product_id":500,"branch_name":"Jessica Turner","product_name":"Ayanna Dodson","total_quantity":26,"selling_price":"592.00","created_at":"2025-02-21 09:35:31","updated_at":"2025-02-22 14:40:34","product_type":"box"}},{"stdClass":{"id":4,"branch_id":1,"product_id":501,"branch_name":"Jessica Turner","product_name":"Inga Rich","total_quantity":196,"selling_price":"835.00","created_at":"2025-02-21 09:35:31","updated_at":"2025-02-22 14:40:34","product_type":"box"}},{"stdClass":{"id":5,"branch_id":2,"product_id":500,"branch_name":"Branden Summers","product_name":"Ayanna Dodson","total_quantity":6,"selling_price":"592.00","created_at":"2025-02-22 14:40:17","updated_at":"2025-02-22 14:40:34","product_type":"box"}},{"stdClass":{"id":6,"branch_id":2,"product_id":501,"branch_name":"Branden Summers","product_name":"Inga Rich","total_quantity":6,"selling_price":"835.00","created_at":"2025-02-22 14:40:17","updated_at":"2025-02-22 14:40:34","product_type":"box"}}] 
+[2025-02-25 16:33:08] local.INFO: Preloaded Flower Products: [{"stdClass":{"id":1,"branch_id":1,"product_id":7002,"branch_name":"Jessica Turner","product_name":"Ingrid Phillips","total_quantity":16,"selling_price":"703.00","created_at":"2025-02-21 09:35:31","updated_at":"2025-02-21 10:08:29","product_type":"flower"}},{"stdClass":{"id":2,"branch_id":1,"product_id":7000,"branch_name":"Jessica Turner","product_name":"Chaim Gutierrez","total_quantity":18,"selling_price":"992.00","created_at":"2025-02-21 09:35:31","updated_at":"2025-02-21 10:08:29","product_type":"flower"}}] 
+[2025-02-25 16:33:13] local.INFO: Fetching products for Branch ID: 1, Category: box  
+[2025-02-25 16:33:33] local.INFO: Preloaded Box Products: [{"stdClass":{"id":3,"branch_id":1,"product_id":500,"branch_name":"Jessica Turner","product_name":"Ayanna Dodson","total_quantity":26,"selling_price":"592.00","created_at":"2025-02-21 09:35:31","updated_at":"2025-02-22 14:40:34","product_type":"box"}},{"stdClass":{"id":4,"branch_id":1,"product_id":501,"branch_name":"Jessica Turner","product_name":"Inga Rich","total_quantity":196,"selling_price":"835.00","created_at":"2025-02-21 09:35:31","updated_at":"2025-02-22 14:40:34","product_type":"box"}},{"stdClass":{"id":5,"branch_id":2,"product_id":500,"branch_name":"Branden Summers","product_name":"Ayanna Dodson","total_quantity":6,"selling_price":"592.00","created_at":"2025-02-22 14:40:17","updated_at":"2025-02-22 14:40:34","product_type":"box"}},{"stdClass":{"id":6,"branch_id":2,"product_id":501,"branch_name":"Branden Summers","product_name":"Inga Rich","total_quantity":6,"selling_price":"835.00","created_at":"2025-02-22 14:40:17","updated_at":"2025-02-22 14:40:34","product_type":"box"}}] 
+[2025-02-25 16:33:33] local.INFO: Preloaded Flower Products: [{"stdClass":{"id":1,"branch_id":1,"product_id":7002,"branch_name":"Jessica Turner","product_name":"Ingrid Phillips","total_quantity":16,"selling_price":"703.00","created_at":"2025-02-21 09:35:31","updated_at":"2025-02-21 10:08:29","product_type":"flower"}},{"stdClass":{"id":2,"branch_id":1,"product_id":7000,"branch_name":"Jessica Turner","product_name":"Chaim Gutierrez","total_quantity":18,"selling_price":"992.00","created_at":"2025-02-21 09:35:31","updated_at":"2025-02-21 10:08:29","product_type":"flower"}}] 
+[2025-02-25 16:33:38] local.INFO: Fetching products for Branch ID: 1, Category: box  
+[2025-02-25 16:56:45] local.INFO: Fetching products for Branch ID: 2, Category: flower  
+[2025-02-25 16:56:53] local.INFO: Fetching products for Branch ID: 2, Category: box  
+[2025-02-25 17:03:13] local.INFO: Fetching products for Branch ID: 2, Category: flower  
+[2025-02-25 17:04:05] local.INFO: Fetching products for Branch ID: 2, Category: box  
+[2025-02-25 17:11:11] local.INFO: Staff Salary Record: {"staffSalary":{"App\\Models\\pay_salary":{"id":1,"staff_id":2,"payment":"88000.00","paid":"0.00","payment_date":null,"salary_status":"fail","created_at":"2025-02-21T04:06:50.000000Z","updated_at":"2025-02-21T04:38:29.000000Z"}}} 
+[2025-02-25 17:11:11] local.INFO: Staff Salary Record: {"staffSalary":{"App\\Models\\pay_salary":{"id":2,"staff_id":1,"payment":"21000.00","paid":"21000.00","payment_date":"2025-02-25","salary_status":"fail","created_at":"2025-02-21T04:06:50.000000Z","updated_at":"2025-02-25T11:25:02.000000Z"}}} 
+[2025-02-25 17:11:29] local.INFO: Staff Salary Record: {"staffSalary":{"App\\Models\\pay_salary":{"id":3,"staff_id":3,"payment":"15000.00","paid":"10000.00","payment_date":"2025-02-25","salary_status":"fail","created_at":"2025-02-21T04:18:31.000000Z","updated_at":"2025-02-25T11:35:35.000000Z"}}} 
+[2025-02-25 17:11:29] local.INFO: Staff Salary Record: {"staffSalary":{"App\\Models\\pay_salary":{"id":4,"staff_id":4,"payment":"25000.00","paid":"0.00","payment_date":null,"salary_status":"fail","created_at":"2025-02-25T11:34:45.000000Z","updated_at":"2025-02-25T11:34:45.000000Z"}}} 
+[2025-02-25 20:10:28] local.ERROR: SQLSTATE[HY000] [2002] No connection could be made because the target machine actively refused it (Connection: mysql, SQL: select table_name as `name`, (data_length + index_length) as `size`, table_comment as `comment`, engine as `engine`, table_collation as `collation` from information_schema.tables where table_schema = 'chec3' and table_type in ('BASE TABLE', 'SYSTEM VERSIONED') order by table_name) {"exception":"[object] (Illuminate\\Database\\QueryException(code: 2002): SQLSTATE[HY000] [2002] No connection could be made because the target machine actively refused it (Connection: mysql, SQL: select table_name as `name`, (data_length + index_length) as `size`, table_comment as `comment`, engine as `engine`, table_collation as `collation` from information_schema.tables where table_schema = 'chec3' and table_type in ('BASE TABLE', 'SYSTEM VERSIONED') order by table_name) at D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php:829)
+[stacktrace]
+#0 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php(983): Illuminate\\Database\\Connection->runQueryCallback('select table_na...', Array, Object(Closure))
+#1 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php(962): Illuminate\\Database\\Connection->tryAgainIfCausedByLostConnection(Object(Illuminate\\Database\\QueryException), 'select table_na...', Array, Object(Closure))
+#2 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php(785): Illuminate\\Database\\Connection->handleQueryException(Object(Illuminate\\Database\\QueryException), 'select table_na...', Array, Object(Closure))
+#3 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php(414): Illuminate\\Database\\Connection->run('select table_na...', Array, Object(Closure))
+#4 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php(401): Illuminate\\Database\\Connection->select('select table_na...', Array, false)
+#5 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Schema\\MySqlBuilder.php(41): Illuminate\\Database\\Connection->selectFromWriteConnection('select table_na...')
+#6 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Schema\\Builder.php(165): Illuminate\\Database\\Schema\\MySqlBuilder->getTables(false)
+#7 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Support\\Facades\\Facade.php(355): Illuminate\\Database\\Schema\\Builder->hasTable('settings')
+#8 D:\\papachchi-accounting-main\\app\\Providers\\AppServiceProvider.php(52): Illuminate\\Support\\Facades\\Facade::__callStatic('hasTable', Array)
+#9 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(36): App\\Providers\\AppServiceProvider->boot()
+#10 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Util.php(41): Illuminate\\Container\\BoundMethod::Illuminate\\Container\\{closure}()
+#11 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(93): Illuminate\\Container\\Util::unwrapIfClosure(Object(Closure))
+#12 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(35): Illuminate\\Container\\BoundMethod::callBoundMethod(Object(Illuminate\\Foundation\\Application), Array, Object(Closure))
+#13 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(662): Illuminate\\Container\\BoundMethod::call(Object(Illuminate\\Foundation\\Application), Array, Array, NULL)
+#14 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(1036): Illuminate\\Container\\Container->call(Array)
+#15 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(1017): Illuminate\\Foundation\\Application->bootProvider(Object(App\\Providers\\AppServiceProvider))
+#16 [internal function]: Illuminate\\Foundation\\Application->Illuminate\\Foundation\\{closure}(Object(App\\Providers\\AppServiceProvider), 27)
+#17 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(1016): array_walk(Array, Object(Closure))
+#18 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Bootstrap\\BootProviders.php(17): Illuminate\\Foundation\\Application->boot()
+#19 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(263): Illuminate\\Foundation\\Bootstrap\\BootProviders->bootstrap(Object(Illuminate\\Foundation\\Application))
+#20 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(447): Illuminate\\Foundation\\Application->bootstrapWith(Array)
+#21 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(199): Illuminate\\Foundation\\Console\\Kernel->bootstrap()
+#22 Command line code(1): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#23 {main}
+
+[previous exception] [object] (PDOException(code: 2002): SQLSTATE[HY000] [2002] No connection could be made because the target machine actively refused it at D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connectors\\Connector.php:65)
+[stacktrace]
+#0 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connectors\\Connector.php(65): PDO->__construct('mysql:host=127....', 'root', Object(SensitiveParameterValue), Array)
+#1 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connectors\\Connector.php(83): Illuminate\\Database\\Connectors\\Connector->createPdoConnection('mysql:host=127....', 'root', '', Array)
+#2 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connectors\\Connector.php(48): Illuminate\\Database\\Connectors\\Connector->tryAgainIfCausedByLostConnection(Object(PDOException), 'mysql:host=127....', 'root', '', Array)
+#3 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connectors\\MySqlConnector.php(24): Illuminate\\Database\\Connectors\\Connector->createConnection('mysql:host=127....', Array, Array)
+#4 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connectors\\ConnectionFactory.php(184): Illuminate\\Database\\Connectors\\MySqlConnector->connect(Array)
+#5 [internal function]: Illuminate\\Database\\Connectors\\ConnectionFactory->Illuminate\\Database\\Connectors\\{closure}()
+#6 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php(1339): call_user_func(Object(Closure))
+#7 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php(528): Illuminate\\Database\\Connection->getPdo()
+#8 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php(423): Illuminate\\Database\\Connection->getPdoForSelect(false)
+#9 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php(816): Illuminate\\Database\\Connection->Illuminate\\Database\\{closure}('select table_na...', Array)
+#10 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php(983): Illuminate\\Database\\Connection->runQueryCallback('select table_na...', Array, Object(Closure))
+#11 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php(962): Illuminate\\Database\\Connection->tryAgainIfCausedByLostConnection(Object(Illuminate\\Database\\QueryException), 'select table_na...', Array, Object(Closure))
+#12 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php(785): Illuminate\\Database\\Connection->handleQueryException(Object(Illuminate\\Database\\QueryException), 'select table_na...', Array, Object(Closure))
+#13 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php(414): Illuminate\\Database\\Connection->run('select table_na...', Array, Object(Closure))
+#14 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php(401): Illuminate\\Database\\Connection->select('select table_na...', Array, false)
+#15 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Schema\\MySqlBuilder.php(41): Illuminate\\Database\\Connection->selectFromWriteConnection('select table_na...')
+#16 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Schema\\Builder.php(165): Illuminate\\Database\\Schema\\MySqlBuilder->getTables(false)
+#17 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Support\\Facades\\Facade.php(355): Illuminate\\Database\\Schema\\Builder->hasTable('settings')
+#18 D:\\papachchi-accounting-main\\app\\Providers\\AppServiceProvider.php(52): Illuminate\\Support\\Facades\\Facade::__callStatic('hasTable', Array)
+#19 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(36): App\\Providers\\AppServiceProvider->boot()
+#20 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Util.php(41): Illuminate\\Container\\BoundMethod::Illuminate\\Container\\{closure}()
+#21 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(93): Illuminate\\Container\\Util::unwrapIfClosure(Object(Closure))
+#22 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(35): Illuminate\\Container\\BoundMethod::callBoundMethod(Object(Illuminate\\Foundation\\Application), Array, Object(Closure))
+#23 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(662): Illuminate\\Container\\BoundMethod::call(Object(Illuminate\\Foundation\\Application), Array, Array, NULL)
+#24 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(1036): Illuminate\\Container\\Container->call(Array)
+#25 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(1017): Illuminate\\Foundation\\Application->bootProvider(Object(App\\Providers\\AppServiceProvider))
+#26 [internal function]: Illuminate\\Foundation\\Application->Illuminate\\Foundation\\{closure}(Object(App\\Providers\\AppServiceProvider), 27)
+#27 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(1016): array_walk(Array, Object(Closure))
+#28 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Bootstrap\\BootProviders.php(17): Illuminate\\Foundation\\Application->boot()
+#29 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(263): Illuminate\\Foundation\\Bootstrap\\BootProviders->bootstrap(Object(Illuminate\\Foundation\\Application))
+#30 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(447): Illuminate\\Foundation\\Application->bootstrapWith(Array)
+#31 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(199): Illuminate\\Foundation\\Console\\Kernel->bootstrap()
+#32 Command line code(1): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#33 {main}
+"} 
+[2025-02-25 20:11:11] local.ERROR: SQLSTATE[HY000] [2002] No connection could be made because the target machine actively refused it (Connection: mysql, SQL: select table_name as `name`, (data_length + index_length) as `size`, table_comment as `comment`, engine as `engine`, table_collation as `collation` from information_schema.tables where table_schema = 'chec3' and table_type in ('BASE TABLE', 'SYSTEM VERSIONED') order by table_name) {"exception":"[object] (Illuminate\\Database\\QueryException(code: 2002): SQLSTATE[HY000] [2002] No connection could be made because the target machine actively refused it (Connection: mysql, SQL: select table_name as `name`, (data_length + index_length) as `size`, table_comment as `comment`, engine as `engine`, table_collation as `collation` from information_schema.tables where table_schema = 'chec3' and table_type in ('BASE TABLE', 'SYSTEM VERSIONED') order by table_name) at D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php:829)
+[stacktrace]
+#0 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php(983): Illuminate\\Database\\Connection->runQueryCallback('select table_na...', Array, Object(Closure))
+#1 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php(962): Illuminate\\Database\\Connection->tryAgainIfCausedByLostConnection(Object(Illuminate\\Database\\QueryException), 'select table_na...', Array, Object(Closure))
+#2 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php(785): Illuminate\\Database\\Connection->handleQueryException(Object(Illuminate\\Database\\QueryException), 'select table_na...', Array, Object(Closure))
+#3 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php(414): Illuminate\\Database\\Connection->run('select table_na...', Array, Object(Closure))
+#4 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php(401): Illuminate\\Database\\Connection->select('select table_na...', Array, false)
+#5 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Schema\\MySqlBuilder.php(41): Illuminate\\Database\\Connection->selectFromWriteConnection('select table_na...')
+#6 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Schema\\Builder.php(165): Illuminate\\Database\\Schema\\MySqlBuilder->getTables(false)
+#7 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Support\\Facades\\Facade.php(355): Illuminate\\Database\\Schema\\Builder->hasTable('settings')
+#8 D:\\papachchi-accounting-main\\app\\Providers\\AppServiceProvider.php(52): Illuminate\\Support\\Facades\\Facade::__callStatic('hasTable', Array)
+#9 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(36): App\\Providers\\AppServiceProvider->boot()
+#10 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Util.php(41): Illuminate\\Container\\BoundMethod::Illuminate\\Container\\{closure}()
+#11 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(93): Illuminate\\Container\\Util::unwrapIfClosure(Object(Closure))
+#12 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(35): Illuminate\\Container\\BoundMethod::callBoundMethod(Object(Illuminate\\Foundation\\Application), Array, Object(Closure))
+#13 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(662): Illuminate\\Container\\BoundMethod::call(Object(Illuminate\\Foundation\\Application), Array, Array, NULL)
+#14 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(1036): Illuminate\\Container\\Container->call(Array)
+#15 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(1017): Illuminate\\Foundation\\Application->bootProvider(Object(App\\Providers\\AppServiceProvider))
+#16 [internal function]: Illuminate\\Foundation\\Application->Illuminate\\Foundation\\{closure}(Object(App\\Providers\\AppServiceProvider), 27)
+#17 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(1016): array_walk(Array, Object(Closure))
+#18 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Bootstrap\\BootProviders.php(17): Illuminate\\Foundation\\Application->boot()
+#19 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(263): Illuminate\\Foundation\\Bootstrap\\BootProviders->bootstrap(Object(Illuminate\\Foundation\\Application))
+#20 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(447): Illuminate\\Foundation\\Application->bootstrapWith(Array)
+#21 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(199): Illuminate\\Foundation\\Console\\Kernel->bootstrap()
+#22 Command line code(1): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#23 {main}
+
+[previous exception] [object] (PDOException(code: 2002): SQLSTATE[HY000] [2002] No connection could be made because the target machine actively refused it at D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connectors\\Connector.php:65)
+[stacktrace]
+#0 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connectors\\Connector.php(65): PDO->__construct('mysql:host=127....', 'root', Object(SensitiveParameterValue), Array)
+#1 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connectors\\Connector.php(83): Illuminate\\Database\\Connectors\\Connector->createPdoConnection('mysql:host=127....', 'root', '', Array)
+#2 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connectors\\Connector.php(48): Illuminate\\Database\\Connectors\\Connector->tryAgainIfCausedByLostConnection(Object(PDOException), 'mysql:host=127....', 'root', '', Array)
+#3 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connectors\\MySqlConnector.php(24): Illuminate\\Database\\Connectors\\Connector->createConnection('mysql:host=127....', Array, Array)
+#4 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connectors\\ConnectionFactory.php(184): Illuminate\\Database\\Connectors\\MySqlConnector->connect(Array)
+#5 [internal function]: Illuminate\\Database\\Connectors\\ConnectionFactory->Illuminate\\Database\\Connectors\\{closure}()
+#6 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php(1339): call_user_func(Object(Closure))
+#7 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php(528): Illuminate\\Database\\Connection->getPdo()
+#8 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php(423): Illuminate\\Database\\Connection->getPdoForSelect(false)
+#9 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php(816): Illuminate\\Database\\Connection->Illuminate\\Database\\{closure}('select table_na...', Array)
+#10 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php(983): Illuminate\\Database\\Connection->runQueryCallback('select table_na...', Array, Object(Closure))
+#11 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php(962): Illuminate\\Database\\Connection->tryAgainIfCausedByLostConnection(Object(Illuminate\\Database\\QueryException), 'select table_na...', Array, Object(Closure))
+#12 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php(785): Illuminate\\Database\\Connection->handleQueryException(Object(Illuminate\\Database\\QueryException), 'select table_na...', Array, Object(Closure))
+#13 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php(414): Illuminate\\Database\\Connection->run('select table_na...', Array, Object(Closure))
+#14 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php(401): Illuminate\\Database\\Connection->select('select table_na...', Array, false)
+#15 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Schema\\MySqlBuilder.php(41): Illuminate\\Database\\Connection->selectFromWriteConnection('select table_na...')
+#16 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Schema\\Builder.php(165): Illuminate\\Database\\Schema\\MySqlBuilder->getTables(false)
+#17 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Support\\Facades\\Facade.php(355): Illuminate\\Database\\Schema\\Builder->hasTable('settings')
+#18 D:\\papachchi-accounting-main\\app\\Providers\\AppServiceProvider.php(52): Illuminate\\Support\\Facades\\Facade::__callStatic('hasTable', Array)
+#19 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(36): App\\Providers\\AppServiceProvider->boot()
+#20 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Util.php(41): Illuminate\\Container\\BoundMethod::Illuminate\\Container\\{closure}()
+#21 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(93): Illuminate\\Container\\Util::unwrapIfClosure(Object(Closure))
+#22 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(35): Illuminate\\Container\\BoundMethod::callBoundMethod(Object(Illuminate\\Foundation\\Application), Array, Object(Closure))
+#23 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(662): Illuminate\\Container\\BoundMethod::call(Object(Illuminate\\Foundation\\Application), Array, Array, NULL)
+#24 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(1036): Illuminate\\Container\\Container->call(Array)
+#25 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(1017): Illuminate\\Foundation\\Application->bootProvider(Object(App\\Providers\\AppServiceProvider))
+#26 [internal function]: Illuminate\\Foundation\\Application->Illuminate\\Foundation\\{closure}(Object(App\\Providers\\AppServiceProvider), 27)
+#27 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(1016): array_walk(Array, Object(Closure))
+#28 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Bootstrap\\BootProviders.php(17): Illuminate\\Foundation\\Application->boot()
+#29 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(263): Illuminate\\Foundation\\Bootstrap\\BootProviders->bootstrap(Object(Illuminate\\Foundation\\Application))
+#30 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(447): Illuminate\\Foundation\\Application->bootstrapWith(Array)
+#31 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(199): Illuminate\\Foundation\\Console\\Kernel->bootstrap()
+#32 Command line code(1): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#33 {main}
+"} 
+[2025-02-25 20:11:11] local.ERROR: SQLSTATE[HY000] [2002] No connection could be made because the target machine actively refused it (Connection: mysql, SQL: select table_name as `name`, (data_length + index_length) as `size`, table_comment as `comment`, engine as `engine`, table_collation as `collation` from information_schema.tables where table_schema = 'chec3' and table_type in ('BASE TABLE', 'SYSTEM VERSIONED') order by table_name) {"exception":"[object] (Illuminate\\Database\\QueryException(code: 2002): SQLSTATE[HY000] [2002] No connection could be made because the target machine actively refused it (Connection: mysql, SQL: select table_name as `name`, (data_length + index_length) as `size`, table_comment as `comment`, engine as `engine`, table_collation as `collation` from information_schema.tables where table_schema = 'chec3' and table_type in ('BASE TABLE', 'SYSTEM VERSIONED') order by table_name) at D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php:829)
+[stacktrace]
+#0 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php(983): Illuminate\\Database\\Connection->runQueryCallback('select table_na...', Array, Object(Closure))
+#1 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php(962): Illuminate\\Database\\Connection->tryAgainIfCausedByLostConnection(Object(Illuminate\\Database\\QueryException), 'select table_na...', Array, Object(Closure))
+#2 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php(785): Illuminate\\Database\\Connection->handleQueryException(Object(Illuminate\\Database\\QueryException), 'select table_na...', Array, Object(Closure))
+#3 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php(414): Illuminate\\Database\\Connection->run('select table_na...', Array, Object(Closure))
+#4 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php(401): Illuminate\\Database\\Connection->select('select table_na...', Array, false)
+#5 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Schema\\MySqlBuilder.php(41): Illuminate\\Database\\Connection->selectFromWriteConnection('select table_na...')
+#6 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Schema\\Builder.php(165): Illuminate\\Database\\Schema\\MySqlBuilder->getTables(false)
+#7 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Support\\Facades\\Facade.php(355): Illuminate\\Database\\Schema\\Builder->hasTable('settings')
+#8 D:\\papachchi-accounting-main\\app\\Providers\\AppServiceProvider.php(52): Illuminate\\Support\\Facades\\Facade::__callStatic('hasTable', Array)
+#9 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(36): App\\Providers\\AppServiceProvider->boot()
+#10 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Util.php(41): Illuminate\\Container\\BoundMethod::Illuminate\\Container\\{closure}()
+#11 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(93): Illuminate\\Container\\Util::unwrapIfClosure(Object(Closure))
+#12 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(35): Illuminate\\Container\\BoundMethod::callBoundMethod(Object(Illuminate\\Foundation\\Application), Array, Object(Closure))
+#13 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(662): Illuminate\\Container\\BoundMethod::call(Object(Illuminate\\Foundation\\Application), Array, Array, NULL)
+#14 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(1036): Illuminate\\Container\\Container->call(Array)
+#15 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(1017): Illuminate\\Foundation\\Application->bootProvider(Object(App\\Providers\\AppServiceProvider))
+#16 [internal function]: Illuminate\\Foundation\\Application->Illuminate\\Foundation\\{closure}(Object(App\\Providers\\AppServiceProvider), 27)
+#17 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(1016): array_walk(Array, Object(Closure))
+#18 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Bootstrap\\BootProviders.php(17): Illuminate\\Foundation\\Application->boot()
+#19 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(263): Illuminate\\Foundation\\Bootstrap\\BootProviders->bootstrap(Object(Illuminate\\Foundation\\Application))
+#20 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(447): Illuminate\\Foundation\\Application->bootstrapWith(Array)
+#21 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(199): Illuminate\\Foundation\\Console\\Kernel->bootstrap()
+#22 Command line code(1): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#23 {main}
+
+[previous exception] [object] (PDOException(code: 2002): SQLSTATE[HY000] [2002] No connection could be made because the target machine actively refused it at D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connectors\\Connector.php:65)
+[stacktrace]
+#0 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connectors\\Connector.php(65): PDO->__construct('mysql:host=127....', 'root', Object(SensitiveParameterValue), Array)
+#1 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connectors\\Connector.php(83): Illuminate\\Database\\Connectors\\Connector->createPdoConnection('mysql:host=127....', 'root', '', Array)
+#2 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connectors\\Connector.php(48): Illuminate\\Database\\Connectors\\Connector->tryAgainIfCausedByLostConnection(Object(PDOException), 'mysql:host=127....', 'root', '', Array)
+#3 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connectors\\MySqlConnector.php(24): Illuminate\\Database\\Connectors\\Connector->createConnection('mysql:host=127....', Array, Array)
+#4 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connectors\\ConnectionFactory.php(184): Illuminate\\Database\\Connectors\\MySqlConnector->connect(Array)
+#5 [internal function]: Illuminate\\Database\\Connectors\\ConnectionFactory->Illuminate\\Database\\Connectors\\{closure}()
+#6 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php(1339): call_user_func(Object(Closure))
+#7 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php(528): Illuminate\\Database\\Connection->getPdo()
+#8 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php(423): Illuminate\\Database\\Connection->getPdoForSelect(false)
+#9 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php(816): Illuminate\\Database\\Connection->Illuminate\\Database\\{closure}('select table_na...', Array)
+#10 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php(983): Illuminate\\Database\\Connection->runQueryCallback('select table_na...', Array, Object(Closure))
+#11 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php(962): Illuminate\\Database\\Connection->tryAgainIfCausedByLostConnection(Object(Illuminate\\Database\\QueryException), 'select table_na...', Array, Object(Closure))
+#12 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php(785): Illuminate\\Database\\Connection->handleQueryException(Object(Illuminate\\Database\\QueryException), 'select table_na...', Array, Object(Closure))
+#13 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php(414): Illuminate\\Database\\Connection->run('select table_na...', Array, Object(Closure))
+#14 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php(401): Illuminate\\Database\\Connection->select('select table_na...', Array, false)
+#15 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Schema\\MySqlBuilder.php(41): Illuminate\\Database\\Connection->selectFromWriteConnection('select table_na...')
+#16 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Schema\\Builder.php(165): Illuminate\\Database\\Schema\\MySqlBuilder->getTables(false)
+#17 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Support\\Facades\\Facade.php(355): Illuminate\\Database\\Schema\\Builder->hasTable('settings')
+#18 D:\\papachchi-accounting-main\\app\\Providers\\AppServiceProvider.php(52): Illuminate\\Support\\Facades\\Facade::__callStatic('hasTable', Array)
+#19 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(36): App\\Providers\\AppServiceProvider->boot()
+#20 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Util.php(41): Illuminate\\Container\\BoundMethod::Illuminate\\Container\\{closure}()
+#21 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(93): Illuminate\\Container\\Util::unwrapIfClosure(Object(Closure))
+#22 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(35): Illuminate\\Container\\BoundMethod::callBoundMethod(Object(Illuminate\\Foundation\\Application), Array, Object(Closure))
+#23 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(662): Illuminate\\Container\\BoundMethod::call(Object(Illuminate\\Foundation\\Application), Array, Array, NULL)
+#24 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(1036): Illuminate\\Container\\Container->call(Array)
+#25 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(1017): Illuminate\\Foundation\\Application->bootProvider(Object(App\\Providers\\AppServiceProvider))
+#26 [internal function]: Illuminate\\Foundation\\Application->Illuminate\\Foundation\\{closure}(Object(App\\Providers\\AppServiceProvider), 27)
+#27 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(1016): array_walk(Array, Object(Closure))
+#28 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Bootstrap\\BootProviders.php(17): Illuminate\\Foundation\\Application->boot()
+#29 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(263): Illuminate\\Foundation\\Bootstrap\\BootProviders->bootstrap(Object(Illuminate\\Foundation\\Application))
+#30 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(447): Illuminate\\Foundation\\Application->bootstrapWith(Array)
+#31 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(199): Illuminate\\Foundation\\Console\\Kernel->bootstrap()
+#32 Command line code(1): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#33 {main}
+"} 
+[2025-02-25 20:12:09] local.ERROR: SQLSTATE[HY000] [2002] No connection could be made because the target machine actively refused it (Connection: mysql, SQL: select table_name as `name`, (data_length + index_length) as `size`, table_comment as `comment`, engine as `engine`, table_collation as `collation` from information_schema.tables where table_schema = 'chec3' and table_type in ('BASE TABLE', 'SYSTEM VERSIONED') order by table_name) {"exception":"[object] (Illuminate\\Database\\QueryException(code: 2002): SQLSTATE[HY000] [2002] No connection could be made because the target machine actively refused it (Connection: mysql, SQL: select table_name as `name`, (data_length + index_length) as `size`, table_comment as `comment`, engine as `engine`, table_collation as `collation` from information_schema.tables where table_schema = 'chec3' and table_type in ('BASE TABLE', 'SYSTEM VERSIONED') order by table_name) at D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php:829)
+[stacktrace]
+#0 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php(983): Illuminate\\Database\\Connection->runQueryCallback('select table_na...', Array, Object(Closure))
+#1 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php(962): Illuminate\\Database\\Connection->tryAgainIfCausedByLostConnection(Object(Illuminate\\Database\\QueryException), 'select table_na...', Array, Object(Closure))
+#2 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php(785): Illuminate\\Database\\Connection->handleQueryException(Object(Illuminate\\Database\\QueryException), 'select table_na...', Array, Object(Closure))
+#3 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php(414): Illuminate\\Database\\Connection->run('select table_na...', Array, Object(Closure))
+#4 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php(401): Illuminate\\Database\\Connection->select('select table_na...', Array, false)
+#5 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Schema\\MySqlBuilder.php(41): Illuminate\\Database\\Connection->selectFromWriteConnection('select table_na...')
+#6 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Schema\\Builder.php(165): Illuminate\\Database\\Schema\\MySqlBuilder->getTables(false)
+#7 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Support\\Facades\\Facade.php(355): Illuminate\\Database\\Schema\\Builder->hasTable('settings')
+#8 D:\\papachchi-accounting-main\\app\\Providers\\AppServiceProvider.php(52): Illuminate\\Support\\Facades\\Facade::__callStatic('hasTable', Array)
+#9 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(36): App\\Providers\\AppServiceProvider->boot()
+#10 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Util.php(41): Illuminate\\Container\\BoundMethod::Illuminate\\Container\\{closure}()
+#11 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(93): Illuminate\\Container\\Util::unwrapIfClosure(Object(Closure))
+#12 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(35): Illuminate\\Container\\BoundMethod::callBoundMethod(Object(Illuminate\\Foundation\\Application), Array, Object(Closure))
+#13 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(662): Illuminate\\Container\\BoundMethod::call(Object(Illuminate\\Foundation\\Application), Array, Array, NULL)
+#14 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(1036): Illuminate\\Container\\Container->call(Array)
+#15 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(1017): Illuminate\\Foundation\\Application->bootProvider(Object(App\\Providers\\AppServiceProvider))
+#16 [internal function]: Illuminate\\Foundation\\Application->Illuminate\\Foundation\\{closure}(Object(App\\Providers\\AppServiceProvider), 27)
+#17 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(1016): array_walk(Array, Object(Closure))
+#18 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Bootstrap\\BootProviders.php(17): Illuminate\\Foundation\\Application->boot()
+#19 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(263): Illuminate\\Foundation\\Bootstrap\\BootProviders->bootstrap(Object(Illuminate\\Foundation\\Application))
+#20 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(447): Illuminate\\Foundation\\Application->bootstrapWith(Array)
+#21 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(199): Illuminate\\Foundation\\Console\\Kernel->bootstrap()
+#22 Command line code(1): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#23 {main}
+
+[previous exception] [object] (PDOException(code: 2002): SQLSTATE[HY000] [2002] No connection could be made because the target machine actively refused it at D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connectors\\Connector.php:65)
+[stacktrace]
+#0 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connectors\\Connector.php(65): PDO->__construct('mysql:host=127....', 'root', Object(SensitiveParameterValue), Array)
+#1 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connectors\\Connector.php(83): Illuminate\\Database\\Connectors\\Connector->createPdoConnection('mysql:host=127....', 'root', '', Array)
+#2 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connectors\\Connector.php(48): Illuminate\\Database\\Connectors\\Connector->tryAgainIfCausedByLostConnection(Object(PDOException), 'mysql:host=127....', 'root', '', Array)
+#3 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connectors\\MySqlConnector.php(24): Illuminate\\Database\\Connectors\\Connector->createConnection('mysql:host=127....', Array, Array)
+#4 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connectors\\ConnectionFactory.php(184): Illuminate\\Database\\Connectors\\MySqlConnector->connect(Array)
+#5 [internal function]: Illuminate\\Database\\Connectors\\ConnectionFactory->Illuminate\\Database\\Connectors\\{closure}()
+#6 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php(1339): call_user_func(Object(Closure))
+#7 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php(528): Illuminate\\Database\\Connection->getPdo()
+#8 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php(423): Illuminate\\Database\\Connection->getPdoForSelect(false)
+#9 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php(816): Illuminate\\Database\\Connection->Illuminate\\Database\\{closure}('select table_na...', Array)
+#10 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php(983): Illuminate\\Database\\Connection->runQueryCallback('select table_na...', Array, Object(Closure))
+#11 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php(962): Illuminate\\Database\\Connection->tryAgainIfCausedByLostConnection(Object(Illuminate\\Database\\QueryException), 'select table_na...', Array, Object(Closure))
+#12 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php(785): Illuminate\\Database\\Connection->handleQueryException(Object(Illuminate\\Database\\QueryException), 'select table_na...', Array, Object(Closure))
+#13 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php(414): Illuminate\\Database\\Connection->run('select table_na...', Array, Object(Closure))
+#14 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php(401): Illuminate\\Database\\Connection->select('select table_na...', Array, false)
+#15 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Schema\\MySqlBuilder.php(41): Illuminate\\Database\\Connection->selectFromWriteConnection('select table_na...')
+#16 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Schema\\Builder.php(165): Illuminate\\Database\\Schema\\MySqlBuilder->getTables(false)
+#17 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Support\\Facades\\Facade.php(355): Illuminate\\Database\\Schema\\Builder->hasTable('settings')
+#18 D:\\papachchi-accounting-main\\app\\Providers\\AppServiceProvider.php(52): Illuminate\\Support\\Facades\\Facade::__callStatic('hasTable', Array)
+#19 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(36): App\\Providers\\AppServiceProvider->boot()
+#20 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Util.php(41): Illuminate\\Container\\BoundMethod::Illuminate\\Container\\{closure}()
+#21 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(93): Illuminate\\Container\\Util::unwrapIfClosure(Object(Closure))
+#22 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(35): Illuminate\\Container\\BoundMethod::callBoundMethod(Object(Illuminate\\Foundation\\Application), Array, Object(Closure))
+#23 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(662): Illuminate\\Container\\BoundMethod::call(Object(Illuminate\\Foundation\\Application), Array, Array, NULL)
+#24 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(1036): Illuminate\\Container\\Container->call(Array)
+#25 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(1017): Illuminate\\Foundation\\Application->bootProvider(Object(App\\Providers\\AppServiceProvider))
+#26 [internal function]: Illuminate\\Foundation\\Application->Illuminate\\Foundation\\{closure}(Object(App\\Providers\\AppServiceProvider), 27)
+#27 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(1016): array_walk(Array, Object(Closure))
+#28 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Bootstrap\\BootProviders.php(17): Illuminate\\Foundation\\Application->boot()
+#29 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(263): Illuminate\\Foundation\\Bootstrap\\BootProviders->bootstrap(Object(Illuminate\\Foundation\\Application))
+#30 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(447): Illuminate\\Foundation\\Application->bootstrapWith(Array)
+#31 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(199): Illuminate\\Foundation\\Console\\Kernel->bootstrap()
+#32 Command line code(1): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#33 {main}
+"} 
+[2025-02-25 20:12:09] local.ERROR: SQLSTATE[HY000] [2002] No connection could be made because the target machine actively refused it (Connection: mysql, SQL: select table_name as `name`, (data_length + index_length) as `size`, table_comment as `comment`, engine as `engine`, table_collation as `collation` from information_schema.tables where table_schema = 'chec3' and table_type in ('BASE TABLE', 'SYSTEM VERSIONED') order by table_name) {"exception":"[object] (Illuminate\\Database\\QueryException(code: 2002): SQLSTATE[HY000] [2002] No connection could be made because the target machine actively refused it (Connection: mysql, SQL: select table_name as `name`, (data_length + index_length) as `size`, table_comment as `comment`, engine as `engine`, table_collation as `collation` from information_schema.tables where table_schema = 'chec3' and table_type in ('BASE TABLE', 'SYSTEM VERSIONED') order by table_name) at D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php:829)
+[stacktrace]
+#0 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php(983): Illuminate\\Database\\Connection->runQueryCallback('select table_na...', Array, Object(Closure))
+#1 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php(962): Illuminate\\Database\\Connection->tryAgainIfCausedByLostConnection(Object(Illuminate\\Database\\QueryException), 'select table_na...', Array, Object(Closure))
+#2 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php(785): Illuminate\\Database\\Connection->handleQueryException(Object(Illuminate\\Database\\QueryException), 'select table_na...', Array, Object(Closure))
+#3 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php(414): Illuminate\\Database\\Connection->run('select table_na...', Array, Object(Closure))
+#4 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php(401): Illuminate\\Database\\Connection->select('select table_na...', Array, false)
+#5 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Schema\\MySqlBuilder.php(41): Illuminate\\Database\\Connection->selectFromWriteConnection('select table_na...')
+#6 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Schema\\Builder.php(165): Illuminate\\Database\\Schema\\MySqlBuilder->getTables(false)
+#7 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Support\\Facades\\Facade.php(355): Illuminate\\Database\\Schema\\Builder->hasTable('settings')
+#8 D:\\papachchi-accounting-main\\app\\Providers\\AppServiceProvider.php(52): Illuminate\\Support\\Facades\\Facade::__callStatic('hasTable', Array)
+#9 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(36): App\\Providers\\AppServiceProvider->boot()
+#10 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Util.php(41): Illuminate\\Container\\BoundMethod::Illuminate\\Container\\{closure}()
+#11 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(93): Illuminate\\Container\\Util::unwrapIfClosure(Object(Closure))
+#12 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(35): Illuminate\\Container\\BoundMethod::callBoundMethod(Object(Illuminate\\Foundation\\Application), Array, Object(Closure))
+#13 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(662): Illuminate\\Container\\BoundMethod::call(Object(Illuminate\\Foundation\\Application), Array, Array, NULL)
+#14 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(1036): Illuminate\\Container\\Container->call(Array)
+#15 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(1017): Illuminate\\Foundation\\Application->bootProvider(Object(App\\Providers\\AppServiceProvider))
+#16 [internal function]: Illuminate\\Foundation\\Application->Illuminate\\Foundation\\{closure}(Object(App\\Providers\\AppServiceProvider), 27)
+#17 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(1016): array_walk(Array, Object(Closure))
+#18 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Bootstrap\\BootProviders.php(17): Illuminate\\Foundation\\Application->boot()
+#19 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(263): Illuminate\\Foundation\\Bootstrap\\BootProviders->bootstrap(Object(Illuminate\\Foundation\\Application))
+#20 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(447): Illuminate\\Foundation\\Application->bootstrapWith(Array)
+#21 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(199): Illuminate\\Foundation\\Console\\Kernel->bootstrap()
+#22 Command line code(1): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#23 {main}
+
+[previous exception] [object] (PDOException(code: 2002): SQLSTATE[HY000] [2002] No connection could be made because the target machine actively refused it at D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connectors\\Connector.php:65)
+[stacktrace]
+#0 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connectors\\Connector.php(65): PDO->__construct('mysql:host=127....', 'root', Object(SensitiveParameterValue), Array)
+#1 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connectors\\Connector.php(83): Illuminate\\Database\\Connectors\\Connector->createPdoConnection('mysql:host=127....', 'root', '', Array)
+#2 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connectors\\Connector.php(48): Illuminate\\Database\\Connectors\\Connector->tryAgainIfCausedByLostConnection(Object(PDOException), 'mysql:host=127....', 'root', '', Array)
+#3 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connectors\\MySqlConnector.php(24): Illuminate\\Database\\Connectors\\Connector->createConnection('mysql:host=127....', Array, Array)
+#4 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connectors\\ConnectionFactory.php(184): Illuminate\\Database\\Connectors\\MySqlConnector->connect(Array)
+#5 [internal function]: Illuminate\\Database\\Connectors\\ConnectionFactory->Illuminate\\Database\\Connectors\\{closure}()
+#6 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php(1339): call_user_func(Object(Closure))
+#7 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php(528): Illuminate\\Database\\Connection->getPdo()
+#8 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php(423): Illuminate\\Database\\Connection->getPdoForSelect(false)
+#9 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php(816): Illuminate\\Database\\Connection->Illuminate\\Database\\{closure}('select table_na...', Array)
+#10 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php(983): Illuminate\\Database\\Connection->runQueryCallback('select table_na...', Array, Object(Closure))
+#11 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php(962): Illuminate\\Database\\Connection->tryAgainIfCausedByLostConnection(Object(Illuminate\\Database\\QueryException), 'select table_na...', Array, Object(Closure))
+#12 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php(785): Illuminate\\Database\\Connection->handleQueryException(Object(Illuminate\\Database\\QueryException), 'select table_na...', Array, Object(Closure))
+#13 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php(414): Illuminate\\Database\\Connection->run('select table_na...', Array, Object(Closure))
+#14 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php(401): Illuminate\\Database\\Connection->select('select table_na...', Array, false)
+#15 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Schema\\MySqlBuilder.php(41): Illuminate\\Database\\Connection->selectFromWriteConnection('select table_na...')
+#16 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Schema\\Builder.php(165): Illuminate\\Database\\Schema\\MySqlBuilder->getTables(false)
+#17 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Support\\Facades\\Facade.php(355): Illuminate\\Database\\Schema\\Builder->hasTable('settings')
+#18 D:\\papachchi-accounting-main\\app\\Providers\\AppServiceProvider.php(52): Illuminate\\Support\\Facades\\Facade::__callStatic('hasTable', Array)
+#19 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(36): App\\Providers\\AppServiceProvider->boot()
+#20 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Util.php(41): Illuminate\\Container\\BoundMethod::Illuminate\\Container\\{closure}()
+#21 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(93): Illuminate\\Container\\Util::unwrapIfClosure(Object(Closure))
+#22 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(35): Illuminate\\Container\\BoundMethod::callBoundMethod(Object(Illuminate\\Foundation\\Application), Array, Object(Closure))
+#23 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(662): Illuminate\\Container\\BoundMethod::call(Object(Illuminate\\Foundation\\Application), Array, Array, NULL)
+#24 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(1036): Illuminate\\Container\\Container->call(Array)
+#25 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(1017): Illuminate\\Foundation\\Application->bootProvider(Object(App\\Providers\\AppServiceProvider))
+#26 [internal function]: Illuminate\\Foundation\\Application->Illuminate\\Foundation\\{closure}(Object(App\\Providers\\AppServiceProvider), 27)
+#27 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(1016): array_walk(Array, Object(Closure))
+#28 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Bootstrap\\BootProviders.php(17): Illuminate\\Foundation\\Application->boot()
+#29 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(263): Illuminate\\Foundation\\Bootstrap\\BootProviders->bootstrap(Object(Illuminate\\Foundation\\Application))
+#30 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(447): Illuminate\\Foundation\\Application->bootstrapWith(Array)
+#31 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(199): Illuminate\\Foundation\\Console\\Kernel->bootstrap()
+#32 Command line code(1): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#33 {main}
+"} 
+[2025-02-25 20:13:09] local.ERROR: SQLSTATE[HY000] [2002] No connection could be made because the target machine actively refused it (Connection: mysql, SQL: select table_name as `name`, (data_length + index_length) as `size`, table_comment as `comment`, engine as `engine`, table_collation as `collation` from information_schema.tables where table_schema = 'chec3' and table_type in ('BASE TABLE', 'SYSTEM VERSIONED') order by table_name) {"exception":"[object] (Illuminate\\Database\\QueryException(code: 2002): SQLSTATE[HY000] [2002] No connection could be made because the target machine actively refused it (Connection: mysql, SQL: select table_name as `name`, (data_length + index_length) as `size`, table_comment as `comment`, engine as `engine`, table_collation as `collation` from information_schema.tables where table_schema = 'chec3' and table_type in ('BASE TABLE', 'SYSTEM VERSIONED') order by table_name) at D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php:829)
+[stacktrace]
+#0 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php(983): Illuminate\\Database\\Connection->runQueryCallback('select table_na...', Array, Object(Closure))
+#1 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php(962): Illuminate\\Database\\Connection->tryAgainIfCausedByLostConnection(Object(Illuminate\\Database\\QueryException), 'select table_na...', Array, Object(Closure))
+#2 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php(785): Illuminate\\Database\\Connection->handleQueryException(Object(Illuminate\\Database\\QueryException), 'select table_na...', Array, Object(Closure))
+#3 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php(414): Illuminate\\Database\\Connection->run('select table_na...', Array, Object(Closure))
+#4 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php(401): Illuminate\\Database\\Connection->select('select table_na...', Array, false)
+#5 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Schema\\MySqlBuilder.php(41): Illuminate\\Database\\Connection->selectFromWriteConnection('select table_na...')
+#6 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Schema\\Builder.php(165): Illuminate\\Database\\Schema\\MySqlBuilder->getTables(false)
+#7 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Support\\Facades\\Facade.php(355): Illuminate\\Database\\Schema\\Builder->hasTable('settings')
+#8 D:\\papachchi-accounting-main\\app\\Providers\\AppServiceProvider.php(52): Illuminate\\Support\\Facades\\Facade::__callStatic('hasTable', Array)
+#9 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(36): App\\Providers\\AppServiceProvider->boot()
+#10 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Util.php(41): Illuminate\\Container\\BoundMethod::Illuminate\\Container\\{closure}()
+#11 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(93): Illuminate\\Container\\Util::unwrapIfClosure(Object(Closure))
+#12 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(35): Illuminate\\Container\\BoundMethod::callBoundMethod(Object(Illuminate\\Foundation\\Application), Array, Object(Closure))
+#13 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(662): Illuminate\\Container\\BoundMethod::call(Object(Illuminate\\Foundation\\Application), Array, Array, NULL)
+#14 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(1036): Illuminate\\Container\\Container->call(Array)
+#15 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(1017): Illuminate\\Foundation\\Application->bootProvider(Object(App\\Providers\\AppServiceProvider))
+#16 [internal function]: Illuminate\\Foundation\\Application->Illuminate\\Foundation\\{closure}(Object(App\\Providers\\AppServiceProvider), 27)
+#17 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(1016): array_walk(Array, Object(Closure))
+#18 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Bootstrap\\BootProviders.php(17): Illuminate\\Foundation\\Application->boot()
+#19 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(263): Illuminate\\Foundation\\Bootstrap\\BootProviders->bootstrap(Object(Illuminate\\Foundation\\Application))
+#20 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(447): Illuminate\\Foundation\\Application->bootstrapWith(Array)
+#21 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(199): Illuminate\\Foundation\\Console\\Kernel->bootstrap()
+#22 Command line code(1): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#23 {main}
+
+[previous exception] [object] (PDOException(code: 2002): SQLSTATE[HY000] [2002] No connection could be made because the target machine actively refused it at D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connectors\\Connector.php:65)
+[stacktrace]
+#0 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connectors\\Connector.php(65): PDO->__construct('mysql:host=127....', 'root', Object(SensitiveParameterValue), Array)
+#1 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connectors\\Connector.php(83): Illuminate\\Database\\Connectors\\Connector->createPdoConnection('mysql:host=127....', 'root', '', Array)
+#2 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connectors\\Connector.php(48): Illuminate\\Database\\Connectors\\Connector->tryAgainIfCausedByLostConnection(Object(PDOException), 'mysql:host=127....', 'root', '', Array)
+#3 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connectors\\MySqlConnector.php(24): Illuminate\\Database\\Connectors\\Connector->createConnection('mysql:host=127....', Array, Array)
+#4 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connectors\\ConnectionFactory.php(184): Illuminate\\Database\\Connectors\\MySqlConnector->connect(Array)
+#5 [internal function]: Illuminate\\Database\\Connectors\\ConnectionFactory->Illuminate\\Database\\Connectors\\{closure}()
+#6 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php(1339): call_user_func(Object(Closure))
+#7 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php(528): Illuminate\\Database\\Connection->getPdo()
+#8 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php(423): Illuminate\\Database\\Connection->getPdoForSelect(false)
+#9 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php(816): Illuminate\\Database\\Connection->Illuminate\\Database\\{closure}('select table_na...', Array)
+#10 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php(983): Illuminate\\Database\\Connection->runQueryCallback('select table_na...', Array, Object(Closure))
+#11 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php(962): Illuminate\\Database\\Connection->tryAgainIfCausedByLostConnection(Object(Illuminate\\Database\\QueryException), 'select table_na...', Array, Object(Closure))
+#12 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php(785): Illuminate\\Database\\Connection->handleQueryException(Object(Illuminate\\Database\\QueryException), 'select table_na...', Array, Object(Closure))
+#13 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php(414): Illuminate\\Database\\Connection->run('select table_na...', Array, Object(Closure))
+#14 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php(401): Illuminate\\Database\\Connection->select('select table_na...', Array, false)
+#15 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Schema\\MySqlBuilder.php(41): Illuminate\\Database\\Connection->selectFromWriteConnection('select table_na...')
+#16 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Schema\\Builder.php(165): Illuminate\\Database\\Schema\\MySqlBuilder->getTables(false)
+#17 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Support\\Facades\\Facade.php(355): Illuminate\\Database\\Schema\\Builder->hasTable('settings')
+#18 D:\\papachchi-accounting-main\\app\\Providers\\AppServiceProvider.php(52): Illuminate\\Support\\Facades\\Facade::__callStatic('hasTable', Array)
+#19 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(36): App\\Providers\\AppServiceProvider->boot()
+#20 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Util.php(41): Illuminate\\Container\\BoundMethod::Illuminate\\Container\\{closure}()
+#21 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(93): Illuminate\\Container\\Util::unwrapIfClosure(Object(Closure))
+#22 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(35): Illuminate\\Container\\BoundMethod::callBoundMethod(Object(Illuminate\\Foundation\\Application), Array, Object(Closure))
+#23 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(662): Illuminate\\Container\\BoundMethod::call(Object(Illuminate\\Foundation\\Application), Array, Array, NULL)
+#24 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(1036): Illuminate\\Container\\Container->call(Array)
+#25 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(1017): Illuminate\\Foundation\\Application->bootProvider(Object(App\\Providers\\AppServiceProvider))
+#26 [internal function]: Illuminate\\Foundation\\Application->Illuminate\\Foundation\\{closure}(Object(App\\Providers\\AppServiceProvider), 27)
+#27 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(1016): array_walk(Array, Object(Closure))
+#28 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Bootstrap\\BootProviders.php(17): Illuminate\\Foundation\\Application->boot()
+#29 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(263): Illuminate\\Foundation\\Bootstrap\\BootProviders->bootstrap(Object(Illuminate\\Foundation\\Application))
+#30 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(447): Illuminate\\Foundation\\Application->bootstrapWith(Array)
+#31 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(199): Illuminate\\Foundation\\Console\\Kernel->bootstrap()
+#32 Command line code(1): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#33 {main}
+"} 
+[2025-02-25 20:13:09] local.ERROR: SQLSTATE[HY000] [2002] No connection could be made because the target machine actively refused it (Connection: mysql, SQL: select table_name as `name`, (data_length + index_length) as `size`, table_comment as `comment`, engine as `engine`, table_collation as `collation` from information_schema.tables where table_schema = 'chec3' and table_type in ('BASE TABLE', 'SYSTEM VERSIONED') order by table_name) {"exception":"[object] (Illuminate\\Database\\QueryException(code: 2002): SQLSTATE[HY000] [2002] No connection could be made because the target machine actively refused it (Connection: mysql, SQL: select table_name as `name`, (data_length + index_length) as `size`, table_comment as `comment`, engine as `engine`, table_collation as `collation` from information_schema.tables where table_schema = 'chec3' and table_type in ('BASE TABLE', 'SYSTEM VERSIONED') order by table_name) at D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php:829)
+[stacktrace]
+#0 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php(983): Illuminate\\Database\\Connection->runQueryCallback('select table_na...', Array, Object(Closure))
+#1 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php(962): Illuminate\\Database\\Connection->tryAgainIfCausedByLostConnection(Object(Illuminate\\Database\\QueryException), 'select table_na...', Array, Object(Closure))
+#2 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php(785): Illuminate\\Database\\Connection->handleQueryException(Object(Illuminate\\Database\\QueryException), 'select table_na...', Array, Object(Closure))
+#3 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php(414): Illuminate\\Database\\Connection->run('select table_na...', Array, Object(Closure))
+#4 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php(401): Illuminate\\Database\\Connection->select('select table_na...', Array, false)
+#5 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Schema\\MySqlBuilder.php(41): Illuminate\\Database\\Connection->selectFromWriteConnection('select table_na...')
+#6 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Schema\\Builder.php(165): Illuminate\\Database\\Schema\\MySqlBuilder->getTables(false)
+#7 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Support\\Facades\\Facade.php(355): Illuminate\\Database\\Schema\\Builder->hasTable('settings')
+#8 D:\\papachchi-accounting-main\\app\\Providers\\AppServiceProvider.php(52): Illuminate\\Support\\Facades\\Facade::__callStatic('hasTable', Array)
+#9 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(36): App\\Providers\\AppServiceProvider->boot()
+#10 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Util.php(41): Illuminate\\Container\\BoundMethod::Illuminate\\Container\\{closure}()
+#11 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(93): Illuminate\\Container\\Util::unwrapIfClosure(Object(Closure))
+#12 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(35): Illuminate\\Container\\BoundMethod::callBoundMethod(Object(Illuminate\\Foundation\\Application), Array, Object(Closure))
+#13 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(662): Illuminate\\Container\\BoundMethod::call(Object(Illuminate\\Foundation\\Application), Array, Array, NULL)
+#14 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(1036): Illuminate\\Container\\Container->call(Array)
+#15 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(1017): Illuminate\\Foundation\\Application->bootProvider(Object(App\\Providers\\AppServiceProvider))
+#16 [internal function]: Illuminate\\Foundation\\Application->Illuminate\\Foundation\\{closure}(Object(App\\Providers\\AppServiceProvider), 27)
+#17 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(1016): array_walk(Array, Object(Closure))
+#18 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Bootstrap\\BootProviders.php(17): Illuminate\\Foundation\\Application->boot()
+#19 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(263): Illuminate\\Foundation\\Bootstrap\\BootProviders->bootstrap(Object(Illuminate\\Foundation\\Application))
+#20 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(447): Illuminate\\Foundation\\Application->bootstrapWith(Array)
+#21 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(199): Illuminate\\Foundation\\Console\\Kernel->bootstrap()
+#22 Command line code(1): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#23 {main}
+
+[previous exception] [object] (PDOException(code: 2002): SQLSTATE[HY000] [2002] No connection could be made because the target machine actively refused it at D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connectors\\Connector.php:65)
+[stacktrace]
+#0 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connectors\\Connector.php(65): PDO->__construct('mysql:host=127....', 'root', Object(SensitiveParameterValue), Array)
+#1 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connectors\\Connector.php(83): Illuminate\\Database\\Connectors\\Connector->createPdoConnection('mysql:host=127....', 'root', '', Array)
+#2 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connectors\\Connector.php(48): Illuminate\\Database\\Connectors\\Connector->tryAgainIfCausedByLostConnection(Object(PDOException), 'mysql:host=127....', 'root', '', Array)
+#3 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connectors\\MySqlConnector.php(24): Illuminate\\Database\\Connectors\\Connector->createConnection('mysql:host=127....', Array, Array)
+#4 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connectors\\ConnectionFactory.php(184): Illuminate\\Database\\Connectors\\MySqlConnector->connect(Array)
+#5 [internal function]: Illuminate\\Database\\Connectors\\ConnectionFactory->Illuminate\\Database\\Connectors\\{closure}()
+#6 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php(1339): call_user_func(Object(Closure))
+#7 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php(528): Illuminate\\Database\\Connection->getPdo()
+#8 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php(423): Illuminate\\Database\\Connection->getPdoForSelect(false)
+#9 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php(816): Illuminate\\Database\\Connection->Illuminate\\Database\\{closure}('select table_na...', Array)
+#10 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php(983): Illuminate\\Database\\Connection->runQueryCallback('select table_na...', Array, Object(Closure))
+#11 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php(962): Illuminate\\Database\\Connection->tryAgainIfCausedByLostConnection(Object(Illuminate\\Database\\QueryException), 'select table_na...', Array, Object(Closure))
+#12 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php(785): Illuminate\\Database\\Connection->handleQueryException(Object(Illuminate\\Database\\QueryException), 'select table_na...', Array, Object(Closure))
+#13 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php(414): Illuminate\\Database\\Connection->run('select table_na...', Array, Object(Closure))
+#14 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php(401): Illuminate\\Database\\Connection->select('select table_na...', Array, false)
+#15 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Schema\\MySqlBuilder.php(41): Illuminate\\Database\\Connection->selectFromWriteConnection('select table_na...')
+#16 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Schema\\Builder.php(165): Illuminate\\Database\\Schema\\MySqlBuilder->getTables(false)
+#17 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Support\\Facades\\Facade.php(355): Illuminate\\Database\\Schema\\Builder->hasTable('settings')
+#18 D:\\papachchi-accounting-main\\app\\Providers\\AppServiceProvider.php(52): Illuminate\\Support\\Facades\\Facade::__callStatic('hasTable', Array)
+#19 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(36): App\\Providers\\AppServiceProvider->boot()
+#20 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Util.php(41): Illuminate\\Container\\BoundMethod::Illuminate\\Container\\{closure}()
+#21 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(93): Illuminate\\Container\\Util::unwrapIfClosure(Object(Closure))
+#22 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(35): Illuminate\\Container\\BoundMethod::callBoundMethod(Object(Illuminate\\Foundation\\Application), Array, Object(Closure))
+#23 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(662): Illuminate\\Container\\BoundMethod::call(Object(Illuminate\\Foundation\\Application), Array, Array, NULL)
+#24 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(1036): Illuminate\\Container\\Container->call(Array)
+#25 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(1017): Illuminate\\Foundation\\Application->bootProvider(Object(App\\Providers\\AppServiceProvider))
+#26 [internal function]: Illuminate\\Foundation\\Application->Illuminate\\Foundation\\{closure}(Object(App\\Providers\\AppServiceProvider), 27)
+#27 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(1016): array_walk(Array, Object(Closure))
+#28 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Bootstrap\\BootProviders.php(17): Illuminate\\Foundation\\Application->boot()
+#29 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(263): Illuminate\\Foundation\\Bootstrap\\BootProviders->bootstrap(Object(Illuminate\\Foundation\\Application))
+#30 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(447): Illuminate\\Foundation\\Application->bootstrapWith(Array)
+#31 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(199): Illuminate\\Foundation\\Console\\Kernel->bootstrap()
+#32 Command line code(1): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#33 {main}
+"} 
+[2025-02-25 20:14:09] local.ERROR: SQLSTATE[HY000] [2002] No connection could be made because the target machine actively refused it (Connection: mysql, SQL: select table_name as `name`, (data_length + index_length) as `size`, table_comment as `comment`, engine as `engine`, table_collation as `collation` from information_schema.tables where table_schema = 'chec3' and table_type in ('BASE TABLE', 'SYSTEM VERSIONED') order by table_name) {"exception":"[object] (Illuminate\\Database\\QueryException(code: 2002): SQLSTATE[HY000] [2002] No connection could be made because the target machine actively refused it (Connection: mysql, SQL: select table_name as `name`, (data_length + index_length) as `size`, table_comment as `comment`, engine as `engine`, table_collation as `collation` from information_schema.tables where table_schema = 'chec3' and table_type in ('BASE TABLE', 'SYSTEM VERSIONED') order by table_name) at D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php:829)
+[stacktrace]
+#0 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php(983): Illuminate\\Database\\Connection->runQueryCallback('select table_na...', Array, Object(Closure))
+#1 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php(962): Illuminate\\Database\\Connection->tryAgainIfCausedByLostConnection(Object(Illuminate\\Database\\QueryException), 'select table_na...', Array, Object(Closure))
+#2 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php(785): Illuminate\\Database\\Connection->handleQueryException(Object(Illuminate\\Database\\QueryException), 'select table_na...', Array, Object(Closure))
+#3 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php(414): Illuminate\\Database\\Connection->run('select table_na...', Array, Object(Closure))
+#4 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php(401): Illuminate\\Database\\Connection->select('select table_na...', Array, false)
+#5 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Schema\\MySqlBuilder.php(41): Illuminate\\Database\\Connection->selectFromWriteConnection('select table_na...')
+#6 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Schema\\Builder.php(165): Illuminate\\Database\\Schema\\MySqlBuilder->getTables(false)
+#7 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Support\\Facades\\Facade.php(355): Illuminate\\Database\\Schema\\Builder->hasTable('settings')
+#8 D:\\papachchi-accounting-main\\app\\Providers\\AppServiceProvider.php(52): Illuminate\\Support\\Facades\\Facade::__callStatic('hasTable', Array)
+#9 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(36): App\\Providers\\AppServiceProvider->boot()
+#10 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Util.php(41): Illuminate\\Container\\BoundMethod::Illuminate\\Container\\{closure}()
+#11 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(93): Illuminate\\Container\\Util::unwrapIfClosure(Object(Closure))
+#12 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(35): Illuminate\\Container\\BoundMethod::callBoundMethod(Object(Illuminate\\Foundation\\Application), Array, Object(Closure))
+#13 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(662): Illuminate\\Container\\BoundMethod::call(Object(Illuminate\\Foundation\\Application), Array, Array, NULL)
+#14 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(1036): Illuminate\\Container\\Container->call(Array)
+#15 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(1017): Illuminate\\Foundation\\Application->bootProvider(Object(App\\Providers\\AppServiceProvider))
+#16 [internal function]: Illuminate\\Foundation\\Application->Illuminate\\Foundation\\{closure}(Object(App\\Providers\\AppServiceProvider), 27)
+#17 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(1016): array_walk(Array, Object(Closure))
+#18 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Bootstrap\\BootProviders.php(17): Illuminate\\Foundation\\Application->boot()
+#19 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(263): Illuminate\\Foundation\\Bootstrap\\BootProviders->bootstrap(Object(Illuminate\\Foundation\\Application))
+#20 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(447): Illuminate\\Foundation\\Application->bootstrapWith(Array)
+#21 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(199): Illuminate\\Foundation\\Console\\Kernel->bootstrap()
+#22 Command line code(1): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#23 {main}
+
+[previous exception] [object] (PDOException(code: 2002): SQLSTATE[HY000] [2002] No connection could be made because the target machine actively refused it at D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connectors\\Connector.php:65)
+[stacktrace]
+#0 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connectors\\Connector.php(65): PDO->__construct('mysql:host=127....', 'root', Object(SensitiveParameterValue), Array)
+#1 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connectors\\Connector.php(83): Illuminate\\Database\\Connectors\\Connector->createPdoConnection('mysql:host=127....', 'root', '', Array)
+#2 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connectors\\Connector.php(48): Illuminate\\Database\\Connectors\\Connector->tryAgainIfCausedByLostConnection(Object(PDOException), 'mysql:host=127....', 'root', '', Array)
+#3 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connectors\\MySqlConnector.php(24): Illuminate\\Database\\Connectors\\Connector->createConnection('mysql:host=127....', Array, Array)
+#4 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connectors\\ConnectionFactory.php(184): Illuminate\\Database\\Connectors\\MySqlConnector->connect(Array)
+#5 [internal function]: Illuminate\\Database\\Connectors\\ConnectionFactory->Illuminate\\Database\\Connectors\\{closure}()
+#6 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php(1339): call_user_func(Object(Closure))
+#7 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php(528): Illuminate\\Database\\Connection->getPdo()
+#8 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php(423): Illuminate\\Database\\Connection->getPdoForSelect(false)
+#9 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php(816): Illuminate\\Database\\Connection->Illuminate\\Database\\{closure}('select table_na...', Array)
+#10 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php(983): Illuminate\\Database\\Connection->runQueryCallback('select table_na...', Array, Object(Closure))
+#11 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php(962): Illuminate\\Database\\Connection->tryAgainIfCausedByLostConnection(Object(Illuminate\\Database\\QueryException), 'select table_na...', Array, Object(Closure))
+#12 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php(785): Illuminate\\Database\\Connection->handleQueryException(Object(Illuminate\\Database\\QueryException), 'select table_na...', Array, Object(Closure))
+#13 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php(414): Illuminate\\Database\\Connection->run('select table_na...', Array, Object(Closure))
+#14 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php(401): Illuminate\\Database\\Connection->select('select table_na...', Array, false)
+#15 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Schema\\MySqlBuilder.php(41): Illuminate\\Database\\Connection->selectFromWriteConnection('select table_na...')
+#16 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Schema\\Builder.php(165): Illuminate\\Database\\Schema\\MySqlBuilder->getTables(false)
+#17 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Support\\Facades\\Facade.php(355): Illuminate\\Database\\Schema\\Builder->hasTable('settings')
+#18 D:\\papachchi-accounting-main\\app\\Providers\\AppServiceProvider.php(52): Illuminate\\Support\\Facades\\Facade::__callStatic('hasTable', Array)
+#19 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(36): App\\Providers\\AppServiceProvider->boot()
+#20 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Util.php(41): Illuminate\\Container\\BoundMethod::Illuminate\\Container\\{closure}()
+#21 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(93): Illuminate\\Container\\Util::unwrapIfClosure(Object(Closure))
+#22 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(35): Illuminate\\Container\\BoundMethod::callBoundMethod(Object(Illuminate\\Foundation\\Application), Array, Object(Closure))
+#23 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(662): Illuminate\\Container\\BoundMethod::call(Object(Illuminate\\Foundation\\Application), Array, Array, NULL)
+#24 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(1036): Illuminate\\Container\\Container->call(Array)
+#25 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(1017): Illuminate\\Foundation\\Application->bootProvider(Object(App\\Providers\\AppServiceProvider))
+#26 [internal function]: Illuminate\\Foundation\\Application->Illuminate\\Foundation\\{closure}(Object(App\\Providers\\AppServiceProvider), 27)
+#27 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(1016): array_walk(Array, Object(Closure))
+#28 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Bootstrap\\BootProviders.php(17): Illuminate\\Foundation\\Application->boot()
+#29 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(263): Illuminate\\Foundation\\Bootstrap\\BootProviders->bootstrap(Object(Illuminate\\Foundation\\Application))
+#30 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(447): Illuminate\\Foundation\\Application->bootstrapWith(Array)
+#31 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(199): Illuminate\\Foundation\\Console\\Kernel->bootstrap()
+#32 Command line code(1): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#33 {main}
+"} 
+[2025-02-25 20:14:09] local.ERROR: SQLSTATE[HY000] [2002] No connection could be made because the target machine actively refused it (Connection: mysql, SQL: select table_name as `name`, (data_length + index_length) as `size`, table_comment as `comment`, engine as `engine`, table_collation as `collation` from information_schema.tables where table_schema = 'chec3' and table_type in ('BASE TABLE', 'SYSTEM VERSIONED') order by table_name) {"exception":"[object] (Illuminate\\Database\\QueryException(code: 2002): SQLSTATE[HY000] [2002] No connection could be made because the target machine actively refused it (Connection: mysql, SQL: select table_name as `name`, (data_length + index_length) as `size`, table_comment as `comment`, engine as `engine`, table_collation as `collation` from information_schema.tables where table_schema = 'chec3' and table_type in ('BASE TABLE', 'SYSTEM VERSIONED') order by table_name) at D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php:829)
+[stacktrace]
+#0 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php(983): Illuminate\\Database\\Connection->runQueryCallback('select table_na...', Array, Object(Closure))
+#1 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php(962): Illuminate\\Database\\Connection->tryAgainIfCausedByLostConnection(Object(Illuminate\\Database\\QueryException), 'select table_na...', Array, Object(Closure))
+#2 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php(785): Illuminate\\Database\\Connection->handleQueryException(Object(Illuminate\\Database\\QueryException), 'select table_na...', Array, Object(Closure))
+#3 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php(414): Illuminate\\Database\\Connection->run('select table_na...', Array, Object(Closure))
+#4 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php(401): Illuminate\\Database\\Connection->select('select table_na...', Array, false)
+#5 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Schema\\MySqlBuilder.php(41): Illuminate\\Database\\Connection->selectFromWriteConnection('select table_na...')
+#6 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Schema\\Builder.php(165): Illuminate\\Database\\Schema\\MySqlBuilder->getTables(false)
+#7 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Support\\Facades\\Facade.php(355): Illuminate\\Database\\Schema\\Builder->hasTable('settings')
+#8 D:\\papachchi-accounting-main\\app\\Providers\\AppServiceProvider.php(52): Illuminate\\Support\\Facades\\Facade::__callStatic('hasTable', Array)
+#9 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(36): App\\Providers\\AppServiceProvider->boot()
+#10 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Util.php(41): Illuminate\\Container\\BoundMethod::Illuminate\\Container\\{closure}()
+#11 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(93): Illuminate\\Container\\Util::unwrapIfClosure(Object(Closure))
+#12 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(35): Illuminate\\Container\\BoundMethod::callBoundMethod(Object(Illuminate\\Foundation\\Application), Array, Object(Closure))
+#13 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(662): Illuminate\\Container\\BoundMethod::call(Object(Illuminate\\Foundation\\Application), Array, Array, NULL)
+#14 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(1036): Illuminate\\Container\\Container->call(Array)
+#15 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(1017): Illuminate\\Foundation\\Application->bootProvider(Object(App\\Providers\\AppServiceProvider))
+#16 [internal function]: Illuminate\\Foundation\\Application->Illuminate\\Foundation\\{closure}(Object(App\\Providers\\AppServiceProvider), 27)
+#17 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(1016): array_walk(Array, Object(Closure))
+#18 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Bootstrap\\BootProviders.php(17): Illuminate\\Foundation\\Application->boot()
+#19 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(263): Illuminate\\Foundation\\Bootstrap\\BootProviders->bootstrap(Object(Illuminate\\Foundation\\Application))
+#20 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(447): Illuminate\\Foundation\\Application->bootstrapWith(Array)
+#21 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(199): Illuminate\\Foundation\\Console\\Kernel->bootstrap()
+#22 Command line code(1): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#23 {main}
+
+[previous exception] [object] (PDOException(code: 2002): SQLSTATE[HY000] [2002] No connection could be made because the target machine actively refused it at D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connectors\\Connector.php:65)
+[stacktrace]
+#0 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connectors\\Connector.php(65): PDO->__construct('mysql:host=127....', 'root', Object(SensitiveParameterValue), Array)
+#1 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connectors\\Connector.php(83): Illuminate\\Database\\Connectors\\Connector->createPdoConnection('mysql:host=127....', 'root', '', Array)
+#2 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connectors\\Connector.php(48): Illuminate\\Database\\Connectors\\Connector->tryAgainIfCausedByLostConnection(Object(PDOException), 'mysql:host=127....', 'root', '', Array)
+#3 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connectors\\MySqlConnector.php(24): Illuminate\\Database\\Connectors\\Connector->createConnection('mysql:host=127....', Array, Array)
+#4 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connectors\\ConnectionFactory.php(184): Illuminate\\Database\\Connectors\\MySqlConnector->connect(Array)
+#5 [internal function]: Illuminate\\Database\\Connectors\\ConnectionFactory->Illuminate\\Database\\Connectors\\{closure}()
+#6 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php(1339): call_user_func(Object(Closure))
+#7 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php(528): Illuminate\\Database\\Connection->getPdo()
+#8 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php(423): Illuminate\\Database\\Connection->getPdoForSelect(false)
+#9 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php(816): Illuminate\\Database\\Connection->Illuminate\\Database\\{closure}('select table_na...', Array)
+#10 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php(983): Illuminate\\Database\\Connection->runQueryCallback('select table_na...', Array, Object(Closure))
+#11 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php(962): Illuminate\\Database\\Connection->tryAgainIfCausedByLostConnection(Object(Illuminate\\Database\\QueryException), 'select table_na...', Array, Object(Closure))
+#12 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php(785): Illuminate\\Database\\Connection->handleQueryException(Object(Illuminate\\Database\\QueryException), 'select table_na...', Array, Object(Closure))
+#13 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php(414): Illuminate\\Database\\Connection->run('select table_na...', Array, Object(Closure))
+#14 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php(401): Illuminate\\Database\\Connection->select('select table_na...', Array, false)
+#15 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Schema\\MySqlBuilder.php(41): Illuminate\\Database\\Connection->selectFromWriteConnection('select table_na...')
+#16 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Schema\\Builder.php(165): Illuminate\\Database\\Schema\\MySqlBuilder->getTables(false)
+#17 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Support\\Facades\\Facade.php(355): Illuminate\\Database\\Schema\\Builder->hasTable('settings')
+#18 D:\\papachchi-accounting-main\\app\\Providers\\AppServiceProvider.php(52): Illuminate\\Support\\Facades\\Facade::__callStatic('hasTable', Array)
+#19 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(36): App\\Providers\\AppServiceProvider->boot()
+#20 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Util.php(41): Illuminate\\Container\\BoundMethod::Illuminate\\Container\\{closure}()
+#21 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(93): Illuminate\\Container\\Util::unwrapIfClosure(Object(Closure))
+#22 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(35): Illuminate\\Container\\BoundMethod::callBoundMethod(Object(Illuminate\\Foundation\\Application), Array, Object(Closure))
+#23 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(662): Illuminate\\Container\\BoundMethod::call(Object(Illuminate\\Foundation\\Application), Array, Array, NULL)
+#24 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(1036): Illuminate\\Container\\Container->call(Array)
+#25 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(1017): Illuminate\\Foundation\\Application->bootProvider(Object(App\\Providers\\AppServiceProvider))
+#26 [internal function]: Illuminate\\Foundation\\Application->Illuminate\\Foundation\\{closure}(Object(App\\Providers\\AppServiceProvider), 27)
+#27 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(1016): array_walk(Array, Object(Closure))
+#28 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Bootstrap\\BootProviders.php(17): Illuminate\\Foundation\\Application->boot()
+#29 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(263): Illuminate\\Foundation\\Bootstrap\\BootProviders->bootstrap(Object(Illuminate\\Foundation\\Application))
+#30 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(447): Illuminate\\Foundation\\Application->bootstrapWith(Array)
+#31 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(199): Illuminate\\Foundation\\Console\\Kernel->bootstrap()
+#32 Command line code(1): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#33 {main}
+"} 
+[2025-02-25 20:21:02] local.INFO: Fetching products for Branch ID: 2, Category: box  
+[2025-02-25 20:21:08] local.INFO: Fetching products for Branch ID: 2, Category: box  
+[2025-02-25 20:21:08] local.INFO: Fetching products for Branch ID: 2, Category: flower  
+[2025-02-25 20:21:12] local.INFO: Fetching products for Branch ID: 2, Category: box  
+[2025-02-25 21:37:57] local.INFO: Fetching products for Branch ID: 1, Category: box  
+[2025-02-25 21:42:02] local.INFO: Fetching products for Branch ID: 2, Category: box  
+[2025-02-25 21:42:15] local.INFO: Fetching products for Branch ID: 1, Category: flower  
+[2025-02-25 21:42:17] local.INFO: Fetching products for Branch ID: 2, Category: flower  
+[2025-02-25 21:42:17] local.INFO: Fetching products for Branch ID: 2, Category: box  
+[2025-02-25 21:53:31] local.ERROR: The PHP GD extension is required, but is not installed. {"userId":1,"exception":"[object] (Exception(code: 0): The PHP GD extension is required, but is not installed. at D:\\papachchi-accounting-main\\vendor\\dompdf\\dompdf\\src\\Renderer\\AbstractRenderer.php:285)
+[stacktrace]
+#0 D:\\papachchi-accounting-main\\vendor\\dompdf\\dompdf\\src\\Renderer\\AbstractRenderer.php(85): Dompdf\\Renderer\\AbstractRenderer->_background_image('http://127.0.0....', 34.015748031496, 34.015748031496, 256.94881889764, 531.96850393701, Object(Dompdf\\Css\\Style))
+#1 D:\\papachchi-accounting-main\\vendor\\dompdf\\dompdf\\src\\Renderer\\Block.php(41): Dompdf\\Renderer\\AbstractRenderer->_render_background(Object(Dompdf\\FrameDecorator\\Block), Array)
+#2 D:\\papachchi-accounting-main\\vendor\\dompdf\\dompdf\\src\\Renderer.php(305): Dompdf\\Renderer\\Block->render(Object(Dompdf\\FrameDecorator\\Block))
+#3 D:\\papachchi-accounting-main\\vendor\\dompdf\\dompdf\\src\\Renderer.php(110): Dompdf\\Renderer->_render_frame('block', Object(Dompdf\\FrameDecorator\\Block))
+#4 D:\\papachchi-accounting-main\\vendor\\dompdf\\dompdf\\src\\FrameReflower\\Page.php(149): Dompdf\\Renderer->render(Object(Dompdf\\FrameDecorator\\Block))
+#5 D:\\papachchi-accounting-main\\vendor\\dompdf\\dompdf\\src\\FrameDecorator\\AbstractFrameDecorator.php(905): Dompdf\\FrameReflower\\Page->reflow(NULL)
+#6 D:\\papachchi-accounting-main\\vendor\\dompdf\\dompdf\\src\\Dompdf.php(808): Dompdf\\FrameDecorator\\AbstractFrameDecorator->reflow()
+#7 D:\\papachchi-accounting-main\\vendor\\barryvdh\\laravel-dompdf\\src\\PDF.php(244): Dompdf\\Dompdf->render()
+#8 D:\\papachchi-accounting-main\\vendor\\barryvdh\\laravel-dompdf\\src\\PDF.php(188): Barryvdh\\DomPDF\\PDF->render()
+#9 D:\\papachchi-accounting-main\\app\\Http\\Controllers\\PurchaseController.php(485): Barryvdh\\DomPDF\\PDF->output()
+#10 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Controller.php(54): App\\Http\\Controllers\\PurchaseController->sendWhatsAppPdf('5')
+#11 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\ControllerDispatcher.php(43): Illuminate\\Routing\\Controller->callAction('sendWhatsAppPdf', Array)
+#12 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Route.php(259): Illuminate\\Routing\\ControllerDispatcher->dispatch(Object(Illuminate\\Routing\\Route), Object(App\\Http\\Controllers\\PurchaseController), 'sendWhatsAppPdf')
+#13 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Route.php(205): Illuminate\\Routing\\Route->runController()
+#14 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(806): Illuminate\\Routing\\Route->run()
+#15 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(144): Illuminate\\Routing\\Router->Illuminate\\Routing\\{closure}(Object(Illuminate\\Http\\Request))
+#16 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Middleware\\SubstituteBindings.php(50): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#17 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(183): Illuminate\\Routing\\Middleware\\SubstituteBindings->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#18 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\VerifyCsrfToken.php(78): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#19 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(183): Illuminate\\Foundation\\Http\\Middleware\\VerifyCsrfToken->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#20 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\View\\Middleware\\ShareErrorsFromSession.php(49): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#21 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(183): Illuminate\\View\\Middleware\\ShareErrorsFromSession->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#22 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Session\\Middleware\\StartSession.php(121): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#23 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Session\\Middleware\\StartSession.php(64): Illuminate\\Session\\Middleware\\StartSession->handleStatefulRequest(Object(Illuminate\\Http\\Request), Object(Illuminate\\Session\\Store), Object(Closure))
+#24 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(183): Illuminate\\Session\\Middleware\\StartSession->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#25 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Cookie\\Middleware\\AddQueuedCookiesToResponse.php(37): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#26 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(183): Illuminate\\Cookie\\Middleware\\AddQueuedCookiesToResponse->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#27 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Cookie\\Middleware\\EncryptCookies.php(67): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#28 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(183): Illuminate\\Cookie\\Middleware\\EncryptCookies->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#29 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(119): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#30 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(805): Illuminate\\Pipeline\\Pipeline->then(Object(Closure))
+#31 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(784): Illuminate\\Routing\\Router->runRouteWithinStack(Object(Illuminate\\Routing\\Route), Object(Illuminate\\Http\\Request))
+#32 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(748): Illuminate\\Routing\\Router->runRoute(Object(Illuminate\\Http\\Request), Object(Illuminate\\Routing\\Route))
+#33 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(737): Illuminate\\Routing\\Router->dispatchToRoute(Object(Illuminate\\Http\\Request))
+#34 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(200): Illuminate\\Routing\\Router->dispatch(Object(Illuminate\\Http\\Request))
+#35 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(144): Illuminate\\Foundation\\Http\\Kernel->Illuminate\\Foundation\\Http\\{closure}(Object(Illuminate\\Http\\Request))
+#36 D:\\papachchi-accounting-main\\app\\Http\\Middleware\\SyncProductsMiddleware.php(56): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#37 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(183): App\\Http\\Middleware\\SyncProductsMiddleware->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#38 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest.php(21): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#39 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\ConvertEmptyStringsToNull.php(31): Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#40 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(183): Illuminate\\Foundation\\Http\\Middleware\\ConvertEmptyStringsToNull->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#41 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest.php(21): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#42 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\TrimStrings.php(40): Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#43 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(183): Illuminate\\Foundation\\Http\\Middleware\\TrimStrings->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#44 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\ValidatePostSize.php(27): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#45 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(183): Illuminate\\Foundation\\Http\\Middleware\\ValidatePostSize->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#46 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\PreventRequestsDuringMaintenance.php(99): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#47 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(183): Illuminate\\Foundation\\Http\\Middleware\\PreventRequestsDuringMaintenance->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#48 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Http\\Middleware\\HandleCors.php(49): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#49 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(183): Illuminate\\Http\\Middleware\\HandleCors->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#50 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Http\\Middleware\\TrustProxies.php(39): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#51 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(183): Illuminate\\Http\\Middleware\\TrustProxies->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#52 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(119): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#53 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(175): Illuminate\\Pipeline\\Pipeline->then(Object(Closure))
+#54 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(144): Illuminate\\Foundation\\Http\\Kernel->sendRequestThroughRouter(Object(Illuminate\\Http\\Request))
+#55 D:\\papachchi-accounting-main\\public\\index.php(51): Illuminate\\Foundation\\Http\\Kernel->handle(Object(Illuminate\\Http\\Request))
+#56 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\resources\\server.php(16): require_once('D:\\\\papachchi-ac...')
+#57 {main}
+"} 
+[2025-02-25 22:12:16] local.ERROR: Undefined variable $transfer_id {"view":{"view":"D:\\papachchi-accounting-main\\resources\\views\\sell\\sale-details-pdf.blade.php","data":{"errors":"<pre class=sf-dump id=sf-dump-338946512 data-indent-pad=\"  \"><span class=sf-dump-note>Illuminate\\Support\\ViewErrorBag</span> {<a class=sf-dump-ref>#1342</a><samp data-depth=1 class=sf-dump-expanded>
+  #<span class=sf-dump-protected title=\"Protected property\">bags</span>: []
+</samp>}
+</pre><script>Sfdump(\"sf-dump-338946512\", {\"maxDepth\":3,\"maxStringLength\":160})</script>
+","sale":"<pre class=sf-dump id=sf-dump-1397094049 data-indent-pad=\"  \"><span class=sf-dump-note>App\\Models\\sell</span> {<a class=sf-dump-ref>#1351</a><samp data-depth=1 class=sf-dump-expanded>
+  #<span class=sf-dump-protected title=\"Protected property\">connection</span>: \"<span class=sf-dump-str title=\"5 characters\">mysql</span>\"
+  #<span class=sf-dump-protected title=\"Protected property\">table</span>: \"<span class=sf-dump-str title=\"5 characters\">sells</span>\"
+  #<span class=sf-dump-protected title=\"Protected property\">primaryKey</span>: \"<span class=sf-dump-str title=\"2 characters\">id</span>\"
+  #<span class=sf-dump-protected title=\"Protected property\">keyType</span>: \"<span class=sf-dump-str title=\"3 characters\">int</span>\"
+  +<span class=sf-dump-public title=\"Public property\">incrementing</span>: <span class=sf-dump-const>true</span>
+  #<span class=sf-dump-protected title=\"Protected property\">with</span>: []
+  #<span class=sf-dump-protected title=\"Protected property\">withCount</span>: []
+  +<span class=sf-dump-public title=\"Public property\">preventsLazyLoading</span>: <span class=sf-dump-const>false</span>
+  #<span class=sf-dump-protected title=\"Protected property\">perPage</span>: <span class=sf-dump-num>15</span>
+  +<span class=sf-dump-public title=\"Public property\">exists</span>: <span class=sf-dump-const>true</span>
+  +<span class=sf-dump-public title=\"Public property\">wasRecentlyCreated</span>: <span class=sf-dump-const>false</span>
+  #<span class=sf-dump-protected title=\"Protected property\">escapeWhenCastingToString</span>: <span class=sf-dump-const>false</span>
+  #<span class=sf-dump-protected title=\"Protected property\">attributes</span>: <span class=sf-dump-note>array:24</span> [<samp data-depth=2 class=sf-dump-compact>
+    \"<span class=sf-dump-key>id</span>\" => <span class=sf-dump-num>8</span>
+    \"<span class=sf-dump-key>customer_name</span>\" => \"<span class=sf-dump-str title=\"15 characters\">Charity Walters</span>\"
+    \"<span class=sf-dump-key>customer_mobile</span>\" => \"<span class=sf-dump-str title=\"20 characters\">Earum ullamco laboru</span>\"
+    \"<span class=sf-dump-key>sell_date</span>\" => \"<span class=sf-dump-str title=\"10 characters\">1970-03-12</span>\"
+    \"<span class=sf-dump-key>transaction_id</span>\" => \"<span class=sf-dump-str title=\"17 characters\">txn_67bdebdd920ca</span>\"
+    \"<span class=sf-dump-key>place</span>\" => \"<span class=sf-dump-str title=\"8 characters\">hospital</span>\"
+    \"<span class=sf-dump-key>customer_address</span>\" => \"<span class=sf-dump-str title=\"19 characters\">Obcaecati voluptate</span>\"
+    \"<span class=sf-dump-key>doctor_confirm</span>\" => <span class=sf-dump-const>null</span>
+    \"<span class=sf-dump-key>branch_id</span>\" => <span class=sf-dump-num>2</span>
+    \"<span class=sf-dump-key>total</span>\" => \"<span class=sf-dump-str title=\"7 characters\">1193.00</span>\"
+    \"<span class=sf-dump-key>sell_status</span>\" => \"<span class=sf-dump-str title=\"4 characters\">fail</span>\"
+    \"<span class=sf-dump-key>panthal_amount</span>\" => \"<span class=sf-dump-str title=\"2 characters\">42</span>\"
+    \"<span class=sf-dump-key>empoming_amount</span>\" => \"<span class=sf-dump-str title=\"2 characters\">69</span>\"
+    \"<span class=sf-dump-key>emapoming_days</span>\" => \"<span class=sf-dump-str>3</span>\"
+    \"<span class=sf-dump-key>empoming_type</span>\" => \"<span class=sf-dump-str title=\"6 characters\">normal</span>\"
+    \"<span class=sf-dump-key>lift_amount</span>\" => \"<span class=sf-dump-str title=\"2 characters\">25</span>\"
+    \"<span class=sf-dump-key>band_amount</span>\" => \"<span class=sf-dump-str title=\"2 characters\">14</span>\"
+    \"<span class=sf-dump-key>melam_amount</span>\" => \"<span class=sf-dump-str title=\"2 characters\">44</span>\"
+    \"<span class=sf-dump-key>transport_amount</span>\" => \"<span class=sf-dump-str title=\"2 characters\">22</span>\"
+    \"<span class=sf-dump-key>flower_ring</span>\" => \"<span class=sf-dump-str title=\"2 characters\">95</span>\"
+    \"<span class=sf-dump-key>ac_room</span>\" => \"<span class=sf-dump-str title=\"2 characters\">47</span>\"
+    \"<span class=sf-dump-key>ac_room_days</span>\" => \"<span class=sf-dump-str title=\"2 characters\">20</span>\"
+    \"<span class=sf-dump-key>created_at</span>\" => \"<span class=sf-dump-str title=\"19 characters\">2025-02-25 21:42:24</span>\"
+    \"<span class=sf-dump-key>updated_at</span>\" => \"<span class=sf-dump-str title=\"19 characters\">2025-02-25 21:42:24</span>\"
+  </samp>]
+  #<span class=sf-dump-protected title=\"Protected property\">original</span>: <span class=sf-dump-note>array:24</span> [<samp data-depth=2 class=sf-dump-compact>
+    \"<span class=sf-dump-key>id</span>\" => <span class=sf-dump-num>8</span>
+    \"<span class=sf-dump-key>customer_name</span>\" => \"<span class=sf-dump-str title=\"15 characters\">Charity Walters</span>\"
+    \"<span class=sf-dump-key>customer_mobile</span>\" => \"<span class=sf-dump-str title=\"20 characters\">Earum ullamco laboru</span>\"
+    \"<span class=sf-dump-key>sell_date</span>\" => \"<span class=sf-dump-str title=\"10 characters\">1970-03-12</span>\"
+    \"<span class=sf-dump-key>transaction_id</span>\" => \"<span class=sf-dump-str title=\"17 characters\">txn_67bdebdd920ca</span>\"
+    \"<span class=sf-dump-key>place</span>\" => \"<span class=sf-dump-str title=\"8 characters\">hospital</span>\"
+    \"<span class=sf-dump-key>customer_address</span>\" => \"<span class=sf-dump-str title=\"19 characters\">Obcaecati voluptate</span>\"
+    \"<span class=sf-dump-key>doctor_confirm</span>\" => <span class=sf-dump-const>null</span>
+    \"<span class=sf-dump-key>branch_id</span>\" => <span class=sf-dump-num>2</span>
+    \"<span class=sf-dump-key>total</span>\" => \"<span class=sf-dump-str title=\"7 characters\">1193.00</span>\"
+    \"<span class=sf-dump-key>sell_status</span>\" => \"<span class=sf-dump-str title=\"4 characters\">fail</span>\"
+    \"<span class=sf-dump-key>panthal_amount</span>\" => \"<span class=sf-dump-str title=\"2 characters\">42</span>\"
+    \"<span class=sf-dump-key>empoming_amount</span>\" => \"<span class=sf-dump-str title=\"2 characters\">69</span>\"
+    \"<span class=sf-dump-key>emapoming_days</span>\" => \"<span class=sf-dump-str>3</span>\"
+    \"<span class=sf-dump-key>empoming_type</span>\" => \"<span class=sf-dump-str title=\"6 characters\">normal</span>\"
+    \"<span class=sf-dump-key>lift_amount</span>\" => \"<span class=sf-dump-str title=\"2 characters\">25</span>\"
+    \"<span class=sf-dump-key>band_amount</span>\" => \"<span class=sf-dump-str title=\"2 characters\">14</span>\"
+    \"<span class=sf-dump-key>melam_amount</span>\" => \"<span class=sf-dump-str title=\"2 characters\">44</span>\"
+    \"<span class=sf-dump-key>transport_amount</span>\" => \"<span class=sf-dump-str title=\"2 characters\">22</span>\"
+    \"<span class=sf-dump-key>flower_ring</span>\" => \"<span class=sf-dump-str title=\"2 characters\">95</span>\"
+    \"<span class=sf-dump-key>ac_room</span>\" => \"<span class=sf-dump-str title=\"2 characters\">47</span>\"
+    \"<span class=sf-dump-key>ac_room_days</span>\" => \"<span class=sf-dump-str title=\"2 characters\">20</span>\"
+    \"<span class=sf-dump-key>created_at</span>\" => \"<span class=sf-dump-str title=\"19 characters\">2025-02-25 21:42:24</span>\"
+    \"<span class=sf-dump-key>updated_at</span>\" => \"<span class=sf-dump-str title=\"19 characters\">2025-02-25 21:42:24</span>\"
+  </samp>]
+  #<span class=sf-dump-protected title=\"Protected property\">changes</span>: []
+  #<span class=sf-dump-protected title=\"Protected property\">casts</span>: []
+  #<span class=sf-dump-protected title=\"Protected property\">classCastCache</span>: []
+  #<span class=sf-dump-protected title=\"Protected property\">attributeCastCache</span>: []
+  #<span class=sf-dump-protected title=\"Protected property\">dateFormat</span>: <span class=sf-dump-const>null</span>
+  #<span class=sf-dump-protected title=\"Protected property\">appends</span>: []
+  #<span class=sf-dump-protected title=\"Protected property\">dispatchesEvents</span>: []
+  #<span class=sf-dump-protected title=\"Protected property\">observables</span>: []
+  #<span class=sf-dump-protected title=\"Protected property\">relations</span>: []
+  #<span class=sf-dump-protected title=\"Protected property\">touches</span>: []
+  +<span class=sf-dump-public title=\"Public property\">timestamps</span>: <span class=sf-dump-const>true</span>
+  +<span class=sf-dump-public title=\"Public property\">usesUniqueIds</span>: <span class=sf-dump-const>false</span>
+  #<span class=sf-dump-protected title=\"Protected property\">hidden</span>: []
+  #<span class=sf-dump-protected title=\"Protected property\">visible</span>: []
+  #<span class=sf-dump-protected title=\"Protected property\">fillable</span>: <span class=sf-dump-note>array:20</span> [<samp data-depth=2 class=sf-dump-compact>
+    <span class=sf-dump-index>0</span> => \"<span class=sf-dump-str title=\"13 characters\">customer_name</span>\"
+    <span class=sf-dump-index>1</span> => \"<span class=sf-dump-str title=\"15 characters\">customer_mobile</span>\"
+    <span class=sf-dump-index>2</span> => \"<span class=sf-dump-str title=\"9 characters\">sell_date</span>\"
+    <span class=sf-dump-index>3</span> => \"<span class=sf-dump-str title=\"14 characters\">transaction_id</span>\"
+    <span class=sf-dump-index>4</span> => \"<span class=sf-dump-str title=\"14 characters\">transport_mode</span>\"
+    <span class=sf-dump-index>5</span> => \"<span class=sf-dump-str title=\"16 characters\">customer_address</span>\"
+    <span class=sf-dump-index>6</span> => \"<span class=sf-dump-str title=\"14 characters\">doctor_confirm</span>\"
+    <span class=sf-dump-index>7</span> => \"<span class=sf-dump-str title=\"9 characters\">branch_id</span>\"
+    <span class=sf-dump-index>8</span> => \"<span class=sf-dump-str title=\"5 characters\">total</span>\"
+    <span class=sf-dump-index>9</span> => \"<span class=sf-dump-str title=\"11 characters\">sell_status</span>\"
+    <span class=sf-dump-index>10</span> => \"<span class=sf-dump-str title=\"15 characters\">empoming_amount</span>\"
+    <span class=sf-dump-index>11</span> => \"<span class=sf-dump-str title=\"14 characters\">emapoming_days</span>\"
+    <span class=sf-dump-index>12</span> => \"<span class=sf-dump-str title=\"14 characters\">panthal_amount</span>\"
+    <span class=sf-dump-index>13</span> => \"<span class=sf-dump-str title=\"11 characters\">lift_amount</span>\"
+    <span class=sf-dump-index>14</span> => \"<span class=sf-dump-str title=\"11 characters\">band_amount</span>\"
+    <span class=sf-dump-index>15</span> => \"<span class=sf-dump-str title=\"16 characters\">transport_amount</span>\"
+    <span class=sf-dump-index>16</span> => \"<span class=sf-dump-str title=\"12 characters\">melam_amount</span>\"
+    <span class=sf-dump-index>17</span> => \"<span class=sf-dump-str title=\"7 characters\">ac_room</span>\"
+    <span class=sf-dump-index>18</span> => \"<span class=sf-dump-str title=\"12 characters\">ac_room_days</span>\"
+    <span class=sf-dump-index>19</span> => \"<span class=sf-dump-str title=\"11 characters\">flower_ring</span>\"
+  </samp>]
+  #<span class=sf-dump-protected title=\"Protected property\">guarded</span>: <span class=sf-dump-note>array:1</span> [<samp data-depth=2 class=sf-dump-compact>
+    <span class=sf-dump-index>0</span> => \"<span class=sf-dump-str>*</span>\"
+  </samp>]
+</samp>}
+</pre><script>Sfdump(\"sf-dump-1397094049\", {\"maxDepth\":3,\"maxStringLength\":160})</script>
+","payments":"<pre class=sf-dump id=sf-dump-1700537990 data-indent-pad=\"  \"><span class=sf-dump-note>Illuminate\\Database\\Eloquent\\Collection</span> {<a class=sf-dump-ref>#1346</a><samp data-depth=1 class=sf-dump-expanded>
+  #<span class=sf-dump-protected title=\"Protected property\">items</span>: []
+  #<span class=sf-dump-protected title=\"Protected property\">escapeWhenCastingToString</span>: <span class=sf-dump-const>false</span>
+</samp>}
+</pre><script>Sfdump(\"sf-dump-1700537990\", {\"maxDepth\":3,\"maxStringLength\":160})</script>
+","products":"<pre class=sf-dump id=sf-dump-226796138 data-indent-pad=\"  \"><span class=sf-dump-note>Illuminate\\Database\\Eloquent\\Collection</span> {<a class=sf-dump-ref>#1356</a><samp data-depth=1 class=sf-dump-expanded>
+  #<span class=sf-dump-protected title=\"Protected property\">items</span>: <span class=sf-dump-note>array:1</span> [<samp data-depth=2 class=sf-dump-compact>
+    <span class=sf-dump-index>0</span> => <span class=sf-dump-note title=\"App\\Models\\SellProduct
+\"><span class=\"sf-dump-ellipsis sf-dump-ellipsis-note\">App\\Models</span><span class=\"sf-dump-ellipsis sf-dump-ellipsis-note\">\\</span>SellProduct</span> {<a class=sf-dump-ref>#1354</a><samp data-depth=3 class=sf-dump-compact>
+      #<span class=sf-dump-protected title=\"Protected property\">connection</span>: \"<span class=sf-dump-str title=\"5 characters\">mysql</span>\"
+      #<span class=sf-dump-protected title=\"Protected property\">table</span>: \"<span class=sf-dump-str title=\"12 characters\">sell_product</span>\"
+      #<span class=sf-dump-protected title=\"Protected property\">primaryKey</span>: \"<span class=sf-dump-str title=\"2 characters\">id</span>\"
+      #<span class=sf-dump-protected title=\"Protected property\">keyType</span>: \"<span class=sf-dump-str title=\"3 characters\">int</span>\"
+      +<span class=sf-dump-public title=\"Public property\">incrementing</span>: <span class=sf-dump-const>true</span>
+      #<span class=sf-dump-protected title=\"Protected property\">with</span>: []
+      #<span class=sf-dump-protected title=\"Protected property\">withCount</span>: []
+      +<span class=sf-dump-public title=\"Public property\">preventsLazyLoading</span>: <span class=sf-dump-const>false</span>
+      #<span class=sf-dump-protected title=\"Protected property\">perPage</span>: <span class=sf-dump-num>15</span>
+      +<span class=sf-dump-public title=\"Public property\">exists</span>: <span class=sf-dump-const>true</span>
+      +<span class=sf-dump-public title=\"Public property\">wasRecentlyCreated</span>: <span class=sf-dump-const>false</span>
+      #<span class=sf-dump-protected title=\"Protected property\">escapeWhenCastingToString</span>: <span class=sf-dump-const>false</span>
+      #<span class=sf-dump-protected title=\"Protected property\">attributes</span>: <span class=sf-dump-note>array:9</span> [ &#8230;9]
+      #<span class=sf-dump-protected title=\"Protected property\">original</span>: <span class=sf-dump-note>array:9</span> [ &#8230;9]
+      #<span class=sf-dump-protected title=\"Protected property\">changes</span>: []
+      #<span class=sf-dump-protected title=\"Protected property\">casts</span>: []
+      #<span class=sf-dump-protected title=\"Protected property\">classCastCache</span>: []
+      #<span class=sf-dump-protected title=\"Protected property\">attributeCastCache</span>: []
+      #<span class=sf-dump-protected title=\"Protected property\">dateFormat</span>: <span class=sf-dump-const>null</span>
+      #<span class=sf-dump-protected title=\"Protected property\">appends</span>: []
+      #<span class=sf-dump-protected title=\"Protected property\">dispatchesEvents</span>: []
+      #<span class=sf-dump-protected title=\"Protected property\">observables</span>: []
+      #<span class=sf-dump-protected title=\"Protected property\">relations</span>: []
+      #<span class=sf-dump-protected title=\"Protected property\">touches</span>: []
+      +<span class=sf-dump-public title=\"Public property\">timestamps</span>: <span class=sf-dump-const>true</span>
+      +<span class=sf-dump-public title=\"Public property\">usesUniqueIds</span>: <span class=sf-dump-const>false</span>
+      #<span class=sf-dump-protected title=\"Protected property\">hidden</span>: []
+      #<span class=sf-dump-protected title=\"Protected property\">visible</span>: []
+      #<span class=sf-dump-protected title=\"Protected property\">fillable</span>: <span class=sf-dump-note>array:5</span> [ &#8230;5]
+      #<span class=sf-dump-protected title=\"Protected property\">guarded</span>: <span class=sf-dump-note>array:1</span> [ &#8230;1]
+    </samp>}
+  </samp>]
+  #<span class=sf-dump-protected title=\"Protected property\">escapeWhenCastingToString</span>: <span class=sf-dump-const>false</span>
+</samp>}
+</pre><script>Sfdump(\"sf-dump-226796138\", {\"maxDepth\":3,\"maxStringLength\":160})</script>
+","sale_id":"<pre class=sf-dump id=sf-dump-542638671 data-indent-pad=\"  \">\"<span class=sf-dump-str>8</span>\"
+</pre><script>Sfdump(\"sf-dump-542638671\", {\"maxDepth\":3,\"maxStringLength\":160})</script>
+","totalPayments":"<pre class=sf-dump id=sf-dump-733502953 data-indent-pad=\"  \"><span class=sf-dump-num>0</span>
+</pre><script>Sfdump(\"sf-dump-733502953\", {\"maxDepth\":3,\"maxStringLength\":160})</script>
+"}},"userId":1,"exception":"[object] (Spatie\\LaravelIgnition\\Exceptions\\ViewException(code: 0): Undefined variable $transfer_id at D:\\papachchi-accounting-main\\resources\\views\\sell\\sale-details-pdf.blade.php:5)
+[stacktrace]
+#0 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Filesystem\\Filesystem.php(123): require('D:\\\\papachchi-ac...')
+#1 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Filesystem\\Filesystem.php(124): Illuminate\\Filesystem\\Filesystem::Illuminate\\Filesystem\\{closure}()
+#2 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\View\\Engines\\PhpEngine.php(58): Illuminate\\Filesystem\\Filesystem->getRequire('D:\\\\papachchi-ac...', Array)
+#3 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\View\\Engines\\CompilerEngine.php(72): Illuminate\\View\\Engines\\PhpEngine->evaluatePath('D:\\\\papachchi-ac...', Array)
+#4 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\View\\View.php(207): Illuminate\\View\\Engines\\CompilerEngine->get('D:\\\\papachchi-ac...', Array)
+#5 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\View\\View.php(190): Illuminate\\View\\View->getContents()
+#6 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\View\\View.php(159): Illuminate\\View\\View->renderContents()
+#7 D:\\papachchi-accounting-main\\vendor\\barryvdh\\laravel-dompdf\\src\\PDF.php(142): Illuminate\\View\\View->render()
+#8 D:\\papachchi-accounting-main\\vendor\\barryvdh\\laravel-dompdf\\src\\Facade\\Pdf.php(66): Barryvdh\\DomPDF\\PDF->loadView('sell.sale-detai...', Array)
+#9 D:\\papachchi-accounting-main\\app\\Http\\Controllers\\SellController.php(573): Barryvdh\\DomPDF\\Facade\\Pdf::__callStatic('loadView', Array)
+#10 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Controller.php(54): App\\Http\\Controllers\\SellController->sendWhatsAppPdf('8')
+#11 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\ControllerDispatcher.php(43): Illuminate\\Routing\\Controller->callAction('sendWhatsAppPdf', Array)
+#12 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Route.php(259): Illuminate\\Routing\\ControllerDispatcher->dispatch(Object(Illuminate\\Routing\\Route), Object(App\\Http\\Controllers\\SellController), 'sendWhatsAppPdf')
+#13 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Route.php(205): Illuminate\\Routing\\Route->runController()
+#14 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(806): Illuminate\\Routing\\Route->run()
+#15 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(144): Illuminate\\Routing\\Router->Illuminate\\Routing\\{closure}(Object(Illuminate\\Http\\Request))
+#16 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Middleware\\SubstituteBindings.php(50): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#17 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(183): Illuminate\\Routing\\Middleware\\SubstituteBindings->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#18 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\VerifyCsrfToken.php(78): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#19 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(183): Illuminate\\Foundation\\Http\\Middleware\\VerifyCsrfToken->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#20 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\View\\Middleware\\ShareErrorsFromSession.php(49): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#21 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(183): Illuminate\\View\\Middleware\\ShareErrorsFromSession->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#22 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Session\\Middleware\\StartSession.php(121): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#23 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Session\\Middleware\\StartSession.php(64): Illuminate\\Session\\Middleware\\StartSession->handleStatefulRequest(Object(Illuminate\\Http\\Request), Object(Illuminate\\Session\\Store), Object(Closure))
+#24 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(183): Illuminate\\Session\\Middleware\\StartSession->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#25 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Cookie\\Middleware\\AddQueuedCookiesToResponse.php(37): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#26 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(183): Illuminate\\Cookie\\Middleware\\AddQueuedCookiesToResponse->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#27 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Cookie\\Middleware\\EncryptCookies.php(67): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#28 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(183): Illuminate\\Cookie\\Middleware\\EncryptCookies->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#29 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(119): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#30 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(805): Illuminate\\Pipeline\\Pipeline->then(Object(Closure))
+#31 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(784): Illuminate\\Routing\\Router->runRouteWithinStack(Object(Illuminate\\Routing\\Route), Object(Illuminate\\Http\\Request))
+#32 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(748): Illuminate\\Routing\\Router->runRoute(Object(Illuminate\\Http\\Request), Object(Illuminate\\Routing\\Route))
+#33 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(737): Illuminate\\Routing\\Router->dispatchToRoute(Object(Illuminate\\Http\\Request))
+#34 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(200): Illuminate\\Routing\\Router->dispatch(Object(Illuminate\\Http\\Request))
+#35 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(144): Illuminate\\Foundation\\Http\\Kernel->Illuminate\\Foundation\\Http\\{closure}(Object(Illuminate\\Http\\Request))
+#36 D:\\papachchi-accounting-main\\app\\Http\\Middleware\\SyncProductsMiddleware.php(56): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#37 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(183): App\\Http\\Middleware\\SyncProductsMiddleware->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#38 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest.php(21): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#39 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\ConvertEmptyStringsToNull.php(31): Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#40 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(183): Illuminate\\Foundation\\Http\\Middleware\\ConvertEmptyStringsToNull->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#41 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest.php(21): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#42 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\TrimStrings.php(40): Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#43 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(183): Illuminate\\Foundation\\Http\\Middleware\\TrimStrings->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#44 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\ValidatePostSize.php(27): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#45 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(183): Illuminate\\Foundation\\Http\\Middleware\\ValidatePostSize->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#46 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\PreventRequestsDuringMaintenance.php(99): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#47 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(183): Illuminate\\Foundation\\Http\\Middleware\\PreventRequestsDuringMaintenance->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#48 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Http\\Middleware\\HandleCors.php(49): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#49 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(183): Illuminate\\Http\\Middleware\\HandleCors->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#50 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Http\\Middleware\\TrustProxies.php(39): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#51 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(183): Illuminate\\Http\\Middleware\\TrustProxies->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#52 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(119): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#53 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(175): Illuminate\\Pipeline\\Pipeline->then(Object(Closure))
+#54 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(144): Illuminate\\Foundation\\Http\\Kernel->sendRequestThroughRouter(Object(Illuminate\\Http\\Request))
+#55 D:\\papachchi-accounting-main\\public\\index.php(51): Illuminate\\Foundation\\Http\\Kernel->handle(Object(Illuminate\\Http\\Request))
+#56 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\resources\\server.php(16): require_once('D:\\\\papachchi-ac...')
+#57 {main}
+
+[previous exception] [object] (ErrorException(code: 0): Undefined variable $transfer_id at D:\\papachchi-accounting-main\\storage\\framework\\views\\5178d1569aaf760a308a0313e75a5df2.php:5)
+[stacktrace]
+#0 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Bootstrap\\HandleExceptions.php(255): Illuminate\\Foundation\\Bootstrap\\HandleExceptions->handleError(2, 'Undefined varia...', 'D:\\\\papachchi-ac...', 5)
+#1 D:\\papachchi-accounting-main\\storage\\framework\\views\\5178d1569aaf760a308a0313e75a5df2.php(5): Illuminate\\Foundation\\Bootstrap\\HandleExceptions->Illuminate\\Foundation\\Bootstrap\\{closure}(2, 'Undefined varia...', 'D:\\\\papachchi-ac...', 5)
+#2 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Filesystem\\Filesystem.php(123): require('D:\\\\papachchi-ac...')
+#3 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Filesystem\\Filesystem.php(124): Illuminate\\Filesystem\\Filesystem::Illuminate\\Filesystem\\{closure}()
+#4 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\View\\Engines\\PhpEngine.php(58): Illuminate\\Filesystem\\Filesystem->getRequire('D:\\\\papachchi-ac...', Array)
+#5 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\View\\Engines\\CompilerEngine.php(72): Illuminate\\View\\Engines\\PhpEngine->evaluatePath('D:\\\\papachchi-ac...', Array)
+#6 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\View\\View.php(207): Illuminate\\View\\Engines\\CompilerEngine->get('D:\\\\papachchi-ac...', Array)
+#7 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\View\\View.php(190): Illuminate\\View\\View->getContents()
+#8 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\View\\View.php(159): Illuminate\\View\\View->renderContents()
+#9 D:\\papachchi-accounting-main\\vendor\\barryvdh\\laravel-dompdf\\src\\PDF.php(142): Illuminate\\View\\View->render()
+#10 D:\\papachchi-accounting-main\\vendor\\barryvdh\\laravel-dompdf\\src\\Facade\\Pdf.php(66): Barryvdh\\DomPDF\\PDF->loadView('sell.sale-detai...', Array)
+#11 D:\\papachchi-accounting-main\\app\\Http\\Controllers\\SellController.php(573): Barryvdh\\DomPDF\\Facade\\Pdf::__callStatic('loadView', Array)
+#12 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Controller.php(54): App\\Http\\Controllers\\SellController->sendWhatsAppPdf('8')
+#13 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\ControllerDispatcher.php(43): Illuminate\\Routing\\Controller->callAction('sendWhatsAppPdf', Array)
+#14 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Route.php(259): Illuminate\\Routing\\ControllerDispatcher->dispatch(Object(Illuminate\\Routing\\Route), Object(App\\Http\\Controllers\\SellController), 'sendWhatsAppPdf')
+#15 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Route.php(205): Illuminate\\Routing\\Route->runController()
+#16 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(806): Illuminate\\Routing\\Route->run()
+#17 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(144): Illuminate\\Routing\\Router->Illuminate\\Routing\\{closure}(Object(Illuminate\\Http\\Request))
+#18 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Middleware\\SubstituteBindings.php(50): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#19 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(183): Illuminate\\Routing\\Middleware\\SubstituteBindings->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#20 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\VerifyCsrfToken.php(78): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#21 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(183): Illuminate\\Foundation\\Http\\Middleware\\VerifyCsrfToken->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#22 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\View\\Middleware\\ShareErrorsFromSession.php(49): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#23 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(183): Illuminate\\View\\Middleware\\ShareErrorsFromSession->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#24 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Session\\Middleware\\StartSession.php(121): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#25 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Session\\Middleware\\StartSession.php(64): Illuminate\\Session\\Middleware\\StartSession->handleStatefulRequest(Object(Illuminate\\Http\\Request), Object(Illuminate\\Session\\Store), Object(Closure))
+#26 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(183): Illuminate\\Session\\Middleware\\StartSession->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#27 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Cookie\\Middleware\\AddQueuedCookiesToResponse.php(37): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#28 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(183): Illuminate\\Cookie\\Middleware\\AddQueuedCookiesToResponse->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#29 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Cookie\\Middleware\\EncryptCookies.php(67): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#30 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(183): Illuminate\\Cookie\\Middleware\\EncryptCookies->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#31 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(119): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#32 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(805): Illuminate\\Pipeline\\Pipeline->then(Object(Closure))
+#33 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(784): Illuminate\\Routing\\Router->runRouteWithinStack(Object(Illuminate\\Routing\\Route), Object(Illuminate\\Http\\Request))
+#34 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(748): Illuminate\\Routing\\Router->runRoute(Object(Illuminate\\Http\\Request), Object(Illuminate\\Routing\\Route))
+#35 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(737): Illuminate\\Routing\\Router->dispatchToRoute(Object(Illuminate\\Http\\Request))
+#36 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(200): Illuminate\\Routing\\Router->dispatch(Object(Illuminate\\Http\\Request))
+#37 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(144): Illuminate\\Foundation\\Http\\Kernel->Illuminate\\Foundation\\Http\\{closure}(Object(Illuminate\\Http\\Request))
+#38 D:\\papachchi-accounting-main\\app\\Http\\Middleware\\SyncProductsMiddleware.php(56): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#39 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(183): App\\Http\\Middleware\\SyncProductsMiddleware->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#40 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest.php(21): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#41 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\ConvertEmptyStringsToNull.php(31): Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#42 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(183): Illuminate\\Foundation\\Http\\Middleware\\ConvertEmptyStringsToNull->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#43 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest.php(21): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#44 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\TrimStrings.php(40): Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#45 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(183): Illuminate\\Foundation\\Http\\Middleware\\TrimStrings->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#46 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\ValidatePostSize.php(27): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#47 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(183): Illuminate\\Foundation\\Http\\Middleware\\ValidatePostSize->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#48 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\PreventRequestsDuringMaintenance.php(99): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#49 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(183): Illuminate\\Foundation\\Http\\Middleware\\PreventRequestsDuringMaintenance->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#50 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Http\\Middleware\\HandleCors.php(49): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#51 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(183): Illuminate\\Http\\Middleware\\HandleCors->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#52 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Http\\Middleware\\TrustProxies.php(39): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#53 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(183): Illuminate\\Http\\Middleware\\TrustProxies->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#54 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(119): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#55 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(175): Illuminate\\Pipeline\\Pipeline->then(Object(Closure))
+#56 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(144): Illuminate\\Foundation\\Http\\Kernel->sendRequestThroughRouter(Object(Illuminate\\Http\\Request))
+#57 D:\\papachchi-accounting-main\\public\\index.php(51): Illuminate\\Foundation\\Http\\Kernel->handle(Object(Illuminate\\Http\\Request))
+#58 D:\\papachchi-accounting-main\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\resources\\server.php(16): require_once('D:\\\\papachchi-ac...')
+#59 {main}
+"} 
+[2025-02-25 22:25:26] local.INFO: Preloaded Box Products: [{"stdClass":{"id":3,"branch_id":1,"product_id":500,"branch_name":"Jessica Turner","product_name":"Ayanna Dodson","total_quantity":17,"selling_price":"592.00","created_at":"2025-02-21 09:35:31","updated_at":"2025-02-25 20:21:54","product_type":"box"}},{"stdClass":{"id":4,"branch_id":1,"product_id":501,"branch_name":"Jessica Turner","product_name":"Inga Rich","total_quantity":17,"selling_price":"835.00","created_at":"2025-02-21 09:35:31","updated_at":"2025-02-25 20:21:54","product_type":"box"}},{"stdClass":{"id":5,"branch_id":2,"product_id":500,"branch_name":"Branden Summers","product_name":"Ayanna Dodson","total_quantity":0,"selling_price":"592.00","created_at":"2025-02-22 14:40:17","updated_at":"2025-02-25 17:11:29","product_type":"box"}},{"stdClass":{"id":6,"branch_id":2,"product_id":501,"branch_name":"Branden Summers","product_name":"Inga Rich","total_quantity":15,"selling_price":"835.00","created_at":"2025-02-22 14:40:17","updated_at":"2025-02-25 21:42:24","product_type":"box"}},{"stdClass":{"id":7,"branch_id":2,"product_id":502,"branch_name":"Branden Summers","product_name":"Adrienne Holmes","total_quantity":15,"selling_price":"178.00","created_at":"2025-02-25 20:22:10","updated_at":"2025-02-25 21:42:13","product_type":"box"}}] 
+[2025-02-25 22:25:26] local.INFO: Preloaded Flower Products: [{"stdClass":{"id":1,"branch_id":1,"product_id":7002,"branch_name":"Jessica Turner","product_name":"Ingrid Phillips","total_quantity":0,"selling_price":"703.00","created_at":"2025-02-21 09:35:31","updated_at":"2025-02-25 17:11:17","product_type":"flower"}},{"stdClass":{"id":2,"branch_id":1,"product_id":7000,"branch_name":"Jessica Turner","product_name":"Chaim Gutierrez","total_quantity":0,"selling_price":"992.00","created_at":"2025-02-21 09:35:31","updated_at":"2025-02-25 16:52:35","product_type":"flower"}}] 
+[2025-02-25 22:25:28] local.INFO: Fetching products for Branch ID: 1, Category: flower  
+[2025-02-25 22:25:32] local.INFO: Fetching products for Branch ID: 2, Category: flower  
+[2025-02-25 22:25:38] local.INFO: Fetching products for Branch ID: 1, Category: flower  
+[2025-02-25 22:25:41] local.INFO: Fetching products for Branch ID: 1, Category: box  
+[2025-02-25 22:25:48] local.INFO: Preloaded Box Products: [{"stdClass":{"id":3,"branch_id":1,"product_id":500,"branch_name":"Jessica Turner","product_name":"Ayanna Dodson","total_quantity":15,"selling_price":"592.00","created_at":"2025-02-21 09:35:31","updated_at":"2025-02-25 22:25:47","product_type":"box"}},{"stdClass":{"id":4,"branch_id":1,"product_id":501,"branch_name":"Jessica Turner","product_name":"Inga Rich","total_quantity":16,"selling_price":"835.00","created_at":"2025-02-21 09:35:31","updated_at":"2025-02-25 22:25:47","product_type":"box"}},{"stdClass":{"id":5,"branch_id":2,"product_id":500,"branch_name":"Branden Summers","product_name":"Ayanna Dodson","total_quantity":2,"selling_price":"592.00","created_at":"2025-02-22 14:40:17","updated_at":"2025-02-25 22:25:47","product_type":"box"}},{"stdClass":{"id":6,"branch_id":2,"product_id":501,"branch_name":"Branden Summers","product_name":"Inga Rich","total_quantity":16,"selling_price":"835.00","created_at":"2025-02-22 14:40:17","updated_at":"2025-02-25 22:25:47","product_type":"box"}},{"stdClass":{"id":7,"branch_id":2,"product_id":502,"branch_name":"Branden Summers","product_name":"Adrienne Holmes","total_quantity":15,"selling_price":"178.00","created_at":"2025-02-25 20:22:10","updated_at":"2025-02-25 21:42:13","product_type":"box"}}] 
+[2025-02-25 22:25:48] local.INFO: Preloaded Flower Products: [{"stdClass":{"id":1,"branch_id":1,"product_id":7002,"branch_name":"Jessica Turner","product_name":"Ingrid Phillips","total_quantity":0,"selling_price":"703.00","created_at":"2025-02-21 09:35:31","updated_at":"2025-02-25 17:11:17","product_type":"flower"}},{"stdClass":{"id":2,"branch_id":1,"product_id":7000,"branch_name":"Jessica Turner","product_name":"Chaim Gutierrez","total_quantity":0,"selling_price":"992.00","created_at":"2025-02-21 09:35:31","updated_at":"2025-02-25 16:52:35","product_type":"flower"}}] 

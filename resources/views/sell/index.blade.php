@@ -248,7 +248,7 @@
                         </tr>
                         <tr>
                             <td colspan="4" class="text-end"><strong>Total Transfer Amount:</strong></td>
-                            <td id="totalAmount" >$0.00</td>
+                            <td id="totalAmount" >0.00</td>
                             <td></td>
 
                         </tr>

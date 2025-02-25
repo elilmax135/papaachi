@@ -175,7 +175,9 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
     <script>
         $(document).ready(function() {
-            $('#producttable').DataTable(); // Initialize DataTable
+            $('#producttable').DataTable({
+            "order": [[0, "desc"]] // Order by first column (index 0) in descending order
+        }); // Initialize DataTable
         });
     </script>
 </div>

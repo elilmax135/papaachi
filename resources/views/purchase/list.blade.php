@@ -202,7 +202,10 @@ document.getElementById('filter-input').addEventListener('input', function () {
 </script>
 <script>
     $(document).ready(function() {
-        $('#purchaseTable').DataTable(); // Initialize DataTable
+        $('#purchaseTable').DataTable({
+            "order": [[0, "desc"]] // Order by first column (index 0) in descending order
+        });
     });
 </script>
+
 @endsection

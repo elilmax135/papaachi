@@ -566,7 +566,11 @@ public function deleteSells($sale_id)
         $totalPayments = SellPayment::where('sell_id', $sale_id)
     ->sum('pay_amount');
         // Generate the PDF
-        $pdf = PDF::loadView('sell.sale-details-pdf', compact('sale', 'payments', 'products', 'sale_id','totalPayments'));
+
+
+        $width = 88 *3; // ≈ 249.5 points
+$height = 600;
+        $pdf = PDF::loadView('sell.sale-details-pdf', compact('sale', 'payments', 'products', 'sale_id','totalPayments')) ->setPaper([0, 0, $width, $height], 'portrait');
 
         // Define storage path
         $pdfFilename = 'sale_' . $sale_id . '.pdf';

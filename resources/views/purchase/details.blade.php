@@ -5,6 +5,22 @@
 <div class="container">
     <div class="row">
         <div class="col-12 text-center mb-4">
+            <img src="{{ asset('pappachi/pp.jpeg') }}" alt="Pappaachchi Funeral Parlour Logo" style="max-width: 200px;">
+            <h1 style="font-size: 60px;">Pappachi</h1>
+            <h2><strong>Funeral Parlour</strong></h2>
+            <div class="phone-container">
+                <table class="phone-table">
+                    <tr>
+                        <td class="phone-prefix" style="vertical-align: bottom;">077717</td>
+                        <td class="last-digits" rowspan="2" style="font-size: 60px">6998</td>
+                    </tr>
+                    <tr>
+                        <td class="phone-prefix" style="vertical-align: top;">077465</td>
+                    </tr>
+                </table>
+            </div>
+
+            <hr>
             <h3><strong>Purchase Payment Bill</strong></h3>
             <p><strong>Purchase ID:</strong> {{ $purchase_id }}</p>
             <p><strong>Date:</strong> {{ now()->format('d-m-Y') }}</p>
@@ -67,8 +83,6 @@
         </table>
     </div>
 
-
-
     <!-- Product Details Table -->
     <div class="mb-4">
         <h5>Products in this Purchase</h5>
@@ -106,15 +120,17 @@
     <div class="mb-4 text-right">
         <h5><strong>Total Paid Amount:</strong> {{ $totalPayments }}</h5>
     </div>
-   <!-- Last Due Amount -->
-   <div class="mb-4 text-right">
-    <h5>Last Due Amount</h5>
-    @if ($payments->isNotEmpty())
-    <h5>{{ $payments->sortByDesc('created_at')->first()->pay_due }}</h5>
-    @else
-        <p>No payments available.</p>
-    @endif
-</div>
+
+    <!-- Last Due Amount -->
+    <div class="mb-4 text-right">
+        <h5>Last Due Amount</h5>
+        @if ($payments->isNotEmpty())
+            <h5>{{ $payments->sortByDesc('created_at')->first()->pay_due }}</h5>
+        @else
+            <p>No payments available.</p>
+        @endif
+    </div>
+
     <!-- Footer and Buttons -->
     <div class="d-flex justify-content-between no-print">
         <a href="{{ url('/ListPurchase') }}" class="btn btn-primary">Back to Purchase List</a>
@@ -129,11 +145,46 @@
     }
 </script>
 <style>
+    /* Configure the printed page to mimic a POS receipt */
+    @page {
+        size: 80mm auto; /* Receipt width common for POS printers */
+        margin: 5mm;
+    }
+
     @media print {
         .no-print {
-            visibility: hidden;
-            position: absolute;
+            display: none;
+        }
+        /* Adjust overall print font sizes */
+        body, p, td, th {
+            font-size: 8px;
+        }
+        h1 {
+            font-size: 20px;
+        }
+        h2 {
+            font-size: 16px;
+        }
+        h3 {
+            font-size: 12px;
+        }
+        h5 {
+            font-size: 10px;
+        }
+        /* Narrow the container width for receipt printing */
+        .container {
+            width: 80mm;
+            margin: auto;
+        }
+        /* Adjust table text if necessary */
+        .table, .phone-table td {
+            font-size: 8px;
         }
     }
-    </style>
+
+    .phone-table {
+        border-collapse: collapse;
+        margin: 0 auto;
+    }
+</style>
 @endsection

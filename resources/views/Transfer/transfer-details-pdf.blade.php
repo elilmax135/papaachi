@@ -4,30 +4,59 @@
     <meta charset="utf-8">
     <title>transfer Details - #{{ $transfer_id }}</title>
     <style>
-        body { font-family: Arial, sans-serif; }
-        .container { width: 100%; margin: 0 auto; padding: 20px; }
-        h1, h2, h3 { margin-bottom: 10px; }
-        p { margin: 5px 0; }
-        table { width: 100%; border-collapse: collapse; margin-bottom: 20px; }
-        table, th, td { border: 1px solid #ddd; }
-        th, td { padding: 8px; text-align: left; }
-        .badge { padding: 4px 8px; color: #fff; border-radius: 4px; }
-        .bg-success { background-color: #28a745; }
-        .bg-warning { background-color: #ffc107; }
-        .bg-danger { background-color: #dc3545; }
-        .bg-secondary { background-color: #6c757d; }
-        .doctor-confirm { margin-top: 20px; }
-        .doctor-confirm img { max-width: 150px; height: auto; }
+            body {
+            font-family: Arial, sans-serif;
+            font-size: 10px; /* Adjusted for POS readability */
+            width: 88mm;
+            height: 600mm;
+            margin: 0 auto;
+            padding: 5px;
+        }
+        .container {
+            width: 88mm;
+            padding: 5px;
+            text-align: center;
+        }
+        h1, h2, h3 {
+            margin: 5px 0;
+            font-size: 12px;
+        }
+        p {
+            margin: 2px 0;
+            font-size: 10px;
+        }
+
+        table {
+            width: 80%;
+            border-collapse: collapse;
+            font-size: 10px;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 4px;
+            text-align: left;
+        }
+        .total {
+            text-align: left;
+            font-weight: bold;
+            font-size: 12px;
+            margin-top: 5px;
+        }
     </style>
 </head>
 <body>
     <div class="container">
+        <div style="text-align: left;">
+            <h1 style="font-size: 35px;">Pappachi</h1>
+            <h2><strong>Funeral Parlour</strong></h2>
+            <h2><strong>0777176998,0774656998</strong></h2>
+            <hr style="width: 50%; text-align: left; margin-left: 0;">
         <!-- transfer Header -->
         <h1>transfer Details - #{{ $transfer_id }}</h1>
         <p><strong>To branch:</strong> {{ $branch->branch_name }}</p>
         <p><strong>From branch:</strong> {{ $branch->branch_name_2 }}</p>
         <p><strong>transfer Date:</strong> {{ $transfer->transfer_date }}</p>
-        <p><strong>Total:</strong> {{ $transfer->total }}</p>
+
 
         <!-- Transaction Details -->
         <h2>Transaction Details</h2>
@@ -46,7 +75,7 @@
         </p>
 
         <!-- Doctor Confirmation -->
-
+        </div>
 
         <!-- Payment History -->
         <h2>Payment History</h2>
@@ -97,9 +126,9 @@
         </table>
 
         <!-- Totals -->
-        <h3 style="text-align: right;"> Transfer Amount: {{ $transfer->total }}</h3>
-        <h3 style="text-align: right;">Total Payments: {{ $totalPayments }}</h3>
-        <h3 style="text-align: right;">
+        <h3 style="text-align: left;"> Transfer Amount: {{ $transfer->total }}</h3>
+        <h3 style="text-align: left;">Total Payments: {{ $totalPayments }}</h3>
+        <h3 style="text-align: left;">
             Last Due Amount:
             @if ($payments->isNotEmpty())
             {{ $payments->sortByDesc('created_at')->first()->pay_due }}

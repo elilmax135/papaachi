@@ -472,7 +472,10 @@ public function sendWhatsAppPdf($purchase_id)
         ->where('purchase_id', $purchase_id)
         ->first();
         // Generate the PDF
-        $pdf = PDF::loadView('purchase.purchase-details-pdf', compact('purchase', 'payments', 'products', 'purchase_id','totalPayments','branch'));
+
+        $width = 88 *3; // ≈ 249.5 points
+$height = 600;
+        $pdf = PDF::loadView('purchase.purchase-details-pdf', compact('purchase', 'payments', 'products', 'purchase_id','totalPayments','branch')) ->setPaper([0, 0, $width, $height], 'portrait');
 
         // Define storage path
         $pdfFilename = 'purchase_' . $purchase_id . '.pdf';

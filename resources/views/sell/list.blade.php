@@ -374,7 +374,9 @@ $(document).ready(function () {
 
 <script>
     $(document).ready(function() {
-        $('#selltable').DataTable(); // Initialize DataTable
+        $('#selltable').DataTable({
+            "order": [[0, "desc"]] // Order by first column (index 0) in descending order
+        }); // Initialize DataTable
     });
 </script>
 

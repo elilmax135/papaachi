@@ -80,7 +80,7 @@
                 </tr>
                 <tr>
                     <td colspan="4" class="text-end"><strong>Total Transfer Amount:</strong></td>
-                    <td id="totalAmount">$0.00</td>
+                    <td id="totalAmount">0.00</td>
                     <td></td>
                 </tr>
             </tfoot>
@@ -165,7 +165,7 @@ $(document).ready(function () {
                     min="0" step="0.01"
                     value="${price.toFixed(2)}">
             </td>
-            <td class="subTotal">$${price.toFixed(2)}</td>
+            <td class="subTotal">${price.toFixed(2)}</td>
             <td><button type="button" class="btn btn-danger removeProduct">Remove</button></td>
         </tr>`;
 
@@ -199,7 +199,7 @@ $(document).on("input", ".transferQuantity, .sellingPrice", function () {
 
     // Calculate and update subtotal
     let subTotal = quantity * price;
-    row.find(".subTotal").text(`$${subTotal.toFixed(2)}`);
+    row.find(".subTotal").text(`${subTotal.toFixed(2)}`);
 
     // Update totals
     updateTotals();

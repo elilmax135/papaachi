@@ -2,60 +2,92 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <title>purchase Details - #{{ $purchase_id }}</title>
+    <title>Purchase Details - #{{ $purchase_id }}</title>
     <style>
-        body { font-family: Arial, sans-serif; }
-        .container { width: 100%; margin: 0 auto; padding: 20px; }
-        h1, h2, h3 { margin-bottom: 10px; }
-        p { margin: 5px 0; }
-        table { width: 100%; border-collapse: collapse; margin-bottom: 20px; }
-        table, th, td { border: 1px solid #ddd; }
-        th, td { padding: 8px; text-align: left; }
-        .badge { padding: 4px 8px; color: #fff; border-radius: 4px; }
-        .bg-success { background-color: #28a745; }
-        .bg-warning { background-color: #ffc107; }
-        .bg-danger { background-color: #dc3545; }
-        .bg-secondary { background-color: #6c757d; }
-        .doctor-confirm { margin-top: 20px; }
-        .doctor-confirm img { max-width: 150px; height: auto; }
+        body {
+            font-family: Arial, sans-serif;
+            font-size: 10px; /* Adjusted for POS readability */
+            width: 88mm;
+            height: 600mm;
+            margin: 0 auto;
+            padding: 5px;
+        }
+        .container {
+            width: 88mm;
+            padding: 5px;
+            text-align: center;
+        }
+        h1, h2, h3 {
+            margin: 5px 0;
+            font-size: 12px;
+        }
+        p {
+            margin: 2px 0;
+            font-size: 10px;
+        }
+        img {
+            max-width: 60mm; /* Ensures logo fits within 88mm width */
+            display: block;
+            margin: 0 auto;
+        }
+        table {
+            width: 80%;
+            border-collapse: collapse;
+            font-size: 10px;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 4px;
+            text-align: left;
+        }
+        .total {
+            text-align: left;
+            font-weight: bold;
+            font-size: 12px;
+            margin-top: 5px;
+        }
     </style>
 </head>
 <body>
     <div class="container">
-        <!-- purchase Header -->
-        <h1>purchase Details - #{{ $purchase_id }}</h1>
-        <p><strong>To branch:</strong> {{ $branch->branch_name }}</p>
-        <p><strong>purchase Date:</strong> {{ $purchase->purchase_date }}</p>
-        <p><strong>Total:</strong> {{ $purchase->total }}</p>
+        <!-- Logo -->
+        <div style="text-align: left;">
+        <h1 style="font-size: 35px;">Pappachi</h1>
+        <h2><strong>Funeral Parlour</strong></h2>
+        <h2><strong>0777176998,0774656998</strong></h2>
+        <hr style="width: 75%; text-align: left; margin-left: 0;">
+
+        <!-- Purchase Details -->
+        <h2>Purchase Details - #{{ $purchase_id }}</h2>
+        <p><strong>Branch:</strong> {{ $branch->branch_name }}</p>
+        <p><strong>Purchase Date:</strong> {{ $purchase->purchase_date }}</p>
+
 
         <!-- Transaction Details -->
         <h2>Transaction Details</h2>
         <p><strong>Transaction ID:</strong> {{ $purchase->transaction_id }}</p>
         <p><strong>Purchase Total:</strong> {{ $purchase->total }}</p>
-        <p><strong>Purchase Status:</strong>
+        <p><strong>Status:</strong>
             @if ($purchase->purchase_status === 'true')
-                <span class="badge bg-success">Complete</span>
+                <span style="color: green;">Complete</span>
             @elseif ($purchase->purchase_status === 'pending')
-                <span class="badge bg-warning">Pending</span>
+                <span style="color: orange;">Pending</span>
             @elseif ($purchase->purchase_status === 'failed')
-                <span class="badge bg-danger">Failed</span>
+                <span style="color: red;">Failed</span>
             @else
-                <span class="badge bg-secondary">Unknown</span>
+                <span style="color: gray;">Unknown</span>
             @endif
         </p>
-
-        <!-- Doctor Confirmation -->
-
-
+</div>
         <!-- Payment History -->
         <h2>Payment History</h2>
         <table>
             <thead>
                 <tr>
                     <th>Payment ID</th>
-                    <th>Amount Paid</th>
-                    <th>Payment Date</th>
-                    <th>Payment Method</th>
+                    <th>Amount</th>
+                    <th>Date</th>
+                    <th>Method</th>
                     <th>Due</th>
                 </tr>
             </thead>
@@ -77,9 +109,8 @@
         <table>
             <thead>
                 <tr>
-                    <th>Product Name</th>
-                    <th>Quantity</th>
-                    <th>purchase Price</th>
+                    <th>Product</th>
+                    <th>Qty × Price</th>
                     <th>Subtotal</th>
                 </tr>
             </thead>
@@ -88,7 +119,6 @@
                     <tr>
                         <td>{{ $product->product_name }}</td>
                         <td>{{ $product->quantity }} × {{ $product->purchase_price }}</td>
-                        <td>{{ $product->purchase_price }}</td>
                         <td>{{ $product->subtotal }}</td>
                     </tr>
                 @endforeach
@@ -96,17 +126,16 @@
         </table>
 
         <!-- Totals -->
-        <h3 style="text-align: right;"> Purchase Amount: {{ $purchase->total }}</h3>
-        <h3 style="text-align: right;">Total Payments: {{ $totalPayments }}</h3>
-        <h3 style="text-align: right;">
+        <p class="total">Purchase Amount: {{ $purchase->total }}</p>
+        <p class="total">Total Payments: {{ $totalPayments }}</p>
+        <p class="total">
             Last Due Amount:
             @if ($payments->isNotEmpty())
-            {{ $payments->sortByDesc('created_at')->first()->pay_due }}
-        @else
-            No payments available.
-        @endif
-
-        </h3>
+                {{ $payments->sortByDesc('created_at')->first()->pay_due }}
+            @else
+                No payments available.
+            @endif
+        </p>
     </div>
 </body>
 </html>

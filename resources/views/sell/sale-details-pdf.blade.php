@@ -4,18 +4,43 @@
     <meta charset="utf-8">
     <title>Sale Details - #{{ $sale_id }}</title>
     <style>
-        body { font-family: Arial, sans-serif; }
-        .container { width: 100%; margin: 0 auto; padding: 20px; }
-        h1, h2, h3 { margin-bottom: 10px; }
-        p { margin: 5px 0; }
-        table { width: 100%; border-collapse: collapse; margin-bottom: 20px; }
-        table, th, td { border: 1px solid #ddd; }
-        th, td { padding: 8px; text-align: left; }
-        .badge { padding: 4px 8px; color: #fff; border-radius: 4px; }
-        .bg-success { background-color: #28a745; }
-        .bg-warning { background-color: #ffc107; }
-        .bg-danger { background-color: #dc3545; }
-        .bg-secondary { background-color: #6c757d; }
+     body {
+            font-family: Arial, sans-serif;
+            font-size: 10px; /* Adjusted for POS readability */
+            width: 88mm;
+            height: 600mm;
+            margin: 0 auto;
+            padding: 5px;
+        }
+        .container {
+            width: 88mm;
+            padding: 5px;
+            text-align: center;
+        }
+        h1, h2, h3 {
+            margin: 5px 0;
+            font-size: 12px;
+        }
+        p {
+            margin: 2px 0;
+            font-size: 10px;
+        }
+        table {
+            width: 80%;
+            border-collapse: collapse;
+            font-size: 10px;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 4px;
+            text-align: left;
+        }
+        .total {
+            text-align: left;
+            font-weight: bold;
+            font-size: 12px;
+            margin-top: 5px;
+        }
         .doctor-confirm { margin-top: 20px; }
         .doctor-confirm img { max-width: 150px; height: auto; }
     </style>
@@ -23,10 +48,15 @@
 <body>
     <div class="container">
         <!-- Sale Header -->
+        <div style="text-align: left;">
+            <h1 style="font-size: 35px;">Pappachi</h1>
+            <h2><strong>Funeral Parlour</strong></h2>
+            <h2><strong>0777176998,0774656998</strong></h2>
+            <hr style="width: 50%; text-align: left; margin-left: 0;">
+
         <h1>Sale Details - #{{ $sale_id }}</h1>
         <p><strong>Customer Name:</strong> {{ $sale->customer_name }}</p>
         <p><strong>Sale Date:</strong> {{ $sale->sell_date }}</p>
-        <p><strong>Total:</strong> {{ $sale->total }}</p>
 
         <!-- Transaction Details -->
         <h2>Transaction Details</h2>
@@ -51,7 +81,7 @@
                 <img src="{{ asset('/doctorImage/' . $sale->doctor_confirm) }}" alt="Doctor Confirmation">
             </div>
         @endif
-
+        </div>
         <!-- Payment History -->
         <h2>Payment History</h2>
         <table>
@@ -101,9 +131,9 @@
         </table>
 
         <!-- Totals -->
-        <h3 style="text-align: right;"> Sell Amount: {{ $sale->total }}</h3>
-        <h3 style="text-align: right;">Total Payments: {{ $totalPayments }}</h3>
-        <h3 style="text-align: right;">
+        <h3 style="text-align: left;"> Sell Amount: {{ $sale->total }}</h3>
+        <h3 style="text-align: left;">Total Payments: {{ $totalPayments }}</h3>
+        <h3 style="text-align: left;">
             Last Due Amount:
             @if ($payments->isNotEmpty())
             {{ $payments->sortByDesc('created_at')->first()->pay_due }}

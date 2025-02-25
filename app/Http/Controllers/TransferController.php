@@ -440,7 +440,9 @@ $branch = DB::table('transfer')
     ->where('transfer.id', $transfer_id)
     ->first();
     // Generate the PDF
-    $pdf = PDF::loadView('transfer.transfer-details-pdf', compact('transfer', 'payments', 'products', 'transfer_id','totalPayments','branch'));
+    $width = 88 *3; // ≈ 249.5 points
+    $height = 600;
+    $pdf = PDF::loadView('transfer.transfer-details-pdf', compact('transfer', 'payments', 'products', 'transfer_id','totalPayments','branch')) ->setPaper([0, 0, $width, $height], 'portrait');
 
     // Define storage path
     $pdfFilename = 'transfer_' . $transfer_id . '.pdf';
