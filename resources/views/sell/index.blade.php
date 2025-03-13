@@ -16,8 +16,9 @@
                         </div>
                         <div class="col-md-4">
                             <label for="customer-mobile">Customer Mobile</label>
-                            <input type="text" id="customer_mobile" name="customer_mobile" class="form-control" placeholder="Customer mobile" required>
-                        </div>
+                            <input type="text" id="customer_mobile" name="customer_mobile" class="form-control" placeholder="+94XXXXXXXXX" required>
+                            <small class="text-danger" id="mobile-error" style="display:none;">Number must start with +94 and be 9 digits long</small>
+                              </div>
                         <div class="col-md-4">
                             <label for="sell-date">Date</label>
                             <input type="date" id="sell_date" name="sell_date" class="form-control" required>
@@ -207,17 +208,17 @@
 
         </div>
     </div>
-    <div>
 
-    </div>
     <input type="hidden" id="totalAmountx" name="total" value="0.00" required>
     <input type="hidden" name="products" id="products">
     </form>
         <!-- Product Selection -->
+
+        <div class="col-12">
         <div class="card mb-3">
             <div class="card-header">Fetch Products</div>
             <div class="card-body">
-                <div class="row">
+
                     <div class="col-md-4 mb-3">
                         <label for="category">Category</label>
                         <select id="category" class="form-control">
@@ -226,7 +227,7 @@
                             <option value="flower">Flower</option>
                         </select>
                     </div>
-                </div>
+
                 <div id="productList" class="mt-3"></div>
                 <table class="table table-bordered">
                     <thead>
@@ -259,6 +260,7 @@
                 </div>
             </div>
         </div>
+    </div>
 <!-- End of the form -->
 @endsection
 

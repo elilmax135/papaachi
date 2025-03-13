@@ -456,10 +456,7 @@ $branch = DB::table('transfer')
 
 
     // Get customer's WhatsApp number
-    $whatsappNumber = '0771234567';
-
-    // WhatsApp Web URL with pre-filled message
-    $whatsappUrl = "https://api.whatsapp.com/send?phone={$whatsappNumber}&text=" . urlencode("Your invoice is ready. Download it here: $pdfUrl");
+    $whatsappUrl = "https://api.whatsapp.com/send?text=" . urlencode("Your invoice is ready. Download it here: $pdfUrl");
 
     // Redirect user to WhatsApp Web
     return redirect()->away($whatsappUrl);

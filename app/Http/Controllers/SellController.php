@@ -63,7 +63,19 @@ class SellController extends Controller
     $sell->doctor_confirm = null; // If no image is uploaded, set it to null
 }
    $sell->customer_name = $request->customer_name;
-   $sell->customer_mobile = $request->customer_mobile;
+
+$mobile = $request->customer_mobile;
+
+// Check if length is 10, remove the first character and add +94
+if (strlen($mobile) === 10) {
+    $mobile = '+94' . substr($mobile, 1);
+}
+// Check if length is 9, add +94
+elseif (strlen($mobile) === 9) {
+    $mobile = '+94' . $mobile;
+}
+
+$sell->customer_mobile = $mobile;
    $sell->sell_date = $request->sell_date;
    $sell->transaction_id = $request->transaction_id;
    $sell->place = $request->transport_mode;
@@ -583,7 +595,7 @@ $height = 600;
         $pdfUrl = asset('storage/pdfs/' . $pdfFilename);
 
         // Get customer's WhatsApp number
-        $whatsappNumber = $sale->customer_phone;
+        $whatsappNumber = $sale->customer_mobile;
 
         // WhatsApp Web URL with pre-filled message
         $whatsappUrl = "https://api.whatsapp.com/send?phone={$whatsappNumber}&text=" . urlencode("Your invoice is ready. Download it here: $pdfUrl");

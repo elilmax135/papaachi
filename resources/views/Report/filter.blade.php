@@ -1,6 +1,11 @@
 @extends('layouts.admin.app')
 
 @section('content')
+<div class="card mb-3">
+    <div class="card-header">
+        Reports
+    </div>
+    <div class="card-body">
 <!-- Filter Form -->
 <form method="GET" action="{{ url('/filter-results') }}" class="mb-4">
     <div class="row">
@@ -52,7 +57,13 @@
     </div>
     <button type="submit" class="btn btn-primary mt-3">Filter</button>
 </form>
-
+</div>
+</div>
+<div class="card mb-3">
+    <div class="card-header">
+        Report Table
+    </div>
+    <div class="card-body">
 <!-- Table displaying the results inside a scrollable container -->
 <div class="table-responsive" style="max-height: 400px; overflow-y: auto;">
     <table class="table table-bordered table-striped" id="filterTable">
@@ -150,6 +161,8 @@
 <!-- Total -->
 <div class="mt-3 p-3 bg-light border rounded d-inline-block">
     <strong>Total: </strong> {{ $total ?? '' }}
+</div>
+    </div>
 </div>
 
 <!-- Initialize DataTable -->

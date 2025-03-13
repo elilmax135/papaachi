@@ -2,6 +2,8 @@
 
 @section('content')
 <div class="container mt-4">
+    <div class="card">
+         <div class="card-body">
     <div class="row g-4">
         <!-- Total Sales -->
         <div class="col-3">
@@ -53,17 +55,25 @@
                     <i class="bi bi-people fs-1"></i>
                     <div class="text-end">
 
-                        <h3 class="mb-0">+{{ number_format($totalCount-1) }}</h3>
+                        <h3 class="mb-0">{{ number_format($totalCount) }}</h3>
                         <p class="mb-0">Active Customers</p>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+</div>
+</div>
 
     <!-- Recent Sales Table -->
     <div class="mt-5">
-    <h4>Recent Sales</h4>
+
+        <div class="card">
+            <div class="card-header">
+                <h4>Recent Sales</h4>
+            </div>
+            <div class="card-body">
+
     <table class="table table-striped table-bordered shadow-sm" id="sales-table">
       <thead class="table-dark">
         <tr>
@@ -95,6 +105,8 @@
       </tbody>
     </table>
   </div>
+</div>
+</div>
 </div>
 
 

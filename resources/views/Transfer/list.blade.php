@@ -7,6 +7,10 @@
 
 
         <div class="card mb-3">
+            <div class="card-header">
+                List Transfer
+            </div>
+            <div class="card-body">
             <div class="table-responsive">
                 <table class="table table-bordered table-striped" id="transfertable">
                     <thead>
@@ -55,12 +59,15 @@
                                             </a>
                                         </li>
                                         <li>
-                                            <form action="{{ url('/delete-transfer/' . $transfer_id) }}" method="POST" style="display:inline;">
+                                            <form action="{{ url('/delete-transfer/' . $transfer_id) }}" method="POST" style="display:inline;" id="deleteForm">
                                                 @csrf
                                                 @method('POST')
-                                                <button type="submit" class="dropdown-item" onclick="return confirm('Are you sure you want to delete this transfer and all its products?')">
-                                                    <i class="fas fa-trash"></i>Delete
+                                                <div class="d-flex align-items-center">
+                                                <input type="password" id="pinInput" class="form-control form-control-sm me-2" placeholder="Enter PIN" style="max-width: 120px;" required>
+                                                <button type="button" class="btn btn-sm btn-danger" onclick="validatePin()">
+                                                    <i class="fas fa-trash"></i> Delete
                                                 </button>
+                                                </div>
                                             </form>
                                         </li>
                                     </ul>
@@ -145,6 +152,7 @@
         </div>
     </div>
 </div>
+</div>
 
 <script>
     // Scroll to Bottom of the Table
@@ -188,5 +196,20 @@
             "order": [[0, "desc"]] // Order by first column (index 0) in descending order
         }); // Initialize DataTable
     });
+</script>
+
+<script>
+    function validatePin() {
+        let enteredPin = document.getElementById("pinInput").value;
+        let correctPin = "9011"; // Replace this with a secure PIN validation method
+
+        if (enteredPin === correctPin) {
+            if (confirm("Are you sure you want to delete this purchase and all its products?")) {
+                document.getElementById("deleteForm").submit();
+            }
+        } else {
+            alert("Incorrect PIN. Please try again.");
+        }
+    }
 </script>
 @endsection

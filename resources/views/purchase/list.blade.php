@@ -8,6 +8,10 @@
 
 
         <div class="card mb-3">
+            <div class="card-header">
+                List Purchase
+            </div>
+            <div class="card-body">
             <div class="table-responsive">
                 <table class="table table-bordered table-striped" id="purchaseTable">
                     <thead>
@@ -62,15 +66,18 @@
                                                 <i class="fas fa-info-circle"></i>Details
                                             </a>
                                         </li>
-                                        <li>
-                                            <form action="{{ url('/delete-purchase/' . $purchase_id) }}" method="POST" style="display:inline;">
-                                                @csrf
-                                                @method('POST')
-                                                <button class="dropdown-item text-danger" onclick="return confirm('Are you sure you want to delete this purchase and all its products?')">
-                                                    <i class="fas fa-trash"></i>Delete
-                                                </button>
-                                            </form>
-                                        </li>
+                                           <li>
+        <form action="{{ url('/delete-purchase/' . $purchase_id) }}" method="POST" id="deleteForm">
+            @csrf
+            @method('POST')
+            <div class="d-flex align-items-center">
+                <input type="password" id="pinInput" class="form-control form-control-sm me-2" placeholder="Enter PIN" style="max-width: 120px;" required>
+                <button type="button" class="btn btn-sm btn-danger" onclick="validatePin()">
+                    <i class="fas fa-trash"></i> Delete
+                </button>
+            </div>
+        </form>
+    </li>
                                     </ul>
                                 </div>
 
@@ -157,6 +164,7 @@
             </div>
         </div>
     </div>
+    </div>
 </div>
 
 <script>
@@ -208,4 +216,18 @@ document.getElementById('filter-input').addEventListener('input', function () {
     });
 </script>
 
+<script>
+    function validatePin() {
+        let enteredPin = document.getElementById("pinInput").value;
+        let correctPin = "9011"; // Replace this with a secure PIN validation method
+
+        if (enteredPin === correctPin) {
+            if (confirm("Are you sure you want to delete this purchase and all its products?")) {
+                document.getElementById("deleteForm").submit();
+            }
+        } else {
+            alert("Incorrect PIN. Please try again.");
+        }
+    }
+</script>
 @endsection

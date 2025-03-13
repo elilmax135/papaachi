@@ -1,9 +1,12 @@
 @extends('layouts.admin.app')
 
 @section('content')
-<div class="container">
-    <h2 class="mb-4">Stock Inventory</h2>
 
+<div class="card">
+    <div class="card-header">
+        Stock Inventory
+    </div>
+<div class="card-body">
     <!-- Branch Name Filter -->
 
         <div class="col-md-2 offset-md-0">
@@ -40,6 +43,7 @@
             @endforeach
         </tbody>
     </table>
+</div>
 </div>
 
 <!-- Include jQuery and DataTables -->

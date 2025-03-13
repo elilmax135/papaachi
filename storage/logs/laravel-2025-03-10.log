@@ -1,0 +1,20 @@
+[2025-03-10 12:23:38] local.INFO: Preloaded Box Products: [{"stdClass":{"id":3,"branch_id":1,"product_id":500,"branch_name":"Jessica Turner","product_name":"Ayanna Dodson","total_quantity":15,"selling_price":"592.00","created_at":"2025-02-21 09:35:31","updated_at":"2025-02-25 22:25:47","product_type":"box"}},{"stdClass":{"id":4,"branch_id":1,"product_id":501,"branch_name":"Jessica Turner","product_name":"Inga Rich","total_quantity":16,"selling_price":"835.00","created_at":"2025-02-21 09:35:31","updated_at":"2025-02-25 22:25:47","product_type":"box"}},{"stdClass":{"id":5,"branch_id":2,"product_id":500,"branch_name":"Branden Summers","product_name":"Ayanna Dodson","total_quantity":2,"selling_price":"592.00","created_at":"2025-02-22 14:40:17","updated_at":"2025-02-25 22:25:47","product_type":"box"}},{"stdClass":{"id":6,"branch_id":2,"product_id":501,"branch_name":"Branden Summers","product_name":"Inga Rich","total_quantity":16,"selling_price":"835.00","created_at":"2025-02-22 14:40:17","updated_at":"2025-02-25 22:25:47","product_type":"box"}},{"stdClass":{"id":7,"branch_id":2,"product_id":502,"branch_name":"Branden Summers","product_name":"Adrienne Holmes","total_quantity":15,"selling_price":"178.00","created_at":"2025-02-25 20:22:10","updated_at":"2025-02-25 21:42:13","product_type":"box"}}] 
+[2025-03-10 12:23:38] local.INFO: Preloaded Flower Products: [{"stdClass":{"id":1,"branch_id":1,"product_id":7002,"branch_name":"Jessica Turner","product_name":"Ingrid Phillips","total_quantity":0,"selling_price":"703.00","created_at":"2025-02-21 09:35:31","updated_at":"2025-02-25 17:11:17","product_type":"flower"}},{"stdClass":{"id":2,"branch_id":1,"product_id":7000,"branch_name":"Jessica Turner","product_name":"Chaim Gutierrez","total_quantity":0,"selling_price":"992.00","created_at":"2025-02-21 09:35:31","updated_at":"2025-02-25 16:52:35","product_type":"flower"}}] 
+[2025-03-10 12:36:09] local.INFO: Fetching products for Branch ID: 1, Category: flower  
+[2025-03-10 12:36:19] local.INFO: Fetching products for Branch ID: 1, Category: box  
+[2025-03-10 12:36:27] local.INFO: Fetching products for Branch ID: 2, Category: box  
+[2025-03-10 12:36:28] local.INFO: Fetching products for Branch ID: 2, Category: box  
+[2025-03-10 12:36:47] local.INFO: Fetching products for Branch ID: 1, Category: box  
+[2025-03-10 12:36:49] local.INFO: Fetching products for Branch ID: 2, Category: box  
+[2025-03-10 12:36:49] local.INFO: Fetching products for Branch ID: 2, Category: box  
+[2025-03-10 12:36:50] local.INFO: Fetching products for Branch ID: 2, Category: flower  
+[2025-03-10 12:36:50] local.INFO: Fetching products for Branch ID: 2, Category: box  
+[2025-03-10 12:41:47] local.INFO: Fetching products for Branch ID: 1, Category: box  
+[2025-03-10 12:58:19] local.INFO: Fetching products for Branch ID: 1, Category: flower  
+[2025-03-10 12:58:27] local.INFO: Fetching products for Branch ID: 1, Category: flower  
+[2025-03-10 12:58:27] local.INFO: Fetching products for Branch ID: 1, Category: flower  
+[2025-03-10 12:58:31] local.INFO: Fetching products for Branch ID: 1, Category: box  
+[2025-03-10 12:58:45] local.INFO: Fetching products for Branch ID: 2, Category: box  
+[2025-03-10 12:58:54] local.INFO: Fetching products for Branch ID: 2, Category: box  
+[2025-03-10 12:58:54] local.INFO: Fetching products for Branch ID: 2, Category: box  
+[2025-03-10 13:03:47] local.INFO: Fetching products for Branch ID: 2, Category: box  

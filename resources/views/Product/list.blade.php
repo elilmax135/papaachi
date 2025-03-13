@@ -1,11 +1,16 @@
 @extends('layouts.admin.app')
 
 @section('content')
+<div class="card">
+    <div class="card-header">
+        <h3>Manage Boxes</h3>
+    </div>
+    <div class="card-body">
 <div class="row">
     <div class="col-12">
 
         <!-- Box Table -->
-        <h3>Manage Boxes</h3>
+
         <div>
             <div>
                 <table class="table table-bordered table-striped" id="producttable">
@@ -75,6 +80,8 @@
                     </tbody>
                 </table>
             </div>
+        </div>
+    </div>
 
             <!-- Edit Modals -->
             @foreach ($CombinedProducts as $product)

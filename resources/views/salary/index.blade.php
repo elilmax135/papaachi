@@ -3,7 +3,11 @@
 @section('content')
 
 <!-- Filter Form -->
-
+<div class="card mb-3">
+    <div class="card-header">
+        Salary
+    </div>
+    <div class="card-body">
 <table class="table table-bordered table-striped" id="salaryTable">
     <thead>
         <tr>
@@ -94,6 +98,8 @@
             </form>
         </div>
     </div>
+</div>
+
 </div>
 
 

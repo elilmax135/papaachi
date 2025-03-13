@@ -3,8 +3,13 @@
 @section('content')
 <div class="row">
     <div class="col-12">
+        <div class="card mb-3">
+        <div class="card-header">
+            Staff
+        </div>
+        <div class="card-body">
         <!-- Add Staff Button -->
-        <button class="btn btn-warning mb-3" data-bs-toggle="modal" data-bs-target="#addBranchModal">Add Staff</button>
+        <button class="btn btn-warning mb-3 float-end" data-bs-toggle="modal" data-bs-target="#addBranchModal">Add Staff</button>
 
         <!-- Branch Table -->
         <table class="table table-bordered table-striped" id="stafftable">
@@ -25,7 +30,7 @@
                     <td>
                         <!-- Dropdown Button -->
                         <div class="dropdown">
-                            <button class="btn btn-secondary dropdown-toggle btn-sm" type="button" id="dropdownMenuButton-{{$st->id}}" data-bs-toggle="dropdown" aria-expanded="false">
+                            <button class="btn btn-secondary dropdown-toggle btn-sm float-end" type="button" id="dropdownMenuButton-{{$st->id}}" data-bs-toggle="dropdown" aria-expanded="false">
                                 <i class="fas fa-cogs"></i> Actions
                             </button>
                             <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton-{{$st->id}}">
@@ -90,6 +95,8 @@
             </tbody>
         </table>
     </div>
+</div>
+</div>
 </div>
 
 <!-- Add Staff Modal -->

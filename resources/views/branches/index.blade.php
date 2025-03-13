@@ -2,9 +2,13 @@
 
 @section('content')
 <div class="row">
+
+    <div class="card">
+
+        <div class="card-body">
                 <div class="col-12">
 <!-- Add Branch Button -->
-<button class="btn btn-warning mb-3" data-bs-toggle="modal" data-bs-target="#addBranchModal">Add Branch</button>
+<button class="btn btn-warning mb-3 float-end" data-bs-toggle="modal" data-bs-target="#addBranchModal">Add Branch</button>
 
 <!-- Branch Table -->
 <table class="table table-bordered table-striped" id="branchtable">
@@ -51,6 +55,8 @@
     @endforeach
     </tbody>
 </table>
+                </div>
+        </div>
 <!-- Add Branch Modal -->
 <div class="modal fade" id="addBranchModal" tabindex="-1" aria-hidden="true">
     <div class="modal-dialog">
